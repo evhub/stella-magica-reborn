@@ -11,7 +11,7 @@ stella_magi_defense_army = {
 	morale = 1.00
 	collateral_damage = 0.0
 	war_exhaustion = 0.2 #People won't like it when you send magical girls to war
-	icon_frame = 1
+	icon = GFX_army_type_defensive # PORT (4.6): was icon_frame = 1
 	has_species = no
 	
 	potential = {
@@ -28,7 +28,7 @@ stella_magi_assault_army = {
 	collateral_damage = 2.00
 	war_exhaustion = 3.5
 	time = 150
-	icon_frame = 9
+	icon = GFX_army_type_gene_warrior # PORT (4.6): was icon_frame = 9 (2.2 gene warrior frame)
 	prerequisites = {"stella_tech_cube_logi"}
 	has_species = no
 	

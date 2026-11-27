@@ -7,7 +7,8 @@ grief_expenditure_ships = {
 		always = yes
 	}
 
-	fraction = {
+	# PORT (4.6): `fraction` was renamed `weight`
+	weight = {
 		weight = 1
 	}
 

@@ -2,7 +2,7 @@ d_damaged_ring_sector = {
 	time = 360
 	icon = d_city_ruins
 	
-	is_for_colonizeable = yes
+	is_for_colonizable = yes # PORT (4.6): key spelling changed
 	category = deposit_cat_blockers	
 	
 	potential = { always = no }

@@ -20,7 +20,7 @@ stella_madoka = {
 	modules = {
 		basic_technology_module = {}
 		exclusive_diplomacy_module = {
-			contact_rule = script_only
+			contact_rule = on_action_only # PORT (4.6): script_only no longer exists; on_action_only = contact only via script/events
 		}
 	}
 }
@@ -39,6 +39,7 @@ stella_fervent = {
 	home_system = fervent_system
 	custom_starbase = starbase_exd
 	observable = yes
+	uses_origins = no # PORT (4.6): crisis countries must not receive an origin
 	government = no
 	ai = {
 		enabled = yes

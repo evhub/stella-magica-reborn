@@ -1,4 +1,4 @@
-﻿### Incubator
+### Incubator
 ### Modified from HIVE1
 
 INCU = {

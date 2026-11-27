@@ -32,7 +32,11 @@ country_event = {
 	immediate = {
 		random_list = {
 			80 = { }
-			20 = { country_event = { id = stella_tts_cons.2 } }
+			20 = {
+				# Homura's evidence (stella_tts_hidden.4) makes /Ahimsa-extending reach out sooner.
+				modifier = { factor = 2 has_country_flag = stella_tts_homura_evidence }
+				country_event = { id = stella_tts_cons.2 }
+			}
 		}
 	}
 }
@@ -76,6 +80,11 @@ country_event = {
 	option = {
 		name = stella_tts_cons.3.a
 		add_resource = { society_research = 500 }
+		if = {
+			limit = { has_country_flag = stella_tts_homura_evidence }
+			change_variable = { which = stella_tts_consensus_support value = 1 }
+			custom_tooltip = stella_tts_cons.3.evidence.tooltip
+		}
 		country_event = { id = stella_tts_cons.4 days = 360 }
 	}
 }

@@ -37,6 +37,7 @@ on_yearly_pulse_country = {
 		stella_tts_gov.1
 		stella_tts_gov.3
 		stella_tts_gov.5
+		stella_tts_hidden.1
 	}
 }
 

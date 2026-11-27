@@ -1,0 +1,100 @@
+# To the Stars content: the hidden war
+# The Black Heart notices that Cephalopod raids keep finding our weakest points. The trail leads to
+# Utopia Unbound, a hidden human network with secret dealings with the aliens, and to an unseen
+# ally who has been hunting it: Divine-seeking, once known as Akemi Homura. Her evidence can help
+# Ryouko before the Consensus. Inspired by Hieronym's "To the Stars". The text is original.
+# See docs/TTS_CONTENT.md.
+
+namespace = stella_tts_hidden
+
+# Yearly roll (Black Heart director on the council, once the Cephalopods have attacked).
+country_event = {
+	id = stella_tts_hidden.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = stella_tts_kana_joined
+		OR = {
+			has_global_flag = stella_tts_ceph_war
+			has_global_flag = stella_tts_ceph_won
+		}
+		NOT = { has_country_flag = stella_tts_hidden_started }
+	}
+
+	immediate = {
+		random_list = {
+			80 = { }
+			20 = {
+				set_country_flag = stella_tts_hidden_started
+				country_event = { id = stella_tts_hidden.2 }
+			}
+		}
+	}
+}
+
+# Too accurate.
+country_event = {
+	id = stella_tts_hidden.2
+	title = stella_tts_hidden.2.name
+	desc = stella_tts_hidden.2.desc
+	picture = GFX_evt_friendly_infiltration
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_hidden.2.a
+		country_event = { id = stella_tts_hidden.3 days = 360 }
+		ai_chance = { factor = 3 }
+	}
+	option = {
+		name = stella_tts_hidden.2.b
+		ai_chance = { factor = 1 }
+	}
+}
+
+# Utopia Unbound.
+country_event = {
+	id = stella_tts_hidden.3
+	title = stella_tts_hidden.3.name
+	desc = stella_tts_hidden.3.desc
+	picture = GFX_evt_hostile_infiltration
+	is_triggered_only = yes
+
+	# Strike now, before they can run or bargain with the aliens.
+	option = {
+		name = stella_tts_hidden.3.a
+		set_country_flag = stella_tts_uu_purged
+		add_resource = { unity = 400 }
+		add_modifier = { modifier = stella_tts_crackdown days = 1800 }
+		ai_chance = { factor = 1 }
+	}
+	# Watch them, and see who else is watching.
+	option = {
+		name = stella_tts_hidden.3.b
+		country_event = { id = stella_tts_hidden.4 days = 540 }
+		ai_chance = { factor = 2 }
+	}
+}
+
+# Divine-seeking.
+country_event = {
+	id = stella_tts_hidden.4
+	title = stella_tts_hidden.4.name
+	desc = stella_tts_hidden.4.desc
+	picture = GFX_evt_operative_chase
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_hidden.4.a
+		set_country_flag = stella_tts_uu_purged
+		set_country_flag = stella_tts_homura_evidence
+		custom_tooltip = stella_tts_hidden.4.a.tooltip
+		if = {
+			limit = { exists = event_target:tts_thinker_empire }
+			add_intel = {
+				amount = 30
+				who = event_target:tts_thinker_empire
+			}
+		}
+	}
+}

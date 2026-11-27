@@ -363,3 +363,18 @@
  stella_tts_ceph.51.desc:0 "The Cephalopod fleet is gone, but the debris field it left behind is full of things our engineers have never seen up close: armor that was still trying to grow back when the ship died, and shield emitters tuned to frequencies we did not know existed.\n\nThere is time to study one of them properly before the salvage teams are needed elsewhere."
  stella_tts_ceph.51.a:0 "The regenerating armor."
  stella_tts_ceph.51.b:0 "The shield emitters."
+
+ # --- The hidden war ---
+ stella_tts_cons.3.evidence.tooltip:0 "Our evidence on §YUtopia Unbound§! supports Homura's claim before the Consensus."
+ stella_tts_hidden.2.name:0 "Too Accurate"
+ stella_tts_hidden.2.desc:0 "Kuroi Kana brings the council a map. Every Cephalopod raid of the past year is marked on it, and every one of them struck where our defenses were thinnest, usually within days of a redeployment that was supposed to be secret.\n\nThe aliens are good. They are not that good. Somebody is telling them."
+ stella_tts_hidden.2.a:0 "Find them."
+ stella_tts_hidden.2.b:0 "Coincidence. The Black Heart sees conspiracies everywhere."
+ stella_tts_hidden.3.name:0 "Utopia Unbound"
+ stella_tts_hidden.3.desc:0 "It has a name. Utopia Unbound is a network hidden inside our own institutions: officials, engineers, a few officers, all convinced that humanity's future lies in a bargain with the aliens. They have been trading intelligence for promises for years.\n\nThe Black Heart can roll up the cells it knows about tonight. Or it can keep watching, because someone else is clearly hunting Utopia Unbound too, and leaving very few witnesses."
+ stella_tts_hidden.3.a:0 "Roll them up tonight."
+ stella_tts_hidden.3.b:0 "Keep watching. Find out who the other hunter is."
+ stella_tts_hidden.4.name:0 "Divine-seeking"
+ stella_tts_hidden.4.desc:0 "The other hunter never shows herself. But when the Black Heart finally moves on Utopia Unbound's leadership, it finds the work already done, and a sealed package waiting on a desk: records of every contact between the network and the aliens, including a first contact attempt that was quietly made to fail.\n\nThe package is signed with a single word in an alien script. Our linguists render it as Divine-seeking. Kuroi Kana looks at it for a long time and says only that she recognises the handwriting."
+ stella_tts_hidden.4.a:0 "Keep the records safe. Someday someone will need to see them."
+ stella_tts_hidden.4.a.tooltip:0 "§YUtopia Unbound§! is broken. If Ryouko ever goes before the Thinker Consensus, this evidence will speak for her, and /Ahimsa-extending will reach out sooner."

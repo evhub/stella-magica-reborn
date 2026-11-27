@@ -13,3 +13,9 @@ on_tech_increased = {
 		stella_tts_inst.4
 	}
 }
+
+on_yearly_pulse_country = {
+	events = {
+		stella_tts_ceph.1
+	}
+}

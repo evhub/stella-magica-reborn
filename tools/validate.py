@@ -17,6 +17,7 @@ Checks (each failure is reported as file:line: message; exit code 1 if any):
                localisation line uses the `key:0 "text"` format
 (Invalid triggers/effects are caught by the in-game load test, tools/ingame_test.py.)
   loc_override no mod localisation key silently replaces a vanilla one
+  designs      ship designs use existing ship sizes, section templates, slots and components
   assets       every texture/icon the mod references exists (mod or vanilla)
 """
 from __future__ import annotations
@@ -418,6 +419,12 @@ def check_loc(ctx: Ctx):
                 continue
             for k in keys(n.key):
                 need(k, f'{rp}:{n.line}', folder.split('/')[-1])
+    # NAME_ keys used for countries, species, fleets, ships and ship designs are loc keys
+    for rp, nodes in ctx.files.items():
+        for top in nodes:
+            for n in top.walk():
+                if n.key in ('name', 'plural') and not n.is_block and n.value.startswith('NAME_'):
+                    need(n.value, f'{rp}:{n.line}', 'NAME_ key')
     for rp, nodes in ctx.files.items():
         for n in nodes:
             if n.key == 'special_project' and n.is_block:
@@ -444,6 +451,72 @@ def check_loc_overrides(ctx: Ctx):
 
 # Vanilla keys the mod deliberately redefines (none yet).
 LOC_OVERRIDE_ALLOWED: set[str] = set()
+
+
+def _section_templates(ctx: Ctx) -> dict[str, set[str]]:
+    """section template key -> set of slot names (named component slots + numbered utility slots)."""
+    if 'sections' in _vanilla_cache:
+        return _vanilla_cache['sections']  # type: ignore[return-value]
+    out: dict[str, set[str]] = {}
+    sources = list(vanilla_parsed(ctx, 'common/section_templates'))
+    sources += [(rp, nodes) for rp, nodes in ctx.files.items() if rp.startswith('common/section_templates/')]
+    for _, nodes in sources:
+        for n in nodes:
+            if n.key != 'ship_section_template' or not n.is_block:
+                continue
+            key = n.scalar('key')
+            if not key:
+                continue
+            slots = {c.scalar('name') for c in n.get_all('component_slot') if c.scalar('name')}
+            for kind, prefix in (('small_utility_slots', 'SMALL_UTILITY_'), ('medium_utility_slots', 'MEDIUM_UTILITY_'),
+                                 ('large_utility_slots', 'LARGE_UTILITY_'), ('aux_utility_slots', 'AUX_UTILITY_')):
+                cnt = n.scalar(kind)
+                if cnt and cnt.isdigit():
+                    slots.update(f'{prefix}{i}' for i in range(1, int(cnt) + 1))
+            out[key] = slots  # type: ignore[assignment]
+    _vanilla_cache['sections'] = out
+    return out
+
+
+def _component_keys(ctx: Ctx) -> set[str]:
+    keys: set[str] = set()
+    sources = list(vanilla_parsed(ctx, 'common/component_templates'))
+    sources += [(rp, nodes) for rp, nodes in ctx.files.items() if rp.startswith('common/component_templates/')]
+    for _, nodes in sources:
+        for n in nodes:
+            if n.is_block and n.key and n.key.endswith('component_template'):
+                k = n.scalar('key')
+                if k:
+                    keys.add(k)
+    return keys
+
+
+def check_designs(ctx: Ctx):
+    sections = _section_templates(ctx)
+    comps = _component_keys(ctx)
+    sizes = vanilla_top_keys(ctx, 'common/ship_sizes') | {n.key for _, n in mod_objects(ctx, 'common/ship_sizes')}
+    for rp, nodes in ctx.files.items():
+        for d in nodes:
+            if d.key != 'ship_design' or not d.is_block:
+                continue
+            name = d.scalar('name') or '?'
+            size = d.scalar('ship_size')
+            if size and size not in sizes:
+                ctx.err('designs', f'{rp}:{d.line}', f'{name}: unknown ship_size {size}')
+            for sec in d.get_all('section'):
+                tpl = sec.scalar('template')
+                if tpl not in sections:
+                    ctx.err('designs', f'{rp}:{sec.line}', f'{name}: unknown section template {tpl}')
+                    continue
+                for c in sec.get_all('component'):
+                    slot, ct = c.scalar('slot'), c.scalar('template')
+                    if slot not in sections[tpl]:
+                        ctx.err('designs', f'{rp}:{c.line}', f'{name}: section {tpl} has no slot {slot}')
+                    if ct not in comps:
+                        ctx.err('designs', f'{rp}:{c.line}', f'{name}: unknown component {ct}')
+            for rc in d.get_all('required_component'):
+                if not rc.is_block and rc.value not in comps:
+                    ctx.err('designs', f'{rp}:{rc.line}', f'{name}: unknown required component {rc.value}')
 
 
 def check_assets(ctx: Ctx):
@@ -510,6 +583,7 @@ CHECKS = {
     'static_mods': check_static_modifier_refs,
     'loc': check_loc,
     'loc_override': check_loc_overrides,
+    'designs': check_designs,
     'assets': check_assets,
 }
 

@@ -24,6 +24,18 @@ SEEDS = {
         '\tdesc = zz_seed.1.desc\r\n\tis_triggered_only = yes\r\n\timmediate = {\r\n'
         '\t\tcountry_event = { id = zz_seed.999 }\r\n\t\tadd_modifier = { modifier = zz_missing_mod }\r\n'
         '\t}\r\n\toption = { name = zz_seed.1.a }\r\n}\r\n'),
+    'common/global_ship_designs/zz_seed.txt': '''ship_design = {
+	name = "zz_seed_design"
+	ship_size = corvette
+	section = {
+		template = "CORVETTE_MID_S3"
+		slot = "mid"
+		component = { slot = "LARGE_GUN_99" template = "SMALL_MASS_DRIVER_1" }
+		component = { slot = "SMALL_GUN_01" template = "ZZ_NOT_A_COMPONENT" }
+	}
+	section = { template = "ZZ_NO_SECTION" slot = "mid" }
+}
+''',
     'common/static_modifiers/zz_seed.txt': 'zz_seed_unclosed = {\r\n\tplanet_crime_add = 1\r\n',
 }
 EXPECT = [
@@ -38,6 +50,9 @@ EXPECT = [
     'missing localisation zz_seed.1.a',
     '[parse] common/static_modifiers/zz_seed.txt',
     'civic_tooltip_not_spiritualist overrides vanilla localisation',
+    'zz_seed_design: section CORVETTE_MID_S3 has no slot LARGE_GUN_99',
+    'zz_seed_design: unknown component ZZ_NOT_A_COMPONENT',
+    'zz_seed_design: unknown section template ZZ_NO_SECTION',
 ]
 
 

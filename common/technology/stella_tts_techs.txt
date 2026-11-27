@@ -99,3 +99,27 @@ tech_tts_magops_doctrine = {
 		weight = 2
 	}
 }
+
+# Cephalopod Analysis: only obtainable by studying the mothership wreck.
+tech_tts_cephalopod_analysis = {
+	area = engineering
+	category = { materials }
+	tier = 4
+	cost = @tier4cost1
+	weight = 0
+	icon = "tech_ship_armor_4"
+	is_rare = yes
+
+	potential = {
+		has_country_flag = stella_tts_ceph_wreck_studied
+	}
+
+	modifier = {
+		ship_armor_mult = 0.10
+		damage_vs_country_type_tts_cephalopods_mult = 0.25
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}

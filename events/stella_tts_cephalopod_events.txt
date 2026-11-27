@@ -1,0 +1,273 @@
+# To the Stars content: the Cephalopod War
+# A mid-game alien threat that arrives without warning and never communicates. A mothership
+# anchors their forward base; while it survives, raiding fleets keep coming. Destroying it ends
+# the war and leaves a wreck worth studying.
+# Inspired by Hieronym's "To the Stars". See docs/TTS_CONTENT.md.
+
+namespace = stella_tts_ceph
+
+# Yearly check (player countries): after the early game, a small chance each year that the
+# Cephalopods arrive near this empire. Only one war per galaxy.
+country_event = {
+	id = stella_tts_ceph.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		years_passed >= 90
+		exists = capital_scope
+		NOR = {
+			has_global_flag = stella_tts_ceph_war
+			has_global_flag = stella_tts_ceph_disabled
+		}
+	}
+
+	immediate = {
+		random_list = {
+			92 = { }
+			8 = { country_event = { id = stella_tts_ceph.2 } }
+		}
+	}
+}
+
+# Spawn the Cephalopods in an unclaimed system 6-14 jumps from the target's capital.
+country_event = {
+	id = stella_tts_ceph.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_global_flag = stella_tts_ceph_war }
+	}
+
+	immediate = {
+		save_global_event_target_as = tts_ceph_first_target
+		random_system = {
+			limit = {
+				NOT = { exists = owner }
+				distance = {
+					source = root.capital_scope.solar_system
+					use_bypasses = no
+					min_jumps = 6
+					max_jumps = 14
+				}
+				any_system_planet = { is_star = yes }
+			}
+			set_global_flag = stella_tts_ceph_war
+			set_star_flag = stella_tts_ceph_base
+			save_global_event_target_as = tts_ceph_base_system
+
+			random_system_planet = {
+				limit = { is_star = yes }
+				create_species = {
+					name = "NAME_tts_cephalopod_species"
+					plural = "NAME_tts_cephalopod_species_plural"
+					class = MOL
+					portrait = mol3
+					traits = random
+					effect = { save_global_event_target_as = tts_ceph_species }
+				}
+				create_country = {
+					name = "NAME_tts_cephalopods"
+					type = "tts_cephalopods"
+					species = event_target:tts_ceph_species
+					name_list = "MOL1"
+					flag = {
+						icon = {
+							category = "special"
+							file = "extradimensional_02.dds"
+						}
+						background = {
+							category = "backgrounds"
+							file = "00_solid.dds"
+						}
+						colors = {
+							"dark_teal"
+							"black"
+							"null"
+							"null"
+						}
+					}
+					effect = {
+						save_global_event_target_as = tts_ceph_country
+						set_graphical_culture = molluscoid_01
+						create_ship_design = { design = "NAME_tts_Ceph_Skirmisher" }
+						add_ship_design = last_created_design
+						create_ship_design = { design = "NAME_tts_Ceph_Harrier" }
+						add_ship_design = last_created_design
+						create_ship_design = { design = "NAME_tts_Ceph_Leviathan" }
+						add_ship_design = last_created_design
+						create_ship_design = { design = "NAME_tts_Ceph_Mothership" }
+						add_ship_design = last_created_design
+					}
+				}
+			}
+
+			event_target:tts_ceph_country = {
+				# The mothership and its guard hold the base system.
+				create_fleet = {
+					name = "NAME_tts_Ceph_Mothership_Fleet"
+					settings = { spawn_debris = yes }
+					effect = {
+						set_owner = PREV
+						set_fleet_flag = stella_tts_ceph_mothership
+						create_ship = {
+							name = random
+							design = "NAME_tts_Ceph_Mothership"
+							graphical_culture = "molluscoid_01"
+						}
+						while = {
+							count = 2
+							create_ship = {
+								name = random
+								design = "NAME_tts_Ceph_Leviathan"
+								graphical_culture = "molluscoid_01"
+							}
+						}
+						set_location = {
+							target = event_target:tts_ceph_base_system
+							distance = 20
+							angle = random
+						}
+						set_aggro_range = 50
+					}
+				}
+				# Two raiding fleets.
+				while = {
+					count = 2
+					country_event = { id = stella_tts_ceph.11 }
+				}
+				# Reinforcements arrive every two years while the mothership lives.
+				country_event = { id = stella_tts_ceph.10 days = 720 }
+			}
+		}
+		# Only warn the target if the war actually started.
+		if = {
+			limit = { has_global_flag = stella_tts_ceph_war }
+			country_event = { id = stella_tts_ceph.3 days = 10 }
+		}
+	}
+}
+
+# First contact (visible to the targeted player).
+country_event = {
+	id = stella_tts_ceph.3
+	title = stella_tts_ceph.3.name
+	desc = stella_tts_ceph.3.desc
+	picture = GFX_evt_unknown_ships
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_ceph.3.a
+	}
+	option = {
+		name = stella_tts_ceph.3.b
+		trigger = { has_valid_civic = civic_magical_legacy }
+		add_resource = { grief_cube = 50 }
+	}
+}
+
+# Reinforcement cycle (Cephalopod country scope).
+country_event = {
+	id = stella_tts_ceph.10
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { any_owned_fleet = { has_fleet_flag = stella_tts_ceph_mothership } }
+			if = {
+				limit = { count_owned_fleet = { count < 8 } }
+				country_event = { id = stella_tts_ceph.11 }
+			}
+			country_event = { id = stella_tts_ceph.10 days = 720 }
+		}
+		else = {
+			# The mothership is gone: the war is won.
+			if = {
+				limit = { NOT = { has_global_flag = stella_tts_ceph_won } }
+				set_global_flag = stella_tts_ceph_won
+				every_playable_country = {
+					limit = { is_ai = no }
+					country_event = { id = stella_tts_ceph.20 }
+				}
+			}
+		}
+	}
+}
+
+# Spawn one raiding fleet at the base (Cephalopod country scope).
+country_event = {
+	id = stella_tts_ceph.11
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		create_fleet = {
+			name = "NAME_tts_Ceph_Raid_Fleet"
+			effect = {
+				set_owner = PREV
+				set_fleet_flag = stella_tts_ceph_raiders
+				while = {
+					count = 4
+					create_ship = {
+						name = random
+						design = "NAME_tts_Ceph_Skirmisher"
+						graphical_culture = "molluscoid_01"
+					}
+				}
+				while = {
+					count = 2
+					create_ship = {
+						name = random
+						design = "NAME_tts_Ceph_Harrier"
+						graphical_culture = "molluscoid_01"
+					}
+				}
+				set_location = {
+					target = event_target:tts_ceph_base_system
+					distance = 30
+					angle = random
+				}
+				set_fleet_stance = aggressive
+			}
+		}
+	}
+}
+
+# Victory (player countries).
+country_event = {
+	id = stella_tts_ceph.20
+	title = stella_tts_ceph.20.name
+	desc = stella_tts_ceph.20.desc
+	picture = GFX_evt_debris
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_ceph.20.a
+		enable_special_project = {
+			name = "TTS_CEPHALOPOD_WRECKAGE"
+			location = capital_scope
+			owner = root
+		}
+	}
+}
+
+# Wreckage studied.
+country_event = {
+	id = stella_tts_ceph.30
+	title = stella_tts_ceph.30.name
+	desc = stella_tts_ceph.30.desc
+	picture = GFX_evt_derelict_interior
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = stella_tts_ceph_wreck_studied
+	}
+
+	option = {
+		name = stella_tts_ceph.30.a
+		give_technology = { tech = tech_tts_cephalopod_analysis }
+	}
+}

@@ -1,0 +1,19 @@
+# To the Stars content: special projects. Inspired by Hieronym's "To the Stars".
+
+# Study the wreck of the Cephalopod mothership.
+special_project = {
+	key = "TTS_CEPHALOPOD_WRECKAGE"
+	cost = 2000
+	tech_department = engineering_technology
+	timelimit = -1
+	picture = GFX_evt_derelict_interior
+	icon = "gfx/interface/icons/situation_log/situation_log_tick.dds"
+
+	event_scope = country_event
+
+	on_success = {
+		owner = { country_event = { id = stella_tts_ceph.30 } }
+	}
+
+	on_fail = {}
+}

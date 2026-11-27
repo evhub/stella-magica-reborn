@@ -109,7 +109,7 @@ Hope, Shizuki Ryouko and her mission to the Thinker Consensus, a disclosure poli
 
 ## Compatibility
 
-Tested in an 80-mod playset that includes Gigastructures, NSC3, UI Overhaul Dynamic,
+Tested (loaded and played) in a 79-mod playset that includes Gigastructures, NSC3, UI Overhaul Dynamic,
 Stellar AI, Real Space, Planetary Diversity, 圆环的庇护, the Mass Effect mods and others.
 It loads without crashing, and no errors point at Stella's own files.
 

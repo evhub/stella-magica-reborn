@@ -1,4 +1,6 @@
 #Stella Magica Technologies
+# PORT (4.6): research_leader expertise checks became council expertise checks
+# (has_trait_in_council), as in vanilla. Misspelled expertise traits fixed.
 
 #Grief Cube Studies, unlocks the stragetic resource
 stella_tech_grief_studies = {
@@ -211,10 +213,7 @@ stella_tech_elemental_explosives = {
 	weight_modifier = {
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_industry"
-			}			
+			has_trait_in_council = { TRAIT = leader_trait_expertise_industry }			
 		}
 	}
 }
@@ -240,10 +239,7 @@ stella_tech_aether_superconduct = {
 		}
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_field_manipulation"
-			}
+			has_trait_in_council = { TRAIT = leader_trait_expertise_field_manipulation }
 		}
 	}
 	
@@ -262,10 +258,7 @@ stella_tech_gaiasteel = {
 	weight_modifier = {
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_materials"
-			}			
+			has_trait_in_council = { TRAIT = leader_trait_expertise_materials }			
 		}
 	}
 }
@@ -283,10 +276,7 @@ stella_tech_magic_armor = {
 	weight_modifier = {
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_materials"
-			}			
+			has_trait_in_council = { TRAIT = leader_trait_expertise_materials }			
 		}
 	}
 }
@@ -304,10 +294,7 @@ stella_tech_magic_explosives = {
 	weight_modifier = {
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_materials"
-			}			
+			has_trait_in_council = { TRAIT = leader_trait_expertise_materials }			
 		}
 	}
 }
@@ -325,10 +312,7 @@ stella_tech_magic_cap = {
 	weight_modifier = {
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_field_manipulation"
-			}			
+			has_trait_in_council = { TRAIT = leader_trait_expertise_field_manipulation }			
 		}
 	}
 }
@@ -346,10 +330,7 @@ stella_tech_semifluid = {
 	weight_modifier = {
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_field_materials"
-			}			
+			has_trait_in_council = { TRAIT = leader_trait_expertise_materials }			
 		}
 	}
 }
@@ -367,10 +348,7 @@ stella_tech_magic_coolant = {
 	weight_modifier = {
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_field_particles"
-			}			
+			has_trait_in_council = { TRAIT = leader_trait_expertise_particles }			
 		}
 	}
 }
@@ -388,10 +366,7 @@ stella_tech_barrage_1 = {
 	weight_modifier = {
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_field_propulsion"
-			}			
+			has_trait_in_council = { TRAIT = leader_trait_expertise_propulsion }			
 		}
 		modifier = {
 			factor = 1.25
@@ -417,10 +392,7 @@ stella_tech_barrage_2 = {
 	weight_modifier = {
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_field_propulsion"
-			}			
+			has_trait_in_council = { TRAIT = leader_trait_expertise_propulsion }			
 		}
 		modifier = {
 			factor = 1.25
@@ -446,10 +418,7 @@ stella_tech_barrage_3 = {
 	weight_modifier = {
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_field_propulsion"
-			}			
+			has_trait_in_council = { TRAIT = leader_trait_expertise_propulsion }			
 		}
 		modifier = {
 			factor = 1.25

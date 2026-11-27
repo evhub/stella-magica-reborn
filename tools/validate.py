@@ -419,6 +419,13 @@ def check_loc(ctx: Ctx):
                 continue
             for k in keys(n.key):
                 need(k, f'{rp}:{n.line}', folder.split('/')[-1])
+    # policy options: name and name_desc
+    for rp, n in mod_objects(ctx, 'common/policies'):
+        for opt in n.get_all('option'):
+            nm = opt.scalar('name')
+            if nm:
+                need(nm, f'{rp}:{opt.line}', 'policy option')
+                need(nm + '_desc', f'{rp}:{opt.line}', 'policy option')
     # NAME_ keys used for countries, species, fleets, ships and ship designs are loc keys
     for rp, nodes in ctx.files.items():
         for top in nodes:

@@ -1,0 +1,49 @@
+# To the Stars content: policies. Inspired by Hieronym's "To the Stars".
+
+# Should the public know that magical girls exist?
+tts_magical_disclosure = {
+	category = society
+
+	potential = {
+		has_valid_civic = civic_magical_legacy
+	}
+
+	option = {
+		name = "tts_disclosure_veiled"
+
+		policy_flags = {
+			tts_disclosure_veiled
+		}
+
+		modifier = {
+			planet_stability_add = 2
+			country_grief_cube_produces_mult = -0.10
+		}
+
+		ai_weight = {
+			weight = 1
+		}
+	}
+
+	option = {
+		name = "tts_disclosure_public"
+
+		policy_flags = {
+			tts_disclosure_public
+		}
+
+		modifier = {
+			country_grief_cube_produces_mult = 0.10
+			country_unity_produces_mult = 0.05
+			planet_stability_add = -1
+		}
+
+		ai_weight = {
+			weight = 2
+			modifier = {
+				factor = 2
+				has_valid_civic = civic_tts_msy
+			}
+		}
+	}
+}

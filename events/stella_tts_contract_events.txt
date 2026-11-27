@@ -1,0 +1,143 @@
+# To the Stars content: contracts, wishes and the price of running out of grief cubes
+# Inspired by Hieronym's "To the Stars". See docs/TTS_CONTENT.md.
+
+namespace = stella_tts_wish
+
+# Yearly roll (magical legacy empires): roughly one new contract every five or six years.
+country_event = {
+	id = stella_tts_wish.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_valid_civic = civic_magical_legacy
+		exists = capital_scope
+	}
+
+	immediate = {
+		random_list = {
+			82 = { }
+			18 = { country_event = { id = stella_tts_wish.2 } }
+		}
+	}
+}
+
+# A new contract: choose her wish.
+country_event = {
+	id = stella_tts_wish.2
+	title = stella_tts_wish.2.name
+	desc = stella_tts_wish.2.desc
+	picture = GFX_evt_stella
+	is_triggered_only = yes
+
+	immediate = {
+		change_variable = { which = stella_tts_contracts value = 1 }
+	}
+
+	# Prosperity for her family, and so for her world.
+	option = {
+		name = stella_tts_wish.2.a
+		capital_scope = {
+			add_modifier = { modifier = stella_tts_wish_prosperity days = 3600 }
+		}
+		ai_chance = { factor = 3 }
+	}
+
+	# Healing for someone she loves. Her gift will outlast the wish.
+	option = {
+		name = stella_tts_wish.2.b
+		create_leader = {
+			class = official
+			species = owner_main_species
+			name = random
+			skill = 2
+			randomize_traits = no
+		}
+		last_created_leader = {
+			add_trait = { trait = leader_trait_tts_healer show_message = no }
+		}
+		ai_chance = { factor = 2 }
+	}
+
+	# Protection for everyone.
+	option = {
+		name = stella_tts_wish.2.c
+		capital_scope = {
+			add_modifier = { modifier = stella_tts_wish_guardian days = 3600 }
+		}
+		ai_chance = { factor = 2 }
+	}
+
+	# To see what lies beyond the stars.
+	option = {
+		name = stella_tts_wish.2.d
+		create_leader = {
+			class = scientist
+			species = owner_main_species
+			name = random
+			skill = 2
+			randomize_traits = no
+		}
+		last_created_leader = {
+			add_trait = { trait = leader_trait_tts_clairvoyant show_message = no }
+		}
+		ai_chance = { factor = 2 }
+	}
+}
+
+# Yearly check: with the grief cube stockpile nearly empty, a soul gem may go dark.
+country_event = {
+	id = stella_tts_wish.20
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_valid_civic = civic_magical_legacy
+		has_resource = { type = grief_cube amount < 10 }
+		any_owned_planet = {
+			is_colony = yes
+			NOT = { has_modifier = stella_tts_witch_sighting }
+		}
+	}
+
+	immediate = {
+		random_list = {
+			75 = { }
+			25 = { country_event = { id = stella_tts_wish.21 } }
+		}
+	}
+}
+
+# A witch is born.
+country_event = {
+	id = stella_tts_wish.21
+	title = stella_tts_wish.21.name
+	desc = stella_tts_wish.21.desc
+	picture = GFX_evt_psionic_battle
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_planet = {
+			limit = {
+				is_colony = yes
+				NOT = { has_modifier = stella_tts_witch_sighting }
+			}
+			add_modifier = { modifier = stella_tts_witch_sighting days = 1800 }
+			save_event_target_as = tts_witch_planet
+		}
+	}
+
+	option = {
+		name = stella_tts_wish.21.a
+		trigger = { has_resource = { type = energy amount >= 250 } }
+		add_resource = { energy = -250 }
+		event_target:tts_witch_planet = {
+			remove_modifier = stella_tts_witch_sighting
+		}
+		ai_chance = { factor = 3 }
+	}
+	option = {
+		name = stella_tts_wish.21.b
+		ai_chance = { factor = 1 }
+	}
+}

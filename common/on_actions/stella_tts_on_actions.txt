@@ -17,5 +17,7 @@ on_tech_increased = {
 on_yearly_pulse_country = {
 	events = {
 		stella_tts_ceph.1
+		stella_tts_wish.1
+		stella_tts_wish.20
 	}
 }

@@ -1,0 +1,77 @@
+# To the Stars content: soul gems
+# A magical girl's body is a shell; her soul gem is what matters. If a named magical girl leader
+# falls and her soul gem is recovered, the MSY can grow her a new body, as it does for Ryouko in
+# the fic. Inspired by Hieronym's "To the Stars". The text is original. See docs/TTS_CONTENT.md.
+
+namespace = stella_tts_gem
+
+# A magical girl leader has died (This = country, From = leader).
+country_event = {
+	id = stella_tts_gem.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			has_leader_flag = stella_tts_magical_girl
+			NOT = { has_leader_flag = leader_death_events_blocked }
+			is_pool_leader = no
+		}
+	}
+
+	immediate = {
+		random_list = {
+			70 = {
+				from = { set_leader_flag = leader_death_events_blocked }
+				clone_leader = {
+					target = from
+					effect = {
+						set_years_served = from
+						set_immortal = yes
+						set_leader_flag = stella_tts_magical_girl
+						if = { limit = { from = { has_leader_flag = stella_tts_ryouko } } set_leader_flag = stella_tts_ryouko }
+						if = { limit = { from = { has_leader_flag = stella_tts_mami } } set_leader_flag = stella_tts_mami }
+						if = { limit = { from = { has_leader_flag = stella_tts_yuma } } set_leader_flag = stella_tts_yuma }
+						if = { limit = { from = { has_leader_flag = stella_tts_kana } } set_leader_flag = stella_tts_kana }
+						if = { limit = { from = { has_leader_flag = stella_tts_kyouko } } set_leader_flag = stella_tts_kyouko }
+						save_global_event_target_as = tts_recovered_girl
+					}
+				}
+				country_event = { id = stella_tts_gem.2 days = 30 }
+			}
+			30 = {
+				country_event = { id = stella_tts_gem.3 }
+			}
+		}
+	}
+}
+
+# Soul gem recovered.
+country_event = {
+	id = stella_tts_gem.2
+	title = stella_tts_gem.2.name
+	desc = stella_tts_gem.2.desc
+	picture = GFX_evt_clones
+	is_triggered_only = yes
+
+	trigger = { exists = event_target:tts_recovered_girl }
+
+	option = {
+		name = stella_tts_gem.2.a
+		event_target:tts_recovered_girl = { add_experience = 100 }
+	}
+}
+
+# Soul gem lost.
+country_event = {
+	id = stella_tts_gem.3
+	title = stella_tts_gem.3.name
+	desc = stella_tts_gem.3.desc
+	picture = GFX_evt_space_funeral
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_gem.3.a
+		add_resource = { unity = 200 }
+	}
+}

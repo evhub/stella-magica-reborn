@@ -80,6 +80,9 @@ country_event = {
 			randomize_traits = no
 		}
 		last_created_leader = {
+			set_leader_flag = stella_tts_kyouko
+			set_leader_flag = stella_tts_magical_girl
+			set_immortal = yes	# magical girls do not age
 			add_trait = { trait = leader_trait_tts_priestess_of_hope show_message = no }
 		}
 	}

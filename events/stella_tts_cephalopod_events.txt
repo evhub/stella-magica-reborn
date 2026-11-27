@@ -139,6 +139,7 @@ country_event = {
 				count = 2
 				country_event = { id = stella_tts_ceph.11 }
 			}
+			set_variable = { which = stella_tts_ceph_cycles value = 0 }
 			country_event = { id = stella_tts_ceph.10 days = 720 }
 			event_target:tts_ceph_first_target = {
 				country_event = { id = stella_tts_ceph.3 days = 10 }
@@ -182,6 +183,12 @@ country_event = {
 					}
 				}
 				country_event = { id = stella_tts_ceph.11 }
+			}
+			# A campaign that drags on escalates into a major offensive.
+			change_variable = { which = stella_tts_ceph_cycles value = 1 }
+			if = {
+				limit = { check_variable = { which = stella_tts_ceph_cycles value = 3 } }
+				country_event = { id = stella_tts_ceph.12 }
 			}
 			country_event = { id = stella_tts_ceph.10 days = 720 }
 		}
@@ -279,5 +286,74 @@ country_event = {
 	option = {
 		name = stella_tts_ceph.30.a
 		give_technology = { tech = tech_tts_cephalopod_analysis }
+	}
+}
+
+# The Incursion: a heavy battle group joins the campaign (Thinker empire scope).
+country_event = {
+	id = stella_tts_ceph.12
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = event_target:tts_ceph_base_system
+	}
+
+	immediate = {
+		create_fleet = {
+			name = "NAME_tts_Ceph_Incursion_Fleet"
+			effect = {
+				set_owner = root
+				set_fleet_flag = stella_tts_ceph_raiders
+				while = {
+					count = 2
+					create_ship = {
+						name = random
+						design = "NAME_tts_Ceph_Leviathan"
+						graphical_culture = "molluscoid_01"
+					}
+				}
+				while = {
+					count = 4
+					create_ship = {
+						name = random
+						design = "NAME_tts_Ceph_Harrier"
+						graphical_culture = "molluscoid_01"
+					}
+				}
+				set_location = {
+					target = event_target:tts_ceph_base_system
+					distance = 30
+					angle = random
+				}
+				set_fleet_stance = aggressive
+			}
+		}
+		if = {
+			limit = { exists = event_target:tts_ceph_first_target }
+			event_target:tts_ceph_first_target = {
+				country_event = { id = stella_tts_ceph.13 }
+			}
+		}
+	}
+}
+
+# The Incursion (target empire).
+country_event = {
+	id = stella_tts_ceph.13
+	title = stella_tts_ceph.13.name
+	desc = stella_tts_ceph.13.desc
+	picture = GFX_evt_unknown_ships
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_ceph.13.a
+		add_modifier = { modifier = stella_tts_emergency_defense days = 1800 }
+		ai_chance = { factor = 2 }
+	}
+	option = {
+		name = stella_tts_ceph.13.b
+		add_modifier = { modifier = stella_tts_hold_the_line days = 1800 }
+		ai_chance = { factor = 1 }
 	}
 }

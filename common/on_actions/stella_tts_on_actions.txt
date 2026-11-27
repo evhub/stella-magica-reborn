@@ -33,3 +33,9 @@ on_yearly_pulse_country = {
 		stella_tts_four.5
 	}
 }
+
+on_leader_death_notify = {
+	events = {
+		stella_tts_gem.1
+	}
+}

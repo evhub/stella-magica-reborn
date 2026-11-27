@@ -51,6 +51,8 @@ country_event = {
 		}
 		last_created_leader = {
 			set_leader_flag = stella_tts_mami
+			set_leader_flag = stella_tts_magical_girl
+			set_immortal = yes	# magical girls do not age
 			add_trait = { trait = leader_trait_tts_field_marshal show_message = no }
 			add_trait = { trait = leader_trait_tts_taccomp show_message = no }
 		}
@@ -100,6 +102,8 @@ country_event = {
 		}
 		last_created_leader = {
 			set_leader_flag = stella_tts_yuma
+			set_leader_flag = stella_tts_magical_girl
+			set_immortal = yes	# magical girls do not age
 			add_trait = { trait = leader_trait_tts_leadership_committee show_message = no }
 		}
 	}
@@ -148,6 +152,8 @@ country_event = {
 		}
 		last_created_leader = {
 			set_leader_flag = stella_tts_kana
+			set_leader_flag = stella_tts_magical_girl
+			set_immortal = yes	# magical girls do not age
 			add_trait = { trait = leader_trait_tts_black_heart_director show_message = no }
 		}
 	}

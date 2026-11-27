@@ -60,3 +60,18 @@ stella_tts_consensus_censure = {
 	ships_upkeep_mult = 0.25
 	country_naval_cap_mult = -0.25
 }
+
+# Emergency Defense Council: the whole economy turned to the war, for as long as it takes.
+stella_tts_emergency_defense = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_dimensional_defenders.dds"
+	ship_fire_rate_mult = 0.10
+	army_damage_mult = 0.15
+	country_naval_cap_mult = 0.15
+	pop_happiness = -0.05
+}
+
+# Hold the Line: the existing fleets dig in and do their jobs.
+stella_tts_hold_the_line = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_dimensional_defenders.dds"
+	ship_shield_mult = 0.10
+}

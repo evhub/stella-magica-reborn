@@ -1,0 +1,162 @@
+# To the Stars content: the Incubators
+# In the fic the Incubators cooperate with humanity under a wary treaty: they offer contracts,
+# collect what they want, take a puzzling interest in the Church's visions, and seem to know more
+# about the Cephalopods than they say. Kyubey speaks for them. Inspired by Hieronym's
+# "To the Stars". The text is original. See docs/TTS_CONTENT.md.
+
+namespace = stella_tts_qb
+
+# Yearly roll (Magical Legacy empires): Kyubey comes calling, every decade or so.
+country_event = {
+	id = stella_tts_qb.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_valid_civic = civic_magical_legacy
+		years_passed >= 10
+		exists = capital_scope
+		NOT = { has_country_flag = stella_tts_qb_recent }
+	}
+
+	immediate = {
+		random_list = {
+			85 = { }
+			10 = {
+				set_timed_country_flag = { flag = stella_tts_qb_recent days = 3600 }
+				country_event = { id = stella_tts_qb.2 }
+			}
+			5 = {
+				modifier = { factor = 0 has_resource = { type = grief_cube amount < 60 } }
+				set_timed_country_flag = { flag = stella_tts_qb_recent days = 3600 }
+				country_event = { id = stella_tts_qb.3 }
+			}
+		}
+	}
+}
+
+# A proposal from Kyubey: more contracts.
+country_event = {
+	id = stella_tts_qb.2
+	title = stella_tts_qb.2.name
+	desc = stella_tts_qb.2.desc
+	picture = GFX_evt_stella
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_qb.2.a
+		add_resource = { grief_cube = 100 }
+		add_modifier = { modifier = stella_tts_contract_boom days = 3600 }
+		ai_chance = { factor = 2 }
+	}
+	option = {
+		name = stella_tts_qb.2.b
+		add_resource = { unity = 150 }
+		ai_chance = { factor = 1 }
+	}
+}
+
+# The Incubators want the spent cubes.
+country_event = {
+	id = stella_tts_qb.3
+	title = stella_tts_qb.3.name
+	desc = stella_tts_qb.3.desc
+	picture = GFX_evt_stella
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_qb.3.a
+		add_resource = { grief_cube = -50 physics_research = 600 }
+		ai_chance = { factor = 2 }
+	}
+	option = {
+		name = stella_tts_qb.3.b
+		ai_chance = { factor = 1 }
+	}
+}
+
+# Yearly roll (empires with a Ribbon Chamber): an Incubator turns up among the pilgrims.
+country_event = {
+	id = stella_tts_qb.4
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = stella_tts_qb_chamber }
+		any_owned_planet = { has_building = building_tts_ribbon_chamber }
+	}
+
+	immediate = {
+		random_list = {
+			80 = { }
+			20 = {
+				set_country_flag = stella_tts_qb_chamber
+				country_event = { id = stella_tts_qb.5 }
+			}
+		}
+	}
+}
+
+# Kyubey at the Ribbon Chamber.
+country_event = {
+	id = stella_tts_qb.5
+	title = stella_tts_qb.5.name
+	desc = stella_tts_qb.5.desc
+	picture = GFX_evt_temple_of_whispers
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_qb.5.a
+		add_resource = { society_research = 500 }
+		ai_chance = { factor = 1 }
+	}
+	option = {
+		name = stella_tts_qb.5.b
+		add_resource = { unity = 250 }
+		ai_chance = { factor = 1 }
+	}
+}
+
+# During a Cephalopod campaign against this empire: the Incubators share what they know.
+country_event = {
+	id = stella_tts_qb.6
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_valid_civic = civic_magical_legacy
+		has_global_flag = stella_tts_ceph_war
+		exists = event_target:tts_thinker_empire
+		exists = event_target:tts_ceph_first_target
+		event_target:tts_ceph_first_target = { is_same_value = root }
+		NOT = { has_country_flag = stella_tts_qb_warned }
+	}
+
+	immediate = {
+		random_list = {
+			70 = { }
+			30 = {
+				set_country_flag = stella_tts_qb_warned
+				country_event = { id = stella_tts_qb.7 }
+			}
+		}
+	}
+}
+
+# An Incubator warning.
+country_event = {
+	id = stella_tts_qb.7
+	title = stella_tts_qb.7.name
+	desc = stella_tts_qb.7.desc
+	picture = GFX_evt_unknown_ships
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_qb.7.a
+		add_intel = {
+			amount = 40
+			who = event_target:tts_thinker_empire
+		}
+		add_resource = { engineering_research = 400 }
+	}
+}

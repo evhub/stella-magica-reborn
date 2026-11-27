@@ -83,3 +83,11 @@ stella_tts_mass_despair = {
 	army_damage_mult = -0.20
 	country_grief_cube_produces_mult = -0.20
 }
+
+# Contract Boom: the Incubators are offering contracts more freely than usual.
+stella_tts_contract_boom = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_celebration_of_ideals.dds"
+	country_grief_cube_produces_mult = 0.15
+	army_damage_mult = 0.05
+	pop_happiness = -0.03
+}

@@ -26,13 +26,13 @@ the content makes its own choices. Every TtS object uses the `tts_` prefix (even
 | 11. The MSY and the Mitakihara Four | MSY Divisions tech: Soul Guard army, Black Heart Operations and Consult the Far Seers edicts; legendary leaders Tomoe Mami (Field Marshal, flagship HSS Georgy Konstantinovich Zhukov), Chitose Yuma (Leadership Committee), Kuroi Kana (Director of the Black Heart) and Sakura Kyouko (the Church's first priestess); the Ribbon Chamber (unique; doubles visions of the Goddess); Version Two Tactical Computers tech; United Earth name list | passed |
 | 12. The war grows | named magical girl leaders (Ryouko, Mami, Yuma, Kana, Kyouko) never age; when one falls, 70% chance her soul gem is recovered and she is restored in a new body, otherwise the Goddess takes her home; a Cephalopod campaign that lasts three reinforcement cycles escalates into the Incursion (heavy battle group), answered by convening the Emergency Defense Council or holding the line | passed |
 | 13. The Grief Cube Crisis | a 4.x situation started automatically by a grief cube deficit: four stages weaken armies, morale and order and let demons through; approaches Ration the Cubes, Emergency Hunts or Deal with the Incubators; a recognised Church of Hope slows it; at the end, Mass Despair | passed |
+| 14. The Incubators | Kyubey calls every decade or so: a proposal to expand contracting (grief cubes and a Contract Boom, or refuse) or a request for spent cubes (traded for physics research); an Incubator turns up at the Ribbon Chamber to observe the visions; during a Cephalopod campaign the Incubators share intelligence on the Thinkers | passed |
 
 Every wave passed `tools/validate.py` and `tools/test_validator.py` before it was committed.
 
 ## Ideas for later waves
 
 - A MagOps tradition tree or ascension perk. Needs icon art.
-- Incubator diplomacy events for empires that meet the Incubators prescripted empire.
 - More Cephalopod War events: refugees, captured technology, a second invasion wave.
 
 ## Testing

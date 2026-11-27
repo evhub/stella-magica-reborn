@@ -31,6 +31,9 @@ on_yearly_pulse_country = {
 		stella_tts_four.1
 		stella_tts_four.3
 		stella_tts_four.5
+		stella_tts_qb.1
+		stella_tts_qb.4
+		stella_tts_qb.6
 	}
 }
 

@@ -24,6 +24,7 @@ SEEDS = {
         'namespace = zz_seed\r\ncountry_event = {\r\n\tid = zz_seed.1\r\n\ttitle = zz_seed.1.name\r\n'
         '\tdesc = zz_seed.1.desc\r\n\tis_triggered_only = yes\r\n\timmediate = {\r\n'
         '\t\tcountry_event = { id = zz_seed.999 }\r\n\t\tadd_modifier = { modifier = zz_missing_mod }\r\n'
+        '\t\tadd_resorce = { unity = 10 }\r\n'
         '\t}\r\n\toption = { name = zz_seed.1.a }\r\n}\r\n'),
     'common/global_ship_designs/zz_seed.txt': '''ship_design = {
 	name = "zz_seed_design"
@@ -55,6 +56,7 @@ EXPECT = [
     'zz_seed_design: section CORVETTE_MID_S3 has no slot LARGE_GUN_99',
     'zz_seed_design: unknown component ZZ_NOT_A_COMPONENT',
     'zz_seed_design: unknown section template ZZ_NO_SECTION',
+    'unknown trigger/effect/parameter "add_resorce"',
 ]
 
 

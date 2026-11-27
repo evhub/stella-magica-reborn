@@ -15,10 +15,12 @@ Checks (each failure is reported as file:line: message; exit code 1 if any):
   static_mods  every add_modifier / has_modifier target is a defined static modifier
   loc          every localisation key the mod's objects and events need exists, and every
                localisation line uses the `key:0 "text"` format
-(Invalid triggers/effects are caught by the in-game load test, tools/ingame_test.py.)
   loc_override no mod localisation key silently replaces a vanilla one
   designs      ship designs use existing ship sizes, section templates, slots and components
   assets       every texture/icon the mod references exists (mod or vanilla)
+  script       every key in mod event files is a documented trigger/effect/scope or a key vanilla
+               itself uses in script (catches misspelled effects and parameters)
+(Wrong scopes and bad values are caught by the in-game load test, tools/ingame_test.py.)
 """
 from __future__ import annotations
 
@@ -614,6 +616,47 @@ def check_assets(ctx: Ctx):
                         ctx.err('assets', f'{rp}:{n.line}', f'missing file {v}')
 
 
+SCRIPT_KEY_SOURCES = ['events', 'common/scripted_effects', 'common/scripted_triggers', 'common/on_actions',
+                      'common/decisions', 'common/situations', 'common/special_projects', 'common/anomalies',
+                      'common/relics', 'common/edicts', 'common/policies', 'common/traditions',
+                      'common/ascension_perks', 'common/technology', 'common/buildings', 'common/pop_jobs']
+
+
+def known_script_keys(ctx: Ctx) -> set[str]:
+    """Every key vanilla itself uses in script (events, scripted effects/triggers, ...), plus the
+    documented triggers, effects and scopes. A key outside this set is almost always a typo."""
+    if 'script_keys' not in _vanilla_cache:
+        keys = load_list('triggers.txt') | load_list('effects.txt') | load_list('scopes.txt')
+        for folder in SCRIPT_KEY_SOURCES:
+            for _, nodes in vanilla_parsed(ctx, folder):
+                for top in nodes:
+                    for n in top.walk():
+                        if n.key:
+                            keys.add(n.key)
+        # scripted trigger/effect names by regex too, in case a vanilla file fails to parse
+        for p in walk_files(ctx.vanilla, ['common/scripted_triggers', 'common/scripted_effects'], ('.txt',)):
+            keys.update(re.findall(r'^([A-Za-z_][A-Za-z0-9_]*)\s*=\s*\{', read_text(p), re.M))
+        keys |= vanilla_top_keys(ctx, 'common/strategic_resources')
+        _vanilla_cache['script_keys'] = keys
+    return _vanilla_cache['script_keys']  # type: ignore[return-value]
+
+
+def check_script_keys(ctx: Ctx):
+    known = known_script_keys(ctx) | known_modifiers(ctx)
+    for folder in ('common/scripted_effects', 'common/scripted_triggers', 'common/strategic_resources'):
+        known |= {n.key for _, n in mod_objects(ctx, folder)}
+    for rp, nodes in ctx.files.items():
+        if not rp.startswith('events/'):
+            continue
+        for top in nodes:
+            for n in top.walk():
+                k = n.key
+                if not k or k in known or k.isdigit() or k.startswith(('@', 'event_target:', '$')) \
+                        or '.' in k or ':' in k:
+                    continue
+                ctx.err('script', f'{rp}:{n.line}', f'unknown trigger/effect/parameter "{k}" (typo?)')
+
+
 # ---------------------------------------------------------------- main
 
 CHECKS = {
@@ -626,6 +669,7 @@ CHECKS = {
     'loc_override': check_loc_overrides,
     'designs': check_designs,
     'assets': check_assets,
+    'script': check_script_keys,
 }
 
 

@@ -145,3 +145,16 @@ country_event = {
 		ai_chance = { factor = 1 }
 	}
 }
+
+# Mass despair: the Grief Cube Crisis reached its end (situation on_progress_complete).
+country_event = {
+	id = stella_tts_wish.22
+	title = stella_tts_wish.22.name
+	desc = stella_tts_wish.22.desc
+	picture = GFX_evt_psionic_battle
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_wish.22.a
+	}
+}

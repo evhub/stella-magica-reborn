@@ -25,12 +25,12 @@ the content makes its own choices. Every TtS object uses the `tts_` prefix (even
 | 10. The Consensus | Vol IV arc: Peace-cultivating of /Ahimsa-extending contacts Ryouko with Homura's claim that /Thinker-preserving is compromised; Ryouko travels to the Thinker galaxy and seeks the support of /Somatic-diversity (share soul gem research) and /Eukleia-chasing (ceremonial duel or Martial Debate); with enough support the Consensus withdraws its mandate (no more campaigns, /Thinker-preserving censured, Consensus Envoy trait, Contact with the Consensus). Ryouko now appears for any species | passed |
 | 11. The MSY and the Mitakihara Four | MSY Divisions tech: Soul Guard army, Black Heart Operations and Consult the Far Seers edicts; legendary leaders Tomoe Mami (Field Marshal, flagship HSS Georgy Konstantinovich Zhukov), Chitose Yuma (Leadership Committee), Kuroi Kana (Director of the Black Heart) and Sakura Kyouko (the Church's first priestess); the Ribbon Chamber (unique; doubles visions of the Goddess); Version Two Tactical Computers tech; United Earth name list | passed |
 | 12. The war grows | named magical girl leaders (Ryouko, Mami, Yuma, Kana, Kyouko) never age; when one falls, 70% chance her soul gem is recovered and she is restored in a new body, otherwise the Goddess takes her home; a Cephalopod campaign that lasts three reinforcement cycles escalates into the Incursion (heavy battle group), answered by convening the Emergency Defense Council or holding the line | passed |
+| 13. The Grief Cube Crisis | a 4.x situation started automatically by a grief cube deficit: four stages weaken armies, morale and order and let demons through; approaches Ration the Cubes, Emergency Hunts or Deal with the Incubators; a recognised Church of Hope slows it; at the end, Mass Despair | passed |
 
 Every wave passed `tools/validate.py` and `tools/test_validator.py` before it was committed.
 
 ## Ideas for later waves
 
-- Situations (4.x): a grief cube shortage track with escalating consequences.
 - A MagOps tradition tree or ascension perk. Needs icon art.
 - Incubator diplomacy events for empires that meet the Incubators prescripted empire.
 - More Cephalopod War events: refugees, captured technology, a second invasion wave.

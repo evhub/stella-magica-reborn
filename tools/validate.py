@@ -351,7 +351,9 @@ def check_modifiers(ctx: Ctx):
             blocks += top_keys(nodes)
         for b in blocks:
             # in weights/ai_weight, `modifier = { factor = ... trigger }` is a weight modifier, not a stat block
-            if b.key == 'modifier' and (b.get('factor') or b.get('add') or b.get('weight')):
+            # (situations' monthly_progress also uses add/subtract/mult)
+            if b.key == 'modifier' and (b.get('factor') or b.get('add') or b.get('weight')
+                                        or b.get('subtract') or b.get('mult')):
                 continue
             # an add_modifier effect block: modifier = <key>
             for c in b.value:
@@ -433,7 +435,7 @@ def check_loc(ctx: Ctx):
         ('common/opinion_modifiers', lambda k: [k]),
         ('common/traits', lambda k: [k, k + '_desc']),
         ('common/policies', lambda k: [f'policy_{k}', f'policy_{k}_desc']),
-        ('common/situations', lambda k: [k, k + '_desc']),
+        ('common/situations', lambda k: [k, k + '_type', k + '_desc', k + '_monthly_change_tooltip']),
         ('common/relics', lambda k: [k, k + '_desc']),
     ]
     for folder, keys in rules:
@@ -454,6 +456,17 @@ def check_loc(ctx: Ctx):
         d = n.scalar('description')
         if d:
             need(d, f'{rp}:{n.line}', 'civic description')
+    # situations: approach names and stage names
+    for rp, n in mod_objects(ctx, 'common/situations'):
+        for ap in n.get_all('approach'):
+            nm = ap.scalar('name')
+            if nm:
+                need(nm, f'{rp}:{ap.line}', 'situation approach')
+        stages = n.get('stages')
+        if stages is not None and stages.is_block:
+            for st in stages.value:
+                if st.key and st.is_block:
+                    need(st.key, f'{rp}:{st.line}', 'situation stage')
     # policy options: name and name_desc
     for rp, n in mod_objects(ctx, 'common/policies'):
         for opt in n.get_all('option'):

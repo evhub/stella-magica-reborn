@@ -10,6 +10,9 @@ grief_cube = {
     prerequisites = { "stella_tech_grief_studies" }
     visibility_prerequisite = { always = no }
 
+    # TtS content: a grief cube deficit starts the Grief Cube Crisis situation
+    deficit_situation = situation_tts_grief_cube_deficit
+
     ai_weight = { weight = 50 }
 
 }

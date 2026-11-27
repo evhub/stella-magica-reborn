@@ -297,16 +297,22 @@ def known_modifiers(ctx: Ctx) -> set[str]:
             mods.add(f'job_{j}_{suf}')
         for suf in ('workforce_mult', 'bonus_workforce_mult'):
             mods.add(f'pop_{j}_{suf}')
+    # Vanilla generates per-source modifiers for every resource (e.g. armies_<res>_upkeep_mult).
+    # Derive the real set from a vanilla strategic resource instead of guessing.
+    template = [m for m in mods if 'volatile_motes' in m]
     for _, n in mod_objects(ctx, 'common/strategic_resources'):
-        r = n.key
-        for pat in ('country_{r}_produces_add', 'country_{r}_produces_mult', 'country_{r}_upkeep_mult',
-                    '{r}_produces_add', '{r}_produces_mult', '{r}_upkeep_add', '{r}_upkeep_mult',
-                    '{r}_cost_add', '{r}_cost_mult', 'country_resource_max_{r}_add', 'resource_{r}_mult',
-                    '{r}_logistics_mult', '{r}_logistics_add'):
-            mods.add(pat.format(r=r))
+        for m in template:
+            mods.add(m.replace('volatile_motes', n.key))
     for _, n in mod_objects(ctx, 'common/country_types'):
         mods.add(f'damage_vs_country_type_{n.key}_mult')
     return mods
+
+
+def generated_mod_modifiers(ctx: Ctx) -> set[str]:
+    """Modifiers that exist only because of mod content (jobs, resources, country types).
+    The game requires a mod_<modifier> display name for each one the mod actually uses
+    (confirmed in game for job, resource-category and damage_vs_country_type modifiers)."""
+    return known_modifiers(ctx) - load_list('modifiers.txt')
 
 
 def iter_modifier_blocks(nodes: list[Node], rp: str):
@@ -420,6 +426,13 @@ def check_loc(ctx: Ctx):
                 continue
             for k in keys(n.key):
                 need(k, f'{rp}:{n.line}', folder.split('/')[-1])
+    # modifiers generated from mod content (jobs, resources, country types) need a display name
+    gen = generated_mod_modifiers(ctx)
+    for rp, nodes in ctx.files.items():
+        for b in iter_modifier_blocks(nodes, rp):
+            for c in b.value:
+                if c.key in gen and not c.is_block:
+                    need('mod_' + c.key, f'{rp}:{c.line}', 'generated modifier name')
     # civics/origins: custom effect description key
     for rp, n in mod_objects(ctx, 'common/governments/civics'):
         d = n.scalar('description')
@@ -430,8 +443,8 @@ def check_loc(ctx: Ctx):
         for opt in n.get_all('option'):
             nm = opt.scalar('name')
             if nm:
-                need(nm, f'{rp}:{opt.line}', 'policy option')
-                need(nm + '_desc', f'{rp}:{opt.line}', 'policy option')
+                for suf in ('', '_name', '_desc'):
+                    need(nm + suf, f'{rp}:{opt.line}', 'policy option')
     # NAME_ keys used for countries, species, fleets, ships and ship designs are loc keys
     for rp, nodes in ctx.files.items():
         for top in nodes:

@@ -147,7 +147,9 @@ def main(argv=None) -> int:
         print(f'loading with mods: {", ".join(a.mods)}')
         write_dlc_load(ud, a.mods)
         res, lines = run_game(a.game, ud, a.timeout)
-        new = sorted(set(lines) - base)
+        # errors from the user's saved empire designs depend on their other mods, not on this one
+        new = sorted(l for l in set(lines) - base
+                     if 'user_empire_designs' not in l and not l.startswith('[empire_design.cpp'))
         with open(os.path.join(CACHE, 'last_new_errors.txt'), 'w', encoding='utf-8') as f:
             f.write('\n'.join(new))
         for ln in new[:200]:

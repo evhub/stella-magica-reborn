@@ -1,6 +1,6 @@
 # To the Stars content: edicts. Inspired by Hieronym's "To the Stars".
 
-# Grief Cube Rationing: strict allotments stretch the stockpile, at some cost to morale.
+# Grief Cube Rationing: strict allotments for the armed forces stretch the stockpile, at some cost to morale.
 tts_grief_cube_rationing = {
 	length = 3600
 	icon = "GFX_edict_type_time"
@@ -12,7 +12,7 @@ tts_grief_cube_rationing = {
 	}
 
 	modifier = {
-		grief_cube_upkeep_mult = -0.25
+		armies_grief_cube_upkeep_mult = -0.25	# MagOps squads are the main grief cube upkeep
 		pop_happiness = -0.03
 	}
 

@@ -335,7 +335,7 @@ epitaph_system_initializer = {
 			flag = {
 				icon = {
 					category = "spherical"
-					file = "spherical_14.dds"
+					file = "flag_spherical_14.dds" # PORT (4.6): flag file renamed
 				}
 				background= {
 					category = "backgrounds"

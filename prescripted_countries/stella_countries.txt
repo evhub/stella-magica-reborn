@@ -76,7 +76,8 @@ incubators_stella = {
 	spawn_enabled = no # yes / no / always
 	ignore_portrait_duplication = no
 	
-	playable = stella_has_utopia_dlc # PORT (4.6): has_utopia no longer exists; see common/scripted_triggers
+	# PORT (4.6): was `playable = has_utopia` because hive minds needed Utopia; hive minds
+	# have no DLC requirement in 4.6, so the empire is playable by default.
 	
 	ship_prefix = "QB" 
 	

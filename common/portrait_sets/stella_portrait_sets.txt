@@ -5,8 +5,8 @@ stella_puella_magi = {
 	species_class = PuellaMagi
 
 	conditional_portraits = {
-		playable = no		# event-only species, as in the original
-		randomizable = no
+		playable = { always = no }		# event-only species, as in the original
+		randomizable = { always = no }
 		portraits = {
 			"madoka"
 			"sayaka"

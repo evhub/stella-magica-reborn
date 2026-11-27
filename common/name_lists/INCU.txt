@@ -1,3 +1,4 @@
+### PORT (4.6): sequential names are localisation keys (localisation/english/stella_port_l_english.yml)
 ### Incubator
 ### Modified from HIVE1
 
@@ -68,54 +69,54 @@ INCU = {
 		random_names = {
 			"Howling Swarm" "Ravenous Swarm" "Ravaging Swarm" "Devastating Swarm" "Gorging Swarm" "Rushing Swarm" "Stalking Swarm" "Charging Swarm" "Thundering Swarm" "Teeming Swarm" "Ceaseless Swarm" "Baleful Swarm" "Pestilent Swarm" "Merciless Swarm" "Pitiless Swarm" "Rancorous Swarm"
 		}
-		sequential_name = "Combat Swarm %CC%"
+		sequential_name = INCU_fleet_names_ORD
 	}
 	
 	army_names = {
 		defense_army = {
-			sequential_name = "%O% Hive Defenders"
+			sequential_name = INCU_defense_army_ORD
 		}
 			
 		assault_army = {
-			sequential_name = "%O% Assault Drones"
+			sequential_name = INCU_assault_army_ORD
 		}
 		
 		slave_army = {
-			sequential_name = "%O% Slave Assault Drones"
+			sequential_name = INCU_slave_army_ORD
 		}
 		
 		clone_army = { 
-			sequential_name = "%O% Replicated Assault Drones"
+			sequential_name = INCU_clone_army_ORD
 		}
 		
 		robotic_army = {
-			sequential_name = "%O% Robotic Drones"
+			sequential_name = INCU_robotic_army_ORD
 		}
 
 		robotic_defense_army = {
-			sequential_name = "%O% Robotic Hive Defenders"
+			sequential_name = INCU_robotic_defense_army_ORD
 		}
 	
 		psionic_army = { 
-			sequential_name = "%O% Psionic Assault Drones"
+			sequential_name = INCU_psionic_army_ORD
 		}
 		
 		xenomorph_army = {
-			sequential_name = "%O% Mutated Assault Drones"
+			sequential_name = INCU_xenomorph_army_ORD
 		}
 		
 		gene_warrior_army = {
-			sequential_name = "%O% Augmented Assault Drones"
+			sequential_name = INCU_gene_warrior_army_ORD
 		}
 
 		primitive_army = {
-			sequential_name = "Primitive Army %C%"
+			sequential_name = INCU_primitive_army_ORD
 		}
 		industrial_army = {
-			sequential_name = "Industrial Army %C%"
+			sequential_name = INCU_industrial_army_ORD
 		}
 		postatomic_army = {
-			sequential_name = "Post-Atomic Army %C%"
+			sequential_name = INCU_postatomic_army_ORD
 		}
 	}
 
@@ -175,6 +176,11 @@ INCU = {
 
 	character_names = {
 		default = {
+			# PORT (4.6): ruler_names was removed; its names are now regnal names (used for rulers)
+			regnal_full_names = {
+				"QB Nexus" Consciousness
+			}
+
 			# A complete name
 			full_names = {
 				"Kyubey" "Juubey" "Ichibey" "Niibey" "Sanbey" "Shiibey" "Gobey" "Rokubey" "Nanabey" "Hachibey" "Reibey" "Serbey" "Zero Tuubey" "Poobey" "Kirbey" "Kerrbey" "Turbey" "Teletubey" "Yeebey" "Nuubey" "Nyaabey" "Coobey" "Goobey" "Moobey" "Tubbey" "Chubbey" "Lubbey" "Haabey" "Arbey" "Boobey" "Crabbey" "Globbey" "Ruubey" "Taabbey" "Obbey" "Kiibey" "Bubblbey" "Zuubey" "Quubey" "Ooooooobey" "Muubey" "Owoobey" "Ky4b3y" "Truubey" "Incuubey" "Maabey" "Woombey" "Cuubey" "Kubey" "Whobey" "Boombey" "Reebey" "Reeeeeeebey" "Bibey" "Beebey" "Homura-Did-Nothing-Wrong-bey" "Beybey" "Maaybe" "Derbey" "Grief Cuubey"
@@ -192,14 +198,6 @@ INCU = {
 			}
 			
 			regnal_second_names = {
-			}
-		}
-	}
-
-	ruler_names = {
-		default = {
-			full_names = {
-				"QB Nexus" Consciousness
 			}
 		}
 	}

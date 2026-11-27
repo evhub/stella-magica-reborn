@@ -2,3 +2,28 @@
  # Keys added by the 4.6 port
  Incubator:0 "Incubator"
  Incubator_plural:0 "Incubators"
+ # INCU name list sequential names (original text, 4.x number variables)
+ INCU_fleet_names_ORD:0 "Combat Swarm $CC$"
+ INCU_defense_army_ORD:0 "$ORD$ Hive Defenders"
+ INCU_assault_army_ORD:0 "$ORD$ Assault Drones"
+ INCU_slave_army_ORD:0 "$ORD$ Slave Assault Drones"
+ INCU_clone_army_ORD:0 "$ORD$ Replicated Assault Drones"
+ INCU_robotic_army_ORD:0 "$ORD$ Robotic Drones"
+ INCU_robotic_defense_army_ORD:0 "$ORD$ Robotic Hive Defenders"
+ INCU_psionic_army_ORD:0 "$ORD$ Psionic Assault Drones"
+ INCU_xenomorph_army_ORD:0 "$ORD$ Mutated Assault Drones"
+ INCU_gene_warrior_army_ORD:0 "$ORD$ Augmented Assault Drones"
+ INCU_primitive_army_ORD:0 "Primitive Army $C$"
+ INCU_industrial_army_ORD:0 "Industrial Army $C$"
+ INCU_postatomic_army_ORD:0 "Post-Atomic Army $C$"
+
+ # Keys the original mod referenced but never defined (the game showed raw keys).
+ # Minimal names written for the port, describing what each modifier does.
+ stella_avatar_nerf:0 "Weakened Avatar"
+ stella_horror_nerf:0 "Weakened Horror"
+ stella_fervent_modifier:0 "The Fervent"
+ stella_fervent_weaken:0 "Fervent Weakening"
+ stella_fervent_portal_lost:0 "Portal Severed"
+ stella_invaders_defense_buff:0 "Invader Defenses"
+ stella_wardens_opinion_spirtualist:0 "Entropic Wardens (Spiritualist Distrust)"
+ stella_tech_semifluid_desc:0 "Semi-liquid magitech materials that flow back into damaged armor and hull plating, letting ships slowly repair themselves."

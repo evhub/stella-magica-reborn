@@ -1,6 +1,0 @@
-# Stella Magica scripted triggers (added by the 4.6 port)
-
-# Replaces the removed vanilla has_utopia trigger: hive minds still need Utopia.
-stella_has_utopia_dlc = {
-	host_has_dlc = "Utopia"
-}

@@ -1,10 +1,8 @@
-name="Stella Magica"
-archive="stella_magica.zip"
+version="2.0.0"
 tags={
 	"Leaders"
 	"Events"
 	"Technologies"
 }
-picture="mod_icon.png"
-remote_file_id="1681924214"
-supported_version="2.2.*"
+name="Stella Magica Reborn"
+supported_version="v4.6.*"

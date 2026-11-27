@@ -45,3 +45,18 @@ stella_tts_church_recognised = {
 	country_unity_produces_mult = 0.05
 	planet_stability_add = 2
 }
+
+# Contact with the Consensus: Thinker science, shared mind to mind.
+stella_tts_consensus_contact = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_faith_in_science.dds"
+	country_society_research_produces_mult = 0.10
+	country_physics_research_produces_mult = 0.05
+}
+
+# Censured by the Consensus: /Thinker-preserving has lost the Consensus's backing.
+stella_tts_consensus_censure = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_obelisk_curse.dds"
+	ship_fire_rate_mult = -0.15
+	ships_upkeep_mult = 0.25
+	country_naval_cap_mult = -0.25
+}

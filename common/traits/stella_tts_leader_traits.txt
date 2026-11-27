@@ -117,3 +117,22 @@ leader_trait_tts_priestess_of_hope = {
 	leader_class = { official }
 	ai_weight = 100
 }
+
+# Consensus Envoy: has spoken with the Thinker Consensus mind to mind, and come back.
+leader_trait_tts_consensus_envoy = {
+	inline_script = {
+		script = trait/icon
+		CLASS = commander
+		ICON = "GFX_leader_trait_cultural_envoy_negotiator"
+		RARITY = paragon
+		COUNCIL = no
+		TIER = none
+	}
+	randomized = no
+	fleet_modifier = {
+		ship_fire_rate_mult = 0.05
+		ship_shield_mult = 0.05
+	}
+	leader_class = { commander }
+	ai_weight = 100
+}

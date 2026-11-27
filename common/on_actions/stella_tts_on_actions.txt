@@ -27,5 +27,6 @@ on_yearly_pulse_country = {
 		stella_tts_faces.1
 		stella_tts_faces.3
 		stella_tts_faces.5
+		stella_tts_cons.1
 	}
 }

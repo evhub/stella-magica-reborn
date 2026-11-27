@@ -75,10 +75,9 @@ Every porting change is marked in the files with a `# PORT` comment explaining w
 
 | Setting | Choose | Why |
 |---|---|---|
-| Species | Human or another humanoid/mammalian species | Shizuki Ryouko only appears for human-like species |
 | Origin | **The Unified Earth** | Includes **Governance** (no civic slot needed) and starts with Cortical Implants |
 | Ethics | Anything **except Fanatic Xenophobe or Gestalt** | Those block Magical Legacy |
-| Civic 1 | **Magical Legacy** | Unlocks the original Stella Magica story and most TtS content: contracts and wishes, MagOps, Ryouko, the disclosure policy, rationing, the Church of Hope |
+| Civic 1 | **Magical Legacy** | Unlocks the original Stella Magica story and most TtS content: contracts and wishes, MagOps, Ryouko and the Consensus arc, the disclosure policy, rationing, the Church of Hope |
 | Civic 2 | **Mahou Shoujo Youkai** | Needs Magical Legacy. Unlocks the MSY office, recruitment drive and mentor event |
 
 That build unlocks everything and still fits the 2 civic points you start with. A few years in, an
@@ -97,7 +96,7 @@ galaxy even if you don't build for TtS.
 
 Beyond the port, the mod adds new content inspired by Hieronym's Madoka Magica fanfic
 *To the Stars*: the MSY and Governance, the Cephalopod War, contracts and wishes, the Church of
-Hope, Shizuki Ryouko, a disclosure policy, new ship components and an origin. All of it uses the
+Hope, Shizuki Ryouko and her mission to the Thinker Consensus, a disclosure policy, new ship components and an origin. All of it uses the
 `tts_` prefix. See [docs/TTS_CONTENT.md](docs/TTS_CONTENT.md).
 
 ## Tests

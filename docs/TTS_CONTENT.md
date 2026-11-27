@@ -22,7 +22,7 @@ the content makes its own choices. Every TtS object uses the `tts_` prefix (even
 | 7. Ship components | TacComp Fire Control and Soul Gem Resonator; also a fix so the original magitech components work again | passed |
 | 8. Origin | The Unified Earth (includes Governance, so all TtS content fits the starting 2 civic points) | passed |
 | 9. The Thinkers | the Cephalopods as a real AI empire, always spawned: the /Thinker-preserving Tentacle (Fanatic Purifiers, aquatic molluscoids on the Great Sea), Thinker traits Mind Backups, Empathize-Opening and Emotionless, origin Consensus Vanguard (better shields, regenerating armor, range, early techs), hyphenated star-name name list; they launch the wave 2 campaigns from year 60. Also the United Earth preset empire | passed (load); galaxy spawn not yet playtested |
-| next: Vol IV | discovering the Consensus and the sabotaged first contact; winning over /Ahimsa-extending | planned |
+| 10. The Consensus | Vol IV arc: Peace-cultivating of /Ahimsa-extending contacts Ryouko with Homura's claim that /Thinker-preserving is compromised; Ryouko travels to the Thinker galaxy and seeks the support of /Somatic-diversity (share soul gem research) and /Eukleia-chasing (ceremonial duel or Martial Debate); with enough support the Consensus withdraws its mandate (no more campaigns, /Thinker-preserving censured, Consensus Envoy trait, Contact with the Consensus). Ryouko now appears for any species | passed |
 
 Every wave passed `tools/validate.py` and `tools/test_validator.py` before it was committed.
 

@@ -1,0 +1,215 @@
+# To the Stars content: the Consensus (Vol IV)
+# After the Cephalopods have attacked, a lone Thinker ship-mind of /Ahimsa-extending reaches out
+# to Shizuki Ryouko. It carries a claim, delivered by Akemi Homura, that /Thinker-preserving is
+# compromised and that its war rests on false premises. Ryouko travels to the Thinker home galaxy
+# to win over other Tentacles; if enough of them listen, the Consensus withdraws its mandate.
+# Inspired by Hieronym's "To the Stars". The text is original. See docs/TTS_CONTENT.md.
+
+namespace = stella_tts_cons
+
+# Yearly roll (empires with Ryouko, once the Cephalopods have attacked): one arc per galaxy.
+country_event = {
+	id = stella_tts_cons.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = event_target:tts_thinker_empire
+		OR = {
+			has_global_flag = stella_tts_ceph_war
+			has_global_flag = stella_tts_ceph_won
+		}
+		NOR = {
+			has_global_flag = stella_tts_cons_started
+			has_country_flag = stella_tts_cons_refused
+		}
+		any_owned_leader = {
+			has_leader_flag = stella_tts_ryouko
+			NOT = { has_leader_flag = stella_tts_ryouko_away }
+		}
+	}
+
+	immediate = {
+		random_list = {
+			80 = { }
+			20 = { country_event = { id = stella_tts_cons.2 } }
+		}
+	}
+}
+
+# Peace-cultivating.
+country_event = {
+	id = stella_tts_cons.2
+	title = stella_tts_cons.2.name
+	desc = stella_tts_cons.2.desc
+	picture = GFX_evt_unknown_ships
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_cons.2.a
+		set_global_flag = stella_tts_cons_started
+		set_country_flag = stella_tts_cons_envoy
+		set_variable = { which = stella_tts_consensus_support value = 0 }
+		random_owned_leader = {
+			limit = { has_leader_flag = stella_tts_ryouko }
+			set_leader_flag = stella_tts_ryouko_away
+		}
+		custom_tooltip = stella_tts_cons.2.a.tooltip
+		country_event = { id = stella_tts_cons.3 days = 180 }
+		ai_chance = { factor = 3 }
+	}
+	option = {
+		name = stella_tts_cons.2.b
+		set_timed_country_flag = { flag = stella_tts_cons_refused days = 3600 }
+		ai_chance = { factor = 1 }
+	}
+}
+
+# Another galaxy.
+country_event = {
+	id = stella_tts_cons.3
+	title = stella_tts_cons.3.name
+	desc = stella_tts_cons.3.desc
+	picture = GFX_evt_alien_city
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_cons.3.a
+		add_resource = { society_research = 500 }
+		country_event = { id = stella_tts_cons.4 days = 360 }
+	}
+}
+
+# /Somatic-diversity wants to understand human souls.
+country_event = {
+	id = stella_tts_cons.4
+	title = stella_tts_cons.4.name
+	desc = stella_tts_cons.4.desc
+	picture = GFX_evt_alien_nature
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_cons.4.a
+		change_variable = { which = stella_tts_consensus_support value = 1 }
+		set_country_flag = stella_tts_cons_somatic_ally
+		custom_tooltip = stella_tts_cons.support.tooltip
+		country_event = { id = stella_tts_cons.5 days = 360 }
+		ai_chance = { factor = 3 }
+	}
+	option = {
+		name = stella_tts_cons.4.b
+		add_resource = { unity = 250 }
+		country_event = { id = stella_tts_cons.5 days = 360 }
+		ai_chance = { factor = 1 }
+	}
+}
+
+# /Eukleia-chasing respects only martial prowess.
+country_event = {
+	id = stella_tts_cons.5
+	title = stella_tts_cons.5.name
+	desc = stella_tts_cons.5.desc
+	picture = GFX_evt_interior_battle
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_cons.5.a
+		custom_tooltip = stella_tts_cons.5.a.tooltip
+		random_list = {
+			65 = { country_event = { id = stella_tts_cons.6 days = 30 } }
+			35 = { country_event = { id = stella_tts_cons.7 days = 30 } }
+		}
+		ai_chance = { factor = 2 }
+	}
+	option = {
+		name = stella_tts_cons.5.b
+		trigger = { has_country_flag = stella_tts_cons_somatic_ally }
+		change_variable = { which = stella_tts_consensus_support value = 1 }
+		custom_tooltip = stella_tts_cons.support.tooltip
+		country_event = { id = stella_tts_cons.8 days = 360 }
+		ai_chance = { factor = 3 }
+	}
+}
+
+# The ceremonial war: won.
+country_event = {
+	id = stella_tts_cons.6
+	title = stella_tts_cons.6.name
+	desc = stella_tts_cons.6.desc
+	picture = GFX_evt_interior_battle
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_cons.6.a
+		change_variable = { which = stella_tts_consensus_support value = 1 }
+		custom_tooltip = stella_tts_cons.support.tooltip
+		random_owned_leader = {
+			limit = { has_leader_flag = stella_tts_ryouko }
+			add_experience = 500
+		}
+		country_event = { id = stella_tts_cons.8 days = 360 }
+	}
+}
+
+# The ceremonial war: lost.
+country_event = {
+	id = stella_tts_cons.7
+	title = stella_tts_cons.7.name
+	desc = stella_tts_cons.7.desc
+	picture = GFX_evt_interior_battle
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_cons.7.a
+		country_event = { id = stella_tts_cons.8 days = 360 }
+	}
+}
+
+# The Consensus deliberates.
+country_event = {
+	id = stella_tts_cons.8
+	title = stella_tts_cons.8.name
+	desc = {
+		trigger = { check_variable = { which = stella_tts_consensus_support value >= 2 } }
+		text = stella_tts_cons.8.desc.success
+	}
+	desc = {
+		trigger = { NOT = { check_variable = { which = stella_tts_consensus_support value >= 2 } } }
+		text = stella_tts_cons.8.desc.partial
+	}
+	picture = GFX_evt_galactic_senate
+	is_triggered_only = yes
+
+	immediate = {
+		remove_country_flag = stella_tts_cons_envoy
+		random_owned_leader = {
+			limit = { has_leader_flag = stella_tts_ryouko }
+			remove_leader_flag = stella_tts_ryouko_away
+			add_trait = { trait = leader_trait_tts_consensus_envoy show_message = no }
+		}
+	}
+
+	# The mandate is withdrawn: no more enforcement campaigns, and /Thinker-preserving is censured.
+	option = {
+		name = stella_tts_cons.8.a
+		trigger = { check_variable = { which = stella_tts_consensus_support value >= 2 } }
+		set_global_flag = stella_tts_ceph_disabled
+		set_global_flag = stella_tts_consensus_won
+		add_modifier = { modifier = stella_tts_consensus_contact }
+		if = {
+			limit = { exists = event_target:tts_thinker_empire }
+			event_target:tts_thinker_empire = {
+				add_modifier = { modifier = stella_tts_consensus_censure }
+			}
+		}
+		custom_tooltip = stella_tts_cons.8.a.tooltip
+	}
+	# Not enough support: the Consensus postpones, and the campaigns pause for a while.
+	option = {
+		name = stella_tts_cons.8.b
+		trigger = { NOT = { check_variable = { which = stella_tts_consensus_support value >= 2 } } }
+		set_timed_global_flag = { flag = stella_tts_ceph_cooldown days = 3600 }
+		add_resource = { society_research = 750 }
+		custom_tooltip = stella_tts_cons.8.b.tooltip
+	}
+}

@@ -15,12 +15,6 @@ country_event = {
 		has_country_flag = stella_tts_magops_founded
 		NOT = { has_country_flag = stella_tts_ryouko_joined }
 		exists = capital_scope
-		owner_main_species = {
-			OR = {
-				is_species_class = HUM
-				is_species_class = MAM
-			}
-		}
 	}
 
 	immediate = {
@@ -71,7 +65,10 @@ country_event = {
 		has_global_flag = stella_tts_ceph_war
 		NOT = { has_country_flag = stella_tts_ryouko_raid_done }
 		exists = event_target:tts_thinker_empire
-		any_owned_leader = { has_leader_flag = stella_tts_ryouko }
+		any_owned_leader = {
+			has_leader_flag = stella_tts_ryouko
+			NOT = { has_leader_flag = stella_tts_ryouko_away }
+		}
 	}
 
 	immediate = {

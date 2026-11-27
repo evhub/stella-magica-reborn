@@ -1,0 +1,14 @@
+# To the Stars content: shared triggers. Inspired by Hieronym's "To the Stars".
+
+# Governance: the civic, or the Unified Earth origin (which includes it).
+tts_has_governance = {
+	OR = {
+		has_valid_civic = civic_tts_governance
+		has_origin = origin_tts_unified_earth
+	}
+}
+
+# The Church of Hope: recognised by the state through event stella_tts_hope.10.
+tts_has_church_of_hope = {
+	has_country_flag = stella_tts_church_of_hope
+}

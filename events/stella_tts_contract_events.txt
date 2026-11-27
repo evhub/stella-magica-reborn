@@ -104,8 +104,8 @@ country_event = {
 		random_list = {
 			75 = { }
 			25 = {
-				# Faith in the Goddess helps girls hold on: half as likely under the Cult of Hope.
-				modifier = { factor = 0.5 has_valid_civic = civic_tts_cult_of_hope }
+				# Faith in the Goddess helps girls hold on: half as likely where the Church of Hope is recognised.
+				modifier = { factor = 0.5 tts_has_church_of_hope = yes }
 				country_event = { id = stella_tts_wish.21 }
 			}
 		}

@@ -95,10 +95,14 @@
  stella_tts_wish.21.b:0 "We cannot spare anything. The girls will have to manage."
  stella_tts_witch_sighting:0 "Demon Outbreak"
  stella_tts_witch_sighting_desc:0 "Too few magical girls are hunting here, and demons are multiplying. Their miasma weighs on everyone."
- # --- The Cult of Hope ---
- civic_tts_cult_of_hope:0 "Cult of Hope"
- civic_tts_cult_of_hope_desc:0 "Our faith reveres the Goddess who saved magical girls from despair and who comes for each of them, gently, at the end. Its churches tend to the living as carefully as they remember the departed."
- civic_tooltip_tts_cult_of_hope_effects:0 "Unlocks the §YChurch of Hope§!. Faith keeps the hunts going: a §Ydemon outbreak§! is half as likely when §Ygrief cubes§! run short."
+ # --- The Church of Hope ---
+ stella_tts_hope.10.name:0 "The Church of Hope"
+ stella_tts_hope.10.desc:0 "Magical girls have always told one another stories about the Goddess: the one who saved them from despair, and who comes for each of them gently at the end. Now those stories have congregations, hymns and a name. The Cult of Hope asks the state for legal recognition and for the right to build its churches openly.\n\nSome of our advisors call it a comfort the girls badly need. Others would rather the state stayed out of matters of faith."
+ stella_tts_hope.10.a:0 "Recognise the Church of Hope."
+ stella_tts_hope.10.a.tooltip:0 "Unlocks the §YTheology of Hope§! technology, the §YChurch of Hope§! and visions of the Goddess. A §Ydemon outbreak§! becomes half as likely when §Ygrief cubes§! run short."
+ stella_tts_hope.10.b:0 "Faith is a private matter. The state stays secular."
+ stella_tts_church_recognised:0 "Church of Hope"
+ stella_tts_church_recognised_desc:0 "The state recognises the Church of Hope. Its churches are open to everyone, and its faith steadies the girls on the front line."
  tech_tts_theology_of_hope:0 "Theology of Hope"
  tech_tts_theology_of_hope_desc:0 "The Church of Hope's scattered testimonies, hymns and visions, gathered into something a congregation can hold on to."
  building_tts_church_of_hope:0 "Church of Hope"
@@ -154,7 +158,7 @@
  # --- Origin ---
  origin_tts_unified_earth:0 "The Unified Earth"
  origin_tts_unified_earth_desc:0 "Our homeworld's last great war ended not in conquest but in a promise: one government for everyone, advised by the intelligences we built and answerable to all of us. The scars of that war are remembered, and so is what it took to end it."
- origin_tooltip_tts_unified_earth_effects:0 "Start with §YCortical Implants§! researched."
+ origin_tooltip_tts_unified_earth_effects:0 "Start with §YCortical Implants§! researched. Includes §YGovernance§!: the same effects as the Governance civic, without using a civic slot."
 
  # --- Prescripted empire ---
  tts_united_earth:0 "United Earth"

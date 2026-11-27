@@ -20,7 +20,7 @@ tech_tts_cortical_implants = {
 		modifier = {
 			factor = 1.5
 			OR = {
-				has_valid_civic = civic_tts_governance
+				tts_has_governance = yes
 				has_valid_civic = civic_tts_msy
 			}
 		}
@@ -134,7 +134,7 @@ tech_tts_theology_of_hope = {
 	icon = "tech_holographic_rituals"
 
 	potential = {
-		has_valid_civic = civic_tts_cult_of_hope
+		tts_has_church_of_hope = yes
 	}
 
 	ai_weight = {

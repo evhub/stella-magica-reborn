@@ -16,11 +16,11 @@ the content makes its own choices. Every TtS object uses the `tts_` prefix (even
 | 1. Institutions | civics Governance and Mahou Shoujo Youkai, techs Cortical Implants, TacComp, MSY Logistics and MagOps Doctrine, MSY Regional Office and MSY Liaison job, MagOps Squad army, leader traits TacComp, Teleporter, Clairvoyant, Healer and MSY Veteran, founding events | passed |
 | 2. The Cephalopod War | enforcement campaigns against magic-using (Magical Legacy) empires: mothership and raiding swarms, reinforcement cycle, victory, wreck study, Cephalopod Analysis tech | passed |
 | 3. Contracts and wishes | periodic contracts with four wishes (prosperity, healing, protection, knowledge); a demon outbreak risk when grief cubes run out | passed |
-| 4. The Cult of Hope | civic, Theology of Hope tech, Church of Hope and Priest of Hope job, Priestess of Hope trait, visions of the Goddess; faith halves demon outbreak risk | passed |
+| 4. The Church of Hope | recognised by event (any Magical Legacy empire, any ethics), Theology of Hope tech, Church of Hope and Priest of Hope job, Priestess of Hope trait, visions of the Goddess; faith halves demon outbreak risk | passed |
 | 5. Familiar faces | Shizuki Ryouko joins MagOps; her teleporter strike on the Cephalopod mothership; an MSY mentor | passed |
 | 6. Policy and society | Magical Girl Disclosure policy; Grief Cube Rationing and MSY Recruitment Drive edicts | passed |
 | 7. Ship components | TacComp Fire Control and Soul Gem Resonator; also a fix so the original magitech components work again | passed |
-| 8. Origin | The Unified Earth | passed |
+| 8. Origin | The Unified Earth (includes Governance, so all TtS content fits the starting 2 civic points) | passed |
 | 9. The Thinkers | the Cephalopods as a real AI empire, always spawned: the /Thinker-preserving Tentacle (Fanatic Purifiers, aquatic molluscoids on the Great Sea), Thinker traits Mind Backups, Empathize-Opening and Emotionless, origin Consensus Vanguard (better shields, regenerating armor, range, early techs), hyphenated star-name name list; they launch the wave 2 campaigns from year 60. Also the United Earth preset empire | passed (load); galaxy spawn not yet playtested |
 | next: Vol IV | discovering the Consensus and the sabotaged first contact; winning over /Ahimsa-extending | planned |
 

@@ -37,3 +37,11 @@ stella_tts_ceph_sabotaged = {
 	ship_fire_rate_mult = -0.15
 	icon = "gfx/interface/icons/planet_modifiers/pm_contingency_sabotage.dds"
 }
+
+# The Church of Hope is recognised by the state.
+stella_tts_church_recognised = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_celebration_of_ideals.dds"
+	icon_frame = 1
+	country_unity_produces_mult = 0.05
+	planet_stability_add = 2
+}

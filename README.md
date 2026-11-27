@@ -76,16 +76,17 @@ Every porting change is marked in the files with a `# PORT` comment explaining w
 | Setting | Choose | Why |
 |---|---|---|
 | Species | Human or another humanoid/mammalian species | Shizuki Ryouko only appears for human-like species |
-| Origin | **The Unified Earth** | Starts with Cortical Implants; the TtS backstory |
-| Authority | Democratic or Oligarchic | Needed for the Governance civic |
-| Ethics | Anything **except Spiritualist, Fanatic Xenophobe or Gestalt** | Spiritualist blocks Governance; Fanatic Xenophobe blocks Magical Legacy |
-| Civic 1 | **Magical Legacy** | Unlocks the original Stella Magica story and most TtS content: contracts and wishes, MagOps, Ryouko, the disclosure policy, rationing |
+| Origin | **The Unified Earth** | Includes **Governance** (no civic slot needed) and starts with Cortical Implants |
+| Ethics | Anything **except Fanatic Xenophobe or Gestalt** | Those block Magical Legacy |
+| Civic 1 | **Magical Legacy** | Unlocks the original Stella Magica story and most TtS content: contracts and wishes, MagOps, Ryouko, the disclosure policy, rationing, the Church of Hope |
 | Civic 2 | **Mahou Shoujo Youkai** | Needs Magical Legacy. Unlocks the MSY office, recruitment drive and mentor event |
-| Civic 3 (when unlocked) | **Governance** | Edit your government once the third civic slot opens |
 
-**What you'll miss with this build:** the **Cult of Hope** civic needs Spiritualist ethics, which
-blocks Governance. To play the Church of Hope instead, pick Spiritualist ethics and take Cult of Hope
-in place of Governance.
+That build unlocks everything and still fits the 2 civic points you start with. A few years in, an
+event asks whether to **recognise the Church of Hope**: say yes to unlock its tech, churches and
+visions (any ethics can).
+
+Without The Unified Earth origin, take the **Governance** civic instead. It needs Democratic or
+Oligarchic authority and a third civic point.
 
 **The Cephalopods need no setup.** Their empire, the /Thinker-preserving Tentacle, always spawns at
 game start. From year 60 they send enforcement fleets against empires with **Magical Legacy**, so the
@@ -95,7 +96,7 @@ galaxy even if you don't build for TtS.
 ## New content: To the Stars
 
 Beyond the port, the mod adds new content inspired by Hieronym's Madoka Magica fanfic
-*To the Stars*: the MSY and Governance, the Cephalopod War, contracts and wishes, the Cult of
+*To the Stars*: the MSY and Governance, the Cephalopod War, contracts and wishes, the Church of
 Hope, Shizuki Ryouko, a disclosure policy, new ship components and an origin. All of it uses the
 `tts_` prefix. See [docs/TTS_CONTENT.md](docs/TTS_CONTENT.md).
 

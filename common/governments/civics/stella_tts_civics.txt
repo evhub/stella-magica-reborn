@@ -10,19 +10,14 @@ civic_tts_governance = {
 	potential = {
 		ethics = { NOT = { value = ethic_gestalt_consciousness } }
 		authority = { NOT = { value = auth_corporate } }
+		# The Unified Earth origin already includes Governance.
+		origin = { NOT = { value = origin_tts_unified_earth } }
 	}
 	possible = {
 		authority = {
 			OR = {
 				value = auth_democratic
 				value = auth_oligarchic
-			}
-		}
-		ethics = {
-			NOR = {
-				text = civic_tooltip_not_spiritualist
-				value = ethic_spiritualist
-				value = ethic_fanatic_spiritualist
 			}
 		}
 	}
@@ -59,33 +54,6 @@ civic_tts_msy = {
 	}
 }
 
-# The Cult of Hope: reverence for the Goddess who saved magical girls from despair, and who
-# comes for each of them gently at the end. Its churches care for the living as much as they
-# honour the departed.
-civic_tts_cult_of_hope = {
-	icon = "gfx/interface/icons/governments/civics/civic_exalted_priesthood.dds"
-	description = civic_tooltip_tts_cult_of_hope_effects
-
-	potential = {
-		ethics = { NOT = { value = ethic_gestalt_consciousness } }
-	}
-	possible = {
-		ethics = {
-			OR = {
-				text = civic_tooltip_spiritualist
-				value = ethic_spiritualist
-				value = ethic_fanatic_spiritualist
-			}
-		}
-	}
-
-	random_weight = { base = 5 }
-
-	modifier = {
-		country_unity_produces_mult = 0.05
-		planet_stability_add = 2
-	}
-}
 
 # Origin: The Unified Earth. Humanity ended its wars by building something better: one
 # government, advised by its own creations, answerable to everyone.
@@ -104,9 +72,14 @@ origin_tts_unified_earth = {
 
 	random_weight = { base = 2 }
 
+	# Governance grew out of the end of the Unification Wars: this origin includes it,
+	# with the same effects as the Governance civic, without using a civic slot.
 	modifier = {
 		country_unity_produces_mult = 0.05
 		army_damage_mult = 0.10
+		country_admin_cap_add = 10
+		planet_stability_add = 3
+		country_edict_fund_add = 50
 	}
 }
 

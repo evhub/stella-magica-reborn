@@ -58,7 +58,7 @@ building_tts_church_of_hope = {
 
 	potential = {
 		exists = owner
-		owner = { has_valid_civic = civic_tts_cult_of_hope }
+		owner = { tts_has_church_of_hope = yes }
 		NOR = {
 			has_modifier = slave_colony
 			has_modifier = resort_colony
@@ -83,5 +83,5 @@ building_tts_church_of_hope = {
 		"tech_tts_theology_of_hope"
 	}
 
-	show_tech_unlock_if = { has_valid_civic = civic_tts_cult_of_hope }
+	show_tech_unlock_if = { tts_has_church_of_hope = yes }
 }

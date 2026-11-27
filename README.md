@@ -148,6 +148,21 @@ civic, or as the Incubators. Then check:
 5. Console shortcuts for testing: `event stella_story.0`, `event stella_crisis.8`
    (spawns the Fervent), and `research_technology stella_tech_grief_studies`.
 
+**To the Stars content** (play the United Earth preset). Turn on `debugtooltip` to see event IDs:
+
+6. The Cephalopod empire (/Thinker-preserving Tentacle) exists in the galaxy at game start.
+7. Cephalopod War: `event stella_tts_ceph.2` (run as the Cephalopods: `play` their country ID
+   first, then `play` back) launches a campaign against a Magical Legacy empire. Kill the
+   mothership and the wreck special project should appear.
+8. Characters: `event stella_tts_faces.2` (Ryouko), `event stella_tts_four.2` (Mami),
+   `event stella_tts_four.4` (Yuma), `event stella_tts_four.6` (Kana).
+9. The Consensus arc: `event stella_tts_cons.2` (needs Ryouko and the Cephalopod empire alive).
+10. Church of Hope: `event stella_tts_hope.10`. Incubators: `event stella_tts_qb.2`.
+    Governance: `event stella_tts_gov.2`. Hidden war: `event stella_tts_hidden.2`.
+11. Soul gems: kill a magical girl leader (`kill_leader` on Ryouko); her soul gem should
+    usually be recovered a month later.
+12. Grief Cube Crisis: run a grief cube deficit; the situation should start on its own.
+
 ## Installing locally
 
 1. Create `Documents/Paradox Interactive/Stellaris/mod/stella_magica_reborn.mod`

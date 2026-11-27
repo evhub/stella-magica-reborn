@@ -1,0 +1,100 @@
+# To the Stars content: leader traits (granted by events, never rolled randomly)
+# Inspired by Hieronym's "To the Stars". See docs/TTS_CONTENT.md.
+
+# TacComp: an implanted tactical computer whispering firing solutions.
+leader_trait_tts_taccomp = {
+	inline_script = {
+		script = trait/icon
+		CLASS = commander
+		ICON = "GFX_leader_trait_tactical_algorithms"
+		RARITY = veteran
+		COUNCIL = no
+		TIER = none
+	}
+	randomized = no
+	fleet_modifier = {
+		ship_accuracy_add = 5
+		ship_weapon_range_mult = 0.05
+	}
+	army_modifier = {
+		army_damage_mult = 0.10
+	}
+	leader_class = { commander }
+	ai_weight = 100
+}
+
+# Teleporter: a magical girl who can step across space, and occasionally take a ship with her.
+leader_trait_tts_teleporter = {
+	inline_script = {
+		script = trait/icon
+		CLASS = commander
+		ICON = "GFX_leader_trait_rift_warped"
+		RARITY = paragon
+		COUNCIL = no
+		TIER = none
+	}
+	randomized = no
+	fleet_modifier = {
+		ship_speed_mult = 0.15
+		ship_evasion_add = 5
+	}
+	leader_class = { commander }
+	ai_weight = 100
+}
+
+# Clairvoyant: sees what lies past the sensor horizon.
+leader_trait_tts_clairvoyant = {
+	inline_script = {
+		script = trait/icon
+		CLASS = scientist
+		ICON = "GFX_leader_trait_oracle"
+		RARITY = paragon
+		COUNCIL = no
+		TIER = none
+	}
+	randomized = no
+	modifier = {
+		science_ship_survey_speed = 0.25
+		ship_anomaly_generation_chance_mult = 0.15
+	}
+	leader_class = { scientist }
+	ai_weight = 100
+}
+
+# Healer: a gentle wish turned into a planetary institution.
+leader_trait_tts_healer = {
+	inline_script = {
+		script = trait/icon
+		CLASS = official
+		ICON = "GFX_leader_trait_gifted"
+		RARITY = paragon
+		COUNCIL = no
+		TIER = none
+	}
+	randomized = no
+	planet_modifier = {
+		pop_happiness = 0.05
+		planet_stability_add = 3
+	}
+	leader_class = { official }
+	ai_weight = 100
+}
+
+# MSY Veteran: decades of keeping the cube ledgers balanced and the girls alive.
+leader_trait_tts_msy_veteran = {
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		ICON = "GFX_leader_trait_army_veteran"
+		RARITY = veteran
+		COUNCIL = yes
+		TIER = none
+	}
+	randomized = no
+	councilor_modifier = {
+		country_grief_cube_produces_mult = 0.10
+		country_unity_produces_mult = 0.03
+	}
+	leader_class = { commander official scientist }
+	ai_weight = 100
+}

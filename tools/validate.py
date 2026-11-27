@@ -16,6 +16,7 @@ Checks (each failure is reported as file:line: message; exit code 1 if any):
   loc          every localisation key the mod's objects and events need exists, and every
                localisation line uses the `key:0 "text"` format
 (Invalid triggers/effects are caught by the in-game load test, tools/ingame_test.py.)
+  loc_override no mod localisation key silently replaces a vanilla one
   assets       every texture/icon the mod references exists (mod or vanilla)
 """
 from __future__ import annotations
@@ -397,7 +398,7 @@ def check_loc(ctx: Ctx):
     rules = [
         ('common/technology', lambda k: [k, k + '_desc']),
         ('common/buildings', lambda k: [k, k + '_desc']),
-        ('common/pop_jobs', lambda k: [f'job_{k}', f'job_{k}_plural', f'job_{k}_desc']),
+        ('common/pop_jobs', lambda k: [f'job_{k}', f'job_{k}_plural', f'job_{k}_desc', f'mod_job_{k}_add']),
         ('common/governments/civics', lambda k: [k, k + '_desc']),
         ('common/static_modifiers', lambda k: [k]),
         ('common/edicts', lambda k: [f'edict_{k}', f'edict_{k}_desc']),
@@ -428,6 +429,21 @@ def check_loc(ctx: Ctx):
                 k = n.scalar('key')
                 if k and n.scalar('hidden') != 'yes':
                     need(k, f'{rp}:{n.line}', 'component')
+
+
+def check_loc_overrides(ctx: Ctx):
+    """A mod localisation key that also exists in vanilla silently replaces vanilla's text."""
+    vanilla = vanilla_loc_keys(ctx)
+    for p in walk_files(ctx.root, ['localisation'], ('.yml',)):
+        rp = rel(ctx.root, p)
+        for i, ln in enumerate(read_text(p).splitlines(), 1):
+            m = re.match(r'^\s*([A-Za-z0-9_.\-]+):\d*\s', ln)
+            if m and m.group(1) in vanilla and m.group(1) not in LOC_OVERRIDE_ALLOWED:
+                ctx.err('loc_override', f'{rp}:{i}', f'{m.group(1)} overrides vanilla localisation')
+
+
+# Vanilla keys the mod deliberately redefines (none yet).
+LOC_OVERRIDE_ALLOWED: set[str] = set()
 
 
 def check_assets(ctx: Ctx):
@@ -493,6 +509,7 @@ CHECKS = {
     'modifiers': check_modifiers,
     'static_mods': check_static_modifier_refs,
     'loc': check_loc,
+    'loc_override': check_loc_overrides,
     'assets': check_assets,
 }
 

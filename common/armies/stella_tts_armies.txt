@@ -1,0 +1,40 @@
+# To the Stars content: armies
+# Inspired by Hieronym's "To the Stars". See docs/TTS_CONTENT.md.
+
+# MagOps Squad: a magical girl strike team under military command. Few in number, terrifying
+# in effect, and expensive to keep supplied with grief cubes.
+tts_magops_army = {
+	damage = 2.50
+	health = 1.75
+	morale = 2.00
+	morale_damage = 1.50
+	collateral_damage = 0.50
+	war_exhaustion = 1.50
+	time = 180
+	icon = GFX_army_type_psionic
+	has_species = no
+	prerequisites = { "tech_tts_magops_doctrine" }
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 200
+			grief_cube = 15
+		}
+		upkeep = {
+			energy = 2
+			grief_cube = 0.5
+		}
+	}
+
+	show_tech_unlock_if = {
+		has_valid_civic = civic_magical_legacy
+	}
+
+	potential = {
+		owner = {
+			is_primitive = no
+			has_valid_civic = civic_magical_legacy
+		}
+	}
+}

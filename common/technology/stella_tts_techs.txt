@@ -1,0 +1,101 @@
+# To the Stars content: technologies
+# Inspired by Hieronym's "To the Stars". See docs/TTS_CONTENT.md.
+
+# Cortical Implants: everyday neural interfaces. They come before the TacComp.
+tech_tts_cortical_implants = {
+	area = society
+	category = { biology }
+	tier = 2
+	cost = @tier2cost2
+	weight = @tier2weight2
+	icon = "tech_neural_implants"
+
+	prerequisites = { "tech_genome_mapping" }
+
+	modifier = {
+		species_leader_exp_gain = 0.10
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.5
+			OR = {
+				has_valid_civic = civic_tts_governance
+				has_valid_civic = civic_tts_msy
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
+# Tactical Computers (TacComp): an implanted assistant intelligence that advises soldiers and
+# magical girls alike in combat.
+tech_tts_taccomp = {
+	area = engineering
+	category = { voidcraft }
+	tier = 3
+	cost = @tier3cost2
+	weight = @tier3weight2
+	icon = "tech_adaptive_combat_algorithms"
+
+	prerequisites = { "tech_tts_cortical_implants" "tech_combat_computers_2" }
+
+	modifier = {
+		ship_accuracy_add = 5
+		army_damage_mult = 0.05
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			has_trait_in_council = { TRAIT = leader_trait_expertise_voidcraft }
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
+# MSY Logistics: the mutual aid network's grief cube distribution system.
+tech_tts_msy_logistics = {
+	area = society
+	category = { statecraft }
+	tier = 2
+	cost = @tier2cost1
+	weight = @tier2weight1
+	icon = "tech_galactic_administration"
+
+	prerequisites = { "stella_tech_grief_studies" }
+
+	potential = {
+		has_valid_civic = civic_tts_msy
+	}
+
+	ai_weight = {
+		weight = 2
+	}
+}
+
+# MagOps Doctrine: integrating magical girl squads into the military chain of command.
+tech_tts_magops_doctrine = {
+	area = society
+	category = { military_theory }
+	tier = 3
+	cost = @tier3cost2
+	weight = @tier3weight2
+	icon = "tech_psionic_theory"
+
+	prerequisites = { "tech_tts_taccomp" "stella_tech_cube_logi" }
+
+	potential = {
+		has_valid_civic = civic_magical_legacy
+	}
+
+	ai_weight = {
+		weight = 2
+	}
+}

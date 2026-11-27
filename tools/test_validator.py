@@ -14,7 +14,8 @@ REPO = os.path.dirname(TOOLS)
 DIRS = ['common', 'events', 'localisation', 'interface', 'gfx', 'prescripted_countries']
 
 SEEDS = {
-    'localisation/english/zz_seed_l_english.yml': '﻿l_english:\r\n zz_seed_bad:"no space"\r\n',
+    'localisation/english/zz_seed_l_english.yml': '﻿l_english:\r\n zz_seed_bad:"no space"\r\n'
+                                                   ' civic_tooltip_not_spiritualist:0 "override"\r\n',
     'common/technology/zz_seed.txt': (
         'zz_seed_tech = {\r\n\tarea = physics\r\n\tprerequisites = { "tech_zz_missing" }\r\n'
         '\tmodifier = { zz_not_a_modifier = 1 }\r\n}\r\n'),
@@ -36,6 +37,7 @@ EXPECT = [
     'missing localisation zz_seed.1.name',
     'missing localisation zz_seed.1.a',
     '[parse] common/static_modifiers/zz_seed.txt',
+    'civic_tooltip_not_spiritualist overrides vanilla localisation',
 ]
 
 

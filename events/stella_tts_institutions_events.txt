@@ -1,0 +1,120 @@
+# To the Stars content: institutions (MSY, Governance, TacComp, MagOps)
+# Inspired by Hieronym's "To the Stars". See docs/TTS_CONTENT.md.
+
+namespace = stella_tts_inst
+
+# The MSY charter (game start, MSY civic)
+country_event = {
+	id = stella_tts_inst.1
+	title = stella_tts_inst.1.name
+	desc = stella_tts_inst.1.desc
+	picture = GFX_evt_board_meeting
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		has_valid_civic = civic_tts_msy
+		NOT = { has_country_flag = stella_tts_msy_charter }
+	}
+
+	immediate = {
+		set_country_flag = stella_tts_msy_charter
+	}
+
+	option = {
+		name = stella_tts_inst.1.a
+		add_resource = { grief_cube = 100 }
+	}
+}
+
+# Governance convenes (game start, Governance civic)
+country_event = {
+	id = stella_tts_inst.2
+	title = stella_tts_inst.2.name
+	desc = stella_tts_inst.2.desc
+	picture = GFX_evt_galactic_senate
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		has_valid_civic = civic_tts_governance
+		NOT = { has_country_flag = stella_tts_governance_convened }
+	}
+
+	immediate = {
+		set_country_flag = stella_tts_governance_convened
+	}
+
+	option = {
+		name = stella_tts_inst.2.a
+		add_resource = { unity = 100 }
+	}
+}
+
+# TacComp rollout (tech researched): equip the best commander first
+country_event = {
+	id = stella_tts_inst.3
+	title = stella_tts_inst.3.name
+	desc = stella_tts_inst.3.desc
+	picture = GFX_evt_robot_assembly_plant
+	is_triggered_only = yes
+
+	trigger = {
+		last_increased_tech = tech_tts_taccomp
+		any_owned_leader = {
+			leader_class = commander
+			NOT = { has_trait = leader_trait_tts_taccomp }
+		}
+	}
+
+	option = {
+		name = stella_tts_inst.3.a
+		random_owned_leader = {
+			limit = {
+				leader_class = commander
+				NOT = { has_trait = leader_trait_tts_taccomp }
+			}
+			add_trait = {
+				trait = leader_trait_tts_taccomp
+				show_message = no
+			}
+		}
+	}
+}
+
+# MagOps founded (tech researched): a teleporter volunteers to lead the first squad
+country_event = {
+	id = stella_tts_inst.4
+	title = stella_tts_inst.4.name
+	desc = stella_tts_inst.4.desc
+	picture = GFX_evt_ground_combat
+	is_triggered_only = yes
+
+	trigger = {
+		last_increased_tech = tech_tts_magops_doctrine
+		has_valid_civic = civic_magical_legacy
+		NOT = { has_country_flag = stella_tts_magops_founded }
+	}
+
+	immediate = {
+		set_country_flag = stella_tts_magops_founded
+	}
+
+	option = {
+		name = stella_tts_inst.4.a
+		create_leader = {
+			class = commander
+			species = owner_main_species
+			name = random
+			skill = 3
+			randomize_traits = no
+		}
+		last_created_leader = {
+			add_trait = {
+				trait = leader_trait_tts_teleporter
+				show_message = no
+			}
+			set_leader_flag = stella_tts_magops_founder
+		}
+	}
+}

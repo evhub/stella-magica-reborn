@@ -1,0 +1,15 @@
+# To the Stars content: on_action hooks (merged with every other mod's hooks by the game)
+
+on_game_start_country = {
+	events = {
+		stella_tts_inst.1
+		stella_tts_inst.2
+	}
+}
+
+on_tech_increased = {
+	events = {
+		stella_tts_inst.3
+		stella_tts_inst.4
+	}
+}

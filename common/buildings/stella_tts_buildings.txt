@@ -1,0 +1,45 @@
+# To the Stars content: buildings
+# Inspired by Hieronym's "To the Stars". See docs/TTS_CONTENT.md.
+
+# MSY Regional Office: where the mutual aid society keeps its books, its cube stores and its
+# promise that no magical girl faces the dark alone.
+building_tts_msy_office = {
+	base_buildtime = @b1_time
+	category = government
+	icon = building_bureaucratic_1
+
+	building_sets = {
+		government
+	}
+
+	planet_limit = 1
+
+	potential = {
+		exists = owner
+		owner = { has_valid_civic = civic_tts_msy }
+		NOR = {
+			has_modifier = slave_colony
+			has_modifier = resort_colony
+		}
+	}
+
+	planet_modifier = {
+		job_tts_msy_liaison_add = 200
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	prerequisites = {
+		"tech_tts_msy_logistics"
+	}
+
+	show_tech_unlock_if = { has_valid_civic = civic_tts_msy }
+}

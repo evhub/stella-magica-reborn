@@ -1,0 +1,59 @@
+﻿l_english:
+ # ===== To the Stars content (inspired by Hieronym's "To the Stars") =====
+
+ # --- Civics ---
+ civic_tts_governance:0 "Governance"
+ civic_tts_governance_desc:0 "Elected representatives and advisory intelligences govern side by side. Every major decision is deliberated in the open, its reasoning published for any citizen to read, and its outcomes measured against what was promised."
+ civic_tooltip_tts_governance_effects:0 "§YAI-advised deliberation§! makes the bureaucracy unusually efficient and the population unusually confident in it."
+ civic_tts_msy:0 "Mahou Shoujo Yuuzuu"
+ civic_tts_msy_desc:0 "The MSY began as a handful of magical girls agreeing to share their grief cubes. It grew into a society of its own, with treasuries, schools and representatives, all built on one promise: no girl faces the dark alone."
+ civic_tooltip_tts_msy_effects:0 "Requires §YMagical Legacy§!. Unlocks the §YMSY Regional Office§!."
+
+ # --- Technologies ---
+ tech_tts_cortical_implants:0 "Cortical Implants"
+ tech_tts_cortical_implants_desc:0 "A thread-thin neural interface that lets the mind query the network as easily as it recalls a memory. Within a generation, nobody remembers how people learned anything without one."
+ tech_tts_taccomp:0 "Tactical Computers"
+ tech_tts_taccomp_desc:0 "The TacComp: an implanted assistant intelligence that tracks threats, plots firing solutions and quietly suggests that perhaps its host should duck. Soldiers and magical girls alike learn to trust the voice in their head."
+ tech_tts_msy_logistics:0 "MSY Logistics"
+ tech_tts_msy_logistics_desc:0 "Grief cubes go where they are needed, not where they happen to be found. The MSY's distribution network turns a scramble for survival into an orderly, accountable system."
+ tech_tts_magops_doctrine:0 "MagOps Doctrine"
+ tech_tts_magops_doctrine_desc:0 "Magical Operations: magical girl squads formally integrated into the military chain of command, with TacComp coordination, cube resupply and a doctrine built around powers no ordinary soldier possesses."
+
+ # --- Buildings and jobs ---
+ building_tts_msy_office:0 "MSY Regional Office"
+ building_tts_msy_office_desc:0 "Part treasury, part clinic, part clubhouse. The local magical girls come here to collect their cube allotments, file their witch-hunt reports and, sometimes, simply not be alone."
+ job_tts_msy_liaison:0 "MSY Liaison"
+ job_tts_msy_liaison_plural:0 "MSY Liaisons"
+ mod_job_tts_msy_liaison_add:0 "$job_tts_msy_liaison$ Jobs"
+ job_tts_msy_liaison_desc:0 "Liaisons keep the cube ledgers honest and translate between the magical girls and the planetary authorities, who are still not entirely sure what to make of each other."
+
+ # --- Armies ---
+ tts_magops_army:0 "MagOps Squad"
+ tts_magops_army_plural:0 "MagOps Squads"
+ tts_magops_army_desc:0 "A handful of magical girls with TacComps, cube reserves and a teleporter on call. Enemy commanders tend to discover them shortly before they discover nothing at all."
+
+ # --- Leader traits ---
+ leader_trait_tts_taccomp:0 "TacComp"
+ leader_trait_tts_taccomp_desc:0 "This leader's implanted tactical computer calculates firing solutions faster than any human could."
+ leader_trait_tts_teleporter:0 "Teleporter"
+ leader_trait_tts_teleporter_desc:0 "A magical girl who can step across space at will, and who has learned to bring a fleet's worth of momentum with her."
+ leader_trait_tts_clairvoyant:0 "Clairvoyant"
+ leader_trait_tts_clairvoyant_desc:0 "Her soul gem glows faintly whenever something interesting lies just past the sensor horizon."
+ leader_trait_tts_healer:0 "Healer"
+ leader_trait_tts_healer_desc:0 "She wished for others to be well, and somehow the whole colony has felt better ever since she arrived."
+ leader_trait_tts_msy_veteran:0 "MSY Veteran"
+ leader_trait_tts_msy_veteran_desc:0 "Decades of balancing cube ledgers and keeping girls alive have made this leader indispensable to the mutual aid society."
+
+ # --- Events: institutions ---
+ stella_tts_inst.1.name:0 "The MSY Charter"
+ stella_tts_inst.1.desc:0 "The founders of the Mahou Shoujo Yuuzuu sign their charter in a borrowed meeting room, with a box of grief cubes on the table between them. The rules are simple. Cubes are shared. Reports are honest. Nobody is abandoned to despair.\n\nIt is a small beginning, but every one of them remembers what it was like to fight alone."
+ stella_tts_inst.1.a:0 "No girl faces the dark alone."
+ stella_tts_inst.2.name:0 "Governance Convenes"
+ stella_tts_inst.2.desc:0 "The first full session of Governance opens without ceremony. Human representatives take their seats; advisory intelligences take theirs, in a manner of speaking. The agenda, the deliberations and the dissenting opinions are all published as they happen.\n\nA commentator remarks that it is the most boring revolution in history. Governance takes it as a compliment."
+ stella_tts_inst.2.a:0 "Let the deliberations begin."
+ stella_tts_inst.3.name:0 "TacComp Deployment"
+ stella_tts_inst.3.desc:0 "The first tactical computers roll out to our commanders. Early reports describe the experience as \"having a very polite, very fast second officer living behind your left eye.\" One admiral complains that hers keeps pointing out her mistakes. Her gunnery scores, it must be said, have never been better."
+ stella_tts_inst.3.a:0 "Install it in our best commander first."
+ stella_tts_inst.4.name:0 "The First MagOps Squad"
+ stella_tts_inst.4.desc:0 "With MagOps doctrine approved, the military calls for volunteers. The first to step forward is a teleporter who arrives at the recruitment office by appearing inside it, slightly out of breath, and apologizes for not using the door.\n\nShe will lead the first squad."
+ stella_tts_inst.4.a:0 "Welcome to MagOps."

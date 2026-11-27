@@ -9,24 +9,27 @@ Names and concepts come from the story; all text is new. Where the fic's details
 the content makes its own choices. Every TtS object uses the `tts_` prefix (events use the
 `stella_tts_*` namespaces) so it is easy to find and can't collide with the original mod.
 
-## Waves
+## What's in the mod
 
-Each wave is added, validated (`tools/validate.py`), load-tested in game
-(`tools/ingame_test.py`), committed and pushed before the next one starts.
+| Wave | Content | In-game load test |
+|---|---|---|
+| 1. Institutions | civics Governance and Mahou Shoujo Yuuzuu, techs Cortical Implants, TacComp, MSY Logistics and MagOps Doctrine, MSY Regional Office and MSY Liaison job, MagOps Squad army, leader traits TacComp, Teleporter, Clairvoyant, Healer and MSY Veteran, founding events | passed |
+| 2. The Cephalopod War | a silent mid-game alien invader: mothership and raiding swarms, reinforcement cycle, victory, wreck study, Cephalopod Analysis tech | pending |
+| 3. Contracts and wishes | periodic contracts with four wishes (prosperity, healing, protection, knowledge); a wraith outbreak risk when grief cubes run out | pending |
+| 4. The Cult of Hope | civic, Theology of Hope tech, Church of Hope and Priest of Hope job, Priestess of Hope trait, visions of the Goddess; faith halves wraith risk | pending |
+| 5. Familiar faces | Shizuki Ryouko joins MagOps; her teleporter strike on the Cephalopod mothership; an MSY mentor | pending |
+| 6. Policy and society | Magical Girl Disclosure policy; Grief Cube Rationing and MSY Recruitment Drive edicts | pending |
+| 7. Ship components | TacComp Fire Control and Soul Gem Resonator; also a fix so the original magitech components work again | pending |
+| 8. Origin | The Unified Earth | pending |
 
-1. **Institutions.** The MSY (magical girl mutual aid, grief cube logistics) and Governance
-   (AI-advised representative government): civics, MSY office building and job, techs
-   (cortical implants, TacComp, MagOps doctrine), MagOps armies, and new magical girl leader traits.
-2. **The Cephalopod War.** A mid-game alien threat that attacks without warning or
-   communication. It brings raids, a forward base to destroy, wreckage research, and rewards.
-3. **Contracts and wishes.** Magical-legacy empires periodically see girls contract with the
-   Incubators. Each wish is a choice with lasting consequences, and some produce leaders.
-4. **The Cult of Hope.** A faith in the Goddess (the Law of Cycles): civic, church building and
-   job, and events.
-5. **Familiar faces.** Story events with Tomoe Mami, Sakura Kyouko, Akemi Homura, Chitose Yuma
-   and the original character Shizuki Ryouko, using the mod's existing portraits where they exist.
-6. **Policy and society.** Public disclosure of magical girls, grief cube rationing edicts,
-   council agendas and situations.
+Every wave passed `tools/validate.py` and `tools/test_validator.py` before it was committed.
+
+## Ideas for later waves
+
+- Situations (4.x): a grief cube shortage track with escalating consequences.
+- A MagOps tradition tree or ascension perk. Needs icon art.
+- Incubator diplomacy events for empires that meet the Incubators prescripted empire.
+- More Cephalopod War events: refugees, captured technology, a second invasion wave.
 
 ## Testing
 

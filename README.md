@@ -67,6 +67,21 @@ Every porting change is marked in the files with a `# PORT` comment explaining w
 - `common/species_name/` was never loaded, even in 2.2, and the author's comment
   says it isn't needed. It is left as-is.
 
+## New content: To the Stars
+
+Beyond the port, the mod adds new content inspired by Hieronym's Madoka Magica fanfic
+*To the Stars*: the MSY and Governance, the Cephalopod War, contracts and wishes, the Cult of
+Hope, Shizuki Ryouko, a disclosure policy, new ship components and an origin. All of it uses the
+`tts_` prefix. See [docs/TTS_CONTENT.md](docs/TTS_CONTENT.md).
+
+## Tests
+
+- `python -I tools/validate.py`: static checks (parsing, encoding, references, modifiers,
+  localisation, ship designs, assets).
+- `python -I tools/test_validator.py`: proves the validator still catches seeded mistakes.
+- `python -I tools/ingame_test.py`: loads the mod on vanilla Stellaris and fails on any new
+  error or crash. Close the game first.
+
 ## Compatibility
 
 Tested in an 80-mod playset that includes Gigastructures, NSC3, UI Overhaul Dynamic,

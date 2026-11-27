@@ -4,6 +4,7 @@ on_game_start_country = {
 	events = {
 		stella_tts_inst.1
 		stella_tts_inst.2
+		stella_tts_inst.5
 	}
 }
 

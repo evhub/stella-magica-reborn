@@ -151,3 +151,7 @@
  TTS_TACCOMP_FIRE_CONTROL_DESC:0 "Networks the ship's guns into the crew's tactical computers, which share firing solutions faster than any human gunner could."
  TTS_SOUL_GEM_RESONATOR:0 "Soul Gem Resonator"
  TTS_SOUL_GEM_RESONATOR_DESC:0 "A cube-fed crystal lattice that echoes a magical girl's barrier magic across the hull. Nobody fully understands why it works. The MSY prefers not to discuss where the cubes go."
+ # --- Origin ---
+ origin_tts_unified_earth:0 "The Unified Earth"
+ origin_tts_unified_earth_desc:0 "Our homeworld's last great war ended not in conquest but in a promise: one government for everyone, advised by the intelligences we built and answerable to all of us. The scars of that war are remembered, and so is what it took to end it."
+ origin_tooltip_tts_unified_earth_effects:0 "Start with §YCortical Implants§! researched."

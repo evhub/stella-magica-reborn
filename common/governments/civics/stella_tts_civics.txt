@@ -86,3 +86,26 @@ civic_tts_cult_of_hope = {
 		planet_stability_add = 2
 	}
 }
+
+# Origin: The Unified Earth. Humanity ended its wars by building something better: one
+# government, advised by its own creations, answerable to everyone.
+origin_tts_unified_earth = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_golden_generation.dds"
+	picture = GFX_evt_metropolis
+	description = origin_tooltip_tts_unified_earth_effects
+
+	potential = {
+		always = yes
+	}
+	possible = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+	}
+
+	random_weight = { base = 2 }
+
+	modifier = {
+		country_unity_produces_mult = 0.05
+		army_damage_mult = 0.10
+	}
+}

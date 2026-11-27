@@ -118,3 +118,19 @@ country_event = {
 		}
 	}
 }
+
+# The Unified Earth origin starts with cortical implants already in everyday use.
+country_event = {
+	id = stella_tts_inst.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = origin_tts_unified_earth
+		NOT = { has_technology = tech_tts_cortical_implants }
+	}
+
+	immediate = {
+		give_technology = { tech = tech_tts_cortical_implants }
+	}
+}

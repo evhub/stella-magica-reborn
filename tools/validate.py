@@ -420,6 +420,11 @@ def check_loc(ctx: Ctx):
                 continue
             for k in keys(n.key):
                 need(k, f'{rp}:{n.line}', folder.split('/')[-1])
+    # civics/origins: custom effect description key
+    for rp, n in mod_objects(ctx, 'common/governments/civics'):
+        d = n.scalar('description')
+        if d:
+            need(d, f'{rp}:{n.line}', 'civic description')
     # policy options: name and name_desc
     for rp, n in mod_objects(ctx, 'common/policies'):
         for opt in n.get_all('option'):

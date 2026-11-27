@@ -1,0 +1,188 @@
+#Stella Magica X-Slot Weapons
+
+
+
+#Missile Barrage System
+weapon_component_template = {
+	key = "STELLA_BARRAGE_1"
+	size = extra_large
+	entity = "invisible_turret_entity"
+	type = missile
+	
+	damage = { min = 800 max = 1700 }
+	windup = { min = 2 max = 20 }
+	total_fire_time = 85
+	range = 170
+	accuracy = 1.0
+	missile_speed = 20
+	missile_evasion = 0.1
+	missile_health = 65
+	missile_retarget_range = 120
+	power = -40
+	
+	#tracking = .2
+	shield_damage = 1.0
+	shield_penetration = 1.0
+	armor_damage = 1.0
+	armor_penetration = 0.0
+	hull_damage = 1.25
+	
+	icon = "gfx_stella_barrage_1"
+	icon_frame = 1
+	
+	firing_arc = 45.0
+	min_range = 10.0
+	static_rotation = no
+	
+	
+	prerequisites = { "stella_tech_barrage_1" }
+	component_set = "STELLA_BARRAGE_1"
+	projectile_gfx = "swarmer_missiles_02"
+	tags = { weapon_type_explosive }
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
+	upgrades_to = "STELLA_BARRAGE_2"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @xl_t5_cost
+			volatile_motes = @xl_t5_rare
+		}		
+		upkeep = {
+			energy = @xl_t5_upkeep_energy
+			alloys = @xl_t5_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = volatile_motes value <= 0 }
+		}
+	}
+}
+
+weapon_component_template = {
+	key = "STELLA_BARRAGE_2"
+	size = extra_large
+	entity = "invisible_turret_entity"
+	type = missile
+	
+	damage = { min = 1000 max = 2200 }
+	windup = { min = 2 max = 20 }
+	total_fire_time = 85
+	range = 180
+	accuracy = 1.0
+	missile_speed = 20
+	missile_evasion = 0.1
+	missile_health = 70
+	missile_retarget_range = 120
+	power = -45
+
+	#tracking = .2
+	shield_damage = 1.0
+	shield_penetration = 1.0
+	armor_damage = 1.0
+	armor_penetration = 0.0
+	hull_damage = 1.25
+	
+	icon = "gfx_stella_barrage_2"
+	icon_frame = 1
+	
+	firing_arc = 45.0
+	min_range = 10.0
+	static_rotation = no
+	
+	
+	prerequisites = { "stella_tech_barrage_2" }
+	component_set = "STELLA_BARRAGE_2"
+	projectile_gfx = "swarmer_missiles_02"
+	tags = { weapon_type_explosive }
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
+	upgrades_to = "STELLA_BARRAGE_3"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @xl_t6_cost
+			volatile_motes = @xl_t6_rare
+		}		
+		upkeep = {
+			energy = @xl_t6_upkeep_energy
+			alloys = @xl_t6_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = volatile_motes value <= 0 }
+		}
+	}
+}
+
+weapon_component_template = {
+	key = "STELLA_BARRAGE_3"
+	size = extra_large
+	entity = "invisible_turret_entity"
+	type = missile
+	
+	damage = { min = 1200 max = 2700 }
+	windup = { min = 2 max = 20 }
+	total_fire_time = 85
+	range = 190
+	accuracy = 1.0
+	missile_speed = 20
+	missile_evasion = 0.1
+	missile_health = 75
+	missile_retarget_range = 120
+	power = -50
+
+	#tracking = .2
+	shield_damage = 1.0
+	shield_penetration = 1.0
+	armor_damage = 1.0
+	armor_penetration = 0.0
+	hull_damage = 1.25
+	
+	icon = "gfx_stella_barrage_3"
+	icon_frame = 1
+	
+	firing_arc = 45.0
+	min_range = 10.0
+	static_rotation = no
+	
+	
+	prerequisites = { "stella_tech_barrage_3" }
+	component_set = "STELLA_BARRAGE_3"
+	projectile_gfx = "swarmer_missiles_02"
+	tags = { weapon_type_explosive }
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 260
+			volatile_motes = 4.5
+			stella_grief_cube = 8
+			
+		}		
+		upkeep = {
+			energy = @xl_t6_upkeep_energy
+			alloys = @xl_t6_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			OR = {
+			has_monthly_income = { resource = volatile_motes value <= 0 }
+			has_monthly_income = { resource = stella_grief_cube value <= 0 }
+			}
+		}
+	}
+}

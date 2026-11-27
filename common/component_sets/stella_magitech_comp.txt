@@ -1,0 +1,37 @@
+#Stella Magitech Component Sets
+
+component_set = {
+	key = "STELLA_MAGIC_AMMO"
+	icon = "gfx_stella_magic_ammo"
+	icon_frame = 1
+}
+
+component_set = {
+	key = "STELLA_MAGIC_CAP"
+	icon = "gfx_stella_magic_cap"
+	icon_frame = 1
+}
+
+component_set = {
+	key = "STELLA_MAGIC_EXPLOSIVES"
+	icon = "gfx_stella_magic_explosives"
+	icon_frame = 1
+}
+
+component_set = {
+	key = "STELLA_MAGIC_ARMOR"
+	icon = "gfx_stella_magic_armor"
+	icon_frame = 1
+}
+
+component_set = {
+	key = "STELLA_SEMIFLUID_ARMOR"
+	icon = "gfx_stella_semifluid"
+	icon_frame = 1
+}
+
+component_set = {
+	key = "STELLA_MAGIC_COOLANT"
+	icon = "gfx_stella_magic_coolant"
+	icon_frame = 1
+}

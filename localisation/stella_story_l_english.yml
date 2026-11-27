@@ -1,0 +1,575 @@
+﻿l_english:
+
+#Localisation for:
+#Species, traits, civics, and story events
+###########
+#Species
+###########
+PuellaMagi:0 "Puella Magi"
+PuellaMagi_Desc:0 "Girls who have been granted immense magical power and contracted to fight wraiths in exchange for a single wish"
+PuellaMagi:0 "Puella Magi"
+PuellaMagi_insult_01:0 "witch"
+PuellaMagi_insult_plural_01:0 "witches"
+PuellaMagi_compliment_01:0 "mage"
+PuellaMagi_compliment_plural_01:0 "mages"
+PuellaMagi_spawn:0 "madien"
+PuellaMagi_spawn_plural:0 "madiens"
+PuellaMagi_sound_01:0 "talking"
+PuellaMagi_sound_02:0 "speaking"
+PuellaMagi_sound_03:0 "babbling"
+PuellaMagi_sound_04:0 "conversing"
+PuellaMagi_sound_05:0 "chanting"
+PuellaMagi_organ:0 "Soul Gem"
+PuellaMagi_mouth:0 "mouth"
+
+###########
+#Traits
+###########
+#General Traits
+trait_magi:0 "Puella Magi"
+trait_magi_desc:0 "This species posseses the ability to magically bend reality itself to their will"
+leader_trait_scientist_magi:0 "Puella Magi"
+leader_trait_scientist_magi_desc:0 "This leader's magical capabilites greatly aids research"
+leader_trait_admiral_magi:0 "Puella Magi"
+leader_trait_admiral_magi_desc:0 "A powerful mage makes a power fleet commander too"
+leader_trait_governor_magi:0 "Puella Magi"
+leader_trait_governor_magi_desc:0 "Magic makes the management of planetary infrastructure much easier"
+leader_trait_general_magi:0 "Puella Magi"
+leader_trait_general_magi_desc:0 "This leader's arcane abilities makes them a destructive presence on the battlefield"
+leader_trait_ruler_magi:0 "Puella Magi"
+leader_trait_ruler_magi_desc:0 "Who better to lead than a powerful magical girl?"
+#Character specific traits
+leader_trait_trio_finish:0 "§YTrio Finale§!"
+leader_trait_trio_finish_desc:0 "\"I'm not scared of anything anymore\""
+leader_trait_the_ribbon:0 "§RVisionary§!"
+leader_trait_the_ribbon_desc:0 "This leader's occasionally recieves visions of both past and future"
+leader_trait_carefree_demeanor:0 "§GCarefree Demeanor§!"
+leader_trait_carefree_demeanor_desc:0 "This leader's cutesy behavior seems to put people at ease"
+leader_trait_maxwells_demon:0 "§MMaxwell's Demon§!"
+leader_trait_maxwells_demon_desc:0 "\"I suppose, if anything, you could call me a demon now\""
+leader_trait_champion_justice:0 "§BChampion of Justice§!"
+leader_trait_champion_justice_desc:0 "A hero fights for what is right"
+leader_trait_goddess_hope:0 "§PGoddess of Salvation§!"
+leader_trait_goddess_hope_desc:0 "\"Everyone, believe in the power that fulfills hopes and dreams!\""
+leader_trait_goddess_redux:0 "§PGoddess of Salvation§!"
+leader_trait_goddess_redux_desc:0 "\"If someone ever tells me it's a mistake to have hope, I'll just tell them they're wrong\""
+
+
+###########
+#Modifiers (mostly Madoka's blessings)
+###########
+mod_damage_vs_country_type_stella_fervent_mult:0 "Damage to the Fervent"
+recent_madoka_favor:0 "Recent Favor"
+recent_madoka_favor_desc:0 "Recently recieved a favour from Madoka"
+stella_goddess_smile:0 "A Goddess' Smile"
+stella_goddess_smile_desc:0 "Everyone's day seems to be ever so slightly brighter."
+stella_goddess_insight:0 "A Goddess' Insight"
+stella_goddess_insight_desc:0 "Technological breakthroughs come ever so slightly easier."
+stella_goddess_teachings:0 "A Goddess' Teachings"
+stella_goddess_teachings_desc:0 "New knowledge is learned ever so slightly quicker."
+stella_goddess_encourage:0 "A Goddess' Encouragement"
+stella_goddess_encourage_desc:0 "Difficult work seems to be ever so slightly easier."
+
+stella_goddess_might:0 "A Goddess' Might"
+stella_goddess_might_desc:0 "Weapons seem to strike ever so slightly harder."
+stella_goddess_guidance:0 "A Goddess' Guidance"
+stella_goddess_guidance_desc:0 "Projectiles seem to fly ever so slightly truer."
+stella_goddess_protection:0 "A Goddess' Protection"
+stella_goddess_guidance_protection:0 "Incoming fire seems to impact ever so slightly softer."
+
+mod_country_stella_grief_cube_produces_mult:0 "Monthly Grief Cubes"
+###########
+#Civics
+###########
+civic_magical_legacy:0 "Magical Legacy"
+civic_magical_legacy_desc:0 "Whether they knew it or not, magic has always played a roll in this species development"
+civic_hive_entropic_wardens:0 "Entropic Wardens"
+civic_hive_entropic_wardens_desc: "The Hive Mind has seen a cold and bleak future of infinite darkness. It must be prevented at all costs."
+civic_tooltip_entropic_wardens_effects:0 "Allows contracting memebers of other species to stave off entropy."
+
+###########
+#Ascension Perks
+###########
+ap_stella_magitech_perk:0 "Demimagical Technology"
+ap_stella_magitech_perk_desc:0 "Imagine needing an ascension perk to use magitech. \nThis localisation was brought to you by the Magical Girl gang."
+stella_magitech_perk_disabled:0 "Demimagical Technology disabled in settings!"
+stella_magitech_perk_disabled_ai:0 "Perk disabled for AI. How can you see this anyways? Are you secretly a robot?"
+stella_magitech_perk_enabled:0 "New fantasical technologies are now within our grasp!"
+
+###########
+#Special Projects
+###########
+CONTACT_MAGI:0 "Inside Contact"
+CONTACT_MAGI_DESC:0 "We do not know what the Magical Girls want, but it is prudent that we find out."
+TRACING_HOMU_TRAIL:0 "Tracing the Particle Trail"
+TRACING_HOMU_TRAIL_DESC:0 "Our prototype FTL drives left a distinctive and long lasting trail. By following one, we may be able to discover where Homura went"
+INVESTIGATE_HOMU_PROBE:0 "Investigate Derelict Probe"
+INVESTIGATE_HOMU_PROBE_DESC:0 "We did not find Homura, but we did locate a old model probe of ours. It is possible that she was the one that launched it."
+CONTINUE_STELLA_STORY:0 "Consult Homura"
+CONTINUE_STELLA_STORY_DESC:0 "Homura said she has information on the Goddess. We should ask about that. \n\n(This will continue the story)."
+STELLA_TOMB_WORLD:0 "Forgotten"
+STELLA_TOMB_WORLD_DESC:0 "This world appears to have once hosted a thriving civilization on the cusp of discovering the technology needed interstellar travel. However, something suddenly destroyed them all, leaving nothing but ash and fallout."
+STELLA_RING_WORLD:0 "Ancient Ringworld"
+STELLA_RING_WORLD_DESC:0 "Long ago, titanic construct was the home of an ancient and highly advanced alien civilization. Now, all thats left are silent ruins. Who, or what, brought upon their end?"
+STELLA_DIM_RESEARCH_1:0 "Dimensional Analysis"
+STELLA_DIM_RESEARCH_1_DESC:0 "All thats left to is to make sense of all the data we have gathered."
+STELLA_DIM_RESEARCH_2:0 "Dimensonal Studies"
+STELLA_DIM_RESEARCH_2_DESC:0 "Devoting more of our physics department to researching the dimensonal data should greatly accelerate the task."
+STELLA_BLACK_HOLE_PROJECT:0 "Become as Gods"
+STELLA_BLACK_HOLE_PROJECT_DESC:0 "By utilising the anomaly inside the Oblivion black hole, we could broadcast a message across dimensions and contact the Goddess. It may be wise to station a sizable fleet with the science ship in the unlikely event that something goes very wrong."
+
+###########
+#Tech Events
+###########
+stella_debug.3.title:0 "Theory of Grief"
+stella_debug.3.desc:0 "The malevolent beings fought by magical girls are typically known as \"Wraiths\". These shadowy creatures are apparently formed from negative emotions, and leave behind a condensation of those energies when destroyed - £stella_grief_cube£Grief Cubes. In addition, these cubes are what powers the reality defying powers of the Magi, making hunting wraiths a everyday part of their activities."
+stella_debug.4.title:0 "Magitechincal Revolution"
+stella_debug.4.desc:0 "According to the Incubators, the average [Root.GetSpeciesName] has enhough magical potential to perform a few basic party tricks. However, if we are to intergrate magic into the production of certain products, we may be able to indirectly bring the power to magic to the masses."
+stella_debug.5.title:0 "Cubes of Shadows"
+stella_debug.5.desc:0 "By condensing energy in the presence of certain exotic particles, our scientists have been able to form strange dark fragments. Some are refering to them as £stella_grief_cube£Grief Cubes due to their tendency to cause anxiety and headaches in those that spend long periods of time near them. \n\nFurther research could allow us to find a practical use for them."
+
+stella_debug.7.title:0 "Theory of Grief"
+stella_debug.7.desc:0 "A few deviant drones seem to exhibit what can only be described \"Negative Emotions\". These illogical processes result in the generation of shadowy beings and small fragments of darkness - £stella_grief_cube£\"Grief Cubes\". Perhaps by exploting an alien species that naturally exhibits emotion, we may gather more of them."
+stella_debug.8.title:0 "Magitechincal Developments"
+stella_debug.8.desc:0 "While £stella_grief_cube£Grief Cubes are largely reserved for fighting entropy, some may be spared to develop new technologies to aid in defense of the Mind. After all, if we are destroyed, there we be no one left to stand aganist the infinite darkness."
+
+###########
+#Events Chains
+###########
+chasing_shadows_chain_title:0 "Chasing Shadows"
+chasing_shadows_chain_desc:0 "Homura Akemi. Pherhaps the most powerful magical girl to ever live. Years ago, she disappeared into deep space in search of her Goddess, leaving behind only a glowing pink ribbon"
+chasing_shadows_1_poi:0 "Particle Trail Endpoint"
+chasing_shadows_1_poi_desc:0 "A faint trail of energetic particles leads to this system"
+chasing_shadows_2_poi:0 "Second Trail Endpoint"
+chasing_shadows_2_poi_desc:0 "Homura's trail continues to this star system"
+chasing_shadows_3_poi:0 "Emergency FTL Destination"
+chasing_shadows_3_poi_desc:0 "It appears the §PHopeful Dawn§! made a hurried escape to this system after its encounter with the rogue drone fleet"
+
+between_dims_chain_title:0 "Between Dimensions"
+between_dims_chain_desc: "To think that the Goddess, an omniscient entity of unimaginable power, used to be a [Root.GetSpeciesName] girl. Not only that, but Homura believes with the right technology, we can pierce the very fabric of reality itself and communicate directly with her. "
+between_dims_1_poi:0 "First System"
+between_dims_1_poi_desc:0 "This system apparently hosts the ruins of an acient civilization"
+between_dims_2_poi: "Second System"
+between_dims_2_poi_desc:0 "Long ago, a highly advanced species built an enormous structure in this system."
+between_dims_3_poi: "Final System"
+between_dims_3_poi_desc:0 "This black hole system has a dark and forboding atmosphere around it."
+
+stella_apotheosis_chain_title:0 "Apotheosis"
+stella_apotheosis_chain_desc:0 "With our newfound knowledge on the nature of reality itself, it may be possible to contact the Goddess, even if she exsists beyond our dimension."
+
+stella_crisis_chain_title:0 "Hope within Despair"
+stella_crisis_chain_desc:0 "We were stupid, so stupid. Our hubris drove us to play with the fabric of reality itself, despite the evidence that doing so only results in dire consquences. Now we are being invaded by beings from another dimension, threatening to plunge the galaxy into darkness."
+fervent_portal_1_poi:0 "Fervent Portal"
+fervent_portal_1_poi_desc:0 "The strange energy beings known as the Fervent access our dimension through this portal. While it is heavily guarded, destroying it would mean stopping them once and for all."
+
+stella_invaders_chain_title:0 "The Fervent"
+stella_invaders_chain_desc:0 "The Galaxy is under attack from creatures of another dimension. These strange beings are made purely from energy and cannot be reasoned with, and they will stop at nothing to consume our universe."
+fervent_portal_2_poi:0 "Fervent Portal"
+fervent_portal_2_poi_desc:0 "The strange energy beings known as the Fervent enter our dimension via this portal. While it is heavily guarded, destroying it would mean stopping them once and for all."
+###########
+#Events
+###########
+stella_debug.1.name:0 "Debug..."
+stella_debug.1.desc:0 "Some leaders, in theory, should of spawned"
+
+stella_debug.2.name:0 "Options..."
+stella_debug.2.desc:0 "Would you like to allow taking the §YDemimagical Technology§! ascension perk? (default: yes) \n\nKeep in mind that non-magical empires require this perk to develop any magitech."
+stella_debug.2.op1:0 "Yes"
+stella_debug.2.op2:0 "For non-AI players only"
+stella_debug.2.op3:0 "No"
+
+stella_debug.2.op1.tooltip:0 "This will §Genable§! the perk for all players."
+stella_debug.2.op2.tooltip:0 "This will §Genable§! the perk for all human players, but not the AI."
+stella_debug.2.op3.tooltip:0 "This will §Pdisable§! the perk for all players."
+
+
+
+
+
+
+stella_story.1.name:0 "The Broken Veil"
+stella_story.1.desc:0 "As our species takes §Yto the stars§!, a more shocking revalation from home: Puella Magi. Mahou Shojou. Magical Girls. Not much is known about them or their agenda, so it would be highly advisable to open diplomatic channels with them."
+stella_story.1.op1:0 "Establish contact ASAP"
+stella_story.1.op2:0 "Remain cautious"
+
+stella_story.2.name:0 "The Representatives"
+stella_story.2.desc:0 "Three young girls represeting the Magi leadership have arrived at the capital. They claim that they only wish to cooperate with our government and mean the nonmagical population no harm. As a show of goodwill, the three have offered to work for us as leaders as well as ambassadors between our two groups."
+stella_story.2.op1:0 "It's good to have strong allies"
+stella_story.2.op2:0 "Keep an eye on them"
+
+stella_story.3.name:0 "But There Were Four"
+stella_story.3.desc:0 "Sakura relates a story of how their group once had a fourth girl. One Homura Akemi, who apparently used her magical abilites to break into a spaceport and commander the prototype FTL vessel §PHopeful Dawn§!. The ship was orginally written off as lost due to a faulty docking port. She then flew off into the unknown in order to search for someone she only refered to as \"The Goddess\", leaving behind only a mystical pink ribbon. Sakura has requested that we try to follow the particle trail of her lost friend's ship."
+stella_story.3.op1:0 "She couldn't of gone too far"
+
+stella_story.4.name:0 "Particle Trails"
+stella_story.4.desc:0 "After much searching, our scientists have located a faint trail of high energy particles along the hyperlane to a nearby system. This is our best lead on where Homura has went"
+stella_story.4.op1:0 "Excellent"
+
+stella_story.6.name:0 "Derelict Probe"
+stella_story.6.desc:0 "A science ship has entered the system where Homura's trail leads. While there is no sign of her or her stolen ship, a old survey probe floats silently in the void"
+stella_story.6.op1:0 "Investigate"
+
+stella_story.7.name:0 "Probe Recovered"
+stella_story.7.desc:0 "The battered probe found floating space has been indentifed as one orginally carried on the §PHopeful Dawn§!. It was certainly launched a long time ago, but it's impossible to tell exactly when. However exposure to solar radiation and micrometeors has left the probe's storage drives, including all of it's survey data and logs, completely destroyed."
+stella_story.7.op1:0 "Unfortunate"
+
+stella_story.8.name:0 "The Search Continues"
+stella_story.8.desc:0 "The crew aboard the science ship tasked with retrieving the lost probe has also located another trail of high energy particles, this time leading to a previously unknown system."
+stella_story.8.op1:0 "Onwards!"
+stella_story.8.op2:0 "We are getting closer"
+
+stella_story.10.name:0 "Hostiles Spotted"
+stella_story.10.desc:0 "Upon entering the traced system, our science ship has detected a fleet of combat drones of unknown origin. It would be wise to disable them before continuing."
+
+stella_story.11.name:0 "Drones Defeated"
+stella_story.11.desc:0 "A cursory examanation of the wrecks suggests that these drones were created thousands of years ago by a long dead civilization. Despite their age, they would of utterly destroyed the unarmed §PHopeful Dawn§!. Luckily, the lack of any other wrecks in the system suggests that Homura was able to flee in time. \n\nPherhaps most interestingly, some of the drone wrecks show damage reminsicent to that of primitive anti-armor and anti-air weaponary."
+stella_story.11.op1:0 "Excellent"
+
+stella_story.12.name:0 "3rd Particle Trail"
+stella_story.12.desc:0 "The §PHopeful Dawn§! made an paniced emergency FTL jump to escape the attacking drones. As the jump was not properly plotted, the ship would of likely ended up in an uncharted system. Luckily, the trail left by the hyperdrive has allowed us to locate it"
+stella_story.12.op1:0 "Forwards!"
+stella_story.12.op2:0 "How much longer will this take..."
+
+stella_story.14.name:0 "Crystalline Lifeforms"
+stella_story.14.desc:0 "A cursory scan of the Exsilium system reveals nothing our of the ordinary except for one very cold, but still habitable planet. However, a closer look reveals a swarm of crystal entities floating in that planet's orbit, almost as if they were guarding it."
+stella_story.14.op1:0 "Looks like we will have to fight"
+stella_story.14.op2:0 "They will not stop us"
+
+stella_story.15.name:0 "Crystals Shattered"
+stella_story.15.desc:0 "The sentient crystal swarm has been destroyed. Shards of their remains have been retrieved and sent to the scientific department."
+stella_story.15.op1:0 "Good work."
+
+stella_story.16.name:0 "Incoming Transmission"
+stella_story.16.desc:0 "We are being hailed from someone on the surface of the icy planet. In addition to somehow being able to access our ecrypted communications channels, they claim to be Akemi!"
+stella_story.16.op1:0 "Put her through."
+
+stella_story.17.name:0 "Transmission"
+stella_story.17.desc:0 "So you have finally arrived... I've been waiting on this frozen ball of ice for what seems forever..."
+stella_story.17.op1:0 "Homura Akemi?"
+stella_story.17.op1.response:0 "The one and the only."
+stella_story.17.op2:0 "How did you end up here?"
+stella_story.17.op2.response:0 "Just a few monthes into my journey I managed to run into not one, but two groups of hostile aliens. Just my luck... \n\nThe second time I was forced to crash land on this forsaken planet. But I couldn't give up hope, not until I found her."
+stella_story.17.op3:0 "How did you survive?"
+stella_story.17.op3.response:0 "After I crashed, most of the ship except for the purpulsion system was still intact. I managed to turn the ship in a makeshift shelter and grow food using seeds from the lab samples. As for grief cubes, it was a good thing I stocked up before hand."
+stella_story.17.op4:0 "How long have you been here?"
+stella_story.17.op4.response:0 "It's hard to say due to my... abilities, but it's probably been two or three years for me."
+stella_story.17.op5:0 "Why did you steal the §PHopeful Dawn§!?"
+
+
+stella_story.18.name:0 "Transmission"
+stella_story.18.desc:0 "I was foolish. I thought I could find the Goddess if I searched the galaxy. It was only recently that I realised I wouldn't find her, not in this dimension at least..."
+stella_story.18.op1:0 "This dimension?"
+stella_story.18.op1.response:0 "It's hard to explain."
+stella_story.18.op2:0 "The Goddess?"
+stella_story.18.op2.response:0 "That would take a loot of explaining."
+
+stella_story.19.name:0 "Transmission"
+stella_story.19.desc:0 "That would take a lot of explaining... \n\nWe should head back to civilization, it would be easier to talk there."
+stella_story.19.op1:0 "Welcome back"
+stella_story.19.op1.response:0 "Thank you."
+stella_story.19.op2:0 "You still owe us a science ship"
+stella_story.19.op2.response:0 "I'll see what I can do about that."
+
+stella_story.20.name:0 "The Return"
+stella_story.20.desc:0 "It would seem that the search for her had made Homura quite a celebrity, among both the magical and non-magical communities. People turned up in the millions to see her return to [Root.Capital.GetName]. In addition, she has offered her services as an admiral as long as we promise to help her search for her Goddess. \n\nYou can continue the storyline by contacting her via the situation log."
+stella_story.20.op1:0 "All's well that ends well"
+
+#Localisation for Act 2 below 
+stella_dim.1.name:0 "Conversation"
+stella_dim.1.desc:0 "The Goddess was once a [Root.GetSpeciesName] too. In fact, she was one of the few friends I had in this unforgiving world. The Incubators said that she had great magical potential, and were presistent in their attempts to get her to contract. I tired to stop them, but I failed..."
+stella_dim.1.op1:0 "Continue"
+stella_dim.1.op1.response:0 ""
+
+stella_dim.2.name:0 "Conversation"
+stella_dim.2.desc:0 "Her wish was to save us all from grief, but in exchange she sacrificed her very exsistence, and became what could only be described as a concept. But I know she is still out there. She might not be in this dimension, maybe not in any dimension, but I won't rest until I find her."
+stella_dim.2.op1:0 "..."
+stella_dim.2.op1.response:0 ""
+
+stella_dim.3.name:0 "Conversation"
+stella_dim.3.desc:0 "During my travels and exile I found a few solar systems where reality grows thin. Pherhaps if you gathered data from those locations, I could devise a way to contact the Goddess."
+stella_dim.3.op1:0 "We will do all we can"
+stella_dim.3.op1.response:0 "Thank you. I'll mark the first system on the map right now."
+stella_dim.3.op2:0 "It will be low on our priority list"
+stella_dim.3.op2.response:0 "I understand. My concerns are minor compared to that of a galaxy spanning empire."
+
+stella_dim.4.name:0 "The First System"
+stella_dim.4.desc:0 "The first system that Homura describes apparently contains the ruins of a long gone species. It is possible that whatever destroyed them still lingers."
+
+stella_dim.6.name:0 "Ruinous Energy"
+stella_dim.6.desc:0 "Not only does the first marked system contain a planet bearing the ruins of a destroyed civilization, but also a swarm of hostile energy entities!"
+
+stella_dim.7.name:0 "Energy Clouds Voided"
+stella_dim.7.desc:0 "With a final salvo from our warships' weapons, the last of the energy clouds dissapate into the ether. It should now be safe to investigate the tomb world they seem of have been guarding."
+
+stella_dim.8.name:0 "To Dust"
+stella_dim.8.desc:0 "The exploration team dispatched to the surface of Forgotten Grave was able to locate a destroyed research lab buried deep under the ruins of a city. According to documents recovered from within, one of the nation-states on the planet was attempting to develop wormhole generating technology in secret. However, a mishap somehow allowed the energy clouds seen in orbit to enter from another dimension. \n\nAll attempts to destroy them were unsuccessful, and as a last resort nuclear weapons were launched. Not only did this fail, but triggered a nuclear exchange that wiped out the rest of the planet as well."
+stella_dim.8.op1:0 "Harrowing"
+stella_dim.8.tooltip:0 "1/3 Dimensional Anomalies investigated"
+
+stella_dim.9.name:0 "Unknown Contact"
+stella_dim.9.desc:0 "As our science team prepares to depart the irradiated planet, they have been approached by an unknown indiviudal."
+stella_dim.9.op1:0 "Who are they?!"
+
+stella_dim.10.name:0 "Tomb World Contact"
+stella_dim.10.desc:0 "Woah! Woah! Hold up! Don't shoot, I'm friendly."
+stella_dim.10.op1:0 "Who are you?"
+stella_dim.10.op1.response:0 ""
+
+stella_dim.11.name:0 "Tomb World Contact"
+stella_dim.11.desc:0 "The name's Sayaka Miki. I used to be a [Root.GetSpeciesName] like you, but that was before I made a contract and became a magical girl. \n\nI was a little too rash, and lets just say I didn't last too long."
+stella_dim.11.op1:0 "Then how are you talking to us now?"
+stella_dim.11.op1.response:0 ""
+
+stella_dim.12.name:0 "Tomb World Contact"
+stella_dim.12.desc:0 "I'm definitely not a ghost, so I guess you could call me an angel? The Goddess sent me to help you all out. There are many tough fights ahead, and you'll need a good fighter if you want to win!"
+stella_dim.12.op1:0 "If you're good at fighting, then why did you die?"
+stella_dim.12.op1.response:0 ""
+
+stella_dim.13.name:0 "Tomb World Contact"
+stella_dim.13.desc:0 "Hey, don't change the topic! \n\nOne last thing, you wouldn't happen to know a red haired girl called Kyoko?"
+
+#Avalible if Kyoko is alive
+stella_dim.13.op1:0 "She happens to be one of our top scientists"
+stella_dim.13.op1.response:0 "Hah! I never would of thought she would turn out to be a huge nerd!"
+#Avalible if Kyoko isn't
+stella_dim.13.op2:0 "She was a scientist, but she perished in the line of duty"
+stella_dim.13.op2.response:0 "Kyoko's... dead?\n\nI might just have to call in a little favor."
+
+stella_dim.14.name:0 "And I'm Home"
+#Why is 2 before 1? I don't know.
+stella_dim.14.desc2:0 "Homura, despite being slightly annoyed at Sayaka's sudden appearance, has provided the coordinates for the next system. Long range scans show it contains a extreme large artifical construct of some sort."
+stella_dim.14.desc1:0 "Kyoko was quite surprised to see her old friend alive. \n\nHomura on the other hand, seemed to be a slightly annoyed that \"Blueberry\" has showed back up. Despite this, she has provided the location of the next system, which apparently contains a massive artifical strucutre of some kind."
+stella_dim.14.op1:0 "Forwards!"
+
+stella_dim.17.name:0 "The Second System"
+stella_dim.17.desc:0 "A truly stunning sight to behold. A massive band, millions of kilometers in diameter, encirles the system's star. Most of the ring has has suffered severe, if not irreparable, damage, but it still seems mostly strucutally sound. \n\nHowever, at the center of the system lies a strange energy signature unlike anything we have seen before."
+
+stella_dim.18.name:0 "Avatar Annhilinated"
+stella_dim.18.desc:0 "After withstanding a surprising amount of punishment, the strange being is destroyed. It emits a final burst of energy as it fades into nothingness."
+stella_dim.18.op1:0 "Excellent"
+
+stella_dim.19.name:0 "Critical Summoning Failure"
+stella_dim.19.desc:0 "It appears that this ringworld was built, and once inhabited by, a species with powerful psionic abilities. They would use this power to tap into an alternate plane of exsistence, which they refered to as The Shroud, to summon and bind beings to do their bidding. \n\nUnfournately, one of these rituals failed, unleashing a flood of Shroud entities into our dimension. Unable to stem the flow, the ring-builders were forced to flee the system."
+stella_dim.19.op1:0 "Terrifying"
+stella_dim.19.tooltip:0 "2/3 Dimensional Anomalies investigated"
+
+stella_dim.20.name:0 "The Final System"
+stella_dim.20.desc:0 "Fittingly, the last of the detected anomalies is inside of a black hole system. Homura says that there is something very wrong about the system. Extreme caution is advised."
+stella_dim.20.op1:0 "We are almost there"
+
+stella_dim.22.name:0 "Oblivion"
+stella_dim.22.desc:0 "At the center of the Oblivion system lies an eldirtch abomination, beyond the comprehension of mere mortals, slowly clawing its way from its dimension into ours. It must be destroyed."
+stella_dim.22.op1:0 ""
+
+stella_dim.23.name:0 "Horror Banished"
+stella_dim.23.desc:0 "The Witch is dead. The monster has been banished back from whatever plane of exsistance it came from, hopefully for good. The data gathered during the battle with the creature has provided a large amount of data on the nature of reality and dimensions."
+stella_dim.23.op1:0 "Excellent"
+stella_dim.23.tooltip:0 "3/3 Dimensional Anomalies investigated"
+
+stella_dim.24.name:0 "Data Gathered"
+stella_dim.24.desc:0 "We have gathered a large amount of data from the various dimensional anomalies. Now all that's left is to analyze it."
+
+#Act 3 events
+stella_apop.2.name:0 "Data analysed"
+stella_apop.2.desc:0 "Based on the gathered dimensional anomaly data, Homura has devised a interdimensional communications device. It is to tethered to a science ship and slowly lowered near the black hole at the center of the Oblivion system. By taking advantage the spatial anomaly there, it should be possible to broadcast a message to another dimension."
+stella_apop.2.op1:0 "Sounds risky"
+
+stella_apop.3.name:0 "Criticality"
+stella_apop.3.desc:0 "The Dimensonal Transceivier is working well, pherhaps a little too well. Our science ship is reporting high amounts of anomalous energy signals. \n\nThere is a point where we need to stop and we've clearly passed it."
+stella_apop.3.op1:0 "Shut it down now!"
+stella_apop.3.op2:0 "Let's keep going and see what happens."
+stella_apop.3.op1.tooltip:0 "This won't do anything too bad, but will allow you the \"Normal Ending\"."
+stella_apop.3.op2.tooltip:0 "This will trigger a midgame crisis, but allow you to go for the \"True Ending\"."
+
+stella_apop.4.name:0 "Incursion"
+stella_apop.4.desc:0 "The crew of the science ship quickly disables the Transciever, but it appears that we have attracted the attention of... something. A wormhole briefly forms on the edge of the system, letting out a fleet of unknown vessels before fading in a flash of light. They do not seem to be friendly."
+stella_apop.4.op1:0 "Get out of there!"
+
+stella_apop.6.name:0 "Invaders Repelled"
+stella_apop.6.desc:0 "As our warships' weapons fall silent, the last of the extradimensonal ships explode into a burst of exotic energies. It does not appear that any other hostiles came through the temporary portal. \n\n Suddenly, the flagship of [From.From.getname] reports that a figure has appeared on their bridge in a flash of pink light."
+stella_apop.6.op1:0 "Whats going on?"
+
+stella_apop.7.name:0 "???"
+stella_apop.7.desc:0 "It was a good thing you turned off that transmitter in time. It would of attracted a lot more of those creatures if you had kept it broadcasting."
+stella_apop.7.op1:0 "Hold up! Who are you?"
+stella_apop.7.op1.response:0 ""
+
+stella_apop.8.name:0 "The Goddess"
+stella_apop.8.desc:0 "Oh! I forgot to introduce myself! I'm the one that you might call the Goddess, but my friends just call me Madoka."
+stella_apop.8.op1:0 "You're her?!"
+stella_apop.8.op2:0 "..."
+stella_apop.8.op1.response:0 ""
+
+stella_apop.9.name:0 "The Goddess"
+stella_apop.9.desc:0 "Besides, what were you trying to do with that transmitter? Most people don't just broadcast messages through dimensions for fun you know."
+stella_apop.9.op1:0 "We were trying to contact you."
+stella_apop.9.op2:0 "Homura wanted to talk to you"
+stella_apop.9.op1.response:0 ""
+
+stella_apop.10.name:0 "The Goddess"
+stella_apop.10.desc:0 "You went through all of that trouble just to talk to me? You know that pink ribbon that I left behind. I meant to be a communications device of sorts. You knew that right?"
+stella_apop.10.op1:0 "Ribbon?"
+stella_apop.10.op1.response:0 ""
+
+stella_apop.11.name:0 "The Goddess"
+stella_apop.11.desc:0 "I knew Homura was dedicated, but I didn't expect so her convince every [Root.GetAdjective] to help her get a oppotunity to chat with me. She knows that pink ribbon she always carries around is a way to directly contact me right?"
+stella_apop.11.op1:0 "We were not aware"
+stella_apop.11.op1.response:0 ""
+
+stella_apop.12.name:0 "The Goddess"
+stella_apop.12.desc:0 "Anyways, I'll just add myself to your contact log over there. If any of you want to talk, you know where to find me."
+stella_apop.12.op1:0 "Thank You"
+stella_apop.12.op1.response:0 "Just don't go messing with reality again, ok?"
+
+stella_apop.13.name:0 "FIN"
+stella_apop.13.desc:0 "It's been centuries (well, a little over maybe 2), but Homura has finally found her Goddess. After spending years searching across space and time itself, and fighting numerous umimaginable monsters along the way, but she has finally be reunited with her long lost friend.  \n\n\nStella Magica - Normal Ending"
+stella_apop.13.op1:0 "The End?"
+
+#Events for the alternate route/Act 4
+stella_crisis.1.name:0 "Not Good"
+stella_crisis.1.desc:0 "The Dimensional Transciver shudders as if struck by something, and suddenly explodes in a flash of pink light. Moments later a similar pink flash appears aboard the orbiting science ship."
+stella_crisis.1.op1:0 "Whats going on?"
+
+stella_crisis.2.name:0 "???"
+stella_crisis.2.desc:0 "No no no no. This isn't good. I couldn't completely destroy the portal, but it could redirect it somewhere else."
+stella_crisis.2.op1:"Portal? Slow down? Who are you?"
+stella_crisis.2.op1.response:0 ""
+
+stella_crisis.3.name:0 "The Goddess"
+stella_crisis.3.desc:0 "Alright, first things first. I'm the one that you might call the Goddess, but my friends call me Madoka. \n\nWhatever you were doing, you got my attention. But you also got the attention of something else too."
+stella_crisis.3.op1:"Something else?"
+stella_crisis.3.op1.response:0 ""
+
+stella_crisis.4.name:0 "The Goddess"
+stella_crisis.4.desc:0 "You attracted some energy beings who invade other dimensions and consume the matter in them. They're a pretty nasty bunch. Now your dimension is next on the menu."
+stella_crisis.4.op1:0 "That can't be good"
+stella_crisis.4.op2:0 "..."
+stella_crisis.4.response:0 ""
+
+stella_crisis.5.name:0 "The Goddess"
+stella_crisis.5.desc:0 "I cannot interfere too much. The last universe I tried that in suffered some damage to reality itself. Trust me, that would be a lot worse than anyhing the extradimensionals could do. \n\nTell you what, I'll use this avatar to help you fight off the invaders. I've always wanted to try being a space admiral."
+stella_crisis.5.op1:0 "We would appreciate your help"
+stella_crisis.5.op2:0 "Thank You"
+stella_crisis.5.response:0 "Remember now matter how deep the darkness is, there will always be the light of hope."
+stella_crisis.5.tooltip:0 "Madoka added to the contact log"
+
+stella_crisis.7.name:0 "Energy Surge Detected"
+stella_crisis.7.desc:0 "A massive spike of energy has been detected in a far off system. Reports are coming in of a gigantic wormhole releaseing numerous glowing ships. These vessels have already begun attacking anything in sight, including unarmed trade vessels and mining stations."
+stella_crisis.7.op1:0 "So it begins"
+
+stella_crisis.9.name:0 "Sudden Energy Surge"
+stella_crisis.9.desc:0 "A massive spike of energy has been detected in a far off system. Reports are coming in of a gigantic wormhole releaseing numerous glowing ships. These vessels have already begun attacking anything in sight, including unarmed trade vessels and mining stations."
+stella_crisis.9.op1:0 "What's going on?"
+
+stella_crisis.10.name:0 "Incoming Transmission"
+stella_crisis.10.desc:0 "We have intercepted a garabled transmission emerging from the recently opened dimensional portal. It appears the extradimensional creatures are trying to communicate."
+stella_crisis.10.op1:0 "Bring it up"
+
+stella_crisis.11.name:0 "Portal Transmisssion"
+stella_crisis.11.desc:0 "... you call ... we Fervent ... we hunt ..."
+stella_crisis.11.op1:0 "What are these things?!"
+stella_crisis.11.op2:0 "You choose the wrong dimension to invade!"
+stella_crisis.11.response:0 "...you prey ... we consume ..."
+
+stella_crisis.12.name:0 "Fervent Portal Destroyed"
+stella_crisis.12.desc:0 "Our warships have succeded in storming and destroying the portal located in the [fervent_system.GetName] system. The loss of the portal has certainly greatly weakened the surviving Fervent, leaving them easy pickings for our fleets. We have finished what we have started, and hopefully the other empires never find out it was us that nearly doomed the galaxy."
+stella_crisis.12.op1:0 "The Galaxy is saved!"
+
+stella_crisis.13.name:0 "Fervent Portal Destroyed"
+stella_crisis.13.desc:0 "After a climatic battle in the [fervent_system.GetName] System, our warships have destroyed the portal that the Fervent use to enter our dimension. While we are not sure how the portal emerged in the first place, our theorists believe the invaders won't be able to reopen another one anytime soon. Furthermore, the servering of the connection to their home dimension should serverly weaken any remaining Fervent ships."
+stella_crisis.13.op1:0 "The Galaxy is saved!"
+
+stella_crisis.14.name:0 "Fervent Portal Destroyed"
+stella_crisis.14.desc:0 "The portal located in the [fervent_system.GetName] system has been destroyed. While we did not land the finishing blow on the Invaders, no doubt have we played a large part in their defeat. Any remaining Fervent vessels should be greatly weakened by the loss of the connection to their home dimension."
+stella_crisis.14.op1:0 "The Galaxy is a safer place"
+
+stella_crisis.15.name:0 "FIN"
+stella_crisis.15.desc:0 "Homura has searched across planets, solar systems, and even dimensions to find her Goddess. The Fervent were the latest on a long list of foes she had to overcome. As the presence of Madoka's avatar has not caused the failure of reality in our universe, she has decided to stay here with her friend for the forseeable future. Homura can finally say that she is reunited with Madoka.\n\nStella Magica - True Ending!"
+stella_crisis.15.op1:0 "The End."
+
+stella_crisis.901.name:0 "Dimming"
+stella_crisis.901.desc:0 "Some of our recon ships report that the glow of the Fervent invaders seem to have slighly dimmed. Perhaps staying in a foreign dimension for too long weakens them?"
+stella_crisis.901.op1:0 "Will this turn the tide?"
+
+stella_crisis.903.name:0 "Colony Lost"
+stella_crisis.903.desc1:0 "[Root.GetName] has been destroyed by the Fervent invaders. They consumed all everything on the planet, leaving behind only a desolate ball of rock."
+stella_crisis.903.desc2:0 "[Root.GetName] has been destroyed by the Fervent invaders. In addition to consuming all life on the ringworld segment, the Fervent attack has also irreperably damaged the megastrucutre."
+stella_crisis.903.desc3:0 "[Root.GetName] has been destroyed by the Fervent invaders. Not only were all of the living beings on the habitat consumed, the structure itself has also been highly damaged. Repairs do not seem feasible."
+stella_crisis.903.op1:0 "We must stop these monsters!"
+#Madoka Diplomacy
+stella_leader.10.name:0 "Madoka's Return"
+stella_leader.10.desc:0 "Madoka has reformed her avatar after she went down with her ship. However, she feels great regret for the crew memebers that did not survive."
+
+stella_leader.1000.name:0 "The Goddess"
+stella_leader.1000.desc:0 "Oh, Hello! You came just in time! Would you like some tea?"
+stella_leader.1000.op1:0 "We actually have a favor to ask of you."
+stella_leader.1000.op2:0 "Tea would be fine."
+stella_leader.1000.op2.response:0 "Here you go. It might be a little too immaterial for your liking though."
+stella_leader.1000.op2.tooltip:0 "Exit"
+
+stella_leader.1002.name:0 "The Goddess"
+stella_leader.1002.desc:0 "Sorry, but I helped you out not too long ago. I certainly don't want to show too much favoritism. \n\nDo you still want that tea from earlier?"
+stella_leader.1002.op1:0 "Sure"
+stella_leader.1002.op2:0 "No thank you"
+stella_leader.1002.op1.response:0 "I hope it isn't too conceptual for your tastes."
+stella_leader.1002.op2.response:0 "Your loss"
+
+
+stella_leader.1003.name:0 "The Goddess"
+stella_leader.1003.desc:0 "A favor? What do you need help with? \n\nBut of course it'll cost you something. As I have no need for materials things, all I ask is that you donate 2000 §YEnergy Credits§! to the poor."
+stella_leader.1003.op1:0 "Grant us a small miracle"
+stella_leader.1003.op2:0 "Bring back a fallen friend"
+stella_leader.1003.op3:0 "Nevermind"
+stella_leader.1003.op3.response:0 "That's okay? You still want some tea?"
+
+stella_leader.1007.name:0 "The Goddess"
+stella_leader.1007.desc:0 "It is done. It's not much, but I hope it makes your day a little brighter."
+stella_leader.1007.op1:0 "Thank you."
+stella_leader.1007.op1.response:0 "Visit again soon!"
+
+
+stella_leader.1009.name:0 "The Goddess"
+stella_leader.1009.desc:0 "Hmmm. Everyone seems to be accounted for, and hopefully it stays that way."
+stella_leader.1009.op1:0 "OK"
+stella_leader.1009.op1.response:0 "Stay safe!"
+
+
+stella_leader.1011.name:0 "The Goddess"
+stella_leader.1011.desc:0 "While I really shouldn't been resurrecting people without a good reason... I guess I'll do it if you ask nicely."
+stella_leader.1011.op1:0 "Thank you!"
+stella_leader.1011.op1.response:0 "Stay safe out there!"
+
+##########
+#Prescripted Empires
+##########
+EMPIRE_DESIGN_humans_stella:0 "Terran Stellar Union"
+EMPIRE_DESIGN_humans_stella_desc:0 "Humanity has long pondered the exsistence of magic, a supernatural force beyond the explaination of science. Even as science brought about many technological wonders, the Humans still wondered if there was some mystical force out there, yet undiscovered. Little did they know, magic was very real, and has exsisted under their noses since the dawn of their civilization."
+PRESCRIPTED_adjective_humans_stella:0 "Terran"
+PRESCRIPTED_prefix_humans_stella:0 "TSS"
+PRESCRIPTED_ruler_name_humans_stella:0 "Meduka Meguca"
+START_SCREEN_HUMAN_STELLA:0 "Since the first modern humans emerged in Africa over 200,000 years ago, Humanity has always strived to push the limits of technology forwards. The discovery of fire allowed us to conquer the night and the creatures within. Agriculture let our population grow and opened the path to the foundation of civilization. \n\nOther technologies were less peaceful, leading to numerous destructive wars. Most recently, a series of bloodly conflicts were fought in the early 22nd century over ever depleting supplies of fossil fuels and clean water. These Resources Wars not only led to immense loss of life, but also serverly damaged the planet's ecosystem as well. \n\nBut now at the dawn of the 23rd, perhaps all of those wars will be a thing of the past. The long awaited unificiation of all of the Earth's peoples and recent invention of a prototype faster than light drive will only usher in a new era of technological development."
+
+EMPIRE_DESIGN_incubators_stella:0 "Incubator Collective"
+EMPIRE_DESIGN_incubators_stella_desc:0 "As the Incubator Collective grew, it soon stumbled upon the rather incovienent Second Law of Thermodynamics. No matter what, the overall entropy of the universe would steadily increase. \n\nFurther study of this concept terrified the Collective. As there was only so much energy in the universe, one day all of it would be reduced to useless waste heat. The stars will fade, black holes will evaporate, and the universe would be truly dead. The Collective rationally decided that future is one that must be prevented at any cost."
+PRESCRIPTED_adjective_incubators_stella:0 "Incubator"
+PRESCRIPTED_ship_prefix_incubators_stella:0 "QB"
+PRESCRIPTED_species_name_incubators_stella:0 "Incubator"
+PRESCRIPTED_species_plural_incubators_stella:0 "Incubators"
+PRESCRIPTED_species_adjective_incubators_stella:0 "Incubator"
+NAME_Concordia:0 "Concordia"
+NAME_Eris:0 "Eris"
+PRESCRIPTED_ruler_name_incubator_stella:0 "QB Nexus"
+START_SCREEN_INCUBATOR_STELLA:0 "It is a unfournate, yet funadmental, law of the universe that We inhabit: the total entropy of a system will only increase over time. No matter how efficent, any transfer of energy will result in some of that energy lost as waste heat. Eventually even the stars themselves will burn out, and the black holes they leave behind will evaporate into nothingness. One day in the future, the universe will be cold, dark, and dead. We cannot deny this fate, but We will do everything possible to fight it. \n\nSome of Our most intelligent drones have recently defied another law of reality previously thought to be invioable: the speed of light. With the creation of a prototype FTL device, we may search beyond Our solar system for an answer to entropy. Pherhaps We will find a way to fight the oncoming darkness among the stars."
+
+##########
+#Misc
+##########
+name_list_INCU:0 "Incubator"
+stella_wardens_opinion:0 "Entropic Wardens"
+NAME_stella_drones:0 "Rogue Combat Drones"
+stella_hq_queued:0 "Mahou Shojou Galactic Command in build queue"
+NAME_stella_energy_cloud:0 "Unknown Energy"
+NAME_pulsating_energy:0 "Pulsating Clouds"
+d_damaged_ring_sector:0 "Damaged Ring Section"
+d_damaged_ring_sector_desc:0 "This portion of the ringworld has suffered extensive damage, and needs repairs."
+stella_fervent:0 "The Fervent"

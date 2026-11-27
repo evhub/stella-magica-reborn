@@ -1,0 +1,37 @@
+PuellaMagi = {
+	archetype = BIOLOGICAL
+	possible = { authority = { NOT = { value = auth_machine_intelligence text = SPECIES_CLASS_MUST_NOT_USE_MACHINE_INTELLIGENCE } } }
+	
+	#make sure potraits don't show on the species creation screen and random empires
+	playable= {always = no}
+	randomized = false
+	
+	portraits = {
+		"madoka"
+		"sayaka"
+		"mami"
+		"kyoko"
+		"homura"
+		"yuma"
+	}
+	
+	graphical_culture = puella_magi_01
+	move_pop_sound_effect = "moving_pop_confirmation"
+	
+}
+
+Incubator = {
+	archetype = BIOLOGICAL
+	possible = { authority = { NOT = { value = auth_machine_intelligence text = SPECIES_CLASS_MUST_NOT_USE_MACHINE_INTELLIGENCE } } }
+	
+	playable= {always = yes}
+	randomized = false
+	
+	portraits = {
+		"kyubey"
+	}
+	
+	graphical_culture = incubator_01
+	move_pop_sound_effect = "moving_pop_confirmation"
+	
+}

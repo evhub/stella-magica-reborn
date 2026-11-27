@@ -1,0 +1,85 @@
+#Modifiers
+
+stella_avatar_nerf = {
+	ship_shield_mult = -0.6
+	ship_hull_mult = -0.45
+	ship_weapon_damage = -0.5
+	ship_fire_rate_mult = -0.1
+}
+
+stella_horror_nerf = {
+	ship_armor_mult = -0.6
+	ship_shield_mult = -0.6
+	ship_hull_mult = -0.75
+	ship_weapon_damage = -0.6
+	ship_fire_rate_mult = -0.2
+}
+
+stella_invaders_defense_buff = {
+	ship_shield_mult = 0.33
+	ship_hull_mult = 0.5
+	#ship_weapon_damage = 0.05
+	#ship_fire_rate_mult = 0.05
+}
+
+stella_fervent_modifier = {
+	#ship_fire_rate_mult = 0.1
+}
+
+stella_fervent_weaken = {
+	ship_shield_mult = -0.075
+	ship_hull_mult = -0.075
+	ship_fire_rate_mult = -0.05
+}
+
+stella_fervent_portal_lost = {
+	ship_fire_rate_mult = -0.75
+	ship_shield_mult = -0.5
+	ship_hull_mult = -0.5
+}
+recent_madoka_favor = {
+	country_unity_produces_mult = 0.05
+}
+
+stella_goddess_smile = {
+	pop_happiness = 0.05
+}
+
+stella_goddess_insight = {
+	all_technology_research_speed = 0.05
+}
+
+stella_goddess_encourage = {
+	planet_miners_minerals_produces_mult = 0.05
+	planet_technician_energy_produces_mult = 0.05
+	planet_farmers_food_produces_mult = 0.05
+}
+
+stella_goddess_teachings = {
+	species_leader_exp_gain = 0.20
+	ship_experience_gain_mult = 0.20
+	army_experience_gain_mult = 0.20
+}
+
+stella_goddess_might = {
+	ship_weapon_damage = 0.10
+}
+
+stella_goddess_guidance = {
+	ship_accuracy_add = 0.10
+	ship_tracking_add = 0.10
+}
+
+stella_goddess_protection = {
+	ship_shield_mult = 0.05
+	ship_armor_mult = 0.05
+	ship_hull_mult = 0.05
+}
+
+planet_grief_cube_boost = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_grief_cubes.dds"
+	icon_frame = 1
+	custom_tooltip = STELLA_GC_BOOST
+	show_only_custom_tooltip = no
+	army_defense_damage_mult = 0.33
+}

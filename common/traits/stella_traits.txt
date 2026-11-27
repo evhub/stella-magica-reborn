@@ -1,0 +1,287 @@
+##Stella Magica Traits
+
+
+
+#General species Puella Magi Trait
+trait_magi = {
+	cost = 0
+	potential_crossbreeding_chance = 0
+	modification = no
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/magi.dds"
+	improves_leaders = yes
+	immortal_leaders = yes
+	allowed_archetypes = { BIOLOGICAL }
+	
+	modifier = {
+		species_leader_exp_gain = 0.25
+		leader_skill_levels = 2
+	}
+
+
+	ai_weight = {
+		weight = 100
+	}
+}
+
+
+#Leader type specific Puella Magi Trait
+leader_trait_scientist_magi = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/magi.dds"
+	immortal_leaders = yes
+	modifier = {
+		all_technology_research_speed = 0.05
+	}
+	
+	ai_categories = {
+		physics
+		engineering
+		society
+	}
+	
+	leader_trait = { scientist }
+	leader_class = { scientist }
+	initial = no
+	randomized = no
+	
+	ai_weight = {
+		weight = 100
+	}
+}
+
+leader_trait_admiral_magi = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/magi.dds"
+	immortal_leaders = yes
+	modifier = {
+		ship_fire_rate_mult = 0.05
+	}
+
+	leader_trait = { admiral }
+	leader_class = { admiral }
+	initial = no
+	randomized = no
+	
+	ai_weight = {
+		weight = 100
+	}
+}
+
+leader_trait_governor_magi = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/magi.dds"
+	immortal_leaders = yes
+	modifier = {
+		planet_jobs_energy_produces_mult = 0.05
+		planet_building_build_speed_mult = 0.1
+	}
+
+	leader_trait = { governor }
+	leader_class = { governor }
+	initial = no
+	randomized = no
+	
+	ai_weight = {
+		weight = 100
+	}
+}
+
+leader_trait_general_magi = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/magi.dds"
+	immortal_leaders = yes
+	modifier = {
+		army_damage_mult = 0.1
+		army_morale = 0.1
+	}
+
+	leader_trait = { general }
+	leader_class = { general }
+	initial = no
+	randomized = no
+	
+	ai_weight = {
+		weight = 100
+	}
+}
+
+leader_trait_ruler_magi = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/magi.dds"
+	immortal_leaders = yes
+	modifier = {
+		country_unity_produces_mult = 0.05
+		country_base_influence_produces_add = 1
+	}
+
+	leader_trait = { ruler }
+	leader_class = { ruler }
+	initial = no
+	randomized = no
+	
+	ai_weight = {
+		weight = 100
+	}
+	
+	ai_categories = {
+		survey
+	}
+}
+
+leader_trait_trio_finish = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/trio.dds"
+	modifier = {
+		ship_weapon_range_mult = 0.20
+		ship_accuracy_mult = 0.1
+		ship_tracking_mult = 0.1
+	}
+
+	leader_trait = { admiral }
+	leader_class = { admiral }
+	initial = no
+	randomized = no
+	
+	ai_weight = {
+		weight = 100
+	}
+}
+
+leader_trait_the_ribbon = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/ribbon.dds"
+	modifier = {
+		science_ship_survey_speed = 0.15
+		ship_anomaly_generation_chance_mult = 0.10
+		ship_disengage_chance_mult = 0.75
+	}
+
+	leader_trait = { scientist }
+	leader_class = { scientist }
+	initial = no
+	randomized = no
+	
+	ai_weight = {
+		weight = 100
+	}
+}
+
+leader_trait_carefree_demeanor = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/carefree.dds"
+	modifier = {
+		planet_crime_add = -25
+		pop_happiness = 0.05
+	}
+
+	leader_trait = { governor }
+	leader_class = { governor }
+	initial = no
+	randomized = no
+	
+	ai_weight = {
+		weight = 100
+	}
+}
+
+leader_trait_maxwells_demon = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/time.dds"
+	modifier = {
+		ship_speed_mult = 0.25
+		ship_evasion_mult = 0.15
+		ship_disengage_chance_mult = 0.25
+	}
+
+	leader_trait = { admiral }
+	leader_class = { admiral }
+	initial = no
+	randomized = no
+	
+	ai_weight = {
+		weight = 100
+	}
+}
+
+leader_trait_champion_justice = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/justice.dds"
+	modifier = {
+		#If someone knows how to increase damage vs genoicdal empires (purifiers, devouring swarms, etc.), please tell me.
+		#damage_vs_country_type_??_mult = 0.25
+		ship_weapon_damage = 0.1
+		ship_home_territory_fire_rate_mult = 0.33
+	}
+
+	leader_trait = { admiral }
+	leader_class = { admiral }
+	initial = no
+	randomized = no
+	
+	ai_weight = {
+		weight = 100
+	}
+}
+
+#Intentionally extremely overpowered
+leader_trait_goddess_hope = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/hope.dds"
+	modifier = {
+		ship_weapon_damage = -0.80
+		damage_vs_country_type_swarm_mult = 20.0
+		damage_vs_country_type_extradimensional_mult = 20.0
+		damage_vs_country_type_extradimensional_2_mult = 20.0
+		damage_vs_country_type_extradimensional_3_mult = 20.0
+		damage_vs_country_type_ai_empire_mult = 20.0
+		#damage_vs_country_type_gray_goo_mult = 20.0
+		damage_vs_country_type_stella_fervent_mult = 20.0
+	}
+
+	leader_trait = { admiral }
+	leader_class = { admiral }
+	initial = no
+	randomized = no
+	
+	ai_weight = {
+		weight = 100
+	}
+}
+
+#A more "balanced" but still pretty broken version of Madoka's trait. Double damage to crisises
+leader_trait_goddess_redux = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/hope.dds"
+	modifier = {
+		damage_vs_country_type_swarm_mult = 1.0
+		damage_vs_country_type_extradimensional_mult = 1.0
+		damage_vs_country_type_extradimensional_2_mult = 1.0
+		damage_vs_country_type_extradimensional_3_mult = 1.0
+		damage_vs_country_type_ai_empire_mult = 1.0
+		#damage_vs_country_type_gray_goo_mult = 1.0
+		damage_vs_country_type_stella_fervent_mult = 1.0
+	}
+
+	leader_trait = { admiral }
+	leader_class = { admiral }
+	initial = no
+	randomized = no
+	
+	ai_weight = {
+		weight = 100
+	}
+}

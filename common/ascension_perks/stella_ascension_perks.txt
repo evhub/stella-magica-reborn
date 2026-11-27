@@ -1,0 +1,59 @@
+ap_stella_magitech_perk = {
+	possible = {
+		custom_tooltip = {
+			fail_text = "stella_magitech_perk_disabled"
+			NOT = {
+				has_global_flag = disallow_magitech_perk
+			}
+		}
+		custom_tooltip = {
+			fail_text = "requires_ascension_perks_2"
+			num_ascension_perks > 1
+		}
+		custom_tooltip = {
+			fail_text = "stella_magitech_perk_disabled_ai"
+			NAND = {
+				is_ai = yes
+				has_global_flag = disallow_ai_magitech_perk
+			}
+		}		
+	}
+
+	on_enabled = {
+		custom_tooltip = "stella_magitech_perk_enabled"
+		
+		if = {
+			limit = { 
+				NOT = { has_technology = stella_tech_grief_studies }
+			}
+			add_research_option = stella_tech_grief_studies
+		}		
+		if = {
+			limit = { 
+				NOT = { has_technology = stella_tech_magitech_theory }
+			}
+			add_research_option = stella_tech_magitech_theory
+		}	
+		
+		
+	}
+	
+	potential = {
+		NOT = {
+			has_valid_civic = civic_magical_legacy
+			has_valid_civic = civic_hive_entropic_wardens
+		}
+	}
+	
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_materialist
+		}
+		modifier = {
+			factor = 2
+			has_ethic = ethic_fanatic_materialist
+		}
+	}
+}

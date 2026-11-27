@@ -1,0 +1,23 @@
+#Stella Magica X Slot Weapons
+
+#Missile Barrage Launchers
+component_set = {
+	key = "STELLA_BARRAGE_1"
+	
+	icon = "gfx_stella_barrage_1"
+	icon_frame = 1	
+}
+
+component_set = {
+	key = "STELLA_BARRAGE_2"
+	
+	icon = "gfx_stella_barrage_2"
+	icon_frame = 1	
+}
+
+component_set = {
+	key = "STELLA_BARRAGE_3"
+	
+	icon = "gfx_stella_barrage_3"
+	icon_frame = 1	
+}

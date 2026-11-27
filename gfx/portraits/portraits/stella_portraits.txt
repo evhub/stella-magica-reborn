@@ -1,0 +1,338 @@
+portraits = {
+	mado = {texturefile = "gfx/models/portraits/stella/madoka.dds"}
+	saya = {texturefile = "gfx/models/portraits/stella/sayaka.dds"}
+	mam = {texturefile = "gfx/models/portraits/stella/mami.dds"}
+	kyo = {texturefile = "gfx/models/portraits/stella/kyoko.dds"}
+	homu = {texturefile = "gfx/models/portraits/stella/homura.dds"}
+	yum = {texturefile = "gfx/models/portraits/stella/yuma.dds"}
+	
+	qb1 = {texturefile = "gfx/models/portraits/stella/kyubey1.dds"}
+	qb2 = {texturefile = "gfx/models/portraits/stella/kyubey2.dds"}
+	qb3 = {texturefile = "gfx/models/portraits/stella/kyubey3.dds"}
+}
+
+portrait_groups = {
+	#i don't know if I have to do all this, but just in case....
+	kyubey = {
+		default = qb1
+		game_setup = {
+			add = {
+				portraits = {
+					qb1
+					qb2
+					qb3
+				}
+			}	
+		
+		}
+		
+		species = {
+			add = {
+				portraits = {
+				qb1
+				qb2
+				qb3
+				}
+			}
+		}
+		
+		pop = {
+			add = {
+				portraits = {
+				qb1
+				qb2
+				qb3
+				}
+			}
+		}
+        
+        leader = {
+			add = {
+				portraits = {
+				qb1
+				qb2
+				qb3
+				}
+			}
+		}
+        
+        ruler = {
+			add = {
+				portraits = {
+				qb1
+				qb2
+				qb3
+				}
+			}
+		}
+		
+	}
+
+	
+
+	madoka = {
+	 default = mado
+		game_setup = {
+			add = {
+				portraits = {
+					mado
+				}
+			}	
+		
+		}
+		
+		species = {
+			add = {
+				portraits = {
+				mado
+				}
+			}
+		}
+		
+		pop = {
+			add = {
+				portraits = {
+				mado
+				}
+			}
+		}
+        
+        leader = {
+			add = {
+				portraits = {
+				mado
+				}
+			}
+		}
+        
+        ruler = {
+			add = {
+				portraits = {
+				mado
+				}
+			}
+		}
+		
+	}
+	sayaka = {
+	 default = saya
+		game_setup = {
+			add = {
+				portraits = {
+					saya
+				}
+			}	
+		
+		}
+		
+		species = {
+			add = {
+				portraits = {
+				saya
+				}
+			}
+		}
+		
+		pop = {
+			add = {
+				portraits = {
+				saya
+				}
+			}
+		}
+        
+        leader = {
+			add = {
+				portraits = {
+				saya
+				}
+			}
+		}
+        
+        ruler = {
+			add = {
+				portraits = {
+				saya
+				}
+			}
+		}
+		
+	}
+	mami = {
+	 default = mam
+		game_setup = {
+			add = {
+				portraits = {
+					mam
+				}
+			}	
+		
+		}
+		
+		species = {
+			add = {
+				portraits = {
+				mam
+				}
+			}
+		}
+		
+		pop = {
+			add = {
+				portraits = {
+				mam
+				}
+			}
+		}
+        
+        leader = {
+			add = {
+				portraits = {
+				mam
+				}
+			}
+		}
+        
+        ruler = {
+			add = {
+				portraits = {
+				mam
+				}
+			}
+		}
+		
+	}
+	kyoko = {
+	 default = kyo
+		game_setup = {
+			add = {
+				portraits = {
+					kyo
+				}
+			}	
+		
+		}
+		
+		species = {
+			add = {
+				portraits = {
+				kyo
+				}
+			}
+		}
+		
+		pop = {
+			add = {
+				portraits = {
+				kyo
+				}
+			}
+		}
+        
+        leader = {
+			add = {
+				portraits = {
+				kyo
+				}
+			}
+		}
+        
+        ruler = {
+			add = {
+				portraits = {
+				kyo
+				}
+			}
+		}
+		
+	}
+	homura = {
+	 default = homu
+		game_setup = {
+			add = {
+				portraits = {
+					homu
+				}
+			}	
+		
+		}
+		
+		species = {
+			add = {
+				portraits = {
+				homu
+				}
+			}
+		}
+		
+		pop = {
+			add = {
+				portraits = {
+				homu
+				}
+			}
+		}
+        
+        leader = {
+			add = {
+				portraits = {
+				homu
+				}
+			}
+		}
+        
+        ruler = {
+			add = {
+				portraits = {
+				homu
+				}
+			}
+		}
+		
+	}
+	yuma = {
+	 default = yum
+		game_setup = {
+			add = {
+				portraits = {
+					yum
+				}
+			}	
+		
+		}
+		
+		species = {
+			add = {
+				portraits = {
+				yum
+				}
+			}
+		}
+		
+		pop = {
+			add = {
+				portraits = {
+				yum
+				}
+			}
+		}
+        
+        leader = {
+			add = {
+				portraits = {
+				yum
+				}
+			}
+		}
+        
+        ruler = {
+			add = {
+				portraits = {
+				yum
+				}
+			}
+		}
+		
+	}
+	}
+	

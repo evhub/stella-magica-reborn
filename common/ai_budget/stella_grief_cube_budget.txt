@@ -1,0 +1,14 @@
+grief_expenditure_ships = {
+    resource = stella_grief_cube
+	type = expenditure
+	category = ships
+
+	potential = {
+		always = yes
+	}
+
+	fraction = {
+		weight = 1
+	}
+
+}

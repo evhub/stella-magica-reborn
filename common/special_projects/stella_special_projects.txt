@@ -1,0 +1,188 @@
+#Contacting the Puella Magi
+special_project = {
+	key = "CONTACT_MAGI"
+	cost = 0
+	days_to_research = 30
+	tech_department = society_technology
+	picture = GFX_evt_galactic_senate
+	icon = "gfx/interface/icons/situation_log/situation_log_society.dds"
+	
+	event_scope = planet_event
+	
+	on_success = {
+		owner = {
+			country_event = {id = stella_story.2}
+		}
+	}
+	
+	on_fail = {
+	}
+}
+
+
+#Tracing Particle Trails
+special_project = {
+	key = "TRACING_HOMU_TRAIL"
+	cost = 0
+	days_to_research = 90
+	event_chain = chasing_shadows_chain
+	tech_department = physics_technology
+	picture = GFX_evt_star_chart
+	icon = "gfx/interface/icons/situation_log/situation_log_radar.dds"
+	
+	event_scope = planet_event
+	
+	on_success = {
+		owner = {
+			country_event = {id = stella_story.4}
+		}
+	}
+	
+	on_fail = {
+	}
+	
+}
+
+#Investigate survey probe
+special_project = {
+	key = "INVESTIGATE_HOMU_PROBE"
+	cost = 0
+	days_to_research = 90
+	event_chain = chasing_shadows_chain
+	picture = GFX_evt_satellite_in_orbit
+	icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
+	
+	event_scope = ship_event
+	
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+	}
+	
+	on_success = {
+		ship_event = { id = "stella_story.7"}
+	}
+	
+	on_fail = {
+	}
+}
+
+#Continue the story
+special_project = {
+	key = "CONTINUE_STELLA_STORY"
+	cost = 0
+	days_to_research = 3
+	icon = "gfx/interface/icons/situation_log/situation_log_decision.dds"
+	picture = GFX_evt_arguing_senate
+	
+	event_scope = planet_event
+	
+	on_success = {
+		owner = {
+			country_event = {id = stella_dim.1}
+		}
+	}
+	
+	on_fail = {
+	}
+}
+
+#Tomb World
+special_project = {
+	key = "STELLA_TOMB_WORLD"
+	days_to_research = 180
+	picture = GFX_evt_dead_city
+	icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
+	event_scope = ship_event
+	event_chain = between_dims_chain
+	
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+	}
+	
+	on_success = {
+		ship_event = { id = "stella_dim.80"}
+	}
+	
+	on_fail = {
+	}
+}
+
+#Ring World
+special_project = {
+	key = "STELLA_RING_WORLD"
+	days_to_research = 180
+	picture = GFX_evt_fallen_empire
+	icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
+	event_scope = ship_event
+	event_chain = between_dims_chain
+	
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+	}
+	
+	on_success = {
+		ship_event = {id = "stella_dim.190"}
+	}
+	
+	on_fail = {
+	}
+}
+
+special_project = {
+	key = "STELLA_DIM_RESEARCH_1"
+	days_to_research = 360
+	icon = "gfx/interface/icons/situation_log/situation_log_physics.dds"
+	picture = GFX_evt_physics_research
+	event_chain = stella_apotheosis_chain
+	event_scope = planet_event
+	
+	same_option_group_as = { STELLA_DIM_RESEARCH_2 }
+	
+	on_success = {
+		owner = { country_event = {id = stella_apop.2}}
+	}
+	
+	on_fail = {
+	}
+}
+
+special_project = {
+	key = "STELLA_DIM_RESEARCH_2"
+	days_to_research = 240
+	tech_department = physics_technology
+	icon = "gfx/interface/icons/situation_log/situation_log_physics.dds"
+	picture = GFX_evt_physics_research
+	event_chain = stella_apotheosis_chain
+	same_option_group_as = { STELLA_DIM_RESEARCH_1 }
+	
+	event_scope = planet_event
+	
+	on_success = {
+		owner = { country_event = {id = stella_apop.2}}
+	}
+	
+	on_fail = {
+	}
+}
+
+special_project = {
+	key = "STELLA_BLACK_HOLE_PROJECT"
+	days_to_research = 180
+	icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
+	picture = GFX_evt_black_hole
+	event_chain = stella_apotheosis_chain
+	event_Scope = ship_event
+	
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+	}
+	
+	on_success = {
+		ship_event = {id = "stella_apop.3"}
+	}
+	
+}

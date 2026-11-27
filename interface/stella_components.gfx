@@ -1,0 +1,57 @@
+spriteTypes = {
+	
+	spriteType = {
+		name = "gfx_stella_magic_ammo"
+		textureFile = "gfx/interface/icons/ship_parts/ship_part_stella_magic_ammo.dds"
+		noOfFrames = 1
+	}
+
+	spriteType = {
+		name = "gfx_stella_magic_armor"
+		textureFile = "gfx/interface/icons/ship_parts/ship_part_stella_magic_armor.dds"
+		noOfFrames = 1
+	}
+	
+	spriteType = {
+		name = "gfx_stella_magic_explosives"
+		textureFile = "gfx/interface/icons/ship_parts/ship_part_stella_magic_explosives.dds"
+		noOfFrames = 1
+	}
+	
+	spriteType = {
+		name = "gfx_stella_magic_cap"
+		textureFile = "gfx/interface/icons/ship_parts/ship_part_stella_magic_cap.dds"
+		noOfFrames = 1
+	}
+	
+	spriteType = {
+		name = "gfx_stella_magic_coolant"
+		textureFile = "gfx/interface/icons/ship_parts/ship_part_stella_magic_coolant.dds"
+		noOfFrames = 1
+	}
+	
+	spriteType = {
+		name = "gfx_stella_semifluid"
+		textureFile = "gfx/interface/icons/ship_parts/ship_part_stella_semifluid.dds"
+		noOfFrames = 1
+	}
+	
+	spriteType = {
+		name = "gfx_stella_barrage_1"
+		textureFile = "gfx/interface/icons/ship_parts/ship_part_stella_barrage_1.dds"
+		noOfFrames = 1
+	}
+	
+	spriteType = {
+		name = "gfx_stella_barrage_2"
+		textureFile = "gfx/interface/icons/ship_parts/ship_part_stella_barrage_2.dds"
+		noOfFrames = 1
+	}
+	
+	spriteType = {
+		name = "gfx_stella_barrage_3"
+		textureFile = "gfx/interface/icons/ship_parts/ship_part_stella_barrage_3.dds"
+		noOfFrames = 1
+	}
+
+}

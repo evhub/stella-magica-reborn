@@ -1,0 +1,53 @@
+#Stella Magica Planetary Decisions
+
+
+decision_grief_cubes = {
+	owned_planets_only = yes
+	
+	prerequisites = {
+		"stella_tech_cube_logi"
+	}
+
+	resources = {
+		category = decisions
+		cost = {
+			trigger = { has_building = stella_building_magi_center_1 }
+			stella_grief_cube = 20
+		}
+		cost = {
+			trigger = { has_building = stella_building_magi_center_2 }
+			stella_grief_cube = 30
+		}
+		cost = {
+			trigger = { has_building = stella_building_magi_center_3 }
+			stella_grief_cube = 60
+		}
+		
+	}
+	
+	potential = {
+		owner = { 
+			has_valid_civic = civic_magical_legacy
+		}
+	}
+	
+	allow = {
+		OR = {
+			has_building = stella_building_magi_center_1
+			has_building = stella_building_magi_center_2
+			has_building = stella_building_magi_center_3
+		}
+		NOT = { has_modifier = planet_grief_cube_boost }
+	}
+	
+	effect = {
+		add_modifier = {
+			modifier = planet_grief_cube_boost
+			days = 1440
+		}	
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

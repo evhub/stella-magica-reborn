@@ -1,0 +1,211 @@
+#
+#Stella Magica Debug Events
+#
+namespace = stella_debug
+
+#Spawn leaders
+country_event = {
+
+	id = stella_debug.1
+	title = "stella_debug.1.name"
+	desc = "stella_debug.1.desc"
+	picture = GFX_evt_smugglers_in_bar
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		create_species = {
+			name = "Puella Magi"
+			class = PuellaMagi
+			portrait = madoka
+			traits = {
+				trait = trait_pc_continental_preference 
+				trait = trait_charismatic
+				trait = trait_magi
+			}
+		}
+		
+		create_leader = {
+			gender = female
+			class = admiral
+			species = last_created
+			name = "Madoka Kaname"
+			skill = 10
+			traits = {
+				trait = leader_trait_goddess_hope
+			}
+		}
+		
+		create_species = {
+			name = "Puella Magi"
+			class = PuellaMagi
+			portrait = sayaka
+			traits = {
+				trait = trait_pc_continental_preference 
+				trait = trait_charismatic
+				trait = trait_magi
+			}
+		}
+		
+		create_leader = {
+			gender = female
+			class = admiral
+			species = last_created
+			name = "Sayaka Miki"
+			skill = 10
+			traits = {
+				trait = leader_trait_champion_justice
+			}
+		}
+		
+	}
+	
+	
+	option{
+		name = OK
+	}
+
+}
+
+#Allow player to toggle Magitech ascension perk (allows nonmagical empires to use magitech)
+country_event = {
+
+	id = stella_debug.2
+	title = "stella_debug.2.name"
+	desc = "stella_debug.2.desc"
+	picture = GFX_evt_stella
+	is_triggered_only = yes
+	
+	trigger = {
+		is_ai = no
+	}
+	
+	
+	option = {
+		name = stella_debug.2.op1
+		custom_tooltip = stella_debug.2.op1.tooltip
+	}
+	
+	option = {
+		name = stella_debug.2.op2
+		hidden_effect = {
+			set_global_flag = disallow_ai_magitech_perk
+		}
+		custom_tooltip = stella_debug.2.op2.tooltip
+
+	}
+	
+	option = {
+		name = stella_debug.2.op3
+		hidden_effect = {
+			set_global_flag = disallow_ai_magitech_perk
+			set_global_flag = disallow_magitech_perk
+		}
+		custom_tooltip = stella_debug.2.op3.tooltip
+	}
+	
+}
+
+#Researched Grief Studies as magical empire
+country_event = {
+	id = stella_debug.3
+	title = "stella_debug.3.title"
+	desc = "stella_debug.3.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_laboratory_sound
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		AND = {
+			last_increased_tech = stella_tech_grief_studies
+			has_valid_civic = civic_magical_legacy
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+
+#Researched Magitech Theory as magical empire
+country_event = {
+	id = stella_debug.4
+	title = "stella_debug.4.title"
+	desc = "stella_debug.4.desc"
+	picture = GFX_evt_engineering_research
+	show_sound = event_laboratory_sound
+	is_triggered_only = yes
+	
+	trigger = {
+		AND = {
+			last_increased_tech = stella_tech_magitech_theory
+			has_valid_civic = civic_magical_legacy
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+#Researched Grief Studies as nonmagical empire
+country_event = {
+	id = stella_debug.5
+	title = "stella_debug.5.title"
+	desc = "stella_debug.5.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_laboratory_sound
+	is_triggered_only = yes
+	
+	trigger = {
+		AND = {
+			last_increased_tech = stella_tech_grief_studies
+			NOT = { has_valid_civic = civic_magical_legacy }
+			NOT = { has_valid_civic = civic_hive_entropic_wardens }
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+
+#Researched Grief Studies as incubator empire
+country_event = {
+	id = stella_debug.7
+	title = "stella_debug.7.title"
+	desc = "stella_debug.7.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_laboratory_sound
+	is_triggered_only = yes
+	
+	trigger = {
+		AND = {
+			last_increased_tech = stella_tech_grief_studies
+			has_valid_civic = civic_hive_entropic_wardens
+		}
+	}
+	option = {
+		name = OK
+	}
+}
+
+#Researched Magitech Theory as incubator empire
+country_event = {
+	id = stella_debug.8
+	title = "stella_debug.8.title"
+	desc = "stella_debug.8.desc"
+	picture = GFX_evt_engineering_research
+	show_sound = event_laboratory_sound
+	is_triggered_only = yes
+	
+	trigger = {
+		AND = {
+			last_increased_tech = stella_tech_magitech_theory
+			has_valid_civic = civic_hive_entropic_wardens
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}

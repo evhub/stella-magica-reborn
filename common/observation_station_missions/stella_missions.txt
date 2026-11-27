@@ -1,0 +1,35 @@
+#Contracting, somewhat more efficent than a regular contracting hub
+stella_contracting = {
+	icon = "GFX_fleet_task_stella_contracting"
+	small_icon = 2
+
+	resources = {
+		category = station_observer_missions
+		produces = {
+			stella_grief_cube = 2
+			society_research = 10
+		}
+		
+		upkeep = {
+			minerals = 4
+			food = 4
+		}
+	}
+
+	potential = {
+		has_technology = stella_tech_grief_studies
+		has_valid_civic = civic_hive_entropic_wardens
+	}
+
+	valid = {
+		FROM = {
+			exists = owner
+			owner = {NOT = { has_country_flag = stone_age }}
+			owner = { NOT = { has_ethic = ethic_fanatic_xenophobe } }
+		}
+	}
+	
+	ai_weight = {
+		weight = 5	# Use if policy allows it
+	}
+}

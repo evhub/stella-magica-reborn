@@ -1,0 +1,88 @@
+on_game_start_country = {
+	events = {
+		stella_story.0 #Begin the Stella Magica MSQ, but only for empires with the magical legacy civic
+		stella_debug.2 #show game start options
+	}
+}
+
+on_entering_system = {
+
+	events = {
+		stella_story.5 
+		stella_story.9
+		stella_story.13
+		stella_dim.5
+		stella_dim.16
+		stella_dim.21
+	}
+	
+}
+
+
+# This = owner of fleet 1 (combatant)
+# From = owner of fleet 2 (destroyed)
+# FromFrom = fleet 1
+# FromFromFrom = fleet 2
+on_fleet_destroyed_perp = {
+	events = {
+		stella_story.11  #Drones defeated
+		stella_story.15  #Crystals defeated
+		stella_dim.7     #Void Clouds defeated
+		stella_dim.18    #Pisonic Avatar defeated
+		stella_dim.23	 #Horror destroyed
+		stella_apop.6    #Invaders destroyed
+		stella_crisis.12 #Portal destroyed
+		stella_crisis.13 #Portal destroyed (by others)
+	}
+	
+}
+
+
+# From = Previous Ruler, already has the new class
+# This = Country
+on_ruler_back_to_pre_ruler_class = {
+	events = {
+		stella_leader.1
+	}
+}
+
+
+# Executed as a leader has died
+# This = Country
+# From = Leader
+on_leader_death = {
+	events = {
+		stella_leader.2
+	}
+}
+
+# Triggers when trying to open the diplomacy view for countries with custom diplomacy.
+# Country scope
+# This = target country (player)
+# From = source country
+on_custom_diplomacy = {
+	events = {
+		stella_leader.1000 #Madoka Diplomacy
+	}
+}
+
+# A country has increased the level of a tech, use last_increased_tech trigger to check tech and level.
+# This = Country
+on_tech_increased = {
+	events = {
+		stella_debug.3
+		stella_debug.4
+		stella_debug.5
+		stella_debug.7
+		stella_debug.8
+	}
+}
+
+# Planet has taken damage from orbital bombardment
+# This = Planet
+# From = Bombarder
+on_planet_bombarded = {
+	events = {
+		stella_crisis.903
+	}
+}

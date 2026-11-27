@@ -1,0 +1,379 @@
+########
+#Stella Magica Main Story Quest Part 3
+#Act 3 - Apotheosis
+#This section is actually really short
+#######
+
+namespace = stella_apop
+
+#Start Act 3
+country_event = {
+
+	id = stella_apop.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		capital_scope = {
+			enable_special_project = {
+				name = "STELLA_DIM_RESEARCH_1"
+				location = this
+				owner = root
+			}
+			
+			enable_special_project = {
+				name = "STELLA_DIM_RESEARCH_2"
+				location = this
+				owner = root
+			}
+		}	
+	}	
+}
+
+#Spawn the special project at the Oblivion system
+country_event = {
+
+	id = stella_apop.2
+	is_triggered_only = yes
+	title = "stella_apop.2.name"
+	desc = "stella_apop.2.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_ship_bridge
+	
+	immediate = {
+			enable_special_project = {
+				name = "STELLA_BLACK_HOLE_PROJECT"
+				location = event_target:stella_oblivion_star
+				owner = root
+			}
+	}	
+		
+	
+	option = {
+		name = "stella_apop.2.op1"
+	}
+}
+
+#Finsihed the special project
+ship_event = {
+	id = stella_apop.3
+	is_triggered_only = yes
+	title = "stella_apop.3.name"
+	desc = "stella_apop.3.desc"
+	picture = GFX_evt_black_hole
+	show_sound = event_alien_signal
+	
+	option = {
+		name = stella_apop.3.op1
+		hidden_effect = {
+			ship_event = {id = stella_apop.4 }
+			owner = {country_event = {id = stella_apop.5 days = 2} }
+		}
+		custom_tooltip = stella_apop.3.op1.tooltip
+
+	}
+	
+	option = {
+		name = stella_apop.3.op2
+		hidden_effect = {
+			set_global_flag = stella_fervent_invasion
+			owner = {
+				country_event = {id = stella_crisis.1 }
+			}
+		}
+		custom_tooltip = stella_apop.3.op2.tooltip
+	}
+	
+}
+
+#Normal Path, spawn one Fervent fleet
+ship_event = {
+	id = stella_apop.4
+	is_triggered_only = yes
+	title = "stella_apop.4.name"
+	desc = "stella_apop.4.desc"
+	picture = GFX_evt_wormhole
+	show_sound = event_solar_fusion
+	
+	option = {
+		name = stella_apop.4.op1
+		#ship_event = {id = stella_apop.5 }
+	}
+	
+	after = {
+		
+		hidden_effect = {
+			#retreat the science ship fleet
+			#order_forced_return  = yes
+	}
+  }
+}
+
+
+#Actually spawn it
+country_event = {
+
+	id = stella_apop.5
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+	random_system = {
+		limit = { has_star_flag = stella_oblivion_system }
+		create_country = {
+				name = "The Fervent"
+				type = faction
+				flag = {
+					icon= {
+						category = "special"
+						file = "extradimensional_01.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "circle.dds"
+					}
+					colors={
+						"black"
+						"red"
+						"null"
+						"null"
+					}
+				}
+			}
+			
+			last_created_country = {
+				save_event_target_as = stella_invaders_country
+				add_modifier = { modifier = stella_invaders_defense_buff days = -1}
+				create_fleet = {
+				name = "Extradimensional Invaders"
+				settings = { spawn_debris = no }
+				effect = {
+					set_owner = event_target:stella_invaders_country
+					set_fleet_flag = "stella_invaders_fleet"
+					
+					while = {
+						count = 8
+						create_ship = {
+							name = "Extradimensional Battleship"
+							design = "Fervent_Archon"
+							graphical_culture = "extra_dimensional_01"
+						}
+					}
+					
+					while = {
+						count = 14
+						create_ship = {
+							name = "Extradimensional Cruiser"
+							design = "Fervent_Magnus"
+							graphical_culture = "extra_dimensional_01"
+						}
+					}
+					
+					set_location = {
+									target = event_target:stella_oblivion_star
+									distance = 150
+					}
+					
+					set_fleet_stance = aggressive
+					set_aggro_range = 140
+					set_aggro_range_measure_from = self
+				}
+			}
+			}
+			
+			
+			
+		}
+	}
+}
+
+#Invaders destroyed
+country_event = {
+
+	id = stella_apop.6
+	is_triggered_only = yes
+	title = "stella_apop.6.name"
+	desc = "stella_apop.6.desc"
+	picture = GFX_evt_wormhole
+	show_sound = event_space_battle
+	
+	trigger = {
+		FROMFROMFROM = { has_fleet_flag = stella_invaders_fleet }
+	}
+	option = {
+		name = "stella_apop.6.op1"
+	}
+	
+	after = {
+		country_event = { id = stella_apop.7 }
+	}
+}
+
+country_event = {
+	id = stella_apop.7
+	title = "stella_apop.7.name"
+	desc = "stella_apop.7.desc"
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = madoka
+		room = black_hole_orbit_room
+	}
+	
+	option = {
+		name = stella_apop.7.op1
+	
+		hidden_effect = {
+			country_event = { id = stella_apop.8 }
+		}
+	}
+}
+
+country_event = {
+	id = stella_apop.8
+	title = "stella_apop.8.name"
+	desc = "stella_apop.8.desc"
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = madoka
+		room = black_hole_orbit_room
+	}
+	
+	option = {
+		name = stella_apop.8.op1
+	
+		hidden_effect = {
+			country_event = { id = stella_apop.9 }
+		}
+	}
+	
+	option = {
+		name = stella_apop.8.op2
+	
+		hidden_effect = {
+			country_event = { id = stella_apop.9 }
+		}
+	}
+}
+
+country_event = {
+	id = stella_apop.9
+	title = "stella_apop.9.name"
+	desc = "stella_apop.9.desc"
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = madoka
+		room = black_hole_orbit_room
+	}
+	
+	option = {
+		name = stella_apop.9.op1
+	
+		hidden_effect = {
+			country_event = { id = stella_apop.10 }
+		}
+	}
+	
+	option = {
+		name = stella_apop.9.op2
+	
+		hidden_effect = {
+			country_event = { id = stella_apop.11 }
+		}
+	}
+}
+
+country_event = {
+	id = stella_apop.10
+	title = "stella_apop.10.name"
+	desc = "stella_apop.10.desc"
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = madoka
+		room = black_hole_orbit_room
+	}
+	
+	option = {
+		name = stella_apop.10.op1
+	
+		hidden_effect = {
+			country_event = { id = stella_apop.12 }
+		}
+	}
+}
+
+country_event = {
+	id = stella_apop.11
+	title = "stella_apop.11.name"
+	desc = "stella_apop.11.desc"
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = madoka
+		room = black_hole_orbit_room
+	}
+	
+	option = {
+		name = stella_apop.11.op1
+	
+		hidden_effect = {
+			country_event = { id = stella_apop.12 }
+		}
+	}
+}
+
+country_event = {
+	id = stella_apop.12
+	title = "stella_apop.12.name"
+	desc = "stella_apop.12.desc"
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = madoka
+		room = black_hole_orbit_room
+	}
+	
+	option = {
+		name = stella_apop.12.op1
+		response_text = stella_apop.12.op1.response
+		
+		hidden_effect = {
+			country_event = { id = stella_apop.13 days = 3 }
+			country_event = { id = stella_crisis.6 }
+		}
+	}
+}
+
+country_event = {
+
+	id = stella_apop.13
+	is_triggered_only = yes
+	title = "stella_apop.13.name"
+	desc = "stella_apop.13.desc"
+	picture = GFX_evt_tradestation_interior
+	show_sound = event_celebration
+	
+	option = {
+		name = "stella_apop.13.op1"
+	}
+	
+	after = {
+		end_event_chain = "stella_apotheosis_chain"
+		set_country_flag = stella_normal_ending
+	}
+}

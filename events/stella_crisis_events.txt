@@ -1,0 +1,970 @@
+########
+#Stella Magica Main Story Quest Part 4
+#Act 4 - Hope within Despair
+#######
+
+namespace = stella_crisis
+
+country_event = {
+	id = stella_crisis.1
+	title = "stella_crisis.1.name"
+	desc = "stella_crisis.1.desc"
+	is_triggered_only = yes
+	picture = GFX_evt_black_hole
+	show_sound = event_ship_explosion
+	
+	immediate = {
+		set_country_flag = triggered_fervent_invasion
+	}
+	
+	option = {
+		name = stella_crisis.1.op1
+		
+		end_event_chain = "stella_apotheosis_chain" 
+	
+		begin_event_chain = {
+			event_chain = "stella_crisis_chain"
+			target = ROOT
+		}
+		
+		hidden_effect = {
+			country_event = { id = stella_crisis.2}
+			country_event = {id = stella_crisis.7 days = 10}
+			country_event = {id = stella_crisis.6}
+			country_event = {id = stella_leader.8}
+		}
+	}
+}
+
+country_event = {
+	id = stella_crisis.2
+	title = "stella_crisis.2.name"
+	desc = "stella_crisis.2.desc"
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = madoka
+		room = black_hole_orbit_room
+	}
+	
+	option = {
+		name = stella_crisis.2.op1
+	}
+	
+	after = {
+		country_event = {id = stella_crisis.3}
+	}
+}
+
+country_event = {
+	id = stella_crisis.3
+	title = "stella_crisis.3.name"
+	desc = "stella_crisis.3.desc"
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = madoka
+		room = black_hole_orbit_room
+	}
+	
+	option = {
+		name = stella_crisis.3.op1
+	}
+	
+	after = {
+		country_event = {id = stella_crisis.4}
+	}
+}
+
+country_event = {
+	id = stella_crisis.4
+	title = "stella_crisis.4.name"
+	desc = "stella_crisis.4.desc"
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = madoka
+		room = black_hole_orbit_room
+	}
+	
+	option = {
+		name = stella_crisis.4.op1
+	}
+	
+	option = {
+		name = stella_crisis.4.op2
+	}
+	
+	after = {
+		country_event = {id = stella_crisis.5}
+	}
+}
+
+country_event = {
+	id = stella_crisis.5
+	title = "stella_crisis.5.name"
+	desc = "stella_crisis.5.desc"
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = madoka
+		room = black_hole_orbit_room
+	}
+	
+	option = {
+		name = stella_crisis.5.op1
+		response_text = stella_crisis.5.response
+		custom_tooltip = stella_crisis.5.tooltip
+	}
+	
+	option = {
+		name = stella_crisis.5.op2
+		response_text = stella_crisis.5.response
+		custom_tooltip = stella_crisis.5.tooltip
+	}
+	
+	after = {
+		hidden_effect = {
+			
+		}
+	}
+}
+
+#Spawn Madoka country, trigger next events
+country_event = {
+	id = stella_crisis.6
+	hide_window = yes
+	title = "Testing"
+	is_triggered_only = yes
+	
+	
+	immediate = {
+		#I should probably move this to game start or something
+		create_country = {
+			name = "The Silver Garden"
+			type = stella_madoka
+			flag = {
+				icon = {
+					category = "ornate"
+					file = "flag_ornate_6.dds"
+				}
+				background= {
+					category = "backgrounds"
+					file = "00_solid.dds"
+				}
+				colors={
+					"pink"
+					"yellow"
+					"null"
+					"null"
+				}
+			}
+		}
+	
+	
+	
+		random_country = {
+			limit = { is_country_type = stella_madoka }
+			save_event_target_as = stella_madoka_country
+		}
+		
+		establish_communications_no_message = event_target:stella_madoka_country
+		set_country_flag = stella_madoka_contacted
+		
+		
+	}
+	
+	after = {
+	#Because I'm a lazy butt the regular route uses this event too. Only spawn the Fervent if on the alternative route
+	#	if = {
+	#		limit = { has_global_flag = stella_fervent_invasion }
+	#		country_event = {id = stella_crisis.7 days = 3}
+	#	}
+	}
+}
+
+#Introduce the invaders
+country_event = {
+	id = stella_crisis.7
+	title = "stella_crisis.7.name"
+	desc = "stella_crisis.7.desc"
+	picture = GFX_evt_wormhole
+	show_sound = event_ex_started
+	is_triggered_only = yes
+	
+	#Just in case
+	trigger = {
+		has_global_flag = stella_fervent_invasion
+		NOT = { has_global_flag = fervent_already_spawned }
+	}
+	
+	option = {
+		name = stella_crisis.7.op1
+	}
+	
+	after = {
+		hidden_effect = {
+			country_event = {id = stella_crisis.8}
+			country_event = {id = stella_crisis.10 days = 5}
+		}
+	}
+}
+
+#Spawn Fervent portal in a system not owned by the player or fallen empire
+country_event = {
+	id = stella_crisis.8
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = {has_global_flag = fervent_already_spawned}
+	}
+	immediate = {
+		set_global_flag = fervent_already_spawned
+		random_system = {
+			limit = {
+				NOT = {
+					any_country = {
+						OR = {
+							is_country_type = fallen_empire
+							is_country_type = awakened_fallen_empire
+							is_ai = no
+						}
+						any_system_within_border = {
+							is_same_value = prev
+						}
+					}
+				}
+			}
+			
+			set_star_flag = fervent_origin_system
+			save_global_event_target_as = fervent_system
+			
+			random_system_planet = {
+				create_species = {
+					name = "Fervent"
+					class = EXD
+					portrait = exd1
+					traits = random
+					effect = { save_event_target_as = fervent_species }
+				}
+				create_country = {
+					name = "The Fervent"
+					type = "stella_fervent"
+					species = event_target:fervent_species
+					name_list = "Extradimensional"
+					effect = { 
+						set_country_flag = unbidden
+						add_modifier = {modifier = stella_fervent_modifier days = -1}
+						country_event = {id = stella_crisis.900 days = 3600}
+						country_event = {id = stella_crisis.902 days = 7200}
+						
+					}
+					flag = {
+						icon= {
+							category = "special"
+							file = "extradimensional_03.dds"
+						}
+						background= {
+							category = "backgrounds"
+							file = "circle.dds"
+						}
+						colors={
+							"red"
+							"black"
+							"null"
+							"null"
+						}
+					}
+					
+					effect = {
+						create_ship_design = { design = "NAME_Void_Shaper" }
+						add_ship_design = last_created_design
+						create_ship_design = { design = "Fervent_Station" }
+						add_ship_design = last_created_design
+						save_global_event_target_as = fervent_country
+						#establish_communications_no_message = event_target:portal_holder_1
+						#set_faction_hostility = {
+						#	target = event_target:portal_holder_1
+						#	set_hostile = no
+						#}
+						set_graphical_culture = extra_dimensional_01
+
+					}
+				}
+				
+				event_target:fervent_country = {
+					create_fleet = {
+						name = "Fervent Portal"
+						effect = {
+							set_owner = PREV
+							set_fleet_flag = fervent_portal
+							save_global_event_target_as = fervent_portal_location
+								
+							create_ship = {
+								name = random
+								design = "NAME_Unbidden_Portal"
+								graphical_culture = "extra_dimensional_01"
+							}
+							set_location = {
+								target = PREVPREV
+								distance = 40
+								angle = random
+							}
+							save_event_target_as = dimensional_portal
+							fleet_event = { id = stella_crisis.1000 days = 15 } # Second Fleet Arrives
+							fleet_event = { id = stella_crisis.1000 days = 30 } # Third Fleet Arrives
+							fleet_event = { id = stella_crisis.1000 days = 60 } # Fourth Fleet Arrives
+							fleet_event = { id = stella_crisis.1000 days = 100 } # Fifth Fleet Arrives
+							#fleet_event = { id = stella_crisis.1000 days = 200 }  Sixth Fleet Arrives
+							fleet_event = { id = stella_crisis.1001 days = 20 } # First Constructor Arrives
+							fleet_event = { id = stella_crisis.1001 days = 25 } # Second Constructor Arrives
+							fleet_event = { id = stella_crisis.1001 days = 160 } # Third Constructor Arrives
+							fleet_event = { id = stella_crisis.1001 days = 310 } # Fourth Constructor Arrives
+							event_target:fervent_country = { country_event = { id = stella_crisis.1002 days = 360 } } # Spawn Cycle starts
+							
+						}
+					}
+					
+					create_fleet = {
+						settings = { spawn_debris = no garrison = yes}
+						effect = {
+							set_owner = PREV
+
+							while = {
+								count = 7
+								create_ship = {
+									name = random
+									design = "Fervent_Archon"
+									graphical_culture = "extra_dimensional_01"
+								}
+							}
+							while = {
+								count = 12
+								create_ship = {
+									name = random
+									design = "Fervent_Magnus"
+									graphical_culture = "extra_dimensional_01"
+								}
+							}
+							while = {
+								count = 14
+								create_ship = {
+									name = random
+									design = "Fervent_Shadow"
+									graphical_culture = "extra_dimensional_01"
+								}
+							}
+							set_location = {
+								target = event_target:dimensional_portal
+								distance = 5
+								angle = random
+							}
+							set_fleet_stance = aggressive
+							set_aggro_range = 500
+							set_aggro_range_measure_from = self
+						}
+					}
+				}
+
+			}
+			
+			if = {
+				limit = { exists = starbase }
+				starbase = { fleet = { destroy_fleet = this } }
+			}
+			create_starbase = {
+				size = starbase_exd
+				owner = event_target:fervent_country
+			}
+			
+			every_playable_country = {
+				establish_communications_no_message = event_target:fervent_country
+			}
+		}
+		
+	
+	}
+	
+	after = {
+		#Let every other country know about the invasion
+		every_playable_country = {
+			limit = {NOT = {has_country_flag = triggered_fervent_invasion}}
+			country_event = {id = stella_crisis.9 days = 3}
+		}
+	}
+}
+
+#Introduce for nonmagical empires
+country_event = {
+	id = stella_crisis.9
+	title = "stella_crisis.9.name"
+	desc = "stella_crisis.9.desc"
+	picture = GFX_evt_wormhole
+	show_sound = event_ex_started
+	is_triggered_only = yes
+	
+	option = {
+		name = stella_crisis.9.op1
+	}
+	
+	after = {
+		begin_event_chain = {
+			event_chain = "stella_invaders_chain"
+			target = ROOT
+		}
+		
+		country_event = {id = stella_crisis.10 days = 5} 
+	}
+}
+
+country_event = {
+	id = stella_crisis.10
+	title = "stella_crisis.10.name"
+	desc = "stella_crisis.10.desc"
+	picture = GFX_evt_wormhole
+	show_sound = event_alien_signal
+	is_triggered_only = yes
+	
+	option = {
+		name = stella_crisis.10.op1	
+	}
+	
+	immediate = {
+		if = {
+			limit = {has_country_flag = triggered_fervent_invasion}
+			create_point_of_interest = {
+					id = fervent_portal_poi.1
+					name = "fervent_portal_1_poi"
+					desc = "fervent_portal_1_poi_desc"
+					event_chain = "stella_crisis_chain"
+					location = event_target:fervent_system
+				}
+		}
+		else = {
+			create_point_of_interest = {
+					id = fervent_portal_poi.2
+					name = "fervent_portal_2_poi"
+					desc = "fervent_portal_2_poi_desc"
+					event_chain = "stella_invaders_chain"
+					location = event_target:fervent_system
+				}
+		}
+	}
+	
+	after = {
+		hidden_effect = {
+			country_event = {id = stella_crisis.11 days = 1}
+		}
+	}
+}
+
+
+
+#Portal Transmission
+country_event = {
+	id = stella_crisis.11
+	title = "stella_crisis.11.name"
+	desc = "stella_crisis.11.desc"
+
+	diplomatic = yes
+
+	picture_event_data = {
+		portrait = exd1
+		room = "extradimensional_room"
+	}
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "stella_crisis.11.op1"
+		response_text = stella_crisis.11.response
+	}
+	
+	option = {
+		name = "stella_crisis.11.op2"
+		response_text = stella_crisis.11.response
+	}
+}
+
+#Portal destroyed by magical empire (which started it in the first place)
+country_event = {
+
+	id = stella_crisis.12
+	is_triggered_only = yes
+	title = "stella_crisis.12.name"
+	desc = "stella_crisis.12.desc"
+	picture = GFX_evt_news_room
+	show_sound = event_celebration
+	
+	trigger = {
+		FROMFROMFROM = { has_fleet_flag = fervent_portal }
+		has_country_flag = triggered_fervent_invasion
+	}
+	option = {
+		name = "stella_crisis.12.op1"
+	}
+	
+	immediate = {
+	
+		event_target:fervent_country = {
+			add_modifier = {modifier = stella_fervent_portal_lost days = -1}
+		}
+		
+		set_country_flag = fervent_slayers
+		set_global_flag = fervent_defeated
+	}
+	after = {
+		hidden_effect = {
+			every_playable_country = {
+				limit = { NOT = {has_country_flag = fervent_slayers}}
+				country_event = {id = stella_crisis.14 days = 3}
+			}
+		}
+		country_event = {id = stella_crisis.15 days = 12}
+	}
+}
+
+#Portal destroyed by empire that didn't start crisis
+country_event = {
+
+	id = stella_crisis.13
+	is_triggered_only = yes
+	title = "stella_crisis.13.name"
+	desc = "stella_crisis.13.desc"
+	picture = GFX_evt_news_room
+	show_sound = event_celebration
+	
+	trigger = {
+		FROMFROMFROM = { has_fleet_flag = fervent_portal }
+		NOT = { has_country_flag = triggered_fervent_invasion }
+	}
+	
+	
+	option = {
+		name = "stella_crisis.13.op1"
+	}
+	
+	immediate = {
+		event_target:fervent_country = {
+			add_modifier = {modifier = stella_fervent_portal_lost days = -1}
+		}
+		set_country_flag = fervent_slayers
+		set_global_flag = fervent_defeated
+	}
+	
+	after = {
+		hidden_effect = {
+			every_playable_country = {
+				limit = { NOT = {has_country_flag = fervent_slayers}}
+				country_event = {id = stella_crisis.14 days = 3}
+			}
+		
+			every_playable_country = {
+				limit = {has_country_flag = triggered_fervent_invasion}
+				country_event = {id = stella_crisis.15 days = 15}
+			}
+		}
+	}
+}
+
+#Portal destroyed by others (shows for all)
+country_event = {
+
+	id = stella_crisis.14	
+	title = "stella_crisis.14.name"
+	desc = "stella_crisis.14.desc"
+	is_triggered_only = yes
+	picture = GFX_evt_news_room
+	show_sound = event_celebration
+	
+	immediate = {
+		if = {
+			limit = {NOT = {has_country_flag = triggered_fervent_invasion}}
+			end_event_chain = stella_invaders_chain
+		}
+	}
+	option = {
+		name = "stella_crisis.14.op1"
+	}
+	
+}
+
+#True Ending!
+country_event = {
+
+	id = stella_crisis.15
+	is_triggered_only = yes
+	title = "stella_crisis.15.name"
+	desc = "stella_crisis.15.desc"
+	picture = GFX_evt_tradestation_interior
+	show_sound = event_celebration
+	
+	immediate = {
+		set_country_flag = stella_true_ending
+		
+		end_event_chain = "stella_crisis_chain"
+	}
+	option = {
+		name = "stella_crisis.15.op1"
+	}
+}
+
+
+#Weaken the Fervent (10 years after start)
+country_event = {
+	id = stella_crisis.900
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {is_country_type = stella_fervent}
+			add_modifier = {modifier = stella_fervent_weaken days = -1}
+		} 
+	}
+	
+	after = {
+		every_playable_country = {
+			country_event = {id = stella_crisis.901 days = 3}
+		}
+	}
+}
+
+#Notification
+country_event = {
+	id = stella_crisis.901
+	title = "stella_crisis.901.name"
+	desc = "stella_crisis.901.desc"
+	picture = GFX_evt_fleet_evil
+	show_sound = event_solar_fusion
+	is_triggered_only = yes
+	
+	option = {
+		name = "stella_crisis.901.op1"
+	}
+}
+
+#Weaken, no notification
+country_event = {
+	id = stella_crisis.902
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {is_country_type = stella_fervent}
+			add_modifier = {modifier = stella_fervent_weaken days = -1}
+		} 
+	}
+	
+}
+
+#Planet Bombarded
+planet_event = {
+	id = stella_crisis.903
+	title = "stella_crisis.903.name"
+	picture = GFX_evt_city_ruins
+	show_sound = event_ghost_town
+
+	is_triggered_only = yes
+
+	trigger = {
+		planet_devastation >= 100
+		FROM = {
+				is_country_type = stella_fervent
+		}
+	}
+	
+	desc = {
+		trigger = {
+			NOR = {
+				is_planet_class = pc_ringworld_habitable
+				is_planet_class = pc_habitat
+			}
+		}
+		text = stella_crisis.903.desc1
+	}
+	
+	desc = {
+		trigger = { is_planet_class = pc_ringworld_habitable }
+		text = stella_crisis.903.desc2
+	}
+	desc = {
+		trigger = { is_planet_class = pc_habitat }
+		text = stella_crisis.903.desc3
+	}
+	
+	immediate = {
+		destroy_colony = yes
+		if = {
+			limit = {
+				NOR = {
+					is_planet_class = pc_ringworld_habitable
+					is_planet_class = pc_habitat
+				}
+			}
+			random_list = {
+				50 = { change_pc = pc_barren }
+				50 = { change_pc = pc_barren_cold }
+			}
+			reset_planet = yes
+			add_modifier = {
+				modifier = "terraforming_candidate"
+				days = -1
+			}
+		}
+		else_if = {
+			limit = { is_planet_class = pc_ringworld_habitable }
+			change_pc = pc_ringworld_habitable_damaged
+			reset_planet = yes
+		}
+		else_if = {
+			limit = { is_planet_class = pc_habitat }
+			remove_planet = yes
+		}
+	}
+
+	option = {
+		name = stella_crisis.903.op1
+	}
+}
+
+
+#Fervent reinforcements
+fleet_event = {
+	id = stella_crisis.1000
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:fervent_country = {
+			
+			create_fleet = {
+				settings = { spawn_debris = no }
+				effect = {
+					set_owner = PREV
+					
+					while = {
+						count = 4
+						create_ship = {
+							name = random
+							design = "Fervent_Archon"
+							graphical_culture = "extra_dimensional_01"
+						}
+					}
+					while = {
+						count = 8
+						create_ship = {
+							name = random
+							design = "Fervent_Magnus"
+							graphical_culture = "extra_dimensional_01"
+						}
+					}
+					while = {
+						count = 12
+						create_ship = {
+							name = random
+							design = "Fervent_Shadow"
+							graphical_culture = "extra_dimensional_01"
+						}
+					}
+					set_location = {
+						target = ROOT
+						distance = 5
+						angle = random
+					}
+					set_fleet_stance = aggressive
+					set_aggro_range = 500
+					set_aggro_range_measure_from = self
+				}
+			}
+		}
+	}
+}
+
+#Spawn constructors
+fleet_event = {
+	id = stella_crisis.1001
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:fervent_country = {
+		
+			create_fleet = {
+				settings = { spawn_debris = no }
+				effect = {
+					set_owner = PREV
+					create_ship = {
+						name = random
+						design = "NAME_Void_Shaper"
+						graphical_culture = "extra_dimensional_01"
+					}
+					set_location = {
+						target = ROOT
+						distance = 5
+						angle = random
+					}
+				}
+			}
+		}
+	}
+}
+
+#Spawn cycle
+#The Fervent have a max of 200 ships
+country_event = {
+	id = stella_crisis.1002
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+			is_country_type = stella_fervent
+			count_owned_ships = {
+				limit = { is_ship_size = dimensional_portal_ed }
+				count > 0
+			}
+	}
+	
+	immediate = {
+		#Spawn some constructors if there are 2 or less
+		country_event = {id = stella_crisis.1005}
+		
+		#At max ships
+		if = {
+			limit = {
+				num_ships > 200
+			}
+			country_event = { id = stella_crisis.1002 days = 500 random = 220 } # Check again later
+		}
+		else = {
+			country_event = { id = stella_crisis.1003 days = 300 random = 220 }
+		}
+		
+		
+	}
+}
+
+#Military reinforcements
+country_event = {
+	id = stella_crisis.1003
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+			is_country_type = stella_fervent
+			count_owned_ships = {
+				limit = { is_ship_size = dimensional_portal_ed }
+				count > 0
+			}
+			count_owned_ships = {
+				limit = { is_ship_size = construction_ship_ed }
+				count < 3
+			}
+		
+	}
+	
+	immediate = {
+		country_event = { id = stella_crisis.1002 }
+		if = {
+			limit = { is_country_type = stella_fervent }
+			while = {
+				count = 1
+				create_fleet = {
+					settings = { spawn_debris = no }
+					effect = {
+						set_owner = ROOT
+						while = {
+							count = 3
+							create_ship = {
+							name = random
+							design = "Fervent_Archon"
+							graphical_culture = "extra_dimensional_01"
+							}
+						}
+						while = {
+							count = 5
+							create_ship = {
+								name = random
+								design = "Fervent_Magnus"
+								graphical_culture = "extra_dimensional_01"
+							}
+						}
+						while = {
+							count = 6
+							create_ship = {
+								name = random
+								design = "Fervent_Shadow"
+								graphical_culture = "extra_dimensional_01"
+							}
+						}
+						set_location = {
+							target = event_target:fervent_portal_location
+							distance = 10
+							angle = random
+						}
+						
+						set_fleet_stance = aggressive
+						set_aggro_range = 500
+						set_aggro_range_measure_from = self
+					}
+					
+					
+				}
+			}
+		}
+	}
+}
+
+#Spawn constructors
+country_event = {
+	id = stella_crisis.1005
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+			is_country_type = stella_fervent
+			count_owned_ships = {
+				limit = { is_ship_size = dimensional_portal_ed }
+				count > 0
+			}	
+	}
+	
+	immediate = {
+		if = {
+			limit = { is_country_type = stella_fervent }
+			while = {
+				count = 1
+				create_fleet = {
+					settings = { spawn_debris = no }
+					effect = {
+						set_owner = ROOT
+						create_ship = {
+							name = random
+							design = "NAME_Void_Shaper"
+							graphical_culture = "extra_dimensional_01"
+						}
+						set_location = {
+							target = event_target:fervent_portal_location
+							distance = 5
+							angle = random
+						}
+					}
+				}
+			}
+		}
+	}
+}
+

@@ -1,0 +1,21 @@
+d_damaged_ring_sector = {
+	time = 360
+	icon = d_city_ruins
+	
+	is_for_colonizeable = yes
+	category = deposit_cat_blockers	
+	
+	potential = { always = no }
+	
+	planet_modifier = { 
+		planet_max_districts_add = -5
+	}
+	
+	resources = {
+		category = deposit_blockers
+		cost = {
+			alloys = 800
+			energy = 800
+		}
+	}
+}

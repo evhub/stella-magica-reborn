@@ -1,0 +1,818 @@
+#Leader related events and diplomacy events (for Madoka and the Fervent)
+#Diplomacy events start past 1000
+
+namespace = stella_leader
+
+#Gives leaders the right traits when they change jobs (Become ruler, etc.)
+#Check on action for triggers
+country_event = {
+	id = stella_leader.1
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		from = {
+			species = { has_trait = trait_magi }
+			NOR = {
+				has_trait = leader_trait_admiral_magi
+				has_trait = leader_trait_general_magi
+				has_trait = leader_trait_governor_magi
+				has_trait = leader_trait_scientist_magi
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			if = {
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_admiral_magi
+				break = yes
+			}
+			if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_general_magi
+				break = yes
+			}
+			if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_governor_magi
+				break = yes
+			}
+			if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_scientist_magi
+				break = yes
+			}
+		}
+	}
+}
+
+#Detects if any of the special leaders died or not
+country_event = {
+	id = stella_leader.2
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		from = {
+			species = { has_trait = trait_magi }
+		}
+	}
+	
+	immediate = {
+	 from = {
+		if = {
+				limit = { has_leader_flag = stella_mami }
+				remove_country_flag = stella_mami_alive
+				break = yes
+			}
+		if = {
+				limit = { has_leader_flag = stella_kyoko }
+				remove_country_flag = stella_kyoko_alive
+				break = yes
+			}
+		if = {
+				limit = { has_leader_flag = stella_yuma }
+				remove_country_flag = stella_yuma_alive
+				break = yes
+			}
+		if = {
+				limit = { has_leader_flag = stella_homura }
+				remove_country_flag = stella_homura_alive
+				break = yes
+			}
+		if = {
+				limit = { has_leader_flag = stella_sayaka }
+				remove_country_flag = stella_sayaka_alive
+				break = yes
+			}
+		if = {
+				limit = { has_leader_flag = stella_madoka }
+				remove_country_flag = stella_madoka_alive
+				country_event = {id = stella_leader.10 days = 10}
+				break = yes
+			}
+	 }
+	}
+}
+
+#Leader spawner events
+#stella_leader.3 = Mami
+#stella_leader.4 = Kyoko
+#stella_leader.5 = Yuma
+#stella_leader.6 = Homura
+#stella_leader.7 = Sayaka
+#stella_leader.8 = Madoka
+#stella_leader.9 = Ultra Instinct Madoka
+
+country_event = {
+
+	id = stella_leader.3
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_country_flag = stella_mami_alive }
+	}
+	
+	immediate = {
+		set_country_flag = stella_mami_alive
+		create_species = {
+			name = "Puella Magi"
+			class = PuellaMagi
+			portrait = mami
+			traits = {
+				trait = trait_pc_continental_preference 
+				trait = trait_charismatic
+				trait = trait_magi
+			}
+		}
+		
+		create_leader = {
+			gender = female
+			class = admiral
+			species = last_created
+			name = "Mami Tomoe"
+			skill = 3
+			traits = {
+				trait = leader_trait_admiral_magi
+				trait = leader_trait_trio_finish
+			}
+			
+		}
+		
+		
+		last_created_leader  = {
+			set_leader_flag  = stella_mami
+			add_ruler_trait  = leader_trait_ruler_magi
+
+		}
+	}
+}
+
+country_event = {
+
+	id = stella_leader.4
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_country_flag = stella_kyoko_alive }
+	}
+	
+	immediate = {
+		set_country_flag = stella_kyoko_alive
+		create_species = {
+			name = "Puella Magi"
+			class = PuellaMagi
+			portrait = kyoko
+			traits = {
+				trait = trait_pc_continental_preference 
+				trait = trait_charismatic
+				trait = trait_magi
+			}
+		}
+		
+		create_leader = {
+			gender = female
+			class = scientist
+			species = last_created
+			name = "Kyoko Sakura"
+			skill = 2
+			traits = {
+				trait = leader_trait_scientist_magi
+				trait = leader_trait_the_ribbon
+			}
+		}
+		
+		last_created_leader  = {
+			set_leader_flag  = stella_kyoko
+			add_ruler_trait  = leader_trait_ruler_magi
+
+		}
+	}
+}
+
+country_event = {
+
+	id = stella_leader.5
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_country_flag = stella_yuma_alive }
+	}
+	
+	immediate = {
+		set_country_flag = stella_yuma_alive
+		create_species = {
+			name = "Puella Magi"
+			class = PuellaMagi
+			portrait = yuma
+			traits = {
+				trait = trait_pc_continental_preference 
+				trait = trait_charismatic
+				trait = trait_magi
+			}
+
+		}
+		
+		create_leader = {
+			gender = female
+			class = governor
+			species = last_created
+			name = "Yuma Chitose"
+			skill = 2
+			traits = {
+				trait = leader_trait_governor_magi
+				trait = leader_trait_carefree_demeanor
+			}
+		}
+		
+		last_created_leader  = {
+			set_leader_flag  = stella_yuma
+			add_ruler_trait  = leader_trait_ruler_magi
+			
+		}
+	}
+}
+
+country_event = {
+
+	id = stella_leader.6
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_country_flag = stella_homura_alive }
+	}
+	
+	immediate = {
+		set_country_flag = stella_homura_alive
+		create_species = {
+			name = "Puella Magi"
+			class = PuellaMagi
+			portrait = homura
+			traits = {
+				trait = trait_pc_continental_preference 
+				trait = trait_charismatic
+				trait = trait_magi
+			}
+		}
+		
+		create_leader = {
+			gender = female
+			class = admiral
+			species = last_created
+			name = "Homura Akemi"
+			skill = 4
+			traits = {
+				trait = leader_trait_admiral_magi
+				trait = leader_trait_maxwells_demon
+			}
+		}
+		
+		last_created_leader  = {
+			set_leader_flag  = stella_homura
+			add_ruler_trait  = leader_trait_ruler_magi
+		}
+	}
+}
+
+country_event = {
+
+	id = stella_leader.7
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_country_flag = stella_sayaka_alive }
+	}
+	
+	immediate = {
+		set_country_flag = stella_sayaka_alive
+			create_species = {
+				name = "Puella Magi"
+				class = PuellaMagi
+				portrait = sayaka
+				traits = {
+					trait = trait_pc_continental_preference 
+					trait = trait_charismatic
+					trait = trait_magi
+				}
+			}
+		
+			create_leader = {
+				gender = female
+				class = admiral
+				species = last_created
+				name = "Sayaka Miki"
+				skill = 4
+				traits = {
+					trait = leader_trait_admiral_magi
+					trait = leader_trait_champion_justice
+				}
+			}
+		
+			last_created_leader  = {
+				set_leader_flag  = stella_sayaka
+				add_ruler_trait  = leader_trait_ruler_magi
+
+			}
+	}
+}
+
+country_event = {
+
+	id = stella_leader.8
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_country_flag = stella_madoka_alive }
+	}
+	
+	immediate = {
+		set_country_flag = stella_madoka_alive
+			create_species = {
+				name = "Puella Magi"
+				class = PuellaMagi
+				portrait = madoka
+				traits = {
+					trait = trait_pc_continental_preference 
+					trait = trait_charismatic
+					trait = trait_magi
+				}
+			}
+		
+			create_leader = {
+				gender = female
+				class = admiral
+				species = last_created
+				name = "Madoka Kaname"
+				skill = 5
+				traits = {
+					trait = leader_trait_admiral_magi
+					trait = leader_trait_goddess_redux
+				}
+			}
+		
+			last_created_leader  = {
+				set_leader_flag  = stella_madoka
+				add_ruler_trait  = leader_trait_ruler_magi
+
+			}
+	}
+}
+
+country_event = {
+
+	id = stella_leader.9
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_country_flag = stella_madoka_alive }
+	}
+	
+	immediate = {
+		set_country_flag = stella_madoka_alive
+			create_species = {
+				name = "Puella Magi"
+				class = PuellaMagi
+				portrait = madoka
+				traits = {
+					trait = trait_pc_continental_preference 
+					trait = trait_charismatic
+					trait = trait_magi
+				}
+			}
+		
+			create_leader = {
+				gender = female
+				class = admiral
+				species = last_created
+				name = "Madoka Kaname"
+				skill = 10
+				traits = {
+					trait = leader_trait_admiral_magi
+					trait = leader_trait_goddess_hope
+				}
+			}
+		
+			last_created_leader  = {
+				set_leader_flag  = stella_madoka
+				add_ruler_trait  = leader_trait_ruler_magi
+
+			}
+	}
+}
+
+#Automatically respawn Madoka
+country_event = {
+
+	id = stella_leader.10
+	is_triggered_only = yes
+	title = "stella_leader.10.name"
+	desc = "stella_leader.10.desc"
+	picture = GFX_evt_psionics
+	show_sound = event_psionic
+	
+	
+	trigger = {
+		has_country_flag = stella_madoka_contacted
+		NOT = { has_country_flag = stella_madoka_alive }
+	}
+	
+	immediate = {
+		if = {
+			limit = {has_country_flag = ultra_madoka_spawned}
+			country_event = {id = stella_leader.9}
+			else = {
+				country_event = {id = stella_leader.8}
+			}
+		}
+		
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+#Madoka "Lobby"
+country_event = {
+
+	id = stella_leader.1000
+	title = "stella_leader.1000.name"
+	desc = "stella_leader.1000.desc"
+	is_triggered_only = yes
+	diplomatic = yes
+	force_open = yes
+	
+	trigger = {
+		has_country_flag = stella_madoka_contacted
+		from = { is_country_type =  stella_madoka }
+		NOT = {
+			has_country_flag = mado_diplomacy_engaged
+		}
+	}
+	
+	picture_event_data = {
+		portrait = madoka
+		room = mado_room
+	}
+	
+	immediate = {
+		set_country_flag = mado_diplomacy_engaged
+	}
+	
+	after = {
+		hidden_effect = {
+			remove_country_flag = mado_diplomacy_engaged
+		}
+	}
+	
+	option = {
+		name = stella_leader.1000.op1
+		country_event = {id = stella_leader.1001 }
+	}
+	
+	option = {
+		name = stella_leader.1000.op2
+		custom_tooltip = "stella_leader.1000.op2.tooltip"
+		default_hide_option = yes
+		response_text = stella_leader.1000.op2.response
+	}
+	
+}
+#Check if player hasn't asked for a favor too recently
+country_event = {
+
+	id = stella_leader.1001
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		if = {
+			limit = { has_modifier = recent_madoka_favor }
+			country_event = {id = stella_leader.1002 }
+			#break = yes
+		}
+		else = {
+			country_event = {id = stella_leader.1003}
+		}
+	}
+	
+
+}
+
+#If player has asked for a favor in the past 5 years
+country_event = {
+
+	id = stella_leader.1002
+	title = "stella_leader.1002.name"
+	desc = "stella_leader.1002.desc"
+	is_triggered_only = yes
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = madoka
+		room = mado_room
+	}
+	
+	immediate = {
+		
+	}
+
+	
+	option = {
+		name = stella_leader.1002.op1
+		response_text = stella_leader.1002.op1.response
+	}
+	
+	option = {
+		name = stella_leader.1002.op2
+		response_text = stella_leader.1002.op2.response
+	}
+}
+
+#If the player hasn't asked for a favor recently 
+country_event = {
+
+	id = stella_leader.1003
+	title = "stella_leader.1003.name"
+	desc = "stella_leader.1003.desc"
+	is_triggered_only = yes
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = madoka
+		room = mado_room
+	}
+	
+	immediate = {
+		
+	}
+
+	
+	option = {
+		name = stella_leader.1003.op1
+		allow = {
+			resource_stockpile_compare = { resource = energy value >= 2000 }
+		}
+		add_resource = { energy = -2000 }
+		
+		country_event = {id = stella_leader.1004}
+	}
+	
+	option = {
+		name = stella_leader.1003.op2
+		allow = {
+			resource_stockpile_compare = { resource = energy value >= 2000 }
+		}
+		add_resource = { energy = -2000 }
+		country_event = {id = stella_leader.1008}
+	}
+	
+	option = {
+		name = stella_leader.1003.op3
+		response_text = stella_leader.1003.op2.response
+		default_hide_option = yes
+	}
+}
+
+#Give peacetime or wartime bonus
+country_event = {
+
+	id = stella_leader.1004
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {is_at_war = yes}
+			country_event = {id = stella_leader.1005}
+			#break = yes
+		}
+		else = {
+			country_event = {id = stella_leader.1006 }
+		}
+	}
+}
+
+#Give a random wartime bonus
+country_event = {
+
+	id = stella_leader.1005
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			20 = {
+				add_modifier = {modifier = stella_goddess_might days = 1800}
+			}
+			
+			20 = {
+				add_modifier = {modifier = stella_goddess_protection days = 1800}
+			}
+			
+			20 = {
+				add_modifier = {modifier = stella_goddess_guidance days = 1800}
+			}
+		}
+	}
+	
+	after = {
+		add_modifier = {modifier = recent_madoka_favor days = 1800}
+		country_event = {id = stella_leader.1007}
+	}
+}
+
+
+#Give a random peacetime bonus
+country_event = {
+
+	id = stella_leader.1006
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			20 = {
+				add_modifier = {modifier = stella_goddess_smile days = 1800}
+			}
+			20 = {
+				add_modifier = {modifier = stella_goddess_insight days = 1800}
+			}
+			20 = {
+				add_modifier = {modifier = stella_goddess_teachings days = 1800}
+			}
+			20 = {
+				add_modifier = {modifier = stella_goddess_encourage days = 1800}
+			}
+		}
+	}
+	
+	after = {
+		add_modifier = {modifier = recent_madoka_favor days = 1800}
+		country_event = {id = stella_leader.1007}
+	}
+}
+
+country_event = {
+
+	id = stella_leader.1007
+	title = "stella_leader.1007.name"
+	desc = "stella_leader.1007.desc"
+	is_triggered_only = yes
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = madoka
+		room = mado_room
+	}
+	
+	option = {
+		name = stella_leader.1007.op1
+		response_text = stella_leader.1007.op1.response
+	}
+	
+}
+
+#Check if anyone is dead
+country_event = {
+
+	id = stella_leader.1008
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = stella_homura_alive
+					has_country_flag = stella_sayaka_alive
+					has_country_flag = stella_kyoko_alive
+					has_country_flag = stella_mami_alive
+					has_country_flag = stella_yuma_alive
+				}
+			}
+			country_event = {id = stella_leader.1009}
+			#break = yes
+		}
+		else = {
+			country_event = {id = stella_leader.1010}
+		}
+	}
+}
+
+#No one is dead, refund energy
+country_event = {
+
+	id = stella_leader.1009
+	title = "stella_leader.1009.name"
+	desc = "stella_leader.1009.desc"
+	is_triggered_only = yes
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = madoka
+		room = mado_room
+	}
+	
+	immediate = {
+		hidden_effect = {
+			add_resource = {energy = 2000}
+		}
+	}
+	option = {
+		name = stella_leader.1009.op1
+		response_text = stella_leader.1009.op1.reponse
+	}
+}
+
+#Revive one dead main character
+#Madoka's priority: Homura > Sayaka > Kyoko > Mami > Yuma
+#stella_leader.3 = Mami
+#stella_leader.4 = Kyoko
+#stella_leader.5 = Yuma
+#stella_leader.6 = Homura
+#stella_leader.7 = Sayaka
+country_event = {
+
+	id = stella_leader.1010
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {NOT = {has_country_flag = stella_homura_alive}}
+			country_event = {id = stella_leader.6}
+			country_event = {id = stella_leader.1011}
+			break = yes
+		}
+		
+		if = {
+			limit = {NOT = {has_country_flag = stella_sayaka_alive}}
+			country_event = {id = stella_leader.7}
+			country_event = {id = stella_leader.1011}
+			break = yes
+		}
+		
+		if = {
+			limit = {NOT = {has_country_flag = stella_kyoko_alive}}
+			country_event = {id = stella_leader.4}
+			country_event = {id = stella_leader.1011}
+			break = yes
+		}
+		
+		if = {
+			limit = {NOT = {has_country_flag = stella_mami_alive}}
+			country_event = {id = stella_leader.3}
+			country_event = {id = stella_leader.1011}
+			break = yes
+		}
+		
+		if = {
+			limit = {NOT = {has_country_flag = stella_yuma_alive}}
+			country_event = {id = stella_leader.5}
+			country_event = {id = stella_leader.1011}
+			break = yes
+		}
+
+	}
+}
+
+#Give the recent favor modifier
+country_event = {
+
+	id = stella_leader.1011
+	title = "stella_leader.1011.name"
+	desc = "stella_leader.1011.desc"
+	is_triggered_only = yes
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = madoka
+		room = mado_room
+	}
+	
+	immediate = {
+		hidden_effect = {
+			add_modifier = {modifier = recent_madoka_favor days = 3600}
+		}
+	}
+	option = {
+		name = stella_leader.1011.op1
+		response_text = stella_leader.1011.op1.reponse
+	}
+}
+

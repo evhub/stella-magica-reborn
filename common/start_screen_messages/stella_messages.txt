@@ -1,0 +1,17 @@
+part = {
+	location = 0
+	localization = "START_SCREEN_HUMAN_STELLA"
+	
+	trigger = {
+		has_country_flag = human_stella
+	}
+}
+
+part = {
+	location = 0
+	localization = "START_SCREEN_INCUBATOR_STELLA"
+	
+	trigger = {
+		has_country_flag = icubators_stella
+	}
+}

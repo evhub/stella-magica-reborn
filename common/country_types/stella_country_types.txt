@@ -1,0 +1,71 @@
+#Country type for contacting Madoka
+stella_madoka = {
+	show_in_contacts_list = yes
+	minimalist_contacts_list_profile = yes
+	share_communications = no
+	default_ships = no
+	government = no
+	observable = no
+	ai = {
+		enabled = no
+	}
+	faction = {
+		hostile = no
+		needs_border_access = no
+		generate_borders = no
+		needs_colony = no
+		auto_delete = no
+	}
+	custom_diplomacy = yes
+	modules = {
+		basic_technology_module = {}
+		exclusive_diplomacy_module = {
+			contact_rule = script_only
+		}
+	}
+}
+
+#Country type for the Fervent midgame crisis (mostly a copypasta of the Unbidden)
+stella_fervent = {
+	attack_unarmed_orbital_stations = yes
+	scaled_difficulty_bonuses = 2.0	# scales to setting
+	end_game_crisis = yes
+	destroys_starbases = yes
+	needs_survey = no
+	has_complete_sensor = yes
+	can_planets_be_attacked = no
+	has_capital = no
+	enforces_borders = no
+	home_system = fervent_system
+	custom_starbase = starbase_exd
+	observable = yes
+	government = no
+	ai = {
+		enabled = yes
+		colonizer = yes
+		construction = yes
+		modules = {
+			#invaders_military_minister_module
+			berserk_military_minister_module
+			#machine_military_minister_module
+			invaders_interior_minister_module
+			
+		}
+	}
+	faction = {
+		needs_colony = no
+		hostile = yes
+		needs_border_access = no
+	}
+	
+	custom_diplomacy = yes
+	
+	modules = {
+		standard_event_module = {}
+		standard_leader_module = {}
+		all_technology_module = {}
+		exclusive_diplomacy_module = {
+			contact_rule = always
+		}
+	}
+}

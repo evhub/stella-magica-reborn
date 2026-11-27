@@ -1,0 +1,172 @@
+#Stella Magica Magitech Components
+
+#Gaiasteel Penetrators (Increase kinetic damage percent)
+utility_component_template = {
+	key = "STELLA_MAGIC_AMMO"
+	size = aux
+	icon = "gfx_stella_magic_ammo"
+	icon_frame = 1
+	power = 0
+
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 35
+			stella_grief_cube = 5
+		}
+	}
+
+	modifier = {
+		weapon_type_kinetic_weapon_damage_mult = 0.15
+	}
+
+	prerequisites = { "stella_tech_gaiasteel" }
+	component_set = "STELLA_MAGIC_AMMO"
+
+	ai_weight = {
+		weight = 10
+	}
+}
+
+#Superconductive Components (Increase energy damage percent)
+utility_component_template = {
+	key = "STELLA_MAGIC_CAP"
+	size = aux
+	icon = "gfx_stella_magic_cap"
+	icon_frame = 1
+	power = 50
+
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 35
+			stella_grief_cube = 5
+		}
+	}
+
+	modifier = {
+		weapon_type_energy_weapon_damage_mult = 0.15
+	}
+
+	prerequisites = { "stella_tech_magic_cap" }
+	component_set = "STELLA_MAGIC_CAP"
+
+	ai_weight = {
+		weight = 10
+	}
+}
+
+#Elemental Warheads (Increase explosive weapon damage, slight hull penalty)
+utility_component_template = {
+	key = "STELLA_MAGIC_EXPLOSIVES"
+	size = aux
+	icon = "gfx_stella_magic_explosives"
+	icon_frame = 1
+	power = 0
+
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 35
+			stella_grief_cube = 5
+		}
+	}
+
+	modifier = {
+		weapon_type_explosive_weapon_damage_mult = 0.2
+		ship_hull_mult = -0.05
+	}
+
+	prerequisites = { "stella_tech_magic_explosives" }
+	component_set = "STELLA_MAGIC_EXPLOSIVES"
+
+	ai_weight = {
+		weight = 10
+	}
+}
+
+#Gaiasteel Armor Coating (percent bonus to armor)
+utility_component_template = {
+	key = "STELLA_MAGIC_ARMOR"
+	size = aux
+	icon = "gfx_stella_magic_armor"
+	icon_frame = 1
+	power = 0
+
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 50
+			stella_grief_cube = 6
+		}
+	}
+
+	modifier = {
+		ship_armor_mult  = 0.10
+	}
+
+	prerequisites = { "stella_tech_magic_armor" }
+	component_set = "STELLA_MAGIC_ARMOR"
+
+	ai_weight = {
+		weight = 10
+	}
+}
+
+#Semifluid Armor (Hull/armor regen)
+#Do you know how many times I misspelled fluid as fulid?
+utility_component_template = {
+	key = "STELLA_SEMIFLUID_ARMOR"
+	size = aux
+	icon = "gfx_stella_semifluid"
+	icon_frame = 1
+	power = 0
+
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 40
+			stella_grief_cube = 6
+		}
+	}
+
+	modifier = {
+		ship_hull_regen_add_static = 2.0
+		ship_armor_regen_add_static = 6.0
+	}
+
+	prerequisites = { "stella_tech_semifluid" }
+	component_set = "STELLA_SEMIFLUID_ARMOR"
+
+	ai_weight = {
+		weight = 10
+	}
+}
+
+#Thaumatic Coolant
+utility_component_template = {
+	key = "STELLA_MAGIC_COOLANT"
+	size = aux
+	icon = "gfx_stella_magic_coolant"
+	icon_frame = 1
+	power = 0
+
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 45
+			stella_grief_cube = 6
+		}
+	}
+
+	modifier = {
+		ship_fire_rate_mult = 0.10
+	}
+
+	prerequisites = { "stella_tech_magic_coolant" }
+	component_set = "STELLA_MAGIC_COOLANT"
+
+	ai_weight = {
+		weight = 10
+	}
+}

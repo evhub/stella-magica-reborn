@@ -1,0 +1,206 @@
+﻿### Incubator
+### Modified from HIVE1
+
+INCU = {
+	randomized = no
+	should_name_home_system_planets = no
+
+	ship_names = {
+		generic = {
+		}
+
+		corvette = {
+			"Ultralight Combat Unit"
+		}
+		
+		destroyer = {
+			"Light Combat Unit"
+		}
+		
+		cruiser = {
+			"Medium Combat Unit"
+		}
+		
+		battleship = {
+			"Heavy Combat Unit"
+		}
+
+		titan = {
+			"Superheavy Combat Unit"
+		}
+
+		colossus = {
+			"Annihilator Unit"
+		}
+		
+		science = {
+			"Research Unit"
+		}
+		
+		colonizer = {
+			"Nester Unit"
+		}
+		
+		constructor = {
+			"Constructor Unit"
+		}
+	
+		transport = {
+			"Transport Unit"
+		}
+	
+		military_station_small = {
+			"Defensive Emplacement"
+		}
+
+		ion_cannon = {
+			"Ion Emplacement"
+		}
+	}
+
+	ship_class_names = {
+		generic = {
+			"Type Alpha" "Type Beta" "Type Gamma" "Type Delta" "Type Epsilon" "Type Zeta" "Type Eta" "Type Theta" "Type Iota" "Type Kappa" "Type Lambda" "Type Mu" "Type Nu" "Type Xi" "Type Omicron" "Type Pi" "Type Rho" "Type Sigma" "Type Tau" "Type Upsilon" "Type Phi" "Type Chi" "Type Psi" "Type Omega"
+		}		
+	}
+
+	fleet_names = {
+		random_names = {
+			"Howling Swarm" "Ravenous Swarm" "Ravaging Swarm" "Devastating Swarm" "Gorging Swarm" "Rushing Swarm" "Stalking Swarm" "Charging Swarm" "Thundering Swarm" "Teeming Swarm" "Ceaseless Swarm" "Baleful Swarm" "Pestilent Swarm" "Merciless Swarm" "Pitiless Swarm" "Rancorous Swarm"
+		}
+		sequential_name = "Combat Swarm %CC%"
+	}
+	
+	army_names = {
+		defense_army = {
+			sequential_name = "%O% Hive Defenders"
+		}
+			
+		assault_army = {
+			sequential_name = "%O% Assault Drones"
+		}
+		
+		slave_army = {
+			sequential_name = "%O% Slave Assault Drones"
+		}
+		
+		clone_army = { 
+			sequential_name = "%O% Replicated Assault Drones"
+		}
+		
+		robotic_army = {
+			sequential_name = "%O% Robotic Drones"
+		}
+
+		robotic_defense_army = {
+			sequential_name = "%O% Robotic Hive Defenders"
+		}
+	
+		psionic_army = { 
+			sequential_name = "%O% Psionic Assault Drones"
+		}
+		
+		xenomorph_army = {
+			sequential_name = "%O% Mutated Assault Drones"
+		}
+		
+		gene_warrior_army = {
+			sequential_name = "%O% Augmented Assault Drones"
+		}
+
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
+		}
+	}
+
+	planet_names = {
+
+		generic = {
+			names = {
+				"Alpha Cell" "Swarm Cell Alpha" "Drone Cell" "Nesting Chamber" "Drone Nest" "Outward Reach" "Exterior Drone Chamber" "Extension Node" "Standard Node" "Drone Node" "Expansive Cell" "Production Chamber" "Superior Vertex" "Expansion Node" "Development Chamber" "Advancement Cell" "Manufacturing Node" "Assembly Cell" "Guard Junction" "Supra-Vertex" "Forward Junction" "Assembly Node" "Brood Colony" "Alpha Colony" "Beta Colony" "Gamma Colony" "Delta Colony" "Epsilon Colony" "Zeta Colony" "Eta Colony" "Theta Colony" "Iota Colony" "Production Cell" "Brood Cell" "Drone Cluster" "Swarm Colony" "Drone Colony" "Assembly Colony"
+			}
+		}
+		
+		pc_desert = {
+			names = {
+			}
+		}
+		
+		pc_tropical = {
+			names = {
+			}
+		}
+		
+		pc_arid = {
+			names = {
+			}
+		}
+		
+		pc_continental = {
+			names = {
+			}
+		}
+		
+		pc_ocean = {
+			names = {
+			}
+		}
+		
+		pc_tundra = {
+			names = {
+			}
+		}
+		
+		pc_arctic = {
+			names = {
+			}
+		}
+
+		pc_savannah = {
+			names = {
+			}
+		}
+
+		pc_alpine = {
+			names = {
+			}
+		}
+	}
+
+	character_names = {
+		default = {
+			# A complete name
+			full_names = {
+				"Kyubey" "Juubey" "Ichibey" "Niibey" "Sanbey" "Shiibey" "Gobey" "Rokubey" "Nanabey" "Hachibey" "Reibey" "Serbey" "Zero Tuubey" "Poobey" "Kirbey" "Kerrbey" "Turbey" "Teletubey" "Yeebey" "Nuubey" "Nyaabey" "Coobey" "Goobey" "Moobey" "Tubbey" "Chubbey" "Lubbey" "Haabey" "Arbey" "Boobey" "Crabbey" "Globbey" "Ruubey" "Taabbey" "Obbey" "Kiibey" "Bubblbey" "Zuubey" "Quubey" "Ooooooobey" "Muubey" "Owoobey" "Ky4b3y" "Truubey" "Incuubey" "Maabey" "Woombey" "Cuubey" "Kubey" "Whobey" "Boombey" "Reebey" "Reeeeeeebey" "Bibey" "Beebey" "Homura-Did-Nothing-Wrong-bey" "Beybey" "Maaybe" "Derbey" "Grief Cuubey"
+			}
+			
+			# Always combined with a second name
+			first_names = {
+			}
+			
+			# Always combined with a first name
+			second_names = {
+			}
+			
+			regnal_first_names = {
+			}
+			
+			regnal_second_names = {
+			}
+		}
+	}
+
+	ruler_names = {
+		default = {
+			full_names = {
+				"QB Nexus" Consciousness
+			}
+		}
+	}
+}

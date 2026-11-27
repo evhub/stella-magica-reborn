@@ -1,0 +1,21 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_evt_stella"
+		texturefile = "gfx/event_pictures/stella_event.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		allwaystransparent = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_evt_stella_shroud"
+		texturefile = "gfx/event_pictures/shroud.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		allwaystransparent = yes		
+	}
+	
+	spriteType = {
+		name = "GFX_ap_stella_magitech_perk"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_stella_magitech_perk.dds"
+		alwaystransparent = yes
+	}
+}

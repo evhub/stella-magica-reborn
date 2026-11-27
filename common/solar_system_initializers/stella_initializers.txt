@@ -1,0 +1,693 @@
+#System with the Rogue Drones
+QB-3_system_initializer = {
+	name = "QB-3"
+	class = "rl_standard_stars"
+	usage = misc_system_init
+	usage_odds = 0
+	flags = { hostile_system stella_drone_system}
+
+	planet = {
+		name = "QB-3"
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 34
+		has_ring = no
+	}
+
+	planet = {
+		class = "pc_barren"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 24
+		has_ring = no
+		modifiers = none
+	}
+	planet = {
+		class = "pc_barren"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 27
+		has_ring = no
+	}
+	planet = {
+		class = "pc_frozen"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+	}
+	planet = {
+		class = "pc_gas_giant"
+		orbit_distance = 90
+		orbit_angle = { min = 90 max = 270 }
+		size = 32
+		change_orbit = 8
+		has_ring = yes
+		change_orbit = 5
+		
+		moon = {
+			class = "pc_barren_cold"
+			orbit_distance = 14
+			orbit_angle = { min = 90 max = 270 }
+			size = 7
+		}
+		
+		moon = {
+			class = "pc_barren_cold"
+			orbit_distance = 11
+			orbit_angle = { min = 90 max = 270 }
+			size = 6
+		}
+	}
+	
+	init_effect = {
+		create_drone_country = yes
+		random_system_planet = {
+			limit = { 
+				is_star = yes
+			}
+			event_target:drone_country = {
+				save_event_target_as = mining_drones
+				create_fleet = {
+					name = "Rogue Combat Drones"
+					effect = {
+						set_owner = event_target:drone_country
+						set_fleet_flag = stella_rogue_drones
+						while = {
+							count = 3
+								create_ship = {
+									name = ""
+									design = "NAME_Ancient_Combat_Drone"
+								}
+							}
+					
+						create_ship = {
+							name = ""
+								design = "NAME_Ancient_Destroyer"
+							
+								
+							
+						}
+						set_location = PREVPREV
+						set_fleet_stance = aggressive
+						set_aggro_range_measure_from = return_point
+						set_aggro_range = 150
+						queue_actions = {
+							repeat = {
+								wait = {
+									duration = 999
+									random = 10
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+	}
+}
+
+#System that you find Homura in
+exsilium_system_initializer = {
+	name = "Exsilium"
+	class = "rl_standard_stars"
+	usage = misc_system_init
+	usage_odds = 0
+	flags = {hostile_system stella_exile_system}
+
+	planet = {
+		name = "Exsilium"
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 32
+		has_ring = no
+	}
+
+	planet = {
+		class = "pc_molten"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		modifiers = none
+	}
+	planet = {
+		class = "pc_barren"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 27
+		has_ring = no
+	}
+	planet = {
+		class = "pc_arctic"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 17 max = 21 }
+		has_ring = no
+
+		init_effect = {
+		
+		create_crystal_country = yes
+		
+		event_target:crystal_country = {
+			create_fleet = {
+				name = "Sentient Crystals"
+				settings = {
+						spawn_debris = no
+					}
+				effect = {
+					set_fleet_flag = stella_pesky_crystals
+					set_owner = event_target:crystal_country
+					while = {
+						count = 2
+						create_ship = {
+							name = ""
+							design = "NAME_Large_Crystal_Entity_Blue_Elite"
+						}
+					}
+					while = {
+						count = 3
+						create_ship = {
+							name = ""
+							design = "NAME_Medium_Crystal_Entity_Blue_Elite"
+						}
+					}
+					
+					while = {
+						count = 6
+						create_ship = {
+							name = ""
+							design = "NAME_Small_Crystal_Entity_Blue_Elite"
+						}
+					}
+					
+					set_location = {
+						target = PREVPREV
+						distance = 20
+						angle = 0
+					}
+					set_formation_scale = 2
+					set_fleet_stance = aggressive
+					set_aggro_range_measure_from = return_point
+					set_aggro_range = 300
+					
+					queue_actions = {
+							repeat = {
+								wait = {
+									duration = 999
+									random = 10
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	planet = {
+		class = "pc_gas_giant"
+		orbit_distance = 90
+		orbit_angle = { min = 90 max = 270 }
+		size = 32
+		change_orbit = 8
+		has_ring = yes
+		change_orbit = 5
+		moon = {
+			class = "pc_barren"
+			orbit_distance = 12
+			orbit_angle = { min = 90 max = 270 }
+			size = 8
+		}
+	}
+	
+	planet = {
+		class = "pc_barren_cold"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 12
+		has_ring = no
+	}
+
+}
+
+#Tomb world system with void clouds
+epitaph_system_initializer = {
+	name = "Epitaph"
+	class = "sc_g"
+	usage = misc_system_init
+	usage_odds = 0
+	flags = {hostile_system stella_tomb_system}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 95
+	}
+	
+
+	planet = {
+		name = "Epitaph"
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 32
+		has_ring = no
+	}
+
+	planet = {
+		class = "pc_barren"
+		orbit_distance = 38
+		orbit_angle = { min = 90 max = 270 }
+		size = 14
+		has_ring = no
+	}
+	planet = {
+		class = "pc_barren_cold"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 22
+		has_ring = no
+		moon = {
+			class = "pc_asteroid"
+			orbit_distance = 12
+			orbit_angle = { min = 90 max = 270 }
+			size = 3
+		}
+	}
+	planet = {
+		name = "Forgotten Grave"
+		class = "pc_nuked"
+		orbit_distance = 90
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 19 max = 23 }
+		has_ring = no
+		moon = {
+			name = "Tombstone"
+			class = "pc_barren"
+			orbit_distance = 18
+			orbit_angle = { min = 90 max = 270 }
+			size = 8
+		}
+		
+		init_effect = { 
+			set_planet_flag = stella_tomb_planet
+			save_event_target_as = stella_tomb_planet
+			}
+		
+	}
+	
+	planet = {
+		class = "pc_gas_giant"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 27
+		has_ring = no
+			moon = {
+				class = "pc_barren"
+				orbit_distance = 18
+				orbit_angle = { min = 90 max = 270 }
+				size = 6
+			}
+			moon = {
+				class = "pc_barren_cold"
+				orbit_distance = 22
+				orbit_angle = { min = 90 max = 270 }
+				size = 9
+			}
+		}
+	
+	
+	planet = {
+		class = "pc_gas_giant"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 25
+		has_ring = no
+	}
+	
+	init_effect = {
+	
+		create_country = {
+			name = "NAME_stella_energy_cloud"
+			type = faction
+			flag = {
+				icon = {
+					category = "spherical"
+					file = "spherical_14.dds"
+				}
+				background= {
+					category = "backgrounds"
+					file = "00_solid.dds"
+							}
+				colors = {
+					"dark_purple"
+					"black"
+					"null"
+					"null"
+				}
+			}
+		}
+		
+		last_created_country = {
+			save_global_event_target_as = stella_cloud_country
+			create_fleet = {
+					name = "Pulsating Energy"
+					
+					settings = { spawn_debris = no}
+					
+					effect = {
+						set_fleet_flag = stella_energy_clouds
+						set_owner = PREV
+						while = {
+							count = 5
+							create_ship = {
+								name = ""
+								design = "NAME_Cloud_Entity"
+							}
+						}
+						set_location = event_target:stella_tomb_planet
+						set_fleet_stance = aggressive
+						set_aggro_range_measure_from = return_point
+						set_aggro_range = 200
+					}
+				}
+		}
+	
+	}
+}
+
+#Ruined ringworld with a Pisonic Avatar
+#While the one segment is already repaired, it has blockers that take a bunch of alloys to remove
+#Kinda like the First League ecumenopolis
+beacon_of_ephemerality_initializer {
+
+	class = "rl_standard_stars"
+	name = "Beacon of Ephemerality"
+	flags = {hostile_system stella_ring_system}
+	usage = misc_system_init
+	usage_odds = 0
+	
+	planet = {
+		class = star
+		orbit_distance = 0
+
+		init_effect = {
+			save_event_target_as = stella_ring_star
+			set_planet_flag = stella_ringworld_star
+			while = {
+				count = 3
+				create_ambient_object = {
+					type = "large_debris_object"
+					entity_offset_height = { min = -0 max = -25 }
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 45
+						angle = random
+					}
+				}
+			}
+			while = {
+				count = 2
+				create_ambient_object = {
+					type = "medium_debris_01_object"
+					entity_offset_height = { min = -0 max = -25 }
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 45
+						angle = random
+					}
+				}
+			}
+			while = {
+				count = 2
+				create_ambient_object = {
+					type = "medium_debris_02_object"
+					entity_offset_height = { min = -0 max = -25 }
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 55
+						angle = random
+					}
+				}
+			}
+		}
+	}
+	
+	change_orbit = 45
+
+	planet = {
+		class = "pc_ringworld_tech_damaged"
+		name = " "
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+	planet = {
+		class = "pc_ringworld_seam"
+		name = " "
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+	planet = {
+		class = "pc_ringworld_habitable"
+		name = "Partially Damaged Section"
+		orbit_angle = 30
+		orbit_distance = 0
+		deposit_blockers = none
+		modifiers = none
+
+		init_effect = {
+			prevent_anomaly = yes
+			trigger_megastructure_icon = yes
+			
+			#7 blockers that take up 5 districts each for a total of 35. 15 usable at the start.
+			add_deposit = d_damaged_ring_sector
+			add_deposit = d_damaged_ring_sector
+			add_deposit = d_damaged_ring_sector
+			add_deposit = d_damaged_ring_sector
+			add_deposit = d_damaged_ring_sector
+			add_deposit = d_damaged_ring_sector
+			add_deposit = d_damaged_ring_sector
+		
+		}
+	}
+	planet = {
+		class = "pc_ringworld_tech"
+		name = " "
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+	planet = {
+		class = "pc_ringworld_seam_damaged"
+		name = " "
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+	planet = {
+		class = "pc_ringworld_tech_damaged"
+		name = "Destroyed Section"
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+	planet = {
+		class = "pc_ringworld_tech_damaged"
+		name = " "
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+	planet = {
+		class = "pc_ringworld_seam_damaged"
+		name = " "
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+	planet = {
+		class = "pc_ringworld_tech_damaged"
+		name = "Destroyed Section"
+		orbit_angle = 30
+		orbit_distance = 0
+
+	}
+	planet = {
+		class = "pc_ringworld_tech_damaged"
+		name = " "
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+	planet = {
+		class = "pc_ringworld_seam_damaged"
+		name = " "
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+	planet = {
+		class = "pc_ringworld_tech_damaged"
+		name = "Destroyed Section"
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+
+	init_effect = {
+		
+		random_system_planet = {
+			limit = {is_star = yes}
+			
+			create_country = {
+				name = "Shroud Entity"
+				type = faction
+				flag = {
+					icon = {
+								category = "special"
+								file = "the_shroud.dds"
+							}
+							background= {
+								category = "backgrounds"
+								file = "00_solid.dds"
+							}
+							colors = {
+								"dark_purple"
+								"black"
+								"null"
+								"null"
+							}
+					}
+
+			}
+			last_created_country = {
+				save_global_event_target_as = stella_shroud_country
+				add_modifier = {modifier = stella_avatar_nerf days = -1}
+				
+			}
+			create_fleet = {
+					name = "NAME_Psionic_Entity"
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
+					effect = {
+						set_fleet_flag = stella_psi_entity
+						set_owner = event_target:stella_shroud_country
+						create_ship = {
+							name = "NAME_Psionic_Entity"
+							design = "NAME_Corrupted_Avatar"
+						}
+						set_location = {
+							target = event_target:stella_ring_star
+							distance = 30
+							angle = random
+						}
+						set_fleet_stance = aggressive
+						set_aggro_range_measure_from = return_point
+						set_aggro_range = 500
+
+					}
+				}
+			
+		}
+
+	}
+}
+
+oblivion_system_initializer = {
+	
+	class = "sc_black_hole"
+	name = "Oblivion"
+	flags = {hostile_system stella_oblivion_system}
+	usage = misc_system_init
+	usage_odds = 0
+	
+	planet = {
+		name = "Oblivion"
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 22
+		has_ring = no
+		
+		init_effect = {
+			save_global_event_target_as = stella_oblivion_star
+		}
+	}
+	
+	planet = {
+		name = "Fractured Remains"
+		class = "pc_shattered"
+		orbit_distance = 45
+		orbit_angle = { min = 20 max = 270 }
+		size = 17
+		has_ring = no	
+	}
+	
+	planet = {
+		name = "Shattered Ruins"
+		class = pc_broken
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		has_ring = no
+	}
+	
+	init_effect = {
+		create_country = {
+					name = "Interdimensional Entity"
+					type = faction
+					flag = {
+						icon= {
+							category = "special"
+							file = "extradimensional_02.dds"
+						}
+						background= {
+							category = "backgrounds"
+							file = "circle.dds"
+						}
+						colors={
+							"black"
+							"purple"
+							"null"
+							"null"
+							}
+						}
+					}
+					last_created_country = {
+						save_event_target_as = stella_horror_country
+						#Nerf the horror, it has 60k fleet power normally.
+						add_modifier = { modifier = stella_horror_nerf days = -1}
+						
+					}
+					
+						
+						create_fleet = {
+							
+							name = "Witch of Nothingness"
+							settings = { spawn_debris = no }
+							effect = {
+								set_fleet_flag = "stella_dim_horror"
+								set_owner = event_target:stella_horror_country
+								create_ship_design = {
+									design = "NAME_Dimensional_Horror"
+								}
+								create_ship = {
+									design = last_created_design
+									name = "Witch of Nothingness"
+								}
+								set_location = {
+									target = event_target:stella_oblivion_star
+									distance = 0
+								}
+							}
+						}
+					
+				}
+	
+}
+
+

@@ -1,0 +1,21 @@
+PuellaMagi = {
+	#each girl has their own species to ensure they get the right portraits. It's a hacky solution, and if a better one exsists tell me.
+	#Actually I don't think this is needed after all
+	
+	madoka = {
+		name = "Puella Magi"
+		plural = "Puella Magi"
+		home_planet = "Earth"
+		home_system = "Sol"
+		namelist = "HUMAN1"
+	}
+	
+	sayaka = {
+		name = "Puella Magi"
+		plural = "Puella Magi"
+		home_planet = "Earth"
+		home_system = "Sol"
+		namelist = "HUMAN1"
+	}
+	
+}

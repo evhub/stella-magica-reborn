@@ -1,0 +1,769 @@
+########
+#Stella Magica Main Story Quest Part 2
+#Act 2 - Between Dimensions
+#######
+
+namespace = stella_dim
+
+#Start Act 2
+country_event = {
+	id = stella_dim.1
+	title = "stella_dim.1.name"
+	desc = "stella_dim.1.desc"
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	immediate = {
+		begin_event_chain{
+			event_chain = "between_dims_chain"
+			target = ROOT
+		}
+	}
+	
+	picture_event_data = {
+		portrait = homura
+		room = ethic_spaceship_room
+	}
+	
+	option = {
+		name = stella_dim.1.op1
+		
+		hidden_effect = {
+			country_event = { id = stella_dim.2 }
+		}
+	}
+}
+
+country_event = {
+	id = stella_dim.2
+	title = "stella_dim.2.name"
+	desc = "stella_dim.2.desc"
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = homura
+		room = ethic_spaceship_room
+	}
+	
+	option = {
+		name = stella_dim.2.op1
+	
+		hidden_effect = {
+			country_event = { id = stella_dim.3 }
+		}
+	}
+}
+
+country_event = {
+	id = stella_dim.3
+	title = "stella_dim.3.name"
+	desc = "stella_dim.3.desc"
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = homura
+		room = ethic_spaceship_room
+	}
+	
+	option = {
+		name = stella_dim.3.op1
+		response_text = stella_dim.3.op1.response
+		hidden_effect = {
+			country_event = { id = stella_dim.4 days = 3}
+		}
+	}
+	
+	option = {
+		name = stella_dim.3.op2
+		response_text = stella_dim.3.op2.response
+		hidden_effect = {
+			country_event = { id = stella_dim.4 days = 3}
+		}
+	}
+}
+
+#Spawn in the first system, mark on map
+country_event = {
+	id = stella_dim.4
+	title = "stella_dim.4.name"
+	desc = "stella_dim.4.desc"
+	is_triggered_only = yes
+	picture = GFX_evt_star_chart
+
+	immediate = {
+		
+		capital_scope = { save_event_target_as = capital_system } 
+			random_system = {
+				limit = {
+					distance = {
+						type = hyperlane
+						source = event_target:capital_system
+						use_bypasses = no
+						min_jumps = 3
+						max_jumps = 4
+					}
+					
+					OR = {
+					
+						is_inside_border = ROOT
+						
+						NAND = {
+							exists = space_owner
+							has_star_flag = hostile_system
+						}
+					}	
+				}
+				spawn_system = {
+					min_distance >= 10
+					max_distance <= 10
+					initializer = "epitaph_system_initializer"
+				}
+			}
+			random_system = {
+				limit = {
+					has_star_flag = stella_tomb_system
+				}
+				set_star_flag = sdim_system_1
+				save_event_target_as = sdim_system_1
+			}
+			
+			create_point_of_interest = {
+				id = between_dims_poi.1
+				name = "between_dims_1_poi"
+				desc = "between_dims_1_poi_desc"
+				event_chain = "between_dims_chain"
+				location = event_target:sdim_system_1
+			}
+	}
+	
+	
+	
+	option = {
+		name = OK
+	}
+}
+
+#Entering the tomb system
+ship_event = {
+	id = stella_dim.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	
+	trigger = {
+		owner = {
+			is_ai = no
+			has_event_chain = "between_dims_chain"
+			NOT = { has_country_flag = sdim_system_1_entered }
+		}
+		solar_system = { has_star_flag = stella_tomb_system }
+	}
+	
+	
+	immediate = {
+			owner = { set_country_flag = sdim_system_1_entered }
+			owner = { remove_point_of_interest = between_dims_poi.1}
+	}
+	
+	after = {
+		owner = {country_event = { id = stella_dim.6}}
+	}
+
+}
+
+#Void clouds spotted!
+country_event = {
+
+	id = stella_dim.6
+	title = "stella_dim.6.name"
+	desc = "stella_dim.6.desc"
+	picture = GFX_evt_city_ruins
+	show_sound = event_space_battle
+	location = FROM
+	trackable = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = BATTLESTATIONS
+	}
+
+}
+
+#Void clouds destroyed
+country_event = {
+
+	id = stella_dim.7
+	title = "stella_dim.7.name"
+	desc = "stella_dim.7.desc"
+	picture = GFX_evt_space_debris  
+	show_sound = event_space_battle
+	is_triggered_only = yes
+	
+	trigger = {
+		FROMFROMFROM = { has_fleet_flag = stella_energy_clouds }
+	}
+
+	
+	option = {
+		name = EXCELLENT
+		
+		add_monthly_resource_mult = {
+			resource = physics_research
+			value = @tier3researchreward
+			min = @tier3researchmin
+			max = @tier3researchmax
+		}
+	}
+	
+	after = {
+		FROMFROMFROM = {
+			solar_system = {
+				random_planet = {
+					limit = { has_planet_flag = stella_tomb_planet}
+					
+					enable_special_project = {
+						name = "STELLA_TOMB_WORLD"
+						location = this
+						owner = root
+					}
+				}
+			}
+		}
+	}
+}
+
+#Trigger event for below
+ship_event = {
+
+	id = stella_dim.80
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		owner = {country_event = {id = stella_dim.8}}
+	}
+
+}
+
+#Tomb world investigated
+country_event = {
+	id = stella_dim.8
+	title = "stella_dim.8.name"
+	desc = "stella_dim.8.desc"
+	picture = GFX_evt_nuclear_explosion
+	show_sound = event_super_explosion
+	is_triggered_only = yes
+	
+	option = {
+		name = stella_dim.8.op1
+		add_monthly_resource_mult = {
+			resource = physics_research
+			value = @tier3researchreward
+			min = @tier3researchmin
+			max = @tier3researchmax
+		}
+	}
+	
+	after = {
+		hidden_effect = {
+			country_event = { id = stella_dim.9 days = 3}
+		}
+	}
+}
+
+#Someone shows up afterwards
+country_event = {
+	id = stella_dim.9
+	title = "stella_dim.9.name"
+	desc = "stella_dim.9.desc"
+	picture = GFX_evt_city_ruins
+	show_sound = event_radio_chatter
+	is_triggered_only = yes
+	
+	option = {
+		name = stella_dim.9.op1
+		country_event = { id = stella_dim.10 }
+	}
+	
+}
+
+#Sayaka's appearance
+country_event = {
+	id = stella_dim.10
+	title = "stella_dim.10.name"
+	desc = "stella_dim.10.desc"
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = sayaka
+		room = personality_erudite_explorers_room
+		planet_background = pc_junkheap_sky
+	}
+	
+	option = {
+		name = stella_dim.10.op1
+		hidden_effect = {
+			country_event = { id = stella_dim.11 }
+		}
+	}
+}
+
+country_event = {
+	id = stella_dim.11
+	title = "stella_dim.11.name"
+	desc = "stella_dim.11.desc"
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = sayaka
+		planet_background = pc_junkheap_sky
+	}
+	
+	option = {
+		name = stella_dim.11.op1
+		hidden_effect = {
+			country_event = { id = stella_dim.12 }
+		}
+	}
+}
+
+country_event = {
+	id = stella_dim.12
+	title = "stella_dim.12.name"
+	desc = "stella_dim.12.desc"
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = sayaka
+		room = personality_erudite_explorers_room
+		planet_background = pc_junkheap_sky
+	}
+	
+	option = {
+		name = stella_dim.12.op1
+		hidden_effect = {
+			country_event = { id = stella_dim.13 }
+		}
+	}
+}
+
+country_event = {
+	id = stella_dim.13
+	title = "stella_dim.13.name"
+	desc = "stella_dim.13.desc"
+	is_triggered_only = yes
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = sayaka
+		room = personality_erudite_explorers_room
+		planet_background = pc_junkheap_sky
+	}
+	
+	option = {
+		trigger = { has_country_flag = stella_kyoko_alive}
+		name = stella_dim.13.op1
+		response_text = stella_dim.13.op1.response
+		hidden_effect = {
+			country_event = { id = stella_dim.14 days = 2}
+		}
+	}
+	
+	option = {
+		#F
+		trigger = { NOT = {has_country_flag = stella_kyoko_alive}}
+		name = stella_dim.13.op2
+		response_text = stella_dim.13.op2.response
+		hidden_effect = {
+			country_event = { id = stella_dim.14 days = 2}
+		}
+	}
+
+}
+#Lol the last four events were also just dialogue
+country_event = {
+	id = stella_dim.14
+	title = "stella_dim.14.name"
+	picture = GFX_evt_smugglers_in_bar 
+	show_sound = event_conversation
+	is_triggered_only = yes
+	
+	immediate = {
+
+	}
+	
+	desc = {
+		trigger = { has_country_flag = stella_kyoko_alive}
+		text = stella_dim.14.desc1
+	}
+	
+	desc = {
+		trigger = { NOT = {has_country_flag = stella_kyoko_alive}}
+		text = stella_dim.14.desc2
+	}
+	
+	option = {
+		name = stella_dim.14.op1
+		country_event = {id = stella_dim.15}
+	}
+	
+	after = {
+		hidden_effect = {
+			country_event = {id = stella_leader.7}
+		}
+	}
+	
+}
+
+#Spawn ringworld system
+country_event = {
+	id = stella_dim.15
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		capital_scope = { save_event_target_as = capital_system } 
+			random_system = {
+				limit = {
+					distance = {
+						type = hyperlane
+						source = event_target:capital_system
+						use_bypasses = no
+						min_jumps = 3
+						max_jumps = 4
+					}
+					
+					OR = {
+					
+						is_inside_border = ROOT
+						
+						NAND = {
+							exists = space_owner
+							has_star_flag = hostile_system
+						}
+					}	
+				}
+					spawn_system = {
+						min_distance >= 10
+						max_distance <= 20
+						initializer = "beacon_of_ephemerality_initializer"
+				}
+			}
+			random_system = {
+				limit = {
+					has_star_flag = stella_ring_system
+				}
+				set_star_flag = sdim_system_2
+				save_event_target_as = sdim_system_2
+			}
+			
+			create_point_of_interest = {
+				id = between_dims_poi.2
+				name = "between_dims_2_poi"
+				desc = "between_dims_2_poi_desc"
+				event_chain = "between_dims_chain"
+				location = event_target:sdim_system_2
+			}
+	}
+}
+
+#Ringworld system entered
+ship_event = {
+	id = stella_dim.16
+	hide_window = yes
+	is_triggered_only = yes
+
+	
+	trigger = {
+		owner = {
+			is_ai = no
+			has_event_chain = "between_dims_chain"
+			NOT = { has_country_flag = sdim_system_2_entered }
+		}
+		solar_system = { has_star_flag = stella_ring_system }
+	}
+	
+	
+	immediate = {
+			owner = { set_country_flag = sdim_system_2_entered }
+			owner = { remove_point_of_interest = between_dims_poi.2}
+	}
+	
+	after = {
+		owner = {country_event = { id = stella_dim.17}}
+	}
+
+}
+
+#Ringworld system entered message
+country_event = {
+	id = stella_dim.17
+	title = "stella_dim.17.name"
+	desc = "stella_dim.17.desc"
+	show_sound = event_mystic_reveal
+	picture = GFX_evt_ringworld
+	is_triggered_only = yes
+	
+	option = {
+		name = AMAZING
+	}
+}
+
+#Psionic Avatar Destroyed
+country_event = {
+
+	id = stella_dim.18
+	title = "stella_dim.18.name"
+	desc = "stella_dim.18.desc"
+	picture = GFX_evt_atmospheric_entry
+	show_sound = event_space_battle
+	is_triggered_only = yes
+	
+	trigger = {
+		FROMFROMFROM = { has_fleet_flag = stella_psi_entity }
+	}
+
+	
+	option = {
+		name = EXCELLENT
+		
+		add_monthly_resource_mult = {
+			resource = physics_research
+			value = @tier4researchreward
+			min = @tier4researchmin
+			max = @tier4researchmax
+		}
+	}
+	
+	after = {
+		FROMFROM = {
+			solar_system = {
+				random_planet = {
+					limit = { has_planet_flag = stella_ringworld_star }
+					
+					enable_special_project = {
+						name = "STELLA_RING_WORLD"
+						location = this
+						owner = root
+					}
+				}
+			}
+		}
+	}
+}
+
+#Triggers below event
+ship_event = {
+
+	id = stella_dim.190
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		owner = {country_event = {id = stella_dim.19}}
+	}
+
+}
+
+#Ringwod investigated
+country_event = {
+	id = stella_dim.19
+	title = "stella_dim.19.name"
+	desc = "stella_dim.19.desc"
+	picture = GFX_evt_surreal_visions
+	show_sound = event_space_cloud
+	is_triggered_only = yes
+	
+	option = {
+		name = stella_dim.8.op1
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = @tier3researchreward
+			min = @tier3researchmin
+			max = @tier3researchmax
+		}
+	}
+	
+	after = {
+		hidden_effect = {
+			owner = {country_event = { id = stella_dim.20 days = 2}}
+		}
+	}
+}
+
+#Final system revealed
+country_event = {
+	id = stella_dim.20
+	title = "stella_dim.20.name"
+	desc = "stella_dim.20.desc"
+	picture = GFX_evt_black_hole
+	show_sound = event_sensor_ping
+	is_triggered_only = yes
+	
+	immediate = {
+		capital_scope = { save_event_target_as = capital_system } 
+			random_system = {
+				limit = {
+					distance = {
+						type = hyperlane
+						source = event_target:capital_system
+						use_bypasses = no
+						min_jumps = 2
+						max_jumps = 3
+					}
+					
+					OR = {
+					
+						is_inside_border = ROOT
+						
+						NAND = {
+							exists = space_owner
+							has_star_flag = hostile_system
+						}
+					}	
+				}
+					spawn_system = {
+						min_distance >= 15
+						max_distance <= 20
+						initializer = "oblivion_system_initializer"
+				}
+			}
+			random_system = {
+				limit = {
+					has_star_flag = stella_oblivion_system
+				}
+				set_star_flag = sdim_system_3
+				save_event_target_as = sdim_system_3
+			}
+			
+			create_point_of_interest = {
+				id = between_dims_poi.3
+				name = "between_dims_3_poi"
+				desc = "between_dims_3_poi_desc"
+				event_chain = "between_dims_chain"
+				location = event_target:sdim_system_3
+			}
+	
+	}
+	
+	option = {
+		name = "stella_dim.20.op1"
+	}
+}
+
+#Entering Oblivion
+ship_event = {
+	id = stella_dim.21
+	hide_window = yes
+	is_triggered_only = yes
+
+	
+	trigger = {
+		owner = {
+			is_ai = no
+			has_event_chain = "between_dims_chain"
+			NOT = { has_country_flag = sdim_system_3_entered }
+		}
+		solar_system = { has_star_flag = stella_oblivion_system }
+	}
+	
+	
+	immediate = {
+			owner = { set_country_flag = sdim_system_3_entered }
+			owner = { remove_point_of_interest = between_dims_poi.3}
+	}
+	
+	after = {
+		owner = {country_event = { id = stella_dim.22}}
+	}
+}
+
+#Oblivion system entered
+country_event = {
+	id = stella_dim.22
+	title = "stella_dim.22.name"
+	desc = "stella_dim.22.desc"
+	show_sound = event_activating_unknown_technology
+	picture = GFX_evt_dimensional_horror
+	is_triggered_only = yes
+	
+	option = {
+		name = BATTLESTATIONS
+	}
+}
+
+#Horror Destroyed
+country_event = {
+
+	id = stella_dim.23
+	title = "stella_dim.23.name"
+	desc = "stella_dim.23.desc"
+	picture = GFX_evt_black_hole
+	show_sound = event_space_battle
+	is_triggered_only = yes
+	
+	trigger = {
+		FROMFROMFROM = { has_fleet_flag = stella_dim_horror }
+	}
+
+	
+	option = {
+		name = EXCELLENT
+		
+		add_monthly_resource_mult = {
+			resource = physics_research
+			value = @tier4researchreward
+			min = @tier4researchmin
+			max = @tier4researchmax
+		}
+	}
+	
+	after = {
+		country_event = {id = stella_dim.24 days = 5}
+	}
+}
+
+#End of Act II
+country_event = {
+
+	id = stella_dim.24
+	title = "stella_dim.24.name"
+	desc = "stella_dim.24.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_laboratory_sound
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+	}
+	
+	after = {
+		
+		end_event_chain = "between_dims_chain" 
+		
+		begin_event_chain = {
+			event_chain = "stella_apotheosis_chain"
+			target = ROOT
+		}
+		
+		hidden_effect = {
+			country_event = { id = stella_apop.1}
+			remove_country_flag = sdim_system_1_entered
+			remove_country_flag = sdim_system_2_entered
+			remove_country_flag = sdim_system_3_entered
+		}
+	}
+}

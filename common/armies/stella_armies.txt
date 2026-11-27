@@ -1,0 +1,60 @@
+#Stella Magica Armies and stuff
+
+#Puella Magi armies have high damage, but low morale (cuz sad = dead)
+#Currently not working
+#Magi Defense militia
+stella_magi_defense_army = {
+	defensive = yes
+	damage = 1.5
+	morale_damage = 1.5
+	health = 1.50
+	morale = 1.00
+	collateral_damage = 0.0
+	war_exhaustion = 0.2 #People won't like it when you send magical girls to war
+	icon_frame = 1
+	has_species = no
+	
+	potential = {
+		always = no
+	}
+}
+
+#Magi Assualt Army
+stella_magi_assault_army = {
+	damage = 2.00
+	health = 2.00
+	morale = 1.5
+	morale_damage = 1.25
+	collateral_damage = 2.00
+	war_exhaustion = 3.5
+	time = 150
+	icon_frame = 9
+	prerequisites = {"stella_tech_cube_logi"}
+	has_species = no
+	
+	resources = {
+		category = armies
+		cost = {
+			minerals = 250
+			stella_grief_cube = 10
+		}
+
+		upkeep = {
+			energy = 1.5
+			stella_grief_cube = 0.33
+		}
+	}
+	
+	show_tech_unlock_if = {
+		has_valid_civic = civic_magical_legacy
+	}
+	
+	potential = {
+		owner = {
+			is_primitive = no
+			OR = {
+				has_valid_civic = civic_magical_legacy
+			}
+		}
+	}
+}

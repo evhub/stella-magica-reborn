@@ -1,0 +1,117 @@
+stella_gc_energy = {
+	length = 3600
+	resources = {
+		category = rare_edicts
+		cost = {
+			stella_grief_cube = 50
+		}
+	}
+	
+	show_tech_unlock_if = {	has_valid_civic = civic_hive_entropic_wardens }
+	
+	modifier = {
+		country_energy_produces_mult = 0.10
+	}	
+	
+	prerequisites = {
+		"stella_tech_grief_energy"
+	}
+	
+	potential = {
+		has_valid_civic = civic_hive_entropic_wardens
+	}
+	
+	
+	ai_weight = {
+		weight = 1
+	}	
+}
+
+stella_gc_resources = {
+	length = 3600
+	resources = {
+		category = rare_edicts
+		cost = {
+			stella_grief_cube = 50
+		}
+	}
+	
+	show_tech_unlock_if = {	has_valid_civic = civic_hive_entropic_wardens }
+	
+	modifier = {
+		country_minerals_produces_mult = 0.05
+		country_food_produces_mult = 0.05
+	}	
+	
+	prerequisites = {
+		"stella_tech_grief_energy"
+	}
+	
+	potential = {
+		has_valid_civic = civic_hive_entropic_wardens
+	}
+	
+	
+	ai_weight = {
+		weight = 1
+	}	
+}
+
+stella_contract_boost = {
+	length = 3600
+	resources = {
+		category = edicts
+		cost = {
+			influence = 250
+		}
+	}
+	
+	show_tech_unlock_if = {	has_valid_civic = civic_hive_entropic_wardens }
+	
+	modifier = {
+		country_unity_produces_mult = -0.05
+		country_stella_grief_cube_produces_mult = 0.15
+	}	
+	
+	prerequisites = {
+		"tech_hive_cluster"
+	}
+	
+	potential = {
+		has_valid_civic = civic_hive_entropic_wardens
+	}
+	
+	
+	ai_weight = {
+		weight = 1
+	}	
+}
+
+stella_contract_trinkets = {
+	length = 3600
+	resources = {
+		category = edicts
+		cost = {
+			consumer_goods = 750
+		}
+	}
+	
+	show_tech_unlock_if = {	has_valid_civic = civic_hive_entropic_wardens }
+	
+	modifier = {
+		country_stella_grief_cube_produces_mult = 0.15
+	}	
+	
+	prerequisites = {
+		"tech_society_2"
+	}
+	
+	potential = {
+		has_valid_civic = civic_hive_entropic_wardens
+	}
+	
+	
+	ai_weight = {
+		weight = 1
+	}	
+}

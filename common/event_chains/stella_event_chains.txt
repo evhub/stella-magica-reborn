@@ -1,0 +1,25 @@
+chasing_shadows_chain = {
+	icon = "gfx/interface/icons/situation_log/stella_act_1.dds"
+	picture = GFX_evt_star_chart
+}
+
+between_dims_chain = {
+	icon = "gfx/interface/icons/situation_log/stella_act_2.dds"
+	picture = GFX_evt_ship_in_orbit_2
+}
+
+stella_apotheosis_chain = {
+	icon = "gfx/interface/icons/situation_log/stella_act_3.dds"
+	picture = GFX_evt_black_hole
+}
+
+stella_crisis_chain = {
+	icon = "gfx/interface/icons/situation_log/stella_act_4.dds"
+	picture = GFX_evt_space_monster
+}
+
+#For the nonmagical empires to see
+stella_invaders_chain = {
+icon = "gfx/interface/icons/situation_log/situation_log_extradimensional.dds"
+	picture = GFX_evt_space_monster
+}

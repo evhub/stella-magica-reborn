@@ -33,7 +33,7 @@ stella_magi_coord = {
 	resources = {
 		category = planet_jobs
 		produces = {
-			stella_grief_cube = 1
+			grief_cube = 1
 		}
 		upkeep = {
 			consumer_goods = 3
@@ -97,7 +97,7 @@ stella_magitech_artificer = {
 	resources = {
 		category = planet_jobs
 		produces = {
-			stella_grief_cube = 1
+			grief_cube = 1
 		}
 		upkeep = {
 			minerals = 6
@@ -145,7 +145,7 @@ stella_magitech_drone = {
 	resources = {
 		category = planet_jobs
 		produces = {
-			stella_grief_cube = 1
+			grief_cube = 1
 		}
 		upkeep = {
 			minerals = 6
@@ -190,7 +190,7 @@ stella_magitech_manip = {
 	resources = {
 		category = planet_jobs
 		produces = {
-			stella_grief_cube = 1
+			grief_cube = 1
 		}
 		upkeep = {
 			minerals = 6
@@ -227,7 +227,7 @@ stella_contractor_drone = {
 	resources = {
 		category = planet_jobs
 		produces = {
-			stella_grief_cube = 1
+			grief_cube = 1
 			society_research = 4
 		}
 		upkeep = {

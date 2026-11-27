@@ -6,7 +6,7 @@ stella_contracting = {
 	resources = {
 		category = station_observer_missions
 		produces = {
-			stella_grief_cube = 2
+			grief_cube = 2
 			society_research = 10
 		}
 		

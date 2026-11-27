@@ -6,8 +6,8 @@
 ###########
 #Stragetic Resources
 ###########
-stella_grief_cube:0 "Grief Cubes"
-stella_grief_cube_desc:0 "A hexahedronal condesation of dark energies"
+grief_cube:0 "Grief Cubes"
+grief_cube_desc:0 "A hexahedronal condesation of dark energies"
 
 ###########
 #Technology
@@ -93,32 +93,32 @@ job_stella_magi_coord:0 "Magi Coordinater"
 mod_job_stella_magi_coord_add: "Magi Coordinaters"
 job_stella_magi_coord_plural:0 "Magi Coordinaters"
 job_stella_magi_coord_desc:0 "Coordinates the crime fighting and wraith slaying efforts of Puella Magi."
-job_stella_magi_coord_effect_desc:0 "Magi Coordinaters turns £consumer_goods£ $consumer_goods$ into £stella_grief_cube£ $stella_grief_cube$ and reduces £crime£ crime"
+job_stella_magi_coord_effect_desc:0 "Magi Coordinaters turns £consumer_goods£ $consumer_goods$ into £grief_cube£ $grief_cube$ and reduces £crime£ crime"
 
 job_stella_magitech_artificer:0 "Magitech Artifcer"
 mod_job_stella_magitech_artificer_add:0 "Magitech Artifcers"
 job_stella_magitech_artificer_plural:0 "Magitech Artifcers"
-job_stella_magitech_artificer_desc:0 "Condenses energy into mysterious /"$stella_grief_cube$/", which are used in the production of Magitech"
-job_stella_magitech_artificer_effect_desc:0 "Magitech Artifcers use £minerals£ $minerals$ and £energy£ $energy$ to produce £stella_grief_cube£ $stella_grief_cube$"
+job_stella_magitech_artificer_desc:0 "Condenses energy into mysterious /"$grief_cube$/", which are used in the production of Magitech"
+job_stella_magitech_artificer_effect_desc:0 "Magitech Artifcers use £minerals£ $minerals$ and £energy£ $energy$ to produce £grief_cube£ $grief_cube$"
 
 job_stella_magitech_drone:0 "Magitech Artifcer Drone"
 mod_job_stella_magitech_drone_add:0 "Magitech Artifcer Drones"
 job_stella_magitech_drone_plural:0 "Magitech Artifcer Drones"
-job_stella_magitech_drone_desc:0 "These drones condense energy into mysterious /"$stella_grief_cube$/", which are used in the production of Magitech"
-job_stella_magitech_drone_effect_desc:0 "Magitech Drones use £minerals£ $minerals$ and £energy£ $energy$ to produce £stella_grief_cube£ $stella_grief_cube$"
+job_stella_magitech_drone_desc:0 "These drones condense energy into mysterious /"$grief_cube$/", which are used in the production of Magitech"
+job_stella_magitech_drone_effect_desc:0 "Magitech Drones use £minerals£ $minerals$ and £energy£ $energy$ to produce £grief_cube£ $grief_cube$"
 
 job_stella_magitech_manip:0 "Magitech Manipulator"
 mod_job_stella_magitech_manip_add:0 "Magitech Manipulators"
 job_stella_magitech_manip_plural:0 "Magitech Manipulators"
-job_stella_magitech_manip_desc:0 "These units condense energy into mysterious /"$stella_grief_cube$/", which are used in the production of Magitech"
-job_stella_magitech_manip_effect_desc:0 "Magitech Manipulators use £minerals£ $minerals$ and £energy£ $energy$ to produce £stella_grief_cube£ $stella_grief_cube$"
+job_stella_magitech_manip_desc:0 "These units condense energy into mysterious /"$grief_cube$/", which are used in the production of Magitech"
+job_stella_magitech_manip_effect_desc:0 "Magitech Manipulators use £minerals£ $minerals$ and £energy£ $energy$ to produce £grief_cube£ $grief_cube$"
 
 
 job_stella_contractor_drone:0 "Contractor Drone"
 mod_job_stella_contractor_drone_add:0 "Contract Drones"
 job_stella_contractor_drone_plural:0 "Contractor Drones"
-job_stella_contractor_drone_desc:0 "These drones are trained in the fine art of making contracts in order to produce £stella_grief_cube£ $stella_grief_cube$"
-job_stella_contractor_drone_effect_desc:0 "Contractor Drones use £minerals£ $minerals$ and £food£ $food$ to form £stella_grief_cube£ $stella_grief_cube$ producing contracts."
+job_stella_contractor_drone_desc:0 "These drones are trained in the fine art of making contracts in order to produce £grief_cube£ $grief_cube$"
+job_stella_contractor_drone_effect_desc:0 "Contractor Drones use £minerals£ $minerals$ and £food£ $food$ to form £grief_cube£ $grief_cube$ producing contracts."
 ###########
 #Components
 ###########

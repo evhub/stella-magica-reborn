@@ -166,7 +166,7 @@ weapon_component_template = {
 		cost = {
 			alloys = 260
 			volatile_motes = 4.5
-			stella_grief_cube = 8
+			grief_cube = 8
 			
 		}		
 		upkeep = {
@@ -181,7 +181,7 @@ weapon_component_template = {
 			factor = 0.0
 			OR = {
 			has_monthly_income = { resource = volatile_motes value <= 0 }
-			has_monthly_income = { resource = stella_grief_cube value <= 0 }
+			has_monthly_income = { resource = grief_cube value <= 0 }
 			}
 		}
 	}

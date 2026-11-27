@@ -77,7 +77,7 @@ stella_goddess_guidance_desc:0 "Projectiles seem to fly ever so slightly truer."
 stella_goddess_protection:0 "A Goddess' Protection"
 stella_goddess_guidance_protection:0 "Incoming fire seems to impact ever so slightly softer."
 
-mod_country_stella_grief_cube_produces_mult:0 "Monthly Grief Cubes"
+mod_country_grief_cube_produces_mult:0 "Monthly Grief Cubes"
 ###########
 #Civics
 ###########
@@ -122,16 +122,16 @@ STELLA_BLACK_HOLE_PROJECT_DESC:0 "By utilising the anomaly inside the Oblivion b
 #Tech Events
 ###########
 stella_debug.3.title:0 "Theory of Grief"
-stella_debug.3.desc:0 "The malevolent beings fought by magical girls are typically known as \"Wraiths\". These shadowy creatures are apparently formed from negative emotions, and leave behind a condensation of those energies when destroyed - £stella_grief_cube£Grief Cubes. In addition, these cubes are what powers the reality defying powers of the Magi, making hunting wraiths a everyday part of their activities."
+stella_debug.3.desc:0 "The malevolent beings fought by magical girls are typically known as \"Wraiths\". These shadowy creatures are apparently formed from negative emotions, and leave behind a condensation of those energies when destroyed - £grief_cube£Grief Cubes. In addition, these cubes are what powers the reality defying powers of the Magi, making hunting wraiths a everyday part of their activities."
 stella_debug.4.title:0 "Magitechincal Revolution"
 stella_debug.4.desc:0 "According to the Incubators, the average [Root.GetSpeciesName] has enhough magical potential to perform a few basic party tricks. However, if we are to intergrate magic into the production of certain products, we may be able to indirectly bring the power to magic to the masses."
 stella_debug.5.title:0 "Cubes of Shadows"
-stella_debug.5.desc:0 "By condensing energy in the presence of certain exotic particles, our scientists have been able to form strange dark fragments. Some are refering to them as £stella_grief_cube£Grief Cubes due to their tendency to cause anxiety and headaches in those that spend long periods of time near them. \n\nFurther research could allow us to find a practical use for them."
+stella_debug.5.desc:0 "By condensing energy in the presence of certain exotic particles, our scientists have been able to form strange dark fragments. Some are refering to them as £grief_cube£Grief Cubes due to their tendency to cause anxiety and headaches in those that spend long periods of time near them. \n\nFurther research could allow us to find a practical use for them."
 
 stella_debug.7.title:0 "Theory of Grief"
-stella_debug.7.desc:0 "A few deviant drones seem to exhibit what can only be described \"Negative Emotions\". These illogical processes result in the generation of shadowy beings and small fragments of darkness - £stella_grief_cube£\"Grief Cubes\". Perhaps by exploting an alien species that naturally exhibits emotion, we may gather more of them."
+stella_debug.7.desc:0 "A few deviant drones seem to exhibit what can only be described \"Negative Emotions\". These illogical processes result in the generation of shadowy beings and small fragments of darkness - £grief_cube£\"Grief Cubes\". Perhaps by exploting an alien species that naturally exhibits emotion, we may gather more of them."
 stella_debug.8.title:0 "Magitechincal Developments"
-stella_debug.8.desc:0 "While £stella_grief_cube£Grief Cubes are largely reserved for fighting entropy, some may be spared to develop new technologies to aid in defense of the Mind. After all, if we are destroyed, there we be no one left to stand aganist the infinite darkness."
+stella_debug.8.desc:0 "While £grief_cube£Grief Cubes are largely reserved for fighting entropy, some may be spared to develop new technologies to aid in defense of the Mind. After all, if we are destroyed, there we be no one left to stand aganist the infinite darkness."
 
 ###########
 #Events Chains

@@ -1,4 +1,4 @@
-# PORT (4.6): copy of the vanilla 4.6 file with stella_grief_cube added. Must override
+# PORT (4.6): copy of the vanilla 4.6 file with grief_cube added. Must override
 # the vanilla file to add a resource to this group.
 sectors_others_group = {
 	resources = {
@@ -9,7 +9,7 @@ sectors_others_group = {
 		sr_zro
 		sr_dark_matter
 		nanites
-		stella_grief_cube
+		grief_cube
 		trade
 	}
 	localization = {

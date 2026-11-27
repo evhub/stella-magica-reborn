@@ -36,12 +36,12 @@ stella_magi_assault_army = {
 		category = armies
 		cost = {
 			minerals = 250
-			stella_grief_cube = 10
+			grief_cube = 10
 		}
 
 		upkeep = {
 			energy = 1.5
-			stella_grief_cube = 0.33
+			grief_cube = 0.33
 		}
 	}
 	

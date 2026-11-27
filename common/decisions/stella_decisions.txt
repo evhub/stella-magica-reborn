@@ -12,15 +12,15 @@ decision_grief_cubes = {
 		category = decisions
 		cost = {
 			trigger = { has_building = stella_building_magi_center_1 }
-			stella_grief_cube = 20
+			grief_cube = 20
 		}
 		cost = {
 			trigger = { has_building = stella_building_magi_center_2 }
-			stella_grief_cube = 30
+			grief_cube = 30
 		}
 		cost = {
 			trigger = { has_building = stella_building_magi_center_3 }
-			stella_grief_cube = 60
+			grief_cube = 60
 		}
 		
 	}

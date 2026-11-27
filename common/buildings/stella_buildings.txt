@@ -64,7 +64,7 @@ stella_building_magi_center_1 = {
 			factor = 6
 			owner = { 
 				has_monthly_income = {
-					resource = stella_grief_cube
+					resource = grief_cube
 					value < 6
 				}
 			}
@@ -72,7 +72,7 @@ stella_building_magi_center_1 = {
 	}
 
 	ai_resource_production = {
-		stella_grief_cube = 1
+		grief_cube = 1
 		trigger = {
 			always = yes
 		}
@@ -143,7 +143,7 @@ stella_building_magi_center_2 = {
 			factor = 6
 			owner = { 
 				has_monthly_income = {
-					resource = stella_grief_cube
+					resource = grief_cube
 					value < 6
 				}
 			}
@@ -151,7 +151,7 @@ stella_building_magi_center_2 = {
 	}
 
 	ai_resource_production = {
-		stella_grief_cube = 1
+		grief_cube = 1
 		trigger = {
 			always = yes
 		}
@@ -225,7 +225,7 @@ stella_building_magi_center_3 = {
 			factor = 6
 			owner = { 
 				has_monthly_income = {
-					resource = stella_grief_cube
+					resource = grief_cube
 					value < 6
 				}
 			}
@@ -233,7 +233,7 @@ stella_building_magi_center_3 = {
 	}
 
 	ai_resource_production = {
-		stella_grief_cube = 2
+		grief_cube = 2
 		trigger = {
 			always = yes
 		}
@@ -348,7 +348,7 @@ stella_building_magitech_foundry = {
 			factor = 6
 			owner = { 
 				has_monthly_income = {
-					resource = stella_grief_cube
+					resource = grief_cube
 					value < 6
 				}
 			}
@@ -356,7 +356,7 @@ stella_building_magitech_foundry = {
 	}
 
 	ai_resource_production = {
-		stella_grief_cube = 1
+		grief_cube = 1
 		trigger = {
 			always = yes
 		}
@@ -429,7 +429,7 @@ stella_building_contract_hub = {
 			factor = 6
 			owner = { 
 				has_monthly_income = {
-					resource = stella_grief_cube
+					resource = grief_cube
 					value < 6
 				}
 			}
@@ -437,7 +437,7 @@ stella_building_contract_hub = {
 	}
 
 	ai_resource_production = {
-		stella_grief_cube = 1
+		grief_cube = 1
 		trigger = {
 			always = yes
 		}

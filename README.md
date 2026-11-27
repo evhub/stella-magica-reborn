@@ -67,6 +67,33 @@ Every porting change is marked in the files with a `# PORT` comment explaining w
 - `common/species_name/` was never loaded, even in 2.2, and the author's comment
   says it isn't needed. It is left as-is.
 
+## Compatibility
+
+Tested in an 80-mod playset that includes Gigastructures, NSC3, UI Overhaul Dynamic,
+Stellar AI, Real Space, Planetary Diversity, 圆环的庇护, the Mass Effect mods and others.
+It loads without crashing, and no errors point at Stella's own files.
+
+- **No shared objects.** None of Stella's traits, techs, buildings, jobs, components,
+  ship designs, special projects or localisation keys are defined by any of those mods.
+  All of its event namespaces start with `stella_`.
+- **Resource bars.** The resource key is `grief_cube`, the same key
+  [Universal Resource Patch](https://steamcommunity.com/sharedfiles/filedetails/?id=1595876588)
+  (URP) already lists. Adding a resource to the top bar means overriding
+  `interface/resource_groups/topbar_other_resource_groups.txt`, and only the
+  **last-loaded** copy of that file is used. That was verified in-game. Gigastructures,
+  Ethics and Civics Classic and Stella all override it.
+  - **With URP:** load URP **after** all of those mods, at the bottom of the playset.
+    Its list covers vanilla, Gigastructures, EaC and grief cubes, so everything shows.
+  - **Without URP:** Stella's own copy (vanilla 4.6 plus grief cubes) is used if Stella
+    loads after the other overriding mods. Otherwise grief cubes won't appear in the
+    top bar. They still work, and are shown in costs and tooltips.
+  - Because the key is shared, another mod that also defines `grief_cube` (the old
+    Madoka Magica NEW did) would conflict with this one.
+- **Universal Game Rules Patch.** It replaces the vanilla `has_upgraded_capital` triggers
+  with versions that reference Ancient Cache of Technologies buildings. Without ACOT, this
+  logs harmless errors wherever any building checks capital tier, Stella's Magi Center
+  included. That is not a Stella bug.
+
 ## Playtesting checklist
 
 Start a game as the "humans_stella" prescripted empire, which has the Magical Legacy

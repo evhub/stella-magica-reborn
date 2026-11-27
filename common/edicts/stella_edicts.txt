@@ -3,7 +3,7 @@ stella_gc_energy = {
 	resources = {
 		category = rare_edicts
 		cost = {
-			stella_grief_cube = 50
+			grief_cube = 50
 		}
 	}
 	
@@ -32,7 +32,7 @@ stella_gc_resources = {
 	resources = {
 		category = rare_edicts
 		cost = {
-			stella_grief_cube = 50
+			grief_cube = 50
 		}
 	}
 	
@@ -70,7 +70,7 @@ stella_contract_boost = {
 	
 	modifier = {
 		country_unity_produces_mult = -0.05
-		country_stella_grief_cube_produces_mult = 0.15
+		country_grief_cube_produces_mult = 0.15
 	}	
 	
 	prerequisites = {
@@ -99,7 +99,7 @@ stella_contract_trinkets = {
 	show_tech_unlock_if = {	has_valid_civic = civic_hive_entropic_wardens }
 	
 	modifier = {
-		country_stella_grief_cube_produces_mult = 0.15
+		country_grief_cube_produces_mult = 0.15
 	}	
 	
 	prerequisites = {

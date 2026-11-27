@@ -1,5 +1,5 @@
 grief_expenditure_ships = {
-    resource = stella_grief_cube
+    resource = grief_cube
 	type = expenditure
 	category = ships
 

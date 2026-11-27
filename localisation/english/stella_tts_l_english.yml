@@ -146,3 +146,8 @@
  edict_tts_grief_cube_rationing_desc:0 "Strict allotments stretch the cube stockpile further. Nobody enjoys being rationed, least of all the girls fighting on the front line."
  edict_tts_msy_recruitment_drive:0 "MSY Recruitment Drive"
  edict_tts_msy_recruitment_drive_desc:0 "The mutual aid society opens its doors, its ledgers and its cube stores to every girl who wants to join."
+ # --- Ship components ---
+ TTS_TACCOMP_FIRE_CONTROL:0 "TacComp Fire Control"
+ TTS_TACCOMP_FIRE_CONTROL_DESC:0 "Networks the ship's guns into the crew's tactical computers, which share firing solutions faster than any human gunner could."
+ TTS_SOUL_GEM_RESONATOR:0 "Soul Gem Resonator"
+ TTS_SOUL_GEM_RESONATOR_DESC:0 "A cube-fed crystal lattice that echoes a magical girl's barrier magic across the hull. Nobody fully understands why it works. The MSY prefers not to discuss where the cubes go."

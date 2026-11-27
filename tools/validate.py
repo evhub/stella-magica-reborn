@@ -49,7 +49,8 @@ MODIFIER_BLOCKS = {'modifier', 'planet_modifier', 'country_modifier', 'fleet_mod
                    'triggered_councilor_modifier', 'triggered_fleet_modifier', 'triggered_self_modifier',
                    'triggered_system_modifier', 'triggered_army_modifier', 'triggered_modifier',
                    'triggered_planet_pop_group_modifier_for_all', 'triggered_planet_pop_group_modifier_for_species',
-                   'triggered_pop_group_modifier', 'triggered_species_modifier', 'station_modifier'}
+                   'triggered_pop_group_modifier', 'triggered_species_modifier', 'station_modifier',
+                   'ship_modifier'}
 MODIFIER_BLOCK_META = {'potential', 'key', 'mult', 'multiplier', 'should_mult_desc', 'fix_key', 'modifier',
                        'show_trigger_if_true', 'trigger_true_key_override', 'show_if_trigger_false',
                        'show_trigger_if_false', 'trigger_false_key_override', 'icon', 'icon_frame', 'custom_tooltip',
@@ -443,6 +444,7 @@ def check_loc(ctx: Ctx):
                 k = n.scalar('key')
                 if k and n.scalar('hidden') != 'yes':
                     need(k, f'{rp}:{n.line}', 'component')
+                    need(k + '_DESC', f'{rp}:{n.line}', 'component')
 
 
 def check_loc_overrides(ctx: Ctx):

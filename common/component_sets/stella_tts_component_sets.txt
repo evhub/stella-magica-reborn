@@ -1,0 +1,13 @@
+# To the Stars content: component sets
+
+component_set = {
+	key = "TTS_TACCOMP_FIRE_CONTROL"
+	icon = "GFX_ship_part_computer_default"
+	icon_frame = 1
+}
+
+component_set = {
+	key = "TTS_SOUL_GEM_RESONATOR"
+	icon = "GFX_ship_part_psi_shield"
+	icon_frame = 1
+}

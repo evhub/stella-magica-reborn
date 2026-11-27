@@ -1,0 +1,59 @@
+# To the Stars content: ship components. Inspired by Hieronym's "To the Stars".
+
+# TacComp Fire Control: the ship's guns share the TacComp's firing solutions.
+utility_component_template = {
+	key = "TTS_TACCOMP_FIRE_CONTROL"
+	size = aux
+	icon = "GFX_ship_part_computer_default"
+	icon_frame = 1
+	power = -10
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 25
+		}
+	}
+
+	prerequisites = { "tech_tts_taccomp" }
+	component_set = "TTS_TACCOMP_FIRE_CONTROL"
+
+	ship_modifier = {
+		ship_tracking_add = 5
+		ship_accuracy_add = 5
+	}
+
+	ai_weight = {
+		weight = 8
+	}
+}
+
+# Soul Gem Resonator: a cube-fed lattice that echoes a magical girl's barrier across the hull.
+utility_component_template = {
+	key = "TTS_SOUL_GEM_RESONATOR"
+	size = aux
+	icon = "GFX_ship_part_psi_shield"
+	icon_frame = 1
+	power = -15
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 30
+			grief_cube = 5
+		}
+	}
+
+	prerequisites = { "tech_tts_magops_doctrine" }
+	component_set = "TTS_SOUL_GEM_RESONATOR"
+
+	ship_modifier = {
+		ship_shield_mult = 0.10
+	}
+
+	ai_weight = {
+		weight = 6
+		modifier = {
+			factor = 0
+			has_resource = { type = grief_cube amount < 20 }
+		}
+	}
+}

@@ -1,0 +1,3 @@
+# Keep every file byte-for-byte as written. Stellaris is sensitive to encoding
+# (localisation .yml files must be UTF-8 *with* BOM), so no EOL normalisation.
+* -text

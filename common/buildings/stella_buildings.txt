@@ -1,4 +1,5 @@
 #Stella Magica Buildings
+# PORT (4.6): job counts are in workforce units (100 = 1 job), building_sets added.
 
 #Magi Organization Center
 stella_building_magi_center_1 = {
@@ -6,8 +7,14 @@ stella_building_magi_center_1 = {
 	#base_cap_amount = 1
 	#icon = gfx_stella_building_magi_center_1
 	category = government
+
+	# PORT (4.6): every building needs a building set (decides which slots/zones accept it)
+	building_sets = {
+		government
+	}
 	
 	potential = {
+		exists = owner
 		NOT = { has_modifier = slave_colony }
 		owner = { has_valid_civic = civic_magical_legacy }
 	}
@@ -24,7 +31,7 @@ stella_building_magi_center_1 = {
 	
 	planet_modifier = {
 	
-			job_stella_magi_coord_add = 1
+			job_stella_magi_coord_add = 100
 	}
 	
 	resources = {
@@ -86,8 +93,14 @@ stella_building_magi_center_2 = {
 	#base_cap_amount = 1
 
 	category = government
+
+	# PORT (4.6): every building needs a building set (decides which slots/zones accept it)
+	building_sets = {
+		government
+	}
 	
 	potential = {
+		exists = owner
 		NOT = { has_modifier = slave_colony }
 		owner = { has_valid_civic = civic_magical_legacy }
 	}
@@ -97,7 +110,7 @@ stella_building_magi_center_2 = {
 	}
 	
 	planet_modifier = {
-			job_stella_magi_coord_add = 2
+			job_stella_magi_coord_add = 200
 	}
 	
 	resources = {
@@ -159,8 +172,14 @@ stella_building_magi_center_3 = {
 	#base_cap_amount = 1
 
 	category = government
+
+	# PORT (4.6): every building needs a building set (decides which slots/zones accept it)
+	building_sets = {
+		government
+	}
 	
 	potential = {
+		exists = owner
 		NOT = { has_modifier = slave_colony }
 		owner = { has_valid_civic = civic_magical_legacy }
 	}
@@ -173,7 +192,7 @@ stella_building_magi_center_3 = {
 
 	
 	planet_modifier = {
-			job_stella_magi_coord_add = 4
+			job_stella_magi_coord_add = 400
 	}
 	
 	resources = {
@@ -237,9 +256,17 @@ stella_building_magitech_foundry = {
 	base_buildtime = 360
 	#icon = building_production_center
 	category = manufacturing
+
+	# PORT (4.6): every building needs a building set (decides which slots/zones accept it)
+	building_sets = {
+		industrial
+		factory
+		foundry
+	}
 	base_cap_amount = 1
 	
 	potential = {
+		exists = owner
 		NOT = { has_modifier = resort_colony }
 		NOT = { has_modifier = slave_colony }
 		NOT = {owner = { has_valid_civic = civic_magical_legacy }}
@@ -252,7 +279,7 @@ stella_building_magitech_foundry = {
 			owner = { is_hive_empire = yes }
 		}
 		modifier = {
-			job_stella_magitech_drone_add = 2
+			job_stella_magitech_drone_add = 200
 		}
 	}
 	
@@ -262,7 +289,7 @@ stella_building_magitech_foundry = {
 			owner = { is_machine_empire = yes }
 		}
 		modifier = {
-			job_stella_magitech_manip_add = 2
+			job_stella_magitech_manip_add = 200
 		}
 	}
 	
@@ -272,7 +299,7 @@ stella_building_magitech_foundry = {
 			owner = { is_regular_empire = yes }
 		}
 		modifier = {
-			job_stella_magitech_artificer_add = 2
+			job_stella_magitech_artificer_add = 200
 		}
 	}
 	
@@ -344,9 +371,15 @@ stella_building_contract_hub = {
 	base_buildtime = 300
 	#icon = stella_building_contract_hub
 	category = government
+
+	# PORT (4.6): every building needs a building set (decides which slots/zones accept it)
+	building_sets = {
+		government
+	}
 	base_cap_amount = 1
 	
 	potential = {
+		exists = owner
 		NOT = { has_modifier = resort_colony }
 		NOT = { has_modifier = slave_colony }
 		owner = { has_valid_civic = civic_hive_entropic_wardens }
@@ -362,7 +395,7 @@ stella_building_contract_hub = {
 			owner = { is_hive_empire = yes }
 		}
 		modifier = {
-			job_stella_contractor_drone_add = 2
+			job_stella_contractor_drone_add = 200
 		}
 	}
 	

@@ -58,3 +58,31 @@ civic_tts_msy = {
 		army_morale = 0.10
 	}
 }
+
+# The Cult of Hope: reverence for the Goddess who saved magical girls from despair, and who
+# comes for each of them gently at the end. Its churches care for the living as much as they
+# honour the departed.
+civic_tts_cult_of_hope = {
+	icon = "gfx/interface/icons/governments/civics/civic_exalted_priesthood.dds"
+	description = civic_tooltip_tts_cult_of_hope_effects
+
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+	}
+	possible = {
+		ethics = {
+			OR = {
+				text = civic_tooltip_spiritualist
+				value = ethic_spiritualist
+				value = ethic_fanatic_spiritualist
+			}
+		}
+	}
+
+	random_weight = { base = 5 }
+
+	modifier = {
+		country_unity_produces_mult = 0.05
+		planet_stability_add = 2
+	}
+}

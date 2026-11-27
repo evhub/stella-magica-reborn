@@ -123,3 +123,21 @@ tech_tts_cephalopod_analysis = {
 		weight = 1
 	}
 }
+
+# Theology of Hope: the Church of Hope's teachings, codified and organised.
+tech_tts_theology_of_hope = {
+	area = society
+	category = { statecraft }
+	tier = 1
+	cost = @tier1cost2
+	weight = @tier1weight2
+	icon = "tech_holographic_rituals"
+
+	potential = {
+		has_valid_civic = civic_tts_cult_of_hope
+	}
+
+	ai_weight = {
+		weight = 2
+	}
+}

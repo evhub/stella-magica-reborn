@@ -43,3 +43,45 @@ building_tts_msy_office = {
 
 	show_tech_unlock_if = { has_valid_civic = civic_tts_msy }
 }
+
+# Church of Hope: candles, quiet music, a wall of names, and a door that is never locked.
+building_tts_church_of_hope = {
+	base_buildtime = @b1_time
+	category = government
+	icon = building_temple
+
+	building_sets = {
+		government
+	}
+
+	planet_limit = 1
+
+	potential = {
+		exists = owner
+		owner = { has_valid_civic = civic_tts_cult_of_hope }
+		NOR = {
+			has_modifier = slave_colony
+			has_modifier = resort_colony
+		}
+	}
+
+	planet_modifier = {
+		job_tts_hope_priest_add = 200
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	prerequisites = {
+		"tech_tts_theology_of_hope"
+	}
+
+	show_tech_unlock_if = { has_valid_civic = civic_tts_cult_of_hope }
+}

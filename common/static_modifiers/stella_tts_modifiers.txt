@@ -22,3 +22,10 @@ stella_tts_witch_sighting = {
 	planet_jobs_produces_mult = -0.05
 	icon = "gfx/interface/icons/planet_modifiers/pm_obelisk_curse.dds"
 }
+
+# The faithful believe the Goddess herself was seen here.
+stella_tts_miracle = {
+	planet_stability_add = 5
+	pop_happiness = 0.05
+	icon = "gfx/interface/icons/planet_modifiers/pm_consecrated_worlds.dds"
+}

@@ -103,7 +103,11 @@ country_event = {
 	immediate = {
 		random_list = {
 			75 = { }
-			25 = { country_event = { id = stella_tts_wish.21 } }
+			25 = {
+				# Faith in the Goddess helps girls hold on: half as likely under the Cult of Hope.
+				modifier = { factor = 0.5 has_valid_civic = civic_tts_cult_of_hope }
+				country_event = { id = stella_tts_wish.21 }
+			}
 		}
 	}
 }

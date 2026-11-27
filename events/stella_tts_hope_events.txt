@@ -1,0 +1,78 @@
+# To the Stars content: the Cult of Hope
+# Inspired by Hieronym's "To the Stars". See docs/TTS_CONTENT.md.
+
+namespace = stella_tts_hope
+
+# Yearly roll (Cult of Hope empires): roughly one vision every eight years.
+country_event = {
+	id = stella_tts_hope.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_valid_civic = civic_tts_cult_of_hope
+		exists = capital_scope
+	}
+
+	immediate = {
+		random_list = {
+			88 = { }
+			12 = { country_event = { id = stella_tts_hope.2 } }
+		}
+	}
+}
+
+# A vision of the Goddess.
+country_event = {
+	id = stella_tts_hope.2
+	title = stella_tts_hope.2.name
+	desc = stella_tts_hope.2.desc
+	picture = GFX_evt_temple_of_whispers
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_hope.2.a
+		capital_scope = {
+			add_modifier = { modifier = stella_tts_miracle days = 1800 }
+		}
+		add_resource = { unity = 150 }
+		ai_chance = { factor = 2 }
+	}
+	option = {
+		name = stella_tts_hope.2.b
+		add_resource = { society_research = 250 }
+		ai_chance = { factor = 1 }
+	}
+}
+
+# The Church of Hope is organised (tech researched): its first priestess joins the council.
+country_event = {
+	id = stella_tts_hope.3
+	title = stella_tts_hope.3.name
+	desc = stella_tts_hope.3.desc
+	picture = GFX_evt_temple_of_whispers
+	is_triggered_only = yes
+
+	trigger = {
+		last_increased_tech = tech_tts_theology_of_hope
+		NOT = { has_country_flag = stella_tts_church_founded }
+	}
+
+	immediate = {
+		set_country_flag = stella_tts_church_founded
+	}
+
+	option = {
+		name = stella_tts_hope.3.a
+		create_leader = {
+			class = official
+			species = owner_main_species
+			name = random
+			skill = 2
+			randomize_traits = no
+		}
+		last_created_leader = {
+			add_trait = { trait = leader_trait_tts_priestess_of_hope show_message = no }
+		}
+	}
+}

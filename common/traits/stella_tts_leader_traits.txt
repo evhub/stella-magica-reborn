@@ -98,3 +98,22 @@ leader_trait_tts_msy_veteran = {
 	leader_class = { commander official scientist }
 	ai_weight = 100
 }
+
+# Priestess of Hope: an ordained voice of the Church on the council.
+leader_trait_tts_priestess_of_hope = {
+	inline_script = {
+		script = trait/icon
+		CLASS = official
+		ICON = "GFX_leader_trait_par_zealot"
+		RARITY = paragon
+		COUNCIL = yes
+		TIER = none
+	}
+	randomized = no
+	councilor_modifier = {
+		country_unity_produces_mult = 0.05
+		pop_happiness = 0.03
+	}
+	leader_class = { official }
+	ai_weight = 100
+}

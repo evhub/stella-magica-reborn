@@ -65,3 +65,67 @@ tts_msy_recruitment_drive = {
 		weight = 1
 	}
 }
+
+# Black Heart Operations: the MSY's intelligence division, black-ops force and secret police.
+tts_black_heart = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = edicts
+		cost = {
+			influence = 150
+		}
+	}
+
+	modifier = {
+		intel_encryption_add = 1
+		spy_network_daily_value_mult = 0.25
+		planet_crime_add = -10
+	}
+
+	potential = {
+		has_valid_civic = civic_tts_msy
+	}
+
+	show_tech_unlock_if = { has_valid_civic = civic_tts_msy }
+
+	prerequisites = {
+		"tech_tts_msy_divisions"
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
+# Consult the Far Seers: the MSY guild of clairvoyants, with its truly mystical name.
+tts_far_seers = {
+	length = 3600
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = edicts
+		cost = {
+			influence = 100
+		}
+	}
+
+	modifier = {
+		intel_decryption_add = 1
+		ship_sensor_range_add = 1
+		country_society_research_produces_mult = 0.05
+	}
+
+	potential = {
+		has_valid_civic = civic_tts_msy
+	}
+
+	show_tech_unlock_if = { has_valid_civic = civic_tts_msy }
+
+	prerequisites = {
+		"tech_tts_msy_divisions"
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}

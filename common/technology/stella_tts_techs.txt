@@ -141,3 +141,49 @@ tech_tts_theology_of_hope = {
 		weight = 2
 	}
 }
+
+# MSY Divisions: the mutual aid society grows an enforcement arm, an intelligence service and a
+# guild of clairvoyants: the Soul Guard, the Black Heart and the Far Seers.
+tech_tts_msy_divisions = {
+	area = society
+	category = { statecraft }
+	tier = 3
+	cost = @tier3cost2
+	weight = @tier3weight2
+	icon = "tech_precognition_interface"
+
+	prerequisites = { "tech_tts_msy_logistics" }
+
+	potential = {
+		has_valid_civic = civic_tts_msy
+	}
+
+	ai_weight = {
+		weight = 2
+	}
+}
+
+# Version Two Tactical Computers: TacComps that learn, adapt, and occasionally have opinions.
+tech_tts_taccomp_v2 = {
+	area = engineering
+	category = { voidcraft }
+	tier = 3
+	cost = @tier3cost2
+	weight = @tier3weight2
+	icon = "tech_combat_computers_3"
+
+	prerequisites = { "tech_tts_taccomp" }
+
+	potential = {
+		has_valid_civic = civic_magical_legacy
+	}
+
+	modifier = {
+		ship_tracking_add = 5
+		ship_evasion_add = 3
+	}
+
+	ai_weight = {
+		weight = 2
+	}
+}

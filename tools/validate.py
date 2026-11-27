@@ -423,6 +423,7 @@ def check_loc(ctx: Ctx):
         ('common/governments/civics', lambda k: [k, k + '_desc']),
         ('common/static_modifiers', lambda k: [k]),
         ('common/edicts', lambda k: [f'edict_{k}', f'edict_{k}_desc']),
+        ('common/name_lists', lambda k: [f'name_list_{k}']),
         ('common/decisions', lambda k: [k, k + '_desc']),
         ('common/ascension_perks', lambda k: [k, k + '_desc']),
         ('common/armies', lambda k: [k, k + '_plural', k + '_desc']),

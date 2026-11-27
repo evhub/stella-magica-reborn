@@ -85,3 +85,51 @@ building_tts_church_of_hope = {
 
 	show_tech_unlock_if = { tts_has_church_of_hope = yes }
 }
+
+# The Ribbon Chamber: the Church of Hope's holiest site, where a single ribbon rests in a glass box
+# between images of the Goddess. Pilgrims come to see visions. Some of them do.
+building_tts_ribbon_chamber = {
+	base_buildtime = 720
+	category = government
+	icon = building_empyrean_shrine
+
+	building_sets = {
+		government
+	}
+
+	planet_limit = 1
+	empire_limit = {
+		base = 1
+	}
+
+	potential = {
+		exists = owner
+		owner = { tts_has_church_of_hope = yes }
+		NOR = {
+			has_modifier = slave_colony
+			has_modifier = resort_colony
+		}
+	}
+
+	planet_modifier = {
+		job_tts_hope_priest_add = 200
+		planet_stability_add = 5
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 600
+			grief_cube = 25
+		}
+		upkeep = {
+			energy = 4
+		}
+	}
+
+	prerequisites = {
+		"tech_tts_theology_of_hope"
+	}
+
+	show_tech_unlock_if = { tts_has_church_of_hope = yes }
+}

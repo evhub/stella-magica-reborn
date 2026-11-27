@@ -1,0 +1,158 @@
+# To the Stars content: the Mitakihara Four and the MSY's divisions
+# Tomoe Mami, Sakura Kyouko, Chitose Yuma and Akemi Homura were the nucleus around which the MSY
+# grew. Mami became Field Marshal, Kyouko founded the Cult of Hope (see stella_tts_hope.3), Yuma
+# leads the MSY, and Kuroi Kana directs its Black Heart. Inspired by Hieronym's "To the Stars".
+# The text is original. See docs/TTS_CONTENT.md.
+
+namespace = stella_tts_four
+
+# Yearly roll (once MagOps exists): Tomoe Mami takes command.
+country_event = {
+	id = stella_tts_four.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_valid_civic = civic_magical_legacy
+		has_country_flag = stella_tts_magops_founded
+		NOT = { has_country_flag = stella_tts_mami_joined }
+		exists = capital_scope
+	}
+
+	immediate = {
+		random_list = {
+			90 = { }
+			10 = { country_event = { id = stella_tts_four.2 } }
+		}
+	}
+}
+
+# The Field Marshal.
+country_event = {
+	id = stella_tts_four.2
+	title = stella_tts_four.2.name
+	desc = stella_tts_four.2.desc
+	picture = GFX_evt_fleet_neutral
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = stella_tts_mami_joined
+	}
+
+	option = {
+		name = stella_tts_four.2.a
+		create_leader = {
+			class = commander
+			species = owner_main_species
+			name = "NAME_tts_mami"
+			gender = female
+			skill = 4
+			randomize_traits = no
+		}
+		last_created_leader = {
+			set_leader_flag = stella_tts_mami
+			add_trait = { trait = leader_trait_tts_field_marshal show_message = no }
+			add_trait = { trait = leader_trait_tts_taccomp show_message = no }
+		}
+	}
+}
+
+# Yearly roll (MSY divisions researched): Chitose Yuma joins the council.
+country_event = {
+	id = stella_tts_four.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_technology = tech_tts_msy_divisions
+		NOT = { has_country_flag = stella_tts_yuma_joined }
+	}
+
+	immediate = {
+		random_list = {
+			80 = { }
+			20 = { country_event = { id = stella_tts_four.4 } }
+		}
+	}
+}
+
+# The head of the MSY.
+country_event = {
+	id = stella_tts_four.4
+	title = stella_tts_four.4.name
+	desc = stella_tts_four.4.desc
+	picture = GFX_evt_board_meeting
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = stella_tts_yuma_joined
+	}
+
+	option = {
+		name = stella_tts_four.4.a
+		create_leader = {
+			class = official
+			species = owner_main_species
+			name = "NAME_tts_yuma"
+			gender = female
+			skill = 4
+			randomize_traits = no
+		}
+		last_created_leader = {
+			set_leader_flag = stella_tts_yuma
+			add_trait = { trait = leader_trait_tts_leadership_committee show_message = no }
+		}
+	}
+}
+
+# Yearly roll (Black Heart edict active): its director steps out of the shadows.
+country_event = {
+	id = stella_tts_four.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_edict = tts_black_heart
+		NOT = { has_country_flag = stella_tts_kana_joined }
+	}
+
+	immediate = {
+		random_list = {
+			75 = { }
+			25 = { country_event = { id = stella_tts_four.6 } }
+		}
+	}
+}
+
+# The Black Heart.
+country_event = {
+	id = stella_tts_four.6
+	title = stella_tts_four.6.name
+	desc = stella_tts_four.6.desc
+	picture = GFX_evt_friendly_infiltration
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = stella_tts_kana_joined
+	}
+
+	option = {
+		name = stella_tts_four.6.a
+		create_leader = {
+			class = official
+			species = owner_main_species
+			name = "NAME_tts_kana"
+			gender = female
+			skill = 3
+			randomize_traits = no
+		}
+		last_created_leader = {
+			set_leader_flag = stella_tts_kana
+			add_trait = { trait = leader_trait_tts_black_heart_director show_message = no }
+		}
+	}
+	option = {
+		name = stella_tts_four.6.b
+		add_resource = { unity = 200 }
+	}
+}

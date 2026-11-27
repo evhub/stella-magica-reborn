@@ -1,0 +1,72 @@
+### To the Stars content: United Earth name list
+### Ships carry the HSS prefix (see the United Earth preset) and are named for historical figures,
+### as the fic's HSS Georgy Konstantinovich Zhukov is. Colony names include worlds from the fic.
+
+TTS_EARTH = {
+	randomized = no
+
+	ship_names = {
+		generic = {
+			"Georgy Konstantinovich Zhukov" "Zheng He" "Hannibal Barca" "Joan of Arc" "Tokugawa Ieyasu" "Horatio Nelson"
+			"Yi Sun-sin" "Toussaint Louverture" "Ada Lovelace" "Marie Curie" "Sun Tzu" "Shaka Zulu" "Simon Bolivar"
+			"Hypatia" "Saladin" "Belisarius" "Tomoe Gozen" "Lakshmibai" "Alan Turing" "Yuri Gagarin" "Valentina Tereshkova"
+			"Neil Armstrong" "Sally Ride" "Wang Zhenyi" "Ibn Battuta" "Ching Shih" "Grace Hopper" "Admiral Togo"
+			"Ferdinand Magellan" "Kublai Khan" "Mansa Musa" "Harriet Tubman" "Nikola Tesla" "Emmy Noether"
+			"Srinivasa Ramanujan" "Leonardo da Vinci" "Johannes Kepler" "Galileo Galilei" "Carl Sagan" "Zhang Heng"
+		}
+	}
+
+	ship_class_names = {
+		generic = {
+			"Zhukov" "Valkyrie" "Aegis" "Mitakihara" "Unification" "Directorate" "Representative" "Concord"
+		}
+	}
+
+	fleet_names = {
+		random_names = {
+			"Southern Group" "Northern Group" "Home Fleet" "Core Worlds Defense" "Task Force Rhamnusia" "Frontier Group"
+			"Colonial Reserve" "Euphratic Front" "Avenging Angels" "Mobile Reserve"
+		}
+		sequential_name = TTS_EARTH_FLEET_ORD
+	}
+
+	army_names = {
+		generic = {
+			sequential_name = TTS_EARTH_ARMY_ORD
+		}
+		defense_army = {
+			sequential_name = TTS_EARTH_DEFENSE_ARMY_ORD
+		}
+		tts_magops_army = {
+			sequential_name = TTS_EARTH_MAGOPS_ORD
+		}
+		tts_soul_guard_army = {
+			sequential_name = TTS_EARTH_SOUL_GUARD_ORD
+		}
+	}
+
+	planet_names = {
+		generic = {
+			names = {
+				"New Athens" "Nova Terra" "New California" "Eurydome" "San Giuseppe" "Aegis" "New Mitakihara" "Prometheus"
+				"New Delhi Prime" "Arcadia" "Elysium" "Concordia" "New Lagos" "Harmonia" "Tianjin Nova" "Hesperia"
+			}
+		}
+	}
+
+	character_names = {
+		default = {
+			first_names_male = {
+				"Julian" "Vladimir" "Roland" "Abe" "Zhou" "Kenji" "Ravi" "Tomas" "Mateo" "Arjun" "Daniel" "Hiroshi"
+			}
+			first_names_female = {
+				"Ryouko" "Asami" "Yui" "Joanne" "Nadya" "Misa" "Aina" "Maki" "Meiqing" "Akari" "Arisu" "Clarisse" "Sayaka"
+				"Rika" "Nana" "Mikuru" "Yuu" "Aiko" "Hana" "Mei"
+			}
+			second_names = {
+				"Nakihara" "Tanaka" "Valentin" "Antipova" "Virani" "Hinata" "Kishida" "Zhou" "Akiyama" "Atsuko" "Kuroi"
+				"Chiyo" "Okamura" "Volokhov" "Bradshaw" "Erwynmark" "Anand" "Albescu" "van Rossum" "Shen" "Zheng" "Miroko"
+			}
+		}
+	}
+}

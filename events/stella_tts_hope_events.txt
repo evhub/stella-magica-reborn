@@ -17,7 +17,14 @@ country_event = {
 	immediate = {
 		random_list = {
 			88 = { }
-			12 = { country_event = { id = stella_tts_hope.2 } }
+			12 = {
+				# Visions come twice as often to an empire with a Ribbon Chamber.
+				modifier = {
+					factor = 2
+					any_owned_planet = { has_building = building_tts_ribbon_chamber }
+				}
+				country_event = { id = stella_tts_hope.2 }
+			}
 		}
 	}
 }
@@ -67,8 +74,9 @@ country_event = {
 		create_leader = {
 			class = official
 			species = owner_main_species
-			name = random
-			skill = 2
+			name = "NAME_tts_kyouko"
+			gender = female
+			skill = 3
 			randomize_traits = no
 		}
 		last_created_leader = {

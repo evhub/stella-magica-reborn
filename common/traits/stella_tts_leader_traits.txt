@@ -136,3 +136,64 @@ leader_trait_tts_consensus_envoy = {
 	leader_class = { commander }
 	ai_weight = 100
 }
+
+# Field Marshal: commands the whole war from the bridge of her flagship, with cortical implants
+# stretched across every ship in the fleet.
+leader_trait_tts_field_marshal = {
+	inline_script = {
+		script = trait/icon
+		CLASS = commander
+		ICON = "GFX_leader_trait_supreme_admiral"
+		RARITY = paragon
+		COUNCIL = no
+		TIER = none
+	}
+	randomized = no
+	fleet_modifier = {
+		ship_fire_rate_mult = 0.10
+		ship_weapon_range_mult = 0.05
+	}
+	army_modifier = {
+		army_damage_mult = 0.15
+	}
+	leader_class = { commander }
+	ai_weight = 100
+}
+
+# Leadership Committee: sits on the body that runs the MSY.
+leader_trait_tts_leadership_committee = {
+	inline_script = {
+		script = trait/icon
+		CLASS = official
+		ICON = "GFX_leader_trait_supreme_organizer"
+		RARITY = paragon
+		COUNCIL = yes
+		TIER = none
+	}
+	randomized = no
+	councilor_modifier = {
+		country_grief_cube_produces_mult = 0.15
+		planet_stability_add = 2
+	}
+	leader_class = { official }
+	ai_weight = 100
+}
+
+# Director of the Black Heart: knows things about everyone, and keeps almost all of it to herself.
+leader_trait_tts_black_heart_director = {
+	inline_script = {
+		script = trait/icon
+		CLASS = official
+		ICON = "GFX_leader_trait_spymaster"
+		RARITY = paragon
+		COUNCIL = yes
+		TIER = none
+	}
+	randomized = no
+	councilor_modifier = {
+		intel_encryption_add = 1
+		planet_crime_add = -5
+	}
+	leader_class = { official }
+	ai_weight = 100
+}

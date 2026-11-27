@@ -38,3 +38,41 @@ tts_magops_army = {
 		}
 	}
 }
+
+# Soul Guard: the MSY's enforcement division. In ordinary times it hunts down the abhorrent and
+# the insane; in war it is the elite core of the magical girl forces.
+tts_soul_guard_army = {
+	damage = 2.25
+	health = 2.50
+	morale = 2.50
+	morale_damage = 1.75
+	collateral_damage = 0.25
+	war_exhaustion = 1.25
+	time = 240
+	icon = GFX_army_type_psionic
+	has_species = no
+	prerequisites = { "tech_tts_msy_divisions" }
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 250
+			grief_cube = 20
+		}
+		upkeep = {
+			energy = 3
+			grief_cube = 0.5
+		}
+	}
+
+	show_tech_unlock_if = {
+		has_valid_civic = civic_tts_msy
+	}
+
+	potential = {
+		owner = {
+			is_primitive = no
+			has_valid_civic = civic_tts_msy
+		}
+	}
+}

@@ -2,6 +2,7 @@
 
 stella_grief_cube = {
     tradable = no
+    category = strategic # PORT (4.6): resources declare a category
     market_amount = 0
     market_price = 0
     max = 10000

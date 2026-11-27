@@ -1,3 +1,5 @@
+# PORT (4.6): copy of the vanilla 4.6 file with stella_grief_cube added. Must override
+# the vanilla file to add a resource to this group.
 sectors_others_group = {
 	resources = {
 		volatile_motes
@@ -8,6 +10,7 @@ sectors_others_group = {
 		sr_dark_matter
 		nanites
 		stella_grief_cube
+		trade
 	}
 	localization = {
 		"RESOURCE_GROUP_BALANCE_ONLY" = default

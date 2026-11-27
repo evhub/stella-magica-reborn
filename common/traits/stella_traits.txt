@@ -112,12 +112,13 @@ leader_trait_general_magi = {
 	ai_weight = 100
 }
 
-# (was: ruler) 2.2 ruler traits affected the whole empire; in 4.6 the ruler is an
-# official on the council, so the bonus applies while this leader is the ruler.
+# (was: ruler) 2.2 ruler traits affected the whole empire while the leader ruled. In 4.6 a
+# leader of any class can be ruler (the events give this trait to commanders, scientists
+# and officials), so it is allowed for all classes and only applies while ruler.
 leader_trait_ruler_magi = {
 	inline_script = {
 		script = trait/icon
-		CLASS = official
+		CLASS = leader
 		ICON = "GFX_leader_trait_stella_magi"
 		RARITY = paragon
 		COUNCIL = yes
@@ -130,7 +131,7 @@ leader_trait_ruler_magi = {
 		country_unity_produces_mult = 0.05
 		country_base_influence_produces_add = 1
 	}
-	leader_class = { official }
+	leader_class = { commander official scientist }
 	ai_weight = 100
 }
 

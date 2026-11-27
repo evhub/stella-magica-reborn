@@ -38,13 +38,15 @@ on_fleet_destroyed_perp = {
 }
 
 
-# From = Previous Ruler, already has the new class
-# This = Country
-on_ruler_back_to_pre_ruler_class = {
-	events = {
-		stella_leader.1
-	}
-}
+# PORT (4.6): on_ruler_back_to_pre_ruler_class no longer exists. In 2.2 a ruler was its own
+# class and got its old class back on stepping down, losing class-specific traits;
+# stella_leader.1 re-added the right magi trait. 4.x rulers keep their class and traits,
+# so the hook is no longer needed.
+# on_ruler_back_to_pre_ruler_class = {
+# 	events = {
+# 		stella_leader.1
+# 	}
+# }
 
 
 # Executed as a leader has died

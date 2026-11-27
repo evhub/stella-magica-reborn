@@ -381,7 +381,7 @@ epitaph_system_initializer = {
 #Ruined ringworld with a Pisonic Avatar
 #While the one segment is already repaired, it has blockers that take a bunch of alloys to remove
 #Kinda like the First League ecumenopolis
-beacon_of_ephemerality_initializer {
+beacon_of_ephemerality_initializer = { # PORT: missing "=" (original syntax error)
 
 	class = "rl_standard_stars"
 	name = "Beacon of Ephemerality"

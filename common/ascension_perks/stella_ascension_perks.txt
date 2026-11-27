@@ -39,7 +39,10 @@ ap_stella_magitech_perk = {
 	}
 	
 	potential = {
-		NOT = {
+		NOT = { has_ascension_perk = ap_stella_magitech_perk } # PORT (4.6): hide once taken, like vanilla perks
+		# PORT: bug fix - was NOT (= "not both", always true); NOR matches the intent that
+		# magical empires, which already get these techs, do not see the perk.
+		NOR = {
 			has_valid_civic = civic_magical_legacy
 			has_valid_civic = civic_hive_entropic_wardens
 		}

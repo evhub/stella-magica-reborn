@@ -432,12 +432,12 @@ stella_crisis.1.op1:0 "Whats going on?"
 
 stella_crisis.2.name:0 "???"
 stella_crisis.2.desc:0 "No no no no. This isn't good. I couldn't completely destroy the portal, but it could redirect it somewhere else."
-stella_crisis.2.op1:"Portal? Slow down? Who are you?"
+stella_crisis.2.op1:0 "Portal? Slow down? Who are you?"
 stella_crisis.2.op1.response:0 ""
 
 stella_crisis.3.name:0 "The Goddess"
 stella_crisis.3.desc:0 "Alright, first things first. I'm the one that you might call the Goddess, but my friends call me Madoka. \n\nWhatever you were doing, you got my attention. But you also got the attention of something else too."
-stella_crisis.3.op1:"Something else?"
+stella_crisis.3.op1:0 "Something else?"
 stella_crisis.3.op1.response:0 ""
 
 stella_crisis.4.name:0 "The Goddess"

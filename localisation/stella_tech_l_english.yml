@@ -19,7 +19,7 @@ stella_tech_magi_organization_desc:0 "Organizing Puella Magi operations will gre
 stella_tech_magi_coordination:0 "Advanced Magi Coordination"
 stella_tech_magi_coordination_desc: "Coordinate the Magi into a well oiled wraith hunting machine."
 stella_tech_cube_logi:0 "Cubic Logistics"
-stella_tech_cube_logi_desc:"\"The amateurs discuss tactics; the professionals discuss logistics.\""
+stella_tech_cube_logi_desc:0 "\"The amateurs discuss tactics; the professionals discuss logistics.\""
 stella_tech_magitech_theory:0 "Magitech Theory"
 stella_tech_magitech_theory_desc:0 "What is magic but another field of science to be mastered?"
 TECH_UNLOCK_STELLA_MAGITECH_TITLE:0 "Unlocks development of: Magitech"

@@ -67,6 +67,28 @@ Every porting change is marked in the files with a `# PORT` comment explaining w
 - `common/species_name/` was never loaded, even in 2.2, and the author's comment
   says it isn't needed. It is left as-is.
 
+## Playing with all the content
+
+**Quickest:** in the empire selection screen, pick the preset **United Earth (To the Stars)**.
+
+**Or build your own** with these settings:
+
+| Setting | Choose | Why |
+|---|---|---|
+| Species | Human or another humanoid/mammalian species | Shizuki Ryouko only appears for human-like species |
+| Origin | **The Unified Earth** | Starts with Cortical Implants; the TtS backstory |
+| Authority | Democratic or Oligarchic | Needed for the Governance civic |
+| Ethics | Anything **except Spiritualist, Fanatic Xenophobe or Gestalt** | Spiritualist blocks Governance; Fanatic Xenophobe blocks Magical Legacy |
+| Civic 1 | **Magical Legacy** | Unlocks the original Stella Magica story and most TtS content: contracts and wishes, MagOps, Ryouko, the disclosure policy, rationing |
+| Civic 2 | **Mahou Shoujo Youkai** | Needs Magical Legacy. Unlocks the MSY office, recruitment drive and mentor event |
+| Civic 3 (when unlocked) | **Governance** | Edit your government once the third civic slot opens |
+
+**What you'll miss with this build:** the **Cult of Hope** civic needs Spiritualist ethics, which
+blocks Governance. To play the Church of Hope instead, pick Spiritualist ethics and take Cult of Hope
+in place of Governance.
+
+The Cephalopod War starts on its own mid-game (from year 90) near a player empire, and needs no setup.
+
 ## New content: To the Stars
 
 Beyond the port, the mod adds new content inspired by Hieronym's Madoka Magica fanfic

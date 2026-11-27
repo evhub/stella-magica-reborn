@@ -7,3 +7,7 @@ stella_empire_humans = {
 stella_empire_incubators = {
 	flags = { icubators_stella custom_start_screen }
 }
+
+stella_empire_tts_united_earth = {
+	flags = { tts_united_earth }
+}

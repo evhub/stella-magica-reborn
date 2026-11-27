@@ -1,0 +1,59 @@
+### To the Stars content: Thinker (Cephalopod) name list
+### Thinkers carry hyphenated "star-names" alongside alphanumeric codes. Names are original.
+
+TTS_THINKER = {
+	randomized = no
+	should_name_home_system_planets = yes
+
+	ship_names = {
+		generic = {
+			"Patient-Tide" "Quiet-Lattice" "Deep-Current" "Silent-Arbiter" "Coral-Reckoner" "Far-Listener"
+			"Still-Water" "Bright-Ledger" "Measured-Dawn" "Tide-Keeper" "Long-Horizon" "Order-Preserving"
+			"Thread-Weaver" "Cold-Reasoner" "Salt-Memory" "Glass-Shoal" "True-Bearing" "Calm-Abyss"
+			"Clear-Consensus" "Distortion-Denying" "Law-Upholding" "Pattern-Seeking" "Shelf-Wanderer" "Kelp-Tender"
+			"Reef-Mender" "Current-Reading" "Warm-Sea-Remembering" "Certainty-Guarding" "Error-Correcting" "Ink-Veiled"
+			"Ten-Thousand-Arms" "Small-Hours" "Gentle-Pressure" "Undertow" "Lantern-Eye" "Spiral-Shell"
+		}
+	}
+
+	ship_class_names = {
+		generic = {
+			"Warform" "Neuroform" "Carrier-Mother" "Long-Arm" "Reef-Wall" "Deepwatch" "Ink-Cloud" "Silent-Fin"
+		}
+	}
+
+	fleet_names = {
+		random_names = {
+			"Enforcement Group" "Suppression Swarm" "Patient Current" "Containment Lattice" "Quiet Tide" "Compliance Front"
+		}
+		sequential_name = TTS_THINKER_FLEET_ORD
+	}
+
+	army_names = {
+		generic = {
+			sequential_name = TTS_THINKER_ARMY_ORD
+		}
+		defense_army = {
+			sequential_name = TTS_THINKER_DEFENSE_ARMY_ORD
+		}
+	}
+
+	planet_names = {
+		generic = {
+			names = {
+				"Bridgehead-Shoal" "Warm-Shelf" "Quiet Reef" "Second Sea" "Anchor-Deep" "Far Tidepool" "Salt-Lantern" "Kelp-Hollow"
+				"Pressure Garden" "Calm Water" "Spiral Reach" "Long Shoal"
+			}
+		}
+	}
+
+	character_names = {
+		default = {
+			full_names = {
+				"Patient-Tide" "Order-Preserving" "Coral-Reckoner" "Far-Listener" "Measured-Dawn" "Cold-Reasoner"
+				"Tide-Keeper" "Error-Correcting" "Lantern-Eye" "Certainty-Guarding" "Pattern-Seeking" "Gentle-Pressure"
+				"Reef-Mender" "Salt-Memory" "Clear-Consensus" "Kelp-Tender" "Still-Water" "True-Bearing"
+			}
+		}
+	}
+}

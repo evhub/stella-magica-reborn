@@ -190,6 +190,8 @@ def check_parse_and_encoding(ctx: Ctx):
         for i, ln in enumerate(raw.decode('utf-8', errors='replace').splitlines(), 1):
             if re.match(r'^\s*[A-Za-z0-9_.\-]+:\d*"', ln):
                 ctx.err('loc', f'{rp}:{i}', 'localisation line must be `key:0 "text"` (space before the quote)')
+            elif i > 1 and ln.strip() and not ln.lstrip().startswith('#') and                     not re.match(r'^\s*[A-Za-z0-9_.\-]+:\d*\s+".*"\s*(#.*)?$', ln):
+                ctx.err('loc', f'{rp}:{i}', 'malformed localisation line (a raw line break inside text? write \\n instead)')
         if not raw.startswith(b'\xef\xbb\xbf'):
             ctx.err('encoding', rp, 'localisation file must start with a UTF-8 BOM')
         first = raw.lstrip(b'\xef\xbb\xbf').split(b'\n', 1)[0].strip()
@@ -305,14 +307,25 @@ def known_modifiers(ctx: Ctx) -> set[str]:
             mods.add(m.replace('volatile_motes', n.key))
     for _, n in mod_objects(ctx, 'common/country_types'):
         mods.add(f'damage_vs_country_type_{n.key}_mult')
-    return mods
+    return mods | composite_modifiers(ctx)
+
+
+def composite_modifiers(ctx: Ctx) -> set[str]:
+    """4.x composite modifiers: vanilla static modifiers with a custom_tooltip that bundle other
+    modifiers and can be used as one (e.g. influential_jobs_bonus_workforce_mult)."""
+    out = set()
+    for _, nodes in vanilla_parsed(ctx, 'common/static_modifiers'):
+        for n in top_keys(nodes):
+            if n.is_block and n.get('custom_tooltip') is not None and n.key.endswith(('_mult', '_add')):
+                out.add(n.key)
+    return out
 
 
 def generated_mod_modifiers(ctx: Ctx) -> set[str]:
     """Modifiers that exist only because of mod content (jobs, resources, country types).
     The game requires a mod_<modifier> display name for each one the mod actually uses
     (confirmed in game for job, resource-category and damage_vs_country_type modifiers)."""
-    return known_modifiers(ctx) - load_list('modifiers.txt')
+    return known_modifiers(ctx) - load_list('modifiers.txt') - composite_modifiers(ctx)
 
 
 def iter_modifier_blocks(nodes: list[Node], rp: str):

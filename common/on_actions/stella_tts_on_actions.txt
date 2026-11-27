@@ -5,6 +5,7 @@ on_game_start_country = {
 		stella_tts_inst.1
 		stella_tts_inst.2
 		stella_tts_inst.5
+		stella_tts_ceph.40
 	}
 }
 

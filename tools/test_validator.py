@@ -15,7 +15,8 @@ DIRS = ['common', 'events', 'localisation', 'interface', 'gfx', 'prescripted_cou
 
 SEEDS = {
     'localisation/english/zz_seed_l_english.yml': '﻿l_english:\r\n zz_seed_bad:"no space"\r\n'
-                                                   ' civic_tooltip_not_spiritualist:0 "override"\r\n',
+                                                   ' civic_tooltip_not_spiritualist:0 "override"\r\n'
+                                                   ' zz_seed_break:0 "first line\r\nsecond line"\r\n',
     'common/technology/zz_seed.txt': (
         'zz_seed_tech = {\r\n\tarea = physics\r\n\tprerequisites = { "tech_zz_missing" }\r\n'
         '\tmodifier = { zz_not_a_modifier = 1 }\r\n}\r\n'),
@@ -40,6 +41,7 @@ SEEDS = {
 }
 EXPECT = [
     '[loc] localisation/english/zz_seed_l_english.yml:2',
+    '[loc] localisation/english/zz_seed_l_english.yml:5: malformed localisation line',
     '[techs] common/technology/zz_seed.txt:3: unknown prerequisite tech tech_zz_missing',
     '[modifiers] common/technology/zz_seed.txt:4: unknown modifier zz_not_a_modifier',
     'missing localisation zz_seed_tech (technology)',

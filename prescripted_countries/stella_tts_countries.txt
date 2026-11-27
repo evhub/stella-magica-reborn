@@ -69,3 +69,76 @@ tts_united_earth = {
 		leader_class = official
 	}
 }
+
+# The Cephalopods: the /Thinker-preserving Tentacle of the Thinker Consensus. Always present in the
+# galaxy as an AI empire. Fanatic Purifiers: they never negotiate and are at war with everyone.
+tts_thinker_preserving = {
+	name = "tts_thinker_preserving"
+	adjective = "tts_thinker_preserving_adj"
+	spawn_enabled = always # yes / no / always
+	ignore_portrait_duplication = yes
+
+	ship_prefix = ""
+
+	species = {
+		class = "MOL"
+		portrait = "mol3"
+		name = "tts_species_thinker"
+		plural = "tts_species_thinker_plural"
+		adjective = "tts_species_thinker_adj"
+		name_list = "TTS_THINKER"
+		trait = "trait_organic"
+		trait = "trait_aquatic"
+		trait = "trait_intelligent"
+		trait = "trait_slow_breeders"
+		trait = "trait_tts_thinker_backups"
+		trait = "trait_tts_empathize_opening"
+		trait = "trait_tts_emotionless"
+	}
+
+	room = "personality_fanatic_purifier_room"
+
+	authority = "auth_oligarchic"
+	civics = { "civic_fanatic_purifiers" "civic_distinguished_admiralty" }
+
+	ethic = "ethic_fanatic_xenophobe"
+	ethic = "ethic_militarist"
+
+	origin = "origin_tts_thinker_vanguard"
+
+	flag = stella_empire_tts_thinkers
+
+	planet_name = "NAME_tts_thinker_homeworld"
+	planet_class = "pc_ocean"
+	initializer = "custom_starting_init_01"
+	system_name = "NAME_tts_thinker_system"
+
+	graphical_culture = "molluscoid_01"
+	city_graphical_culture = "molluscoid_01"
+
+	empire_flag = {
+		icon = {
+			category = "aquatic"
+			file = "aquatic_05.dds"
+		}
+		background = {
+			category = "backgrounds"
+			file = "00_solid.dds"
+		}
+		colors = {
+			"dark_teal"
+			"black"
+			"null"
+			"null"
+		}
+	}
+
+	ruler = {
+		name = "NAME_tts_thinker_ruler"
+		portrait = "mol3"
+		texture = 0
+		attachment = 0
+		clothes = 0
+		leader_class = official
+	}
+}

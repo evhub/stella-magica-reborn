@@ -11,3 +11,7 @@ stella_empire_incubators = {
 stella_empire_tts_united_earth = {
 	flags = { tts_united_earth }
 }
+
+stella_empire_tts_thinkers = {
+	flags = { tts_thinker_preserving }
+}

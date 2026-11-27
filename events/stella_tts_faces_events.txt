@@ -69,9 +69,8 @@ country_event = {
 
 	trigger = {
 		has_global_flag = stella_tts_ceph_war
-		NOT = { has_global_flag = stella_tts_ceph_won }
 		NOT = { has_country_flag = stella_tts_ryouko_raid_done }
-		exists = event_target:tts_ceph_country
+		exists = event_target:tts_thinker_empire
 		any_owned_leader = { has_leader_flag = stella_tts_ryouko }
 	}
 
@@ -97,7 +96,7 @@ country_event = {
 
 	option = {
 		name = stella_tts_faces.4.a
-		event_target:tts_ceph_country = {
+		event_target:tts_thinker_empire = {
 			every_owned_fleet = {
 				limit = { has_fleet_flag = stella_tts_ceph_mothership }
 				add_modifier = { modifier = stella_tts_ceph_sabotaged days = 720 }

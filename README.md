@@ -87,7 +87,10 @@ Every porting change is marked in the files with a `# PORT` comment explaining w
 blocks Governance. To play the Church of Hope instead, pick Spiritualist ethics and take Cult of Hope
 in place of Governance.
 
-The Cephalopod War starts on its own mid-game (from year 90) near a player empire, and needs no setup.
+**The Cephalopods need no setup.** Their empire, the /Thinker-preserving Tentacle, always spawns at
+game start. From year 60 they send enforcement fleets against empires with **Magical Legacy**, so the
+build above makes you a target. They are Fanatic Purifiers: they never negotiate. They show up in your
+galaxy even if you don't build for TtS.
 
 ## New content: To the Stars
 

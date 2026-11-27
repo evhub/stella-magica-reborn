@@ -109,3 +109,30 @@ origin_tts_unified_earth = {
 		army_damage_mult = 0.10
 	}
 }
+
+# Origin: Consensus Vanguard. The /Thinker-preserving Tentacle's forward presence in this galaxy,
+# backed by a civilization of over a trillion minds and technology far beyond its neighbours'.
+# Used by the Cephalopod preset empire only.
+origin_tts_thinker_vanguard = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_remnant.dds"
+	picture = GFX_evt_unknown_ships
+	description = origin_tooltip_tts_thinker_vanguard_effects
+
+	playable = { always = no }
+
+	potential = {
+		always = yes
+	}
+	possible = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+	}
+
+	random_weight = { base = 0 }
+
+	modifier = {
+		ship_shield_mult = 0.15
+		ship_armor_regen_add_static = 3
+		ship_weapon_range_mult = 0.10
+	}
+}

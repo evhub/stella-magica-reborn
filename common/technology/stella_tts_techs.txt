@@ -116,7 +116,7 @@ tech_tts_cephalopod_analysis = {
 
 	modifier = {
 		ship_armor_mult = 0.10
-		damage_vs_country_type_tts_cephalopods_mult = 0.25
+		ship_shield_hardening_add = 0.10
 	}
 
 	ai_weight = {

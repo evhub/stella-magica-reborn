@@ -1,0 +1,47 @@
+# To the Stars content: Thinker (Cephalopod) species traits. Event/preset only.
+# Inspired by Hieronym's "To the Stars". See docs/TTS_CONTENT.md.
+
+# Mind Backups: Thinker minds are backed up; a lost body is "bodyloss", not death.
+trait_tts_thinker_backups = {
+	cost = 0
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/trait_venerable.dds"
+	allowed_archetypes = { BIOLOGICAL }
+	species_possible_add = { always = no }
+	species_possible_remove = { always = no }
+	opposites = { "trait_venerable" "trait_enduring" "trait_fleeting" }
+	modifier = {
+		leader_lifespan_add = 100
+		species_leader_exp_gain = 0.10
+	}
+}
+
+# Empathize-opening: an organ for sharing a mind's full preference-specification.
+# The foundation of Thinker civilization.
+trait_tts_empathize_opening = {
+	cost = 0
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/trait_charismatic.dds"
+	allowed_archetypes = { BIOLOGICAL }
+	species_possible_add = { always = no }
+	species_possible_remove = { always = no }
+	modifier = {
+		influential_jobs_bonus_workforce_mult = 0.15
+	}
+}
+
+# Emotionless: Thinkers claim not to share the human notion of emotions.
+trait_tts_emotionless = {
+	cost = 0
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/trait_conformists.dds"
+	allowed_archetypes = { BIOLOGICAL }
+	species_possible_add = { always = no }
+	species_possible_remove = { always = no }
+	modifier = {
+		pop_happiness = 0.10
+	}
+}

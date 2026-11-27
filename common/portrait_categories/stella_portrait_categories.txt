@@ -1,0 +1,8 @@
+# PORT (4.6): portrait sets must be in a category to be shown in the empire designer.
+stella_incubator_category = {
+	name = Incubator
+
+	sets = {
+		stella_incubators
+	}
+}

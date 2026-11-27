@@ -1,0 +1,27 @@
+# PORT (4.6): species classes no longer list portraits; portrait sets do.
+# Entries are the portrait groups defined in gfx/portraits/portraits/stella_portraits.txt.
+
+stella_puella_magi = {
+	species_class = PuellaMagi
+
+	conditional_portraits = {
+		playable = no		# event-only species, as in the original
+		randomizable = no
+		portraits = {
+			"madoka"
+			"sayaka"
+			"mami"
+			"kyoko"
+			"homura"
+			"yuma"
+		}
+	}
+}
+
+stella_incubators = {
+	species_class = Incubator
+
+	portraits = {
+		"kyubey"
+	}
+}

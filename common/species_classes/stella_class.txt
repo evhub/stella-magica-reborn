@@ -1,19 +1,13 @@
+# PORT (4.6): portraits moved from species classes to common/portrait_sets/stella_portrait_sets.txt
 PuellaMagi = {
 	archetype = BIOLOGICAL
+	trait = "trait_organic" # PORT (4.6): biological species classes carry the organic archetype trait
 	possible = { authority = { NOT = { value = auth_machine_intelligence text = SPECIES_CLASS_MUST_NOT_USE_MACHINE_INTELLIGENCE } } }
 	
 	#make sure potraits don't show on the species creation screen and random empires
 	playable= {always = no}
-	randomized = false
+	randomized = no
 	
-	portraits = {
-		"madoka"
-		"sayaka"
-		"mami"
-		"kyoko"
-		"homura"
-		"yuma"
-	}
 	
 	graphical_culture = puella_magi_01
 	move_pop_sound_effect = "moving_pop_confirmation"
@@ -22,14 +16,12 @@ PuellaMagi = {
 
 Incubator = {
 	archetype = BIOLOGICAL
+	trait = "trait_organic" # PORT (4.6): biological species classes carry the organic archetype trait
 	possible = { authority = { NOT = { value = auth_machine_intelligence text = SPECIES_CLASS_MUST_NOT_USE_MACHINE_INTELLIGENCE } } }
 	
 	playable= {always = yes}
-	randomized = false
+	randomized = no
 	
-	portraits = {
-		"kyubey"
-	}
 	
 	graphical_culture = incubator_01
 	move_pop_sound_effect = "moving_pop_confirmation"

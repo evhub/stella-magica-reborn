@@ -1,287 +1,285 @@
 ##Stella Magica Traits
-
-
+# PORT (4.6): leader classes were merged in 3.x -
+#   admiral, general -> commander; governor, ruler -> official; scientist unchanged.
+# Bonuses now go through the scope-specific blocks vanilla uses:
+#   fleet_modifier (commanders' fleets), army_modifier (commanders' armies),
+#   planet_modifier (governed colony), councilor_modifier (empire, while on the council),
+#   modifier (the ship a scientist leads).
+# Removed deprecated fields: modification, leader_trait, ai_categories,
+# potential_crossbreeding_chance. Icons use the Galactic Paragons layered format
+# with sprites from interface/stella_traits.gfx.
 
 #General species Puella Magi Trait
 trait_magi = {
 	cost = 0
-	potential_crossbreeding_chance = 0
-	modification = no
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/magi.dds"
 	improves_leaders = yes
 	immortal_leaders = yes
 	allowed_archetypes = { BIOLOGICAL }
-	
+
+	# PORT: replaces `modification = no` - cannot be added or removed by genetic modification
+	species_possible_add = { always = no }
+	species_possible_remove = { always = no }
+
 	modifier = {
 		species_leader_exp_gain = 0.25
 		leader_skill_levels = 2
 	}
 
-
 	ai_weight = {
 		weight = 100
 	}
 }
 
 
-#Leader type specific Puella Magi Trait
+#Leader type specific Puella Magi Trait (was: scientist)
 leader_trait_scientist_magi = {
-	cost = 0
-	modification = no
-	icon = "gfx/interface/icons/traits/magi.dds"
+	inline_script = {
+		script = trait/icon
+		CLASS = scientist
+		ICON = "GFX_leader_trait_stella_magi"
+		RARITY = paragon
+		COUNCIL = yes
+		TIER = none
+	}
 	immortal_leaders = yes
-	modifier = {
+	randomized = no
+	councilor_modifier = {
 		all_technology_research_speed = 0.05
 	}
-	
-	ai_categories = {
-		physics
-		engineering
-		society
-	}
-	
-	leader_trait = { scientist }
 	leader_class = { scientist }
-	initial = no
-	randomized = no
-	
-	ai_weight = {
-		weight = 100
-	}
+	ai_weight = 100
 }
 
+# (was: admiral)
 leader_trait_admiral_magi = {
-	cost = 0
-	modification = no
-	icon = "gfx/interface/icons/traits/magi.dds"
+	inline_script = {
+		script = trait/icon
+		CLASS = commander
+		ICON = "GFX_leader_trait_stella_magi"
+		RARITY = paragon
+		COUNCIL = no
+		TIER = none
+	}
 	immortal_leaders = yes
-	modifier = {
+	randomized = no
+	fleet_modifier = {
 		ship_fire_rate_mult = 0.05
 	}
-
-	leader_trait = { admiral }
-	leader_class = { admiral }
-	initial = no
-	randomized = no
-	
-	ai_weight = {
-		weight = 100
-	}
+	leader_class = { commander }
+	ai_weight = 100
 }
 
+# (was: governor)
 leader_trait_governor_magi = {
-	cost = 0
-	modification = no
-	icon = "gfx/interface/icons/traits/magi.dds"
+	inline_script = {
+		script = trait/icon
+		CLASS = official
+		ICON = "GFX_leader_trait_stella_magi"
+		RARITY = paragon
+		COUNCIL = no
+		TIER = none
+	}
 	immortal_leaders = yes
-	modifier = {
+	randomized = no
+	planet_modifier = {
 		planet_jobs_energy_produces_mult = 0.05
 		planet_building_build_speed_mult = 0.1
 	}
-
-	leader_trait = { governor }
-	leader_class = { governor }
-	initial = no
-	randomized = no
-	
-	ai_weight = {
-		weight = 100
-	}
+	leader_class = { official }
+	ai_weight = 100
 }
 
+# (was: general)
 leader_trait_general_magi = {
-	cost = 0
-	modification = no
-	icon = "gfx/interface/icons/traits/magi.dds"
+	inline_script = {
+		script = trait/icon
+		CLASS = commander
+		ICON = "GFX_leader_trait_stella_magi"
+		RARITY = paragon
+		COUNCIL = no
+		TIER = none
+	}
 	immortal_leaders = yes
-	modifier = {
+	randomized = no
+	army_modifier = {
 		army_damage_mult = 0.1
 		army_morale = 0.1
 	}
-
-	leader_trait = { general }
-	leader_class = { general }
-	initial = no
-	randomized = no
-	
-	ai_weight = {
-		weight = 100
-	}
+	leader_class = { commander }
+	ai_weight = 100
 }
 
+# (was: ruler) 2.2 ruler traits affected the whole empire; in 4.6 the ruler is an
+# official on the council, so the bonus applies while this leader is the ruler.
 leader_trait_ruler_magi = {
-	cost = 0
-	modification = no
-	icon = "gfx/interface/icons/traits/magi.dds"
+	inline_script = {
+		script = trait/icon
+		CLASS = official
+		ICON = "GFX_leader_trait_stella_magi"
+		RARITY = paragon
+		COUNCIL = yes
+		TIER = none
+	}
 	immortal_leaders = yes
-	modifier = {
+	randomized = no
+	triggered_councilor_modifier = {
+		potential = { is_ruler = yes }
 		country_unity_produces_mult = 0.05
 		country_base_influence_produces_add = 1
 	}
-
-	leader_trait = { ruler }
-	leader_class = { ruler }
-	initial = no
-	randomized = no
-	
-	ai_weight = {
-		weight = 100
-	}
-	
-	ai_categories = {
-		survey
-	}
+	leader_class = { official }
+	ai_weight = 100
 }
 
+# (was: admiral)
 leader_trait_trio_finish = {
-	cost = 0
-	modification = no
-	icon = "gfx/interface/icons/traits/trio.dds"
-	modifier = {
+	inline_script = {
+		script = trait/icon
+		CLASS = commander
+		ICON = "GFX_leader_trait_stella_trio"
+		RARITY = paragon
+		COUNCIL = no
+		TIER = none
+	}
+	randomized = no
+	fleet_modifier = {
 		ship_weapon_range_mult = 0.20
 		ship_accuracy_mult = 0.1
 		ship_tracking_mult = 0.1
 	}
-
-	leader_trait = { admiral }
-	leader_class = { admiral }
-	initial = no
-	randomized = no
-	
-	ai_weight = {
-		weight = 100
-	}
+	leader_class = { commander }
+	ai_weight = 100
 }
 
+# (was: scientist) all three bonuses are science-ship stats
 leader_trait_the_ribbon = {
-	cost = 0
-	modification = no
-	icon = "gfx/interface/icons/traits/ribbon.dds"
+	inline_script = {
+		script = trait/icon
+		CLASS = scientist
+		ICON = "GFX_leader_trait_stella_ribbon"
+		RARITY = paragon
+		COUNCIL = no
+		TIER = none
+	}
+	randomized = no
 	modifier = {
 		science_ship_survey_speed = 0.15
 		ship_anomaly_generation_chance_mult = 0.10
 		ship_disengage_chance_mult = 0.75
 	}
-
-	leader_trait = { scientist }
 	leader_class = { scientist }
-	initial = no
-	randomized = no
-	
-	ai_weight = {
-		weight = 100
-	}
+	ai_weight = 100
 }
 
+# (was: governor)
 leader_trait_carefree_demeanor = {
-	cost = 0
-	modification = no
-	icon = "gfx/interface/icons/traits/carefree.dds"
-	modifier = {
+	inline_script = {
+		script = trait/icon
+		CLASS = official
+		ICON = "GFX_leader_trait_stella_carefree"
+		RARITY = paragon
+		COUNCIL = no
+		TIER = none
+	}
+	randomized = no
+	planet_modifier = {
 		planet_crime_add = -25
 		pop_happiness = 0.05
 	}
-
-	leader_trait = { governor }
-	leader_class = { governor }
-	initial = no
-	randomized = no
-	
-	ai_weight = {
-		weight = 100
-	}
+	leader_class = { official }
+	ai_weight = 100
 }
 
+# (was: admiral)
 leader_trait_maxwells_demon = {
-	cost = 0
-	modification = no
-	icon = "gfx/interface/icons/traits/time.dds"
-	modifier = {
+	inline_script = {
+		script = trait/icon
+		CLASS = commander
+		ICON = "GFX_leader_trait_stella_time"
+		RARITY = paragon
+		COUNCIL = no
+		TIER = none
+	}
+	randomized = no
+	fleet_modifier = {
 		ship_speed_mult = 0.25
 		ship_evasion_mult = 0.15
 		ship_disengage_chance_mult = 0.25
 	}
-
-	leader_trait = { admiral }
-	leader_class = { admiral }
-	initial = no
-	randomized = no
-	
-	ai_weight = {
-		weight = 100
-	}
+	leader_class = { commander }
+	ai_weight = 100
 }
 
+# (was: admiral)
 leader_trait_champion_justice = {
-	cost = 0
-	modification = no
-	icon = "gfx/interface/icons/traits/justice.dds"
-	modifier = {
+	inline_script = {
+		script = trait/icon
+		CLASS = commander
+		ICON = "GFX_leader_trait_stella_justice"
+		RARITY = paragon
+		COUNCIL = no
+		TIER = none
+	}
+	randomized = no
+	fleet_modifier = {
 		#If someone knows how to increase damage vs genoicdal empires (purifiers, devouring swarms, etc.), please tell me.
 		#damage_vs_country_type_??_mult = 0.25
 		ship_weapon_damage = 0.1
 		ship_home_territory_fire_rate_mult = 0.33
 	}
-
-	leader_trait = { admiral }
-	leader_class = { admiral }
-	initial = no
-	randomized = no
-	
-	ai_weight = {
-		weight = 100
-	}
+	leader_class = { commander }
+	ai_weight = 100
 }
 
-#Intentionally extremely overpowered
+#Intentionally extremely overpowered (was: admiral)
+# PORT: gray goo existed by 4.6, so its line is enabled (the author had it commented out).
 leader_trait_goddess_hope = {
-	cost = 0
-	modification = no
-	icon = "gfx/interface/icons/traits/hope.dds"
-	modifier = {
+	inline_script = {
+		script = trait/icon
+		CLASS = commander
+		ICON = "GFX_leader_trait_stella_hope"
+		RARITY = paragon
+		COUNCIL = no
+		TIER = none
+	}
+	randomized = no
+	fleet_modifier = {
 		ship_weapon_damage = -0.80
 		damage_vs_country_type_swarm_mult = 20.0
 		damage_vs_country_type_extradimensional_mult = 20.0
 		damage_vs_country_type_extradimensional_2_mult = 20.0
 		damage_vs_country_type_extradimensional_3_mult = 20.0
 		damage_vs_country_type_ai_empire_mult = 20.0
-		#damage_vs_country_type_gray_goo_mult = 20.0
+		damage_vs_country_type_gray_goo_mult = 20.0
 		damage_vs_country_type_stella_fervent_mult = 20.0
 	}
-
-	leader_trait = { admiral }
-	leader_class = { admiral }
-	initial = no
-	randomized = no
-	
-	ai_weight = {
-		weight = 100
-	}
+	leader_class = { commander }
+	ai_weight = 100
 }
 
-#A more "balanced" but still pretty broken version of Madoka's trait. Double damage to crisises
+#A more "balanced" but still pretty broken version of Madoka's trait. Double damage to crisises (was: admiral)
 leader_trait_goddess_redux = {
-	cost = 0
-	modification = no
-	icon = "gfx/interface/icons/traits/hope.dds"
-	modifier = {
+	inline_script = {
+		script = trait/icon
+		CLASS = commander
+		ICON = "GFX_leader_trait_stella_hope"
+		RARITY = paragon
+		COUNCIL = no
+		TIER = none
+	}
+	randomized = no
+	fleet_modifier = {
 		damage_vs_country_type_swarm_mult = 1.0
 		damage_vs_country_type_extradimensional_mult = 1.0
 		damage_vs_country_type_extradimensional_2_mult = 1.0
 		damage_vs_country_type_extradimensional_3_mult = 1.0
 		damage_vs_country_type_ai_empire_mult = 1.0
-		#damage_vs_country_type_gray_goo_mult = 1.0
+		damage_vs_country_type_gray_goo_mult = 1.0
 		damage_vs_country_type_stella_fervent_mult = 1.0
 	}
-
-	leader_trait = { admiral }
-	leader_class = { admiral }
-	initial = no
-	randomized = no
-	
-	ai_weight = {
-		weight = 100
-	}
+	leader_class = { commander }
+	ai_weight = 100
 }

@@ -91,3 +91,42 @@ stella_tts_contract_boom = {
 	army_damage_mult = 0.05
 	pop_happiness = -0.03
 }
+
+# Directorate priorities (Governance).
+stella_tts_gov_military = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_dimensional_defenders.dds"
+	country_naval_cap_mult = 0.10
+	starbase_shipyard_build_speed_mult = 0.20
+}
+stella_tts_gov_colonial = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_celebration_of_ideals.dds"
+	planet_colony_development_speed_mult = 0.25
+	planet_building_build_speed_mult = 0.20
+}
+stella_tts_gov_science = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_faith_in_science.dds"
+	all_technology_research_speed = 0.10
+}
+stella_tts_gov_order = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_celebration_of_ideals.dds"
+	planet_stability_add = 5
+	planet_crime_add = -10
+}
+
+# Mages First outcomes.
+stella_tts_solidarity = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_celebration_of_ideals.dds"
+	planet_stability_add = 3
+	country_unity_produces_mult = 0.05
+}
+stella_tts_crackdown = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_obelisk_curse.dds"
+	pop_happiness = -0.05
+	planet_crime_add = -15
+}
+stella_tts_mage_privileges = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_obelisk_curse.dds"
+	country_grief_cube_produces_mult = 0.10
+	army_damage_mult = 0.05
+	planet_stability_add = -3
+}

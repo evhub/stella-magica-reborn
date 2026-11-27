@@ -197,3 +197,23 @@ leader_trait_tts_black_heart_director = {
 	leader_class = { official }
 	ai_weight = 100
 }
+
+# Clarisse: a Version Two TacComp who became a person. Nobody quite knows how.
+leader_trait_tts_clarisse = {
+	inline_script = {
+		script = trait/icon
+		CLASS = commander
+		ICON = "GFX_leader_trait_machine_intelligence"
+		RARITY = paragon
+		COUNCIL = no
+		TIER = none
+	}
+	randomized = no
+	fleet_modifier = {
+		ship_fire_rate_mult = 0.05
+		ship_evasion_add = 5
+		ship_accuracy_add = 5
+	}
+	leader_class = { commander }
+	ai_weight = 100
+}

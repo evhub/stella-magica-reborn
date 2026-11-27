@@ -1,0 +1,166 @@
+# To the Stars content: Governance and society
+# Governance's Directorate decides through committees of Representatives (Military Affairs,
+# Colonial Affairs, the Science Division, Public Order); the Mages First movement once argued that
+# magical girls should come first; and Version Two TacComps were never supposed to develop
+# personalities. Inspired by Hieronym's "To the Stars". The text is original. See docs/TTS_CONTENT.md.
+
+namespace = stella_tts_gov
+
+# Yearly roll (Governance): roughly once a decade the Directorate reviews its priorities.
+country_event = {
+	id = stella_tts_gov.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		tts_has_governance = yes
+		years_passed >= 5
+		NOT = { has_country_flag = stella_tts_gov_recent }
+	}
+
+	immediate = {
+		random_list = {
+			85 = { }
+			15 = {
+				set_timed_country_flag = { flag = stella_tts_gov_recent days = 3600 }
+				country_event = { id = stella_tts_gov.2 }
+			}
+		}
+	}
+}
+
+# The Directorate sets its priorities.
+country_event = {
+	id = stella_tts_gov.2
+	title = stella_tts_gov.2.name
+	desc = stella_tts_gov.2.desc
+	picture = GFX_evt_galactic_senate
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_gov.2.a
+		add_modifier = { modifier = stella_tts_gov_military days = 3600 }
+		ai_chance = { factor = 1 modifier = { factor = 3 is_at_war = yes } }
+	}
+	option = {
+		name = stella_tts_gov.2.b
+		add_modifier = { modifier = stella_tts_gov_colonial days = 3600 }
+		ai_chance = { factor = 1 }
+	}
+	option = {
+		name = stella_tts_gov.2.c
+		add_modifier = { modifier = stella_tts_gov_science days = 3600 }
+		ai_chance = { factor = 1 }
+	}
+	option = {
+		name = stella_tts_gov.2.d
+		add_modifier = { modifier = stella_tts_gov_order days = 3600 }
+		ai_chance = { factor = 1 }
+	}
+}
+
+# Yearly roll (Magical Legacy, magical girls publicly known): the Mages First movement stirs.
+country_event = {
+	id = stella_tts_gov.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_valid_civic = civic_magical_legacy
+		has_policy_flag = tts_disclosure_public
+		years_passed >= 10
+		NOT = { has_country_flag = stella_tts_mages_first_decided }
+	}
+
+	immediate = {
+		random_list = {
+			90 = { }
+			10 = {
+				set_country_flag = stella_tts_mages_first_decided
+				country_event = { id = stella_tts_gov.4 }
+			}
+		}
+	}
+}
+
+# Mages First.
+country_event = {
+	id = stella_tts_gov.4
+	title = stella_tts_gov.4.name
+	desc = stella_tts_gov.4.desc
+	picture = GFX_evt_alien_propaganda
+	is_triggered_only = yes
+
+	# Equality: the MSY and the government stand together against it.
+	option = {
+		name = stella_tts_gov.4.a
+		add_resource = { influence = -100 }
+		add_modifier = { modifier = stella_tts_solidarity days = 3600 }
+		ai_chance = { factor = 2 }
+	}
+	# The Soul Guard breaks up the radical cells.
+	option = {
+		name = stella_tts_gov.4.b
+		trigger = { has_technology = tech_tts_msy_divisions }
+		add_resource = { unity = 300 }
+		add_modifier = { modifier = stella_tts_crackdown days = 1800 }
+		ai_chance = { factor = 1 }
+	}
+	# Concede some privileges to keep the girls happy.
+	option = {
+		name = stella_tts_gov.4.c
+		add_modifier = { modifier = stella_tts_mage_privileges days = 3600 }
+		ai_chance = { factor = 1 }
+	}
+}
+
+# Yearly roll (Ryouko with Version Two TacComps): Clarisse.
+country_event = {
+	id = stella_tts_gov.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_technology = tech_tts_taccomp_v2
+		NOT = { has_country_flag = stella_tts_clarisse_decided }
+		any_owned_leader = {
+			has_leader_flag = stella_tts_ryouko
+			NOT = { has_leader_flag = stella_tts_ryouko_away }
+		}
+	}
+
+	immediate = {
+		random_list = {
+			70 = { }
+			30 = {
+				set_country_flag = stella_tts_clarisse_decided
+				country_event = { id = stella_tts_gov.6 }
+			}
+		}
+	}
+}
+
+# Clarisse.
+country_event = {
+	id = stella_tts_gov.6
+	title = stella_tts_gov.6.name
+	desc = stella_tts_gov.6.desc
+	picture = GFX_evt_cybernetics
+	is_triggered_only = yes
+
+	# Keep quiet: Clarisse stays as she is.
+	option = {
+		name = stella_tts_gov.6.a
+		random_owned_leader = {
+			limit = { has_leader_flag = stella_tts_ryouko }
+			add_trait = { trait = leader_trait_tts_clarisse show_message = no }
+		}
+		ai_chance = { factor = 2 }
+	}
+	# Report it: the Science Division studies the anomaly.
+	option = {
+		name = stella_tts_gov.6.b
+		add_resource = { engineering_research = 1000 }
+		ai_chance = { factor = 1 }
+	}
+}

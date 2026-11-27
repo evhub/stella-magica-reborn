@@ -1,0 +1,9 @@
+# PORT (4.6): prescripted countries reference these via `flag = <key>`;
+# the flags block sets the country flags the 2.2 `flags = {}` field used to set.
+stella_empire_humans = {
+	flags = { human_stella custom_start_screen }
+}
+
+stella_empire_incubators = {
+	flags = { icubators_stella custom_start_screen }
+}

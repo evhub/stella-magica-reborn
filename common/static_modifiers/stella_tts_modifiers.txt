@@ -29,3 +29,11 @@ stella_tts_miracle = {
 	pop_happiness = 0.05
 	icon = "gfx/interface/icons/planet_modifiers/pm_consecrated_worlds.dds"
 }
+
+# A MagOps teleporter strike crippled the Cephalopod mothership from the inside.
+stella_tts_ceph_sabotaged = {
+	ship_armor_mult = -0.25
+	ship_shield_mult = -0.25
+	ship_fire_rate_mult = -0.15
+	icon = "gfx/interface/icons/planet_modifiers/pm_contingency_sabotage.dds"
+}

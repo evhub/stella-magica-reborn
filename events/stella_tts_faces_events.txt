@@ -1,0 +1,157 @@
+# To the Stars content: familiar faces
+# Shizuki Ryouko is the protagonist of Hieronym's "To the Stars": a restless girl from
+# Mitakihara who becomes a teleporter. The text here is original. See docs/TTS_CONTENT.md.
+
+namespace = stella_tts_faces
+
+# Yearly roll: once MagOps exists, a restless girl from the capital may volunteer.
+country_event = {
+	id = stella_tts_faces.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_valid_civic = civic_magical_legacy
+		has_country_flag = stella_tts_magops_founded
+		NOT = { has_country_flag = stella_tts_ryouko_joined }
+		exists = capital_scope
+		owner_main_species = {
+			OR = {
+				is_species_class = HUM
+				is_species_class = MAM
+			}
+		}
+	}
+
+	immediate = {
+		random_list = {
+			90 = { }
+			10 = { country_event = { id = stella_tts_faces.2 } }
+		}
+	}
+}
+
+# The girl who wanted the stars.
+country_event = {
+	id = stella_tts_faces.2
+	title = stella_tts_faces.2.name
+	desc = stella_tts_faces.2.desc
+	picture = GFX_evt_stella
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = stella_tts_ryouko_joined
+	}
+
+	option = {
+		name = stella_tts_faces.2.a
+		create_leader = {
+			class = commander
+			species = owner_main_species
+			name = "NAME_tts_ryouko"
+			gender = female
+			skill = 2
+			randomize_traits = no
+		}
+		last_created_leader = {
+			set_leader_flag = stella_tts_ryouko
+			add_trait = { trait = leader_trait_tts_teleporter show_message = no }
+			add_trait = { trait = leader_trait_tts_taccomp show_message = no }
+		}
+	}
+}
+
+# Yearly roll during the Cephalopod War: Ryouko proposes a strike on the mothership.
+country_event = {
+	id = stella_tts_faces.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_global_flag = stella_tts_ceph_war
+		NOT = { has_global_flag = stella_tts_ceph_won }
+		NOT = { has_country_flag = stella_tts_ryouko_raid_done }
+		exists = event_target:tts_ceph_country
+		any_owned_leader = { has_leader_flag = stella_tts_ryouko }
+	}
+
+	immediate = {
+		random_list = {
+			70 = { }
+			30 = { country_event = { id = stella_tts_faces.4 } }
+		}
+	}
+}
+
+# Behind the lines.
+country_event = {
+	id = stella_tts_faces.4
+	title = stella_tts_faces.4.name
+	desc = stella_tts_faces.4.desc
+	picture = GFX_evt_interior_battle
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = stella_tts_ryouko_raid_done
+	}
+
+	option = {
+		name = stella_tts_faces.4.a
+		event_target:tts_ceph_country = {
+			every_owned_fleet = {
+				limit = { has_fleet_flag = stella_tts_ceph_mothership }
+				add_modifier = { modifier = stella_tts_ceph_sabotaged days = 720 }
+			}
+		}
+		ai_chance = { factor = 3 }
+	}
+	option = {
+		name = stella_tts_faces.4.b
+		ai_chance = { factor = 1 }
+	}
+}
+
+# Yearly check: after enough contracts, an MSY official becomes a mentor to the new girls.
+country_event = {
+	id = stella_tts_faces.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_valid_civic = civic_tts_msy
+		NOT = { has_country_flag = stella_tts_msy_mentor }
+		check_variable = { which = stella_tts_contracts value >= 3 }
+		any_owned_leader = {
+			leader_class = official
+			NOT = { has_trait = leader_trait_tts_msy_veteran }
+		}
+	}
+
+	immediate = {
+		country_event = { id = stella_tts_faces.6 }
+	}
+}
+
+# The mentor.
+country_event = {
+	id = stella_tts_faces.6
+	title = stella_tts_faces.6.name
+	desc = stella_tts_faces.6.desc
+	picture = GFX_evt_board_meeting
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = stella_tts_msy_mentor
+	}
+
+	option = {
+		name = stella_tts_faces.6.a
+		random_owned_leader = {
+			limit = {
+				leader_class = official
+				NOT = { has_trait = leader_trait_tts_msy_veteran }
+			}
+			add_trait = { trait = leader_trait_tts_msy_veteran show_message = no }
+		}
+	}
+}

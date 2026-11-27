@@ -36,7 +36,7 @@ civic_tts_governance = {
 	}
 }
 
-# Mahou Shoujo Yuuzuu (MSY): the magical girls' mutual aid society, which shares grief cubes so
+# Mahou Shoujo Youkai (MSY): the magical girls' mutual aid society, which shares grief cubes so
 # that no girl is left to despair alone and gives magical girls a voice in public affairs.
 civic_tts_msy = {
 	icon = "gfx/interface/icons/governments/civics/civic_shared_burden.dds"

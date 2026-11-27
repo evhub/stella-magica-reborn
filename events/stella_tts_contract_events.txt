@@ -85,7 +85,7 @@ country_event = {
 	}
 }
 
-# Yearly check: with the grief cube stockpile nearly empty, a soul gem may go dark.
+# Yearly check: with the grief cube stockpile nearly empty, the demon hunts falter.
 country_event = {
 	id = stella_tts_wish.20
 	hide_window = yes
@@ -112,7 +112,7 @@ country_event = {
 	}
 }
 
-# A witch is born.
+# Demons in the streets: too few hunters while cubes are short.
 country_event = {
 	id = stella_tts_wish.21
 	title = stella_tts_wish.21.name

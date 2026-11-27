@@ -15,7 +15,7 @@ stella_tts_wish_guardian = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_dimensional_defenders.dds"
 }
 
-# A soul gem went dark for want of grief cubes, and something terrible was born.
+# With grief cubes short, too few girls hunt and demons multiply.
 stella_tts_witch_sighting = {
 	planet_stability_add = -10
 	pop_happiness = -0.10

@@ -3,9 +3,9 @@
 
  # --- Civics ---
  civic_tts_governance:0 "Governance"
- civic_tts_governance_desc:0 "Elected representatives and advisory intelligences govern side by side. Every major decision is deliberated in the open, its reasoning published for any citizen to read, and its outcomes measured against what was promised."
+ civic_tts_governance_desc:0 "An AI-mediated, human-interpretable democracy. Every interest in society is given a Representative, some human and some artificial, and Representatives merge upward until a single Directorate decides. Every deliberation is recorded, and any citizen may review it."
  civic_tooltip_tts_governance_effects:0 "§YAI-advised deliberation§! makes the bureaucracy unusually efficient and the population unusually confident in it."
- civic_tts_msy:0 "Mahou Shoujo Yuuzuu"
+ civic_tts_msy:0 "Mahou Shoujo Youkai"
  civic_tts_msy_desc:0 "The MSY began as a handful of magical girls agreeing to share their grief cubes. It grew into a society of its own, with treasuries, schools and representatives, all built on one promise: no girl faces the dark alone."
  civic_tooltip_tts_msy_effects:0 "Requires §YMagical Legacy§!. Unlocks the §YMSY Regional Office§!."
 
@@ -46,7 +46,7 @@
 
  # --- Events: institutions ---
  stella_tts_inst.1.name:0 "The MSY Charter"
- stella_tts_inst.1.desc:0 "The founders of the Mahou Shoujo Yuuzuu sign their charter in a borrowed meeting room, with a box of grief cubes on the table between them. The rules are simple. Cubes are shared. Reports are honest. Nobody is abandoned to despair.\n\nIt is a small beginning, but every one of them remembers what it was like to fight alone."
+ stella_tts_inst.1.desc:0 "The founders of the Mahou Shoujo Youkai sign their charter in a borrowed meeting room, with a box of grief cubes on the table between them. The rules are simple. Cubes are shared. Reports are honest. Nobody is abandoned to despair.\n\nIt is a small beginning, but every one of them remembers what it was like to fight alone."
  stella_tts_inst.1.a:0 "No girl faces the dark alone."
  stella_tts_inst.2.name:0 "Governance Convenes"
  stella_tts_inst.2.desc:0 "The first full session of Governance opens without ceremony. Human representatives take their seats; advisory intelligences take theirs, in a manner of speaking. The agenda, the deliberations and the dissenting opinions are all published as they happen.\n\nA commentator remarks that it is the most boring revolution in history. Governance takes it as a compliment."
@@ -92,16 +92,16 @@
  stella_tts_wish_prosperity_desc:0 "A girl wished for this world to flourish. Somehow, it has."
  stella_tts_wish_guardian:0 "A Guardian's Wish"
  stella_tts_wish_guardian_desc:0 "A girl wished for everyone here to be protected, and she takes that wish very seriously."
- stella_tts_wish.21.name:0 "A Soul Gem Goes Dark"
- stella_tts_wish.21.desc:0 "With our grief cube reserves exhausted, it was only a matter of time. A magical girl on one of our worlds could not purify her soul gem in time. The Law of Cycles took her gently, but the despair she left behind did not go quietly.\n\nWraiths are appearing in the streets, and the local girls are stretched too thin to contain them."
+ stella_tts_wish.21.name:0 "Demons in the Streets"
+ stella_tts_wish.21.desc:0 "With our grief cube reserves exhausted, the hunts have faltered. Girls who cannot purify their soul gems have stopped hunting, and some have already been taken peacefully by the Law of Cycles. Their absence leaves too few hunters to keep up.\n\nDemons are gathering on one of our worlds faster than anyone can clear them, and their miasma is settling over the cities."
  stella_tts_wish.21.a:0 "Fund an emergency hunt."
  stella_tts_wish.21.b:0 "We cannot spare anything. The girls will have to manage."
- stella_tts_witch_sighting:0 "Wraith Outbreak"
- stella_tts_witch_sighting_desc:0 "Despair left behind by a fallen magical girl has spawned wraiths across this world."
+ stella_tts_witch_sighting:0 "Demon Outbreak"
+ stella_tts_witch_sighting_desc:0 "Too few magical girls are hunting here, and demons are multiplying. Their miasma weighs on everyone."
  # --- The Cult of Hope ---
  civic_tts_cult_of_hope:0 "Cult of Hope"
  civic_tts_cult_of_hope_desc:0 "Our faith reveres the Goddess who saved magical girls from despair and who comes for each of them, gently, at the end. Its churches tend to the living as carefully as they remember the departed."
- civic_tooltip_tts_cult_of_hope_effects:0 "Unlocks the §YChurch of Hope§!. Faith makes it less likely that a magical girl falls to despair when §Ygrief cubes§! run short."
+ civic_tooltip_tts_cult_of_hope_effects:0 "Unlocks the §YChurch of Hope§!. Faith keeps the hunts going: a §Ydemon outbreak§! is half as likely when §Ygrief cubes§! run short."
  tech_tts_theology_of_hope:0 "Theology of Hope"
  tech_tts_theology_of_hope_desc:0 "The Church of Hope's scattered testimonies, hymns and visions, gathered into something a congregation can hold on to."
  building_tts_church_of_hope:0 "Church of Hope"
@@ -124,10 +124,10 @@
  # --- Familiar faces ---
  NAME_tts_ryouko:0 "Shizuki Ryouko"
  stella_tts_faces.2.name:0 "The Girl Who Wanted the Stars"
- stella_tts_faces.2.desc:0 "She grew up in Mitakihara, in a peaceful city in a peaceful age, and she spent her whole childhood staring up at the sky as if it owed her something.\n\nNow she has contracted, and her power is teleportation. She walked into the MagOps recruitment office, appeared on the other side of the desk mid-sentence, and asked how soon she could ship out. Her new TacComp has already filed a mild complaint about her enthusiasm."
+ stella_tts_faces.2.desc:0 "She grew up in Mitakihara, in a peaceful city in a peaceful age, and she spent her whole childhood staring up at the sky as if it owed her something. When the offer came, she knew exactly what to wish for: to leave Earth and go where no one has gone before.\n\nHer power is teleportation. She walked into the MagOps recruitment office, appeared on the other side of the desk mid-sentence, and asked how soon she could ship out. Clarisse, her new TacComp, has already filed a mild complaint about her enthusiasm."
  stella_tts_faces.2.a:0 "Give her a ship. She seems the type to need one."
  stella_tts_faces.4.name:0 "Behind the Lines"
- stella_tts_faces.4.desc:0 "Ryouko has a proposal, delivered with a little too much excitement. She can teleport a MagOps squad directly into the Cephalopod mothership, plant charges in whatever passes for its reactor, and teleport out before anything notices.\n\nHer TacComp estimates the odds of everyone coming back at better than even. Ryouko insists that this is excellent."
+ stella_tts_faces.4.desc:0 "Ryouko has a proposal, delivered with a little too much excitement. She can teleport a MagOps squad directly into the Cephalopod mothership, plant charges in whatever passes for its reactor, and teleport out before anything notices.\n\nClarisse estimates the odds of everyone coming back at better than even. Ryouko insists that this is excellent."
  stella_tts_faces.4.a:0 "Authorize the strike."
  stella_tts_faces.4.b:0 "Too dangerous. We are not losing her for this."
  stella_tts_ceph_sabotaged:0 "Sabotaged from Within"

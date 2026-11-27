@@ -231,15 +231,16 @@ country_event = {
 		set_global_flag = fervent_already_spawned
 		random_system = {
 			limit = {
-				NOT = {
-					any_country = {
+				# PORT: original was NOT = { any_country = { <FE/AFE/player> any_system_within_border = { is_same_value = prev } } },
+				# where prev pointed at the country, not the system, so it never excluded anything (and is very slow).
+				# Rewritten with the vanilla 4.6 owner check to do what the comment above says.
+				NAND = {
+					exists = owner
+					owner = {
 						OR = {
 							is_country_type = fallen_empire
 							is_country_type = awakened_fallen_empire
 							is_ai = no
-						}
-						any_system_within_border = {
-							is_same_value = prev
 						}
 					}
 				}
@@ -261,13 +262,6 @@ country_event = {
 					type = "stella_fervent"
 					species = event_target:fervent_species
 					name_list = "Extradimensional"
-					effect = { 
-						set_country_flag = unbidden
-						add_modifier = {modifier = stella_fervent_modifier days = -1}
-						country_event = {id = stella_crisis.900 days = 3600}
-						country_event = {id = stella_crisis.902 days = 7200}
-						
-					}
 					flag = {
 						icon= {
 							category = "special"
@@ -284,8 +278,14 @@ country_event = {
 							"null"
 						}
 					}
-					
+
+					# PORT: the original had two separate effect = { } blocks here; 4.6 rejects the duplicate ("Duplicate effect"), so they are merged in their original order.
 					effect = {
+						set_country_flag = unbidden
+						add_modifier = {modifier = stella_fervent_modifier days = -1}
+						country_event = {id = stella_crisis.900 days = 3600}
+						country_event = {id = stella_crisis.902 days = 7200}
+
 						create_ship_design = { design = "NAME_Void_Shaper" }
 						add_ship_design = last_created_design
 						create_ship_design = { design = "Fervent_Station" }
@@ -479,7 +479,7 @@ country_event = {
 
 	picture_event_data = {
 		portrait = exd1
-		room = "extradimensional_room"
+		room = "extradimensional_blue_room" # PORT: extradimensional_room was renamed in vanilla (crisis.1010 now uses extradimensional_blue_room)
 	}
 	
 	is_triggered_only = yes
@@ -669,7 +669,10 @@ country_event = {
 }
 
 #Planet Bombarded
-planet_event = {
+# PORT: was planet_event. In 4.x on_planet_bombarded fires on the colony carrier (all vanilla listeners, e.g. crisis.1011, are carrier_event).
+# Planet handling follows vanilla crisis.1011 (Unbidden devastation), which this event was copied from:
+# is_artificial/is_ringworld instead of the single pc_ringworld_habitable class, and the vanilla habitat-cracker effect instead of remove_planet.
+carrier_event = {
 	id = stella_crisis.903
 	title = "stella_crisis.903.name"
 	picture = GFX_evt_city_ruins
@@ -683,34 +686,28 @@ planet_event = {
 				is_country_type = stella_fervent
 		}
 	}
-	
+
 	desc = {
 		trigger = {
-			NOR = {
-				is_planet_class = pc_ringworld_habitable
-				is_planet_class = pc_habitat
-			}
+			is_artificial = no
 		}
 		text = stella_crisis.903.desc1
 	}
-	
+
 	desc = {
-		trigger = { is_planet_class = pc_ringworld_habitable }
+		trigger = { is_ringworld = yes }
 		text = stella_crisis.903.desc2
 	}
 	desc = {
 		trigger = { is_planet_class = pc_habitat }
 		text = stella_crisis.903.desc3
 	}
-	
+
 	immediate = {
 		destroy_colony = yes
 		if = {
 			limit = {
-				NOR = {
-					is_planet_class = pc_ringworld_habitable
-					is_planet_class = pc_habitat
-				}
+				is_artificial = no
 			}
 			random_list = {
 				50 = { change_pc = pc_barren }
@@ -723,13 +720,14 @@ planet_event = {
 			}
 		}
 		else_if = {
-			limit = { is_planet_class = pc_ringworld_habitable }
+			limit = { is_ringworld = yes }
 			change_pc = pc_ringworld_habitable_damaged
 			reset_planet = yes
 		}
 		else_if = {
 			limit = { is_planet_class = pc_habitat }
-			remove_planet = yes
+			clear_consecration_effect = yes
+			spawn_habitat_cracker_effect = yes
 		}
 	}
 
@@ -830,14 +828,15 @@ country_event = {
 	
 	is_triggered_only = yes
 	
+	# PORT: count_owned_ships no longer exists; 4.6 equivalent is count_owned_ship (the unknown trigger also broke parsing of the rest of the file)
 	trigger = {
 			is_country_type = stella_fervent
-			count_owned_ships = {
+			count_owned_ship = {
 				limit = { is_ship_size = dimensional_portal_ed }
 				count > 0
 			}
 	}
-	
+
 	immediate = {
 		#Spawn some constructors if there are 2 or less
 		country_event = {id = stella_crisis.1005}
@@ -863,19 +862,17 @@ country_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	
+	# PORT: the "fewer than 3 constructors" check was on this (military) event in the original, which contradicts the
+	# comments in stella_crisis.1002 ("Spawn some constructors if there are 2 or less") and silently ended the whole
+	# spawn cycle once 3 constructors existed. It has been moved to stella_crisis.1005 (constructors).
 	trigger = {
 			is_country_type = stella_fervent
-			count_owned_ships = {
+			count_owned_ship = {
 				limit = { is_ship_size = dimensional_portal_ed }
 				count > 0
 			}
-			count_owned_ships = {
-				limit = { is_ship_size = construction_ship_ed }
-				count < 3
-			}
-		
 	}
-	
+
 	immediate = {
 		country_event = { id = stella_crisis.1002 }
 		if = {
@@ -936,10 +933,14 @@ country_event = {
 	
 	trigger = {
 			is_country_type = stella_fervent
-			count_owned_ships = {
+			count_owned_ship = {
 				limit = { is_ship_size = dimensional_portal_ed }
 				count > 0
-			}	
+			}
+			count_owned_ship = {
+				limit = { is_ship_size = construction_ship_ed }
+				count < 3
+			}
 	}
 	
 	immediate = {

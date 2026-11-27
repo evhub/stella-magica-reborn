@@ -5,6 +5,12 @@ namespace = stella_leader
 
 #Gives leaders the right traits when they change jobs (Become ruler, etc.)
 #Check on action for triggers
+# PORT: originally fired from on_ruler_back_to_pre_ruler_class, which no longer exists in 4.6 (rulers keep their class).
+# Scopes expected: This = country, From = leader. on_ruler_removed (From = previous ruler) and on_leader_spawned
+# (From = new leader) both provide this.
+# 4.6 classes: admiral + general -> commander, governor (+ ruler) -> official, scientist unchanged.
+# Commanders get leader_trait_admiral_magi (the first branch of the original); leader_trait_general_magi is still
+# counted as "already has a magi trait".
 country_event = {
 	id = stella_leader.1
 	is_triggered_only = yes
@@ -25,24 +31,16 @@ country_event = {
 	immediate = {
 		from = {
 			if = {
-				limit = { leader_class = admiral }
-				add_trait = leader_trait_admiral_magi
-				break = yes
+				limit = { leader_class = commander }
+				add_trait = { trait = leader_trait_admiral_magi show_message = no }
 			}
-			if = {
-				limit = { leader_class = general }
-				add_trait = leader_trait_general_magi
-				break = yes
+			else_if = {
+				limit = { leader_class = official }
+				add_trait = { trait = leader_trait_governor_magi show_message = no }
 			}
-			if = {
-				limit = { leader_class = governor }
-				add_trait = leader_trait_governor_magi
-				break = yes
-			}
-			if = {
+			else_if = {
 				limit = { leader_class = scientist }
-				add_trait = leader_trait_scientist_magi
-				break = yes
+				add_trait = { trait = leader_trait_scientist_magi show_message = no }
 			}
 		}
 	}
@@ -60,40 +58,34 @@ country_event = {
 		}
 	}
 	
+	# PORT: the original ran these effects inside from = { } (leader scope), but remove_country_flag and country_event
+	# are country-only in 4.6, so the flags were never cleared. The leader is now checked from country scope (This = country).
 	immediate = {
-	 from = {
 		if = {
-				limit = { has_leader_flag = stella_mami }
-				remove_country_flag = stella_mami_alive
-				break = yes
-			}
-		if = {
-				limit = { has_leader_flag = stella_kyoko }
-				remove_country_flag = stella_kyoko_alive
-				break = yes
-			}
-		if = {
-				limit = { has_leader_flag = stella_yuma }
-				remove_country_flag = stella_yuma_alive
-				break = yes
-			}
-		if = {
-				limit = { has_leader_flag = stella_homura }
-				remove_country_flag = stella_homura_alive
-				break = yes
-			}
-		if = {
-				limit = { has_leader_flag = stella_sayaka }
-				remove_country_flag = stella_sayaka_alive
-				break = yes
-			}
-		if = {
-				limit = { has_leader_flag = stella_madoka }
-				remove_country_flag = stella_madoka_alive
-				country_event = {id = stella_leader.10 days = 10}
-				break = yes
-			}
-	 }
+			limit = { from = { has_leader_flag = stella_mami } }
+			remove_country_flag = stella_mami_alive
+		}
+		else_if = {
+			limit = { from = { has_leader_flag = stella_kyoko } }
+			remove_country_flag = stella_kyoko_alive
+		}
+		else_if = {
+			limit = { from = { has_leader_flag = stella_yuma } }
+			remove_country_flag = stella_yuma_alive
+		}
+		else_if = {
+			limit = { from = { has_leader_flag = stella_homura } }
+			remove_country_flag = stella_homura_alive
+		}
+		else_if = {
+			limit = { from = { has_leader_flag = stella_sayaka } }
+			remove_country_flag = stella_sayaka_alive
+		}
+		else_if = {
+			limit = { from = { has_leader_flag = stella_madoka } }
+			remove_country_flag = stella_madoka_alive
+			country_event = {id = stella_leader.10 days = 10}
+		}
 	}
 }
 
@@ -105,6 +97,12 @@ country_event = {
 #stella_leader.7 = Sayaka
 #stella_leader.8 = Madoka
 #stella_leader.9 = Ultra Instinct Madoka
+#
+# PORT (4.6): admiral -> commander, governor -> official. The create_leader trait list keeps the original "trait = x"
+# form (level 0 = always added, no trait selection consumed).
+# add_ruler_trait no longer exists (4.x has no separate ruler trait slot), so leader_trait_ruler_magi is now added
+# as a normal trait. For this to work on commanders, scientists and officials, the trait needs leader_class = all, and
+# to keep the 2.2 behaviour its bonuses should only apply while the leader is ruler (e.g. gated on is_ruler = yes).
 
 country_event = {
 
@@ -131,10 +129,11 @@ country_event = {
 		
 		create_leader = {
 			gender = female
-			class = admiral
+			class = commander # PORT: admiral -> commander
 			species = last_created
 			name = "Mami Tomoe"
 			skill = 3
+			randomize_traits = no # PORT: 4.6 rolls extra random traits by default; keep only the scripted ones as in the original
 			traits = {
 				trait = leader_trait_admiral_magi
 				trait = leader_trait_trio_finish
@@ -145,7 +144,7 @@ country_event = {
 		
 		last_created_leader  = {
 			set_leader_flag  = stella_mami
-			add_ruler_trait  = leader_trait_ruler_magi
+			add_trait = { trait = leader_trait_ruler_magi show_message = no } # PORT: add_ruler_trait removed in 4.6, see note above stella_leader.3
 
 		}
 	}
@@ -180,6 +179,7 @@ country_event = {
 			species = last_created
 			name = "Kyoko Sakura"
 			skill = 2
+			randomize_traits = no # PORT: 4.6 rolls extra random traits by default; keep only the scripted ones as in the original
 			traits = {
 				trait = leader_trait_scientist_magi
 				trait = leader_trait_the_ribbon
@@ -188,7 +188,7 @@ country_event = {
 		
 		last_created_leader  = {
 			set_leader_flag  = stella_kyoko
-			add_ruler_trait  = leader_trait_ruler_magi
+			add_trait = { trait = leader_trait_ruler_magi show_message = no } # PORT: add_ruler_trait removed in 4.6, see note above stella_leader.3
 
 		}
 	}
@@ -220,10 +220,11 @@ country_event = {
 		
 		create_leader = {
 			gender = female
-			class = governor
+			class = official # PORT: governor -> official
 			species = last_created
 			name = "Yuma Chitose"
 			skill = 2
+			randomize_traits = no # PORT: 4.6 rolls extra random traits by default; keep only the scripted ones as in the original
 			traits = {
 				trait = leader_trait_governor_magi
 				trait = leader_trait_carefree_demeanor
@@ -232,7 +233,7 @@ country_event = {
 		
 		last_created_leader  = {
 			set_leader_flag  = stella_yuma
-			add_ruler_trait  = leader_trait_ruler_magi
+			add_trait = { trait = leader_trait_ruler_magi show_message = no } # PORT: add_ruler_trait removed in 4.6, see note above stella_leader.3
 			
 		}
 	}
@@ -263,10 +264,11 @@ country_event = {
 		
 		create_leader = {
 			gender = female
-			class = admiral
+			class = commander # PORT: admiral -> commander
 			species = last_created
 			name = "Homura Akemi"
 			skill = 4
+			randomize_traits = no # PORT: 4.6 rolls extra random traits by default; keep only the scripted ones as in the original
 			traits = {
 				trait = leader_trait_admiral_magi
 				trait = leader_trait_maxwells_demon
@@ -275,7 +277,7 @@ country_event = {
 		
 		last_created_leader  = {
 			set_leader_flag  = stella_homura
-			add_ruler_trait  = leader_trait_ruler_magi
+			add_trait = { trait = leader_trait_ruler_magi show_message = no } # PORT: add_ruler_trait removed in 4.6, see note above stella_leader.3
 		}
 	}
 }
@@ -305,10 +307,11 @@ country_event = {
 		
 			create_leader = {
 				gender = female
-				class = admiral
+				class = commander # PORT: admiral -> commander
 				species = last_created
 				name = "Sayaka Miki"
 				skill = 4
+				randomize_traits = no # PORT: 4.6 rolls extra random traits by default; keep only the scripted ones as in the original
 				traits = {
 					trait = leader_trait_admiral_magi
 					trait = leader_trait_champion_justice
@@ -317,7 +320,7 @@ country_event = {
 		
 			last_created_leader  = {
 				set_leader_flag  = stella_sayaka
-				add_ruler_trait  = leader_trait_ruler_magi
+				add_trait = { trait = leader_trait_ruler_magi show_message = no } # PORT: add_ruler_trait removed in 4.6, see note above stella_leader.3
 
 			}
 	}
@@ -348,10 +351,11 @@ country_event = {
 		
 			create_leader = {
 				gender = female
-				class = admiral
+				class = commander # PORT: admiral -> commander
 				species = last_created
 				name = "Madoka Kaname"
 				skill = 5
+				randomize_traits = no # PORT: 4.6 rolls extra random traits by default; keep only the scripted ones as in the original
 				traits = {
 					trait = leader_trait_admiral_magi
 					trait = leader_trait_goddess_redux
@@ -360,7 +364,7 @@ country_event = {
 		
 			last_created_leader  = {
 				set_leader_flag  = stella_madoka
-				add_ruler_trait  = leader_trait_ruler_magi
+				add_trait = { trait = leader_trait_ruler_magi show_message = no } # PORT: add_ruler_trait removed in 4.6, see note above stella_leader.3
 
 			}
 	}
@@ -391,10 +395,11 @@ country_event = {
 		
 			create_leader = {
 				gender = female
-				class = admiral
+				class = commander # PORT: admiral -> commander
 				species = last_created
 				name = "Madoka Kaname"
 				skill = 10
+				randomize_traits = no # PORT: 4.6 rolls extra random traits by default; keep only the scripted ones as in the original
 				traits = {
 					trait = leader_trait_admiral_magi
 					trait = leader_trait_goddess_hope
@@ -403,7 +408,7 @@ country_event = {
 		
 			last_created_leader  = {
 				set_leader_flag  = stella_madoka
-				add_ruler_trait  = leader_trait_ruler_magi
+				add_trait = { trait = leader_trait_ruler_magi show_message = no } # PORT: add_ruler_trait removed in 4.6, see note above stella_leader.3
 
 			}
 	}
@@ -426,14 +431,15 @@ country_event = {
 	}
 	
 	immediate = {
+		# PORT: else was nested inside the if block (invalid); moved out as a sibling
 		if = {
 			limit = {has_country_flag = ultra_madoka_spawned}
 			country_event = {id = stella_leader.9}
-			else = {
-				country_event = {id = stella_leader.8}
-			}
 		}
-		
+		else = {
+			country_event = {id = stella_leader.8}
+		}
+
 	}
 	
 	option = {
@@ -580,7 +586,7 @@ country_event = {
 	
 	option = {
 		name = stella_leader.1003.op3
-		response_text = stella_leader.1003.op2.response
+		response_text = stella_leader.1003.op3.response # PORT: original pointed at nonexistent .op2.response; loc defines .op3.response
 		default_hide_option = yes
 	}
 }
@@ -734,7 +740,7 @@ country_event = {
 	}
 	option = {
 		name = stella_leader.1009.op1
-		response_text = stella_leader.1009.op1.reponse
+		response_text = stella_leader.1009.op1.response
 	}
 }
 
@@ -812,7 +818,7 @@ country_event = {
 	}
 	option = {
 		name = stella_leader.1011.op1
-		response_text = stella_leader.1011.op1.reponse
+		response_text = stella_leader.1011.op1.response
 	}
 }
 

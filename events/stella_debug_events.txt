@@ -27,10 +27,11 @@ country_event = {
 		
 		create_leader = {
 			gender = female
-			class = admiral
+			class = commander # PORT: admiral -> commander
 			species = last_created
 			name = "Madoka Kaname"
 			skill = 10
+			randomize_traits = no # PORT: 4.6 rolls extra random traits by default; keep only the scripted ones as in the original
 			traits = {
 				trait = leader_trait_goddess_hope
 			}
@@ -49,10 +50,11 @@ country_event = {
 		
 		create_leader = {
 			gender = female
-			class = admiral
+			class = commander # PORT: admiral -> commander
 			species = last_created
 			name = "Sayaka Miki"
 			skill = 10
+			randomize_traits = no # PORT: 4.6 rolls extra random traits by default; keep only the scripted ones as in the original
 			traits = {
 				trait = leader_trait_champion_justice
 			}
@@ -61,7 +63,7 @@ country_event = {
 	}
 	
 	
-	option{
+	option = {
 		name = OK
 	}
 

@@ -12,7 +12,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		if ={ 
+		if = {
 			limit = { 
 				has_valid_civic = civic_magical_legacy
 			} 
@@ -44,13 +44,13 @@ country_event = {
 		set_country_flag = starting_event
 	}
 	
-	option{
+	option = {
 		name = stella_story.1.op1
 	}
-	option{
+	option = {
 		name = stella_story.1.op2
 	}
-	after{
+	after = {
 		capital_scope = {
 			enable_special_project = {
 				name = "CONTACT_MAGI"
@@ -612,7 +612,7 @@ country_event = {
 	picture_event_data = {
 		portrait = homura
 		room = ethic_spaceship_room
-		planet_background = GFX_evt_arctic
+		planet_background = pc_arctic # PORT: was GFX_evt_arctic (an event picture, not a planet class); pc_arctic gives the intended arctic backdrop
 	}
 	option = {
 		name = stella_story.17.op5
@@ -659,7 +659,7 @@ country_event = {
 	picture_event_data = {
 		portrait = homura
 		room = ethic_spaceship_room
-		planet_background = GFX_evt_arctic
+		planet_background = pc_arctic # PORT: was GFX_evt_arctic (an event picture, not a planet class); pc_arctic gives the intended arctic backdrop
 	}
 	
 	option = {
@@ -694,7 +694,7 @@ country_event = {
 	picture_event_data = {
 		portrait = homura
 		room = ethic_spaceship_room
-		planet_background = GFX_evt_arctic
+		planet_background = pc_arctic # PORT: was GFX_evt_arctic (an event picture, not a planet class); pc_arctic gives the intended arctic backdrop
 	}
 	
 	option = {

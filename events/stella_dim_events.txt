@@ -15,7 +15,7 @@ country_event = {
 	diplomatic = yes
 	
 	immediate = {
-		begin_event_chain{
+		begin_event_chain = {
 			event_chain = "between_dims_chain"
 			target = ROOT
 		}
@@ -224,7 +224,8 @@ country_event = {
 	after = {
 		FROMFROMFROM = {
 			solar_system = {
-				random_planet = {
+				# PORT: random_planet no longer exists (system-scope iterator is random_system_planet). The unknown effect also broke parsing of the following events.
+				random_system_planet = {
 					limit = { has_planet_flag = stella_tomb_planet}
 					
 					enable_special_project = {
@@ -305,7 +306,7 @@ country_event = {
 	picture_event_data = {
 		portrait = sayaka
 		room = personality_erudite_explorers_room
-		planet_background = pc_junkheap_sky
+		#planet_background = pc_junkheap_sky # PORT: no such planet class in 4.6 vanilla or this mod; removed so the room shows its default background
 	}
 	
 	option = {
@@ -326,7 +327,7 @@ country_event = {
 	
 	picture_event_data = {
 		portrait = sayaka
-		planet_background = pc_junkheap_sky
+		#planet_background = pc_junkheap_sky # PORT: no such planet class in 4.6 vanilla or this mod; removed so the room shows its default background
 	}
 	
 	option = {
@@ -348,7 +349,7 @@ country_event = {
 	picture_event_data = {
 		portrait = sayaka
 		room = personality_erudite_explorers_room
-		planet_background = pc_junkheap_sky
+		#planet_background = pc_junkheap_sky # PORT: no such planet class in 4.6 vanilla or this mod; removed so the room shows its default background
 	}
 	
 	option = {
@@ -370,7 +371,7 @@ country_event = {
 	picture_event_data = {
 		portrait = sayaka
 		room = personality_erudite_explorers_room
-		planet_background = pc_junkheap_sky
+		#planet_background = pc_junkheap_sky # PORT: no such planet class in 4.6 vanilla or this mod; removed so the room shows its default background
 	}
 	
 	option = {
@@ -551,7 +552,8 @@ country_event = {
 	after = {
 		FROMFROM = {
 			solar_system = {
-				random_planet = {
+				# PORT: random_planet -> random_system_planet (see stella_dim.7)
+				random_system_planet = {
 					limit = { has_planet_flag = stella_ringworld_star }
 					
 					enable_special_project = {

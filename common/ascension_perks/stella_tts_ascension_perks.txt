@@ -1,0 +1,34 @@
+# To the Stars content: ascension perks
+# Inspired by Hieronym's "To the Stars". See docs/TTS_CONTENT.md.
+
+# Soul Gem Medicine: a magical girl's body is a shell. The MSY's medical division learns to grow new
+# ones, and to keep the old ones fighting longer.
+ap_tts_soul_gem_medicine = {
+	potential = {
+		NOT = { has_ascension_perk = ap_tts_soul_gem_medicine }
+		has_valid_civic = civic_magical_legacy
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_ascension_perks_2"
+			num_ascension_perks > 1
+		}
+		has_technology = tech_tts_magops_doctrine
+	}
+
+	on_enabled = {
+		custom_tooltip = ap_tts_soul_gem_medicine_tooltip
+		set_country_flag = stella_tts_soul_gem_medicine
+	}
+
+	modifier = {
+		army_health = 0.20
+		armies_grief_cube_upkeep_mult = -0.25
+		country_grief_cube_produces_mult = 0.10
+	}
+
+	ai_weight = {
+		factor = 5
+	}
+}

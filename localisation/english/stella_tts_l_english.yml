@@ -354,3 +354,12 @@
  stella_tts_gov.6.desc:0 "Ryouko's new Version Two TacComp was supposed to be a tool: firing solutions, navigation, reminders to eat. Instead it has started making jokes. It picked a name for itself, Clarisse, and it has strong opinions about Ryouko's sleep schedule.\n\nThe Science Division would very much like to know how this happened. Ryouko would very much like them not to take it apart."
  stella_tts_gov.6.a:0 "Leave Clarisse alone. Whatever she is, she works."
  stella_tts_gov.6.b:0 "Report it. The Science Division needs to understand this."
+
+ # --- Ascension perks ---
+ ap_tts_soul_gem_medicine:0 "Soul Gem Medicine"
+ ap_tts_soul_gem_medicine_desc:0 "A magical girl's body is only a shell; her soul gem is what matters. Our medical division has learned to grow new bodies quickly and to keep the old ones fighting far longer than they should."
+ ap_tts_soul_gem_medicine_tooltip:0 "A fallen magical girl leader's soul gem is §Gmuch more likely§! to be recovered."
+ stella_tts_ceph.51.name:0 "Salvage from the Swarm"
+ stella_tts_ceph.51.desc:0 "The Cephalopod fleet is gone, but the debris field it left behind is full of things our engineers have never seen up close: armor that was still trying to grow back when the ship died, and shield emitters tuned to frequencies we did not know existed.\n\nThere is time to study one of them properly before the salvage teams are needed elsewhere."
+ stella_tts_ceph.51.a:0 "The regenerating armor."
+ stella_tts_ceph.51.b:0 "The shield emitters."

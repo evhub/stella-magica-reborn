@@ -357,3 +357,52 @@ country_event = {
 		ai_chance = { factor = 1 }
 	}
 }
+
+# A Cephalopod fleet destroyed (on_fleet_destroyed_perp: This = victor, From = Thinker empire).
+country_event = {
+	id = stella_tts_ceph.50
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = { has_country_flag = tts_thinker_preserving }
+		NOT = { has_country_flag = tts_thinker_preserving }
+		NOT = { has_country_flag = stella_tts_salvage_recent }
+	}
+
+	immediate = {
+		random_list = {
+			75 = { }
+			25 = {
+				set_timed_country_flag = { flag = stella_tts_salvage_recent days = 1800 }
+				country_event = { id = stella_tts_ceph.51 }
+			}
+		}
+	}
+}
+
+# Salvage from the swarm.
+country_event = {
+	id = stella_tts_ceph.51
+	title = stella_tts_ceph.51.name
+	desc = stella_tts_ceph.51.desc
+	picture = GFX_evt_debris
+	is_triggered_only = yes
+
+	option = {
+		name = stella_tts_ceph.51.a
+		add_resource = { engineering_research = 500 }
+		if = {
+			limit = { NOT = { has_technology = tech_regenerative_hull_tissue } }
+			add_research_option = tech_regenerative_hull_tissue
+		}
+	}
+	option = {
+		name = stella_tts_ceph.51.b
+		add_resource = { physics_research = 500 }
+		if = {
+			limit = { NOT = { has_technology = tech_shields_3 } }
+			add_research_option = tech_shields_3
+		}
+	}
+}

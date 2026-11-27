@@ -28,13 +28,14 @@ the content makes its own choices. Every TtS object uses the `tts_` prefix (even
 | 13. The Grief Cube Crisis | a 4.x situation started automatically by a grief cube deficit: four stages weaken armies, morale and order and let demons through; approaches Ration the Cubes, Emergency Hunts or Deal with the Incubators; a recognised Church of Hope slows it; at the end, Mass Despair | passed |
 | 14. The Incubators | Kyubey calls every decade or so: a proposal to expand contracting (grief cubes and a Contract Boom, or refuse) or a request for spent cubes (traded for physics research); an Incubator turns up at the Ribbon Chamber to observe the visions; during a Cephalopod campaign the Incubators share intelligence on the Thinkers | passed |
 | 15. Governance and society | the Directorate sets a 10-year priority (Military Affairs, Colonial Affairs, the Science Division or Public Order); the Mages First movement returns after public disclosure (answer with solidarity, a Soul Guard crackdown or privileges); Ryouko's Version Two TacComp becomes Clarisse (keep her: Clarisse trait, or report her for research) | passed |
+| 16. Medicine and salvage | ascension perk Soul Gem Medicine (army health, cheaper MagOps upkeep, more grief cubes, and fallen magical girls' soul gems are recovered far more often); destroying a Cephalopod fleet can yield salvage: study the regenerating armor or the shield emitters | passed |
 
 Every wave passed `tools/validate.py` and `tools/test_validator.py` before it was committed.
 
 ## Ideas for later waves
 
 - A MagOps tradition tree or ascension perk. Needs icon art.
-- More Cephalopod War events: refugees, captured technology, a second invasion wave.
+- More Cephalopod War events: refugees.
 
 ## Testing
 

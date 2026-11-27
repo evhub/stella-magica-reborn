@@ -22,6 +22,8 @@ country_event = {
 	immediate = {
 		random_list = {
 			70 = {
+				# Soul Gem Medicine (ascension perk): recovery becomes far more likely.
+				modifier = { factor = 3 has_country_flag = stella_tts_soul_gem_medicine }
 				from = { set_leader_flag = leader_death_events_blocked }
 				clone_leader = {
 					target = from

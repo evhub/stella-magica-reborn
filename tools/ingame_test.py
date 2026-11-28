@@ -5,7 +5,9 @@
     python -I tools/ingame_test.py --mods stella_magica_reborn.mod ugc_123.mod
 
 How it works:
-  1. backs up dlc_load.json (always restored afterwards) and writes the requested mod list
+  1. backs up dlc_load.json and the saved empire designs (user_empire_designs*.txt), restores
+     both afterwards, and writes the requested mod list. The game strips modded parts it can't
+     find from saved empires when it starts, so a run with fewer mods would damage them.
   2. ensures mod/stella_magica_reborn.mod (a dev descriptor pointing at this repo) exists
   3. launches stellaris.exe directly and waits until loading finishes - detected by the
      game writing logs/script_documentation/effects.log - or a crash report appears
@@ -130,6 +132,9 @@ def main(argv=None) -> int:
     dlc = os.path.join(ud, 'dlc_load.json')
     backup = os.path.join(CACHE, 'dlc_load.json.bak')
     shutil.copy2(dlc, backup)
+    designs = [n for n in os.listdir(ud) if n.startswith('user_empire_designs') and n.endswith('.txt')]
+    for n in designs:
+        shutil.copy2(os.path.join(ud, n), os.path.join(CACHE, n + '.bak'))
     try:
         ensure_dev_descriptor(ud)
         if a.baseline or not os.path.exists(baseline_path):
@@ -159,8 +164,11 @@ def main(argv=None) -> int:
         print(f'\nresult: {res}; {len(new)} new error line(s) vs vanilla')
         return 0 if res == 'ok' and not new else 1
     finally:
+        kill_game()  # the game must not be running when its files are restored
         shutil.copy2(backup, dlc)
-        print('restored dlc_load.json')
+        for n in designs:
+            shutil.copy2(os.path.join(CACHE, n + '.bak'), os.path.join(ud, n))
+        print('restored dlc_load.json and saved empire designs')
 
 
 if __name__ == '__main__':
